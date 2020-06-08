@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 import { UserModel } from "../models/user.model";
+
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -10,9 +13,19 @@ import { UserModel } from "../models/user.model";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user: UserModel = new UserModel();
+
+  constructor( private userService: UserService ) { }
 
   ngOnInit(): void {
+  }
+
+  login( form: NgForm ) {
+    if ( form.invalid ) { return ; }
+
+    this.userService.login( this.user ).subscribe( resp => {
+      console.log(resp);
+    });
   }
 
 }
