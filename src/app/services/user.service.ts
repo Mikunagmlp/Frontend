@@ -7,12 +7,12 @@ import { UserModel } from "../models/user.model";
 })
 export class UserService {
 
-  private url = 'localhost:3000'
+  private url = 'http://localhost:3000'
 
   constructor( private http: HttpClient ) { }
 
   login( user: UserModel ) {
-    console.log(user);
+    // console.log(user);
 
     return this.http.post( `${this.url}/user/login`, user );
   }
