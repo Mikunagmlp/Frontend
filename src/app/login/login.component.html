@@ -1,1 +1,66 @@
-<p>login works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MIKUNA APP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto"></ul>
+
+    <span class="navbar-text">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="#" class="text-primary " >Home</a>
+        </div>
+        <div class="col-md-6">
+          <a [routerLink]="['/login']">Login</a>
+        </div>
+      </div>
+    </span>
+
+  </div>
+</nav>
+
+<div class="container" style=" padding: 10%; " >
+  <div class="card text-center " >
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs" >
+        <li class="nav-item" >
+          <a href="#" class="nav-link active" >Login</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+
+      <div class="" style="padding-top: 6%; padding-left: 20%; padding-right: 20%; " >
+        <div class="card border-dark mb-3">
+          <div class="card-body">
+            <h3 class="text-primary  " >LOGIN</h3>
+
+            <form style="padding-top: 1%;" >
+              <div class="form-group">
+                <label for="exampleInputEmail1">Correo electrónico</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+              </div>
+              <button type="submit" class="btn btn-warning">Iniciar sesión</button>
+            </form>
+
+            <hr>
+            <a href="#" class="nav-link active" >Recuperar contraseña ?</a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
