@@ -89,7 +89,10 @@ File: scss
           display: none; }
         .topbar .top-navbar .navbar-header .navbar-brand b {
           line-height: 70px;
-          display: inline-block; }
+          display: inline-block;
+           }
+
+      
     .topbar .top-navbar .navbar-nav > .nav-item > .nav-link {
       padding-left: 15px;
       padding-right: 15px;

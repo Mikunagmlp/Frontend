@@ -12,8 +12,6 @@ export class UserService {
   constructor( private http: HttpClient ) { }
 
   login( user: UserModel ) {
-    // console.log(user);
-
     return this.http.post( `${this.url}/user/login`, user );
   }
 
