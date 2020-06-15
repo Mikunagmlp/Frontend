@@ -43,9 +43,9 @@
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a href="usuarios-editar.html">Usuarios</a></li>
-                  <li><a href="usuarios-editar.html">Nuevo Usuario</a></li>
-                  <li><a href="usuarios-editar.html">Permisos</a></li>
+                  <li><a [routerLink]="['/home/usuarios']" class="active" >Usuarios</a></li>
+                  <li><a [routerLink]="['/home/nuevo-usuario']" class="active" >Nuevo Usuario</a></li>
+                  <li><a [routerLink]="['/home/usuario-roles']"  class="active" >Permisos y roles</a></li>
                 </ul>
               </div>
             </div>
@@ -145,7 +145,7 @@
           <li>
             <div class="card-header" id="headingSix" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/nolan/48/product.png"width="30" height="30"/>
+                <img src="https://img.icons8.com/nolan/48/product.png" width="30" height="30"/>
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                   Productos
                 </button>

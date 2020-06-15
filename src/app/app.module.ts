@@ -10,6 +10,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TopbarHeaderComponent } from './pages/shared/topbar-header/topbar-header.component';
 import { LefSidebarComponent } from './pages/shared/lef-sidebar/lef-sidebar.component';
+import { UsuariosComponent } from './pages/home/usuarios/usuarios.component';
+import { NuevoUsuarioComponent } from './pages/home/nuevo-usuario/nuevo-usuario.component';
+import { UsuarioRolesComponent } from './pages/home/usuario-roles/usuario-roles.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { LefSidebarComponent } from './pages/shared/lef-sidebar/lef-sidebar.comp
     HomeComponent,
     TopbarHeaderComponent,
     LefSidebarComponent,
+    UsuariosComponent,
+    NuevoUsuarioComponent,
+    UsuarioRolesComponent,
   ],
   imports: [
     BrowserModule,
