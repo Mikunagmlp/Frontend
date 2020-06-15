@@ -7,11 +7,17 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TopbarHeaderComponent } from './pages/shared/topbar-header/topbar-header.component';
+import { LefSidebarComponent } from './pages/shared/lef-sidebar/lef-sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
+    TopbarHeaderComponent,
+    LefSidebarComponent,
   ],
   imports: [
     BrowserModule,
