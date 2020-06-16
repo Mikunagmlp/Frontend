@@ -37,4 +37,8 @@ export class UserService {
     return this.http.patch(`${this.url}/administracion/user/editar/${id}`, user);
   }
 
+  deleteUsuario(id: string) {
+    return this.http.delete(`${this.url}/administracion/user/eliminar/${id}`);
+  }
+
 }

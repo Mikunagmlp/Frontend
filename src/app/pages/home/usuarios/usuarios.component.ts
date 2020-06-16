@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {UserService} from "../../../services/user.service";
 import {UserModel} from "../../../models/user.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -16,7 +17,7 @@ export class UsuariosComponent implements OnInit {
   usuarioEditar: any = '';
   index: number = 0;
 
-  constructor( private service: UserService ) { }
+  constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
     this.service.pedirUsuarios().subscribe( resp => {
@@ -41,6 +42,16 @@ export class UsuariosComponent implements OnInit {
 
     this.service.actualizarUsuario( this.usuario, this.usuarioEditar._id ).subscribe( resp => {
       this.usuarios[this.index] = resp;
+    });
+  }
+
+  eliminarUsuario(i: number) {
+    console.log(this.usuarios[i]);
+
+    this.service.deleteUsuario( this.usuarios[i]._id ).subscribe(() => {
+      this.usuarios.splice(i, 1);
+      // TODO: esto recarga toda la pagina
+      location.reload();
     });
   }
 
