@@ -11,7 +11,12 @@
     <div class="login-box card">
       <div class="card-body">
 
-        <form class="form-horizontal form-material " id="loginform" action="index.html">
+        <form
+          (ngSubmit)="login(f)"
+          #f="ngForm"
+          class="form-horizontal form-material "
+          id="loginform"
+          action="index.html">
 
             <a href="#" class="text-center db" >
               <img src="../../../assets/images/logo-sidace.png" width="150" height="100" alt="Home" />
@@ -22,12 +27,26 @@
 
             <div class="form-group ">
               <div class="col-xs-12">
-                <input class="form-control" type="text" required="" placeholder="Correo electrónico"> </div>
+                <input
+                  name="Email"
+                  [(ngModel)]="usuario.Email"
+                  class="form-control"
+                  type="email"
+                  required="true"
+                  placeholder="Correo electrónico">
+              </div>
             </div>
 
             <div class="form-group">
               <div class="col-xs-12">
-                <input class="form-control" type="password" required="" placeholder="Contraseña"> </div>
+                <input
+                  name="Password"
+                  [(ngModel)]="usuario.Password"
+                  class="form-control"
+                  type="password"
+                  required="true"
+                  placeholder="Contraseña">
+              </div>
             </div>
 
             <div class="form-group row">
@@ -46,7 +65,7 @@
 
             <div class="form-group text-center">
               <div class="col-xs-12 p-b-20">
-                <button class="btn btn-block btn-lg btn-info btn-rounded" [routerLink]="['/home']" type="submit">Ingresar</button>
+                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar</button>
               </div>
             </div>
             <div class="form-group m-b-0">

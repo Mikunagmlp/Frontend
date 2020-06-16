@@ -52,57 +52,29 @@
                     <tr>
                       <th>Código</th>
                       <th>Nombre</th>
+                      <th>Dirección</th>
+                      <th>Telefono</th>
 
                     </tr>
                   </thead>
 
                   <tbody>
-                    <tr>
-                      <td>1011</td>
+                    <tr *ngFor="let usuario of usuarios; let i = index" >
+                      <td> {{ i+1 }} </td>
                       <td>
-                        <a href="javascript:void(0)">
-                          <img src="../../../../assets/images/users/1.jpg" alt="user" class="img-circle"  width="30" height="30" />
-                          Genelia Deshmukh
-                        </a>
+                        <p class="text-info" > {{ usuario.NombreCompleto }} </p>
                       </td>
-                      <td colspan="2">
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Editar Usuario</button>
+                      <td >
+                        {{ usuario.Direccion }}
                       </td>
-                      <td colspan="3">
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                      <td >
+                        <p class="text-primary" > {{ usuario.Telefono }} </p>
                       </td>
-                      <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar usuario?</h4>
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
+                      <td >
+                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="llenarEditar(i)" >Editar Usuario</button>
+                        <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                      </td>
 
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                              <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </tr>
-
-                    <tr>
-                      <td>4124</td>
-                      <td>
-                        <a href="javascript:void(0)">
-                          <img src="../../../../assets/images/users/5.jpg" alt="user" class="img-circle" width="30" height="30" />
-                          Rana Dagubati
-                        </a>
-                      </td>
-                      <td colspan="2">
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Editar Usuario</button>
-                      </td>
-                      <td colspan="3">
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#eliminar">Eliminar</button>
-                      </td>
                       <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -134,35 +106,65 @@
                             </div>
 
                             <div class="modal-body">
-                              <form class="form-horizontal form-material">
+
+                              <form
+                                class="form-horizontal form-material"
+                                action="index.html">
                                 <div class="form-group">
                                   <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Nombre Completo"> </div>
-                                  <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Correo Electrónico"> </div>
-                                  <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Dirección"> </div>
-                                  <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Fecha de Nacimiento"> </div>
-                                  <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Género"> </div>
-                                  <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Posición"> </div>
+                                    <label class="text-info" >Nombre completo</label>
+                                    <input
 
+                                      #nc
+                                      type="text"
+                                      class="form-control"
+                                      [value]=" usuarioEditar.NombreCompleto " >
+                                  </div>
                                   <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Entidad"> </div>
+                                    <label class="text-info" >Correo Electrónico</label>
+                                    <input
+
+                                      #ce
+                                      type="text"
+                                      class="form-control"
+                                      [value]=" usuarioEditar.Email " >
+                                  </div>
                                   <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Contraseña"> </div>
+                                    <label class="text-info" >Dirección</label>
+                                    <input
+
+                                      #d
+                                      type="text"
+                                      class="form-control"
+                                      [value]=" usuarioEditar.Direccion " >
+                                  </div>
                                   <div class="col-md-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Confirmar Contraseña"> </div>
+                                    <label class="text-info" >Género</label>
+                                    <input
+
+                                      #g
+                                      type="text"
+                                      class="form-control"
+                                      [value]=" usuarioEditar.Genero " >
+                                  </div>
+                                  <div class="col-md-12 m-b-20">
+                                    <label class="text-info" >teléfono</label>
+                                    <input
+
+                                      #t
+                                      type="text"
+                                      class="form-control"
+                                      [value]=" usuarioEditar.Telefono " >
+                                  </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="submit" class="btn btn-info waves-effect" data-dismiss="modal" (click)="editarUsuario(nc, ce, d, g, t)" >Guardar</button>
+                                  <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                 </div>
                               </form>
                             </div>
 
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                              <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                            </div>
 
                           </div>
                         </div>
