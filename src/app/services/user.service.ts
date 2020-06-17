@@ -41,4 +41,8 @@ export class UserService {
     return this.http.delete(`${this.url}/administracion/user/eliminar/${id}`);
   }
 
+  registrarUsuario(usuario: UserModel) {
+    return this.http.post(`${this.url}/administracion/user/registro`, usuario);
+  }
+
 }

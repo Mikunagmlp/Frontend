@@ -33,24 +33,32 @@
           </div>
           <div class="card-body">
 
-            <form action="#">
+            <form
+              (ngSubmit)="login(f)"
+              #f="ngForm"
+              action="#">
               <div class="form-body">
                 <h3 class="card-title">Información Personal</h3>
                 <hr>
                 <div class="row p-t-20">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="control-label">Nombres</label>
-                      <input type="text" id="firstName" class="form-control" placeholder="Lucía María">
+                      <label class="control-label">Nombre Completo</label>
+                      <input
+                        name="NombreCompleto"
+                        [(ngModel)]="usuario.NombreCompleto"
+                        type="text"
+                        id="firstName"
+                        class="form-control" >
                       <small class="form-control-feedback"> Ingrese el/los nombre(s) </small> </div>
                   </div>
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">Apellidos</label>
-                      <input type="text" id="lastName" class="form-control form-control-danger" placeholder="Medrano Perez">
-                      <small class="form-control-feedback"> Ingrese ambos apellidos </small> </div>
-                  </div>
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label class="control-label">Apellidos</label>-->
+<!--                      <input type="text" id="lastName" class="form-control form-control-danger" placeholder="Medrano Perez">-->
+<!--                      <small class="form-control-feedback"> Ingrese ambos apellidos </small> </div>-->
+<!--                  </div>-->
 
                 </div>
                 <!--/row-->
@@ -59,19 +67,20 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label">Género</label>
-                      <select class="form-control custom-select">
-                        <option value="">Hombre</option>
-                        <option value="">Mujer</option>
+                      <select name="Genero"
+                              [(ngModel)]="usuario.Genero" class="form-control custom-select" >
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
                       </select>
                       <small class="form-control-feedback"> Seleccione el género </small> </div>
                   </div>
                   <!--/span-->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">Fecha de Nacimiento</label>
-                      <input type="date" class="form-control" placeholder="dd/mm/yyyy">
-                    </div>
-                  </div>
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label class="control-label">Fecha de Nacimiento</label>-->
+<!--                      <input type="date" class="form-control" placeholder="dd/mm/yyyy">-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <!--/span-->
                 </div>
                 <!--/row-->
@@ -82,79 +91,95 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Zona</label>
-                      <input type="text" class="form-control">
+                      <label>Direccion</label>
+                      <input
+                        name="Direccion"
+                        [(ngModel)]="usuario.Direccion"
+                        type="text"
+                        class="form-control">
                     </div>
                   </div>
                   <!--/span-->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Avenida/Calle</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label>Avenida/Calle</label>-->
+<!--                      <input type="text" class="form-control">-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <!--/span-->
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Correo Electrónico</label>
-                      <input type="text" class="form-control">
+                      <input
+                        name="Email"
+                        [(ngModel)]="usuario.Email"
+                        type="text"
+                        class="form-control">
                     </div>
                   </div>
                   <!--/span-->
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Teléfono/Celular</label>
-                      <input type="text" class="form-control">
+                      <input
+                        name="Telefono"
+                        [(ngModel)]="usuario.Telefono"
+                        type="text"
+                        class="form-control">
                     </div>
                   </div>
                   <!--/span-->
                 </div>
 
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">Rol</label>
-                      <select class="form-control custom-select" data-placeholder="Elija un rol" tabindex="1">
-                        <option value="Category 1">Rol 1</option>
-                        <option value="Category 2">Rol 2</option>
-                        <option value="Category 3">Rol 3</option>
-                        <option value="Category 4">Rol 4</option>
-                        <option value="Category 5">Rol 5</option>
-                        <option value="Category 6">Rol 6</option>
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label class="control-label">Rol</label>-->
+<!--                      <select class="form-control custom-select" data-placeholder="Elija un rol" tabindex="1">-->
+<!--                        <option value="Category 1">Rol 1</option>-->
+<!--                        <option value="Category 2">Rol 2</option>-->
+<!--                        <option value="Category 3">Rol 3</option>-->
+<!--                        <option value="Category 4">Rol 4</option>-->
+<!--                        <option value="Category 5">Rol 5</option>-->
+<!--                        <option value="Category 6">Rol 6</option>-->
 
-                      </select>
-                    </div>
-                  </div>
+<!--                      </select>-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <!--/span-->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">Entidad</label>
-                      <select class="form-control custom-select" data-placeholder="Elija una Entidad" tabindex="1">
-                        <option value="Category 1">SIREMU</option>
-                        <option value="Category 2">UNACE</option>
-                        <option value="Category 3">EBA</option>
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label class="control-label">Entidad</label>-->
+<!--                      <select class="form-control custom-select" data-placeholder="Elija una Entidad" tabindex="1">-->
+<!--                        <option value="Category 1">SIREMU</option>-->
+<!--                        <option value="Category 2">UNACE</option>-->
+<!--                        <option value="Category 3">EBA</option>-->
 
-                      </select>
-                    </div>
-                  </div>
+<!--                      </select>-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <!--/span-->
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Contraseña</label>
-                      <input type="text" class="form-control">
+                      <input
+                        name="Password"
+                        [(ngModel)]="usuario.Password"
+                        type="password"
+                        class="form-control">
                     </div>
                   </div>
                   <!--/span-->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Confirme Contraseña</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label>Confirme Contraseña</label>-->
+<!--                      <input type="password" class="form-control">-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <!--/span-->
                 </div>
 
