@@ -14,7 +14,7 @@ export class UserService {
   constructor( private http: HttpClient ) { }
 
   login( user: UserModel ) {
-    return this.http.post( `${this.url}/user/login`, user ).pipe(
+    return this.http.post( `${this.url}/sigin`, user ).pipe(
       map(resp => {
         localStorage.setItem('usuarioEstado', resp['Estado']);
         localStorage.setItem('usuarioID', resp['_id']);

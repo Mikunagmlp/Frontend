@@ -13,7 +13,13 @@ import { Router } from '@angular/router';
 export class UsuariosComponent implements OnInit {
 
   usuario: UserModel = new UserModel();
-  usuarios: any;
+  usuarios: any = [{
+    NombreCompleto : 'Alejandro Molina',
+    Direccion: 'Temblarani pasaje ochoa',
+    Email: 'ale@gmail.com',
+    Telefono: '72821908',
+    Genero: 'Hombre'
+  }];
   usuarioEditar: any = '';
   index: number = 0;
 
