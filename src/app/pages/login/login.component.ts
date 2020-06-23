@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     if ( form.invalid ) { return ; }
 
     this.service.login( this.usuario ).subscribe( resp => {
+      console.log(resp);
       this.router.navigateByUrl('/home');
     });
   }

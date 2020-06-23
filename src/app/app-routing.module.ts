@@ -5,12 +5,14 @@ import {HomeComponent} from "./pages/home/home.component";
 import {UsuariosComponent} from "./pages/home/usuarios/usuarios.component";
 import {NuevoUsuarioComponent} from "./pages/home/nuevo-usuario/nuevo-usuario.component";
 import {UsuarioRolesComponent} from "./pages/home/usuario-roles/usuario-roles.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 
 const routes: Routes = [
   // { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, children:[
+
+  { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] , children:[
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
       { path: 'usuario-roles', component: UsuarioRolesComponent },

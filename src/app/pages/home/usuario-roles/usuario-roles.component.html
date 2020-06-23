@@ -22,32 +22,32 @@
     <!-- ============================================================== -->
     <!-- Row -->
 
-    
-           
-          
+
+
+
     <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-  
-  
-            
-  
-  
+
+
+
+
+
           </div>
-  
+
           <div class="row">
             <div class="col-12">
                 <div class="card">
                     <!-- .left-right-aside-column-->
                     <div class="contact-page-aside">
-                        
+
                         <div class="right-aside ">
                             <div class="right-page-header">
                                 <div class="d-flex">
                                     <div class="align-self-center">
                                         <h4 class="card-title m-t-10">Roles </h4></div>
-                                   
+
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -57,22 +57,33 @@
                                             <th>No</th>
                                             <th>Nombre </th>
                                             <th>Descripción</th>
-                                            
+
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                       <!-- ============== inicio rol 1 ============== -->
-                                        <tr>
-                                            <td>1</td>
+                                        <tr *ngFor="let rol of roles; let i = index" >
+                                            <td> {{ i+1 }} </td>
                                             <td>
-                                                <a> Rol 1</a>
+                                                <a> {{ rol.NombreRol }} </a>
                                             </td>
-                                            <td>Descripción rol 1</td>
+                                            <td> {{ rol.Description }} </td>
                                             <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar">Editar</button>
+                                              <button
+                                                (click)="editarRol(i)"
+                                                type="button"
+                                                class="btn btn-info btn-rounded"
+                                                data-toggle="modal"
+                                                data-target="#editar">Editar</button>
                                             </td>
                                             <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
+                                              <button
+                                                (click)="desactivarRol(i)"
+                                                type="button"
+                                                class="btn btn-info btn-danger"
+                                                data-toggle="modal"
+                                                data-target="#desactivar">Desactivar</button>
                                             </td>
                                             <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                               <div class="modal-dialog">
@@ -81,13 +92,17 @@
                                                     <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                   </div>
-                                  
+
                                                   <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
+                                                    <button
+                                                      (click)="confirmarDesactivar()"
+                                                      type="button"
+                                                      class="btn btn-danger waves-effect"
+                                                      data-dismiss="modal">Si</button>
                                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
                                                   </div>
                                                 </div>
-                                  
+
                                               </div>
                                             </div>
                                             <div id="editar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -97,1082 +112,77 @@
                                                     <h4 class="modal-title" id="myModalLabel">Edición Rol 1</h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                   </div>
-                                  
+
                                                   <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_200" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_200">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_201" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_201">Permiso 2</label>
 
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_203" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_203">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_204" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_204">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_205" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_205">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_206" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_206">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_207" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_207">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_208" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_208">Permiso 8</label>
+                                                    <label class="control-label">Nombre del rol</label>
+                                                    <input
+                                                      #roll
+                                                      [value]="editRol.NombreRol"
+                                                      name="Nombre del rol"
+                                                      type="text"
+                                                      class="form-control"
+                                                      autocomplete="off">
 
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_209" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_209">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_210" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_210">Permiso 10</label>
-                                                   </tr>
-                                                    
-                                                      
+                                                    <label class="control-label">Descripcion</label>
+                                                    <input
+                                                      #descripcion
+                                                      [value]="editRol.Description"
+                                                      name="Nombre del rol"
+                                                      type="text"
+                                                      class="form-control"
+                                                      autocomplete="off">
+
+                                                    <label class="control-label">Permisos</label>
+
+                                                    <div class="switch" *ngFor="let perm of permisosEditRol; let i = index " >
+                                                      &nbsp;
+                                                      &nbsp;
+                                                      &nbsp;
+                                                      &nbsp;
+
+                                                      <label>
+                                                        <input type="checkbox" [checked]=" perm['estado'] " (change)="isSelectedEdit(i)" >
+                                                        <span class="lever switch-col-yellow"></span>
+                                                        {{ perm['nombre'] }}
+                                                      </label>
+                                                      &nbsp;
+                                                      &nbsp;
+                                                      &nbsp;
+                                                      &nbsp;
+                                                      &nbsp;
+                                                      &nbsp;
+
+                                                    </div>
+
                                                   </div>
+
                                                   <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
+                                                    <button
+                                                      (click)="guardarEditRol(roll, descripcion )"
+                                                      type="button"
+                                                      class="btn btn-info waves-effect"
+                                                      data-dismiss="modal"
+                                                    >Guardar</button>
                                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
+                                                  </div>
 
                                                 </div>
-                                  
+
                                               </div>
                                             </div>
 
-                                            
-                                            
+
+
                                         </tr>
                                         <!-- ============== Fin rol 1 ============== -->
-                                        
-                                         <!-- ============== Inicio rol 2 ============== -->
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <a>Rol 2</a>
-                                            </td>
-                                            <td>Descripción rol 2</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar2">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                            <div id="editar2" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 2</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_1" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_1">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_2" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_2">Permiso 2</label>
 
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_3" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_3">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_4" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_4">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_5" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_5">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_6" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_6">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_7" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_7">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_8" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_8">Permiso 8</label>
 
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_9" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_9">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_10" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_10">Permiso 10</label>
-                                                   </tr>
-                                                    
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
 
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                           
-                                        </tr>
-                                        <!-- ============== Fin rol 2 ============== -->
-
-                                        
-                                        <!-- ============== Inicio rol 3 ============== -->
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <a> Rol 3</a>
-                                            </td>
-                                            <td>Descripción rol 3</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar3">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>  
-                                            <div id="editar3" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 3</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_11" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_11">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_12" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_12">Permiso 2</label>
-
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_13" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_13">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_14" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_14">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_15" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_15">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_16" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_16">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_17" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_17">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_18" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_18">Permiso 8</label>
-
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_19" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_19">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_20" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_20">Permiso 10</label>
-                                                   </tr>
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
-
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                          </tr>
-                                        <tr>
-                                        <!-- ============== Fin rol 3 ============== -->
-
-                                        
-                                        <!-- ============== Inicio rol 4 ============== -->
-                                            <td>4</td>
-                                            <td>
-                                                <a>Rol 4</a>
-                                            </td>
-                                            <td>Descripción rol 4</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar4">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                            <div id="editar4" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 4</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_21">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_22">Permiso 2</label>
-
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_23" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_23">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_24" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_24">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_25" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_25">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_26" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_26">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_27" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_27">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_28" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_28">Permiso 8</label>
-
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_29" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_29">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_30" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_30">Permiso 10</label>
-                                                   </tr>
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
-
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                        </tr>
-                                        <tr>
-                                        <!-- ============== Fin rol 4 ============== -->
-
-                                        
-                                        <!-- ============== Inicio rol 5 ============== -->
-                                            <td>5</td>
-                                            <td>
-                                                <a>Rol 5</a>
-                                            </td>
-                                            <td>Descripción rol 5</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar5">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                            <div id="editar5" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 5</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_31" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_31">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_32" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_32">Permiso 2</label>
-
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_33" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_33">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_34" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_34">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_35" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_35">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_36" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_36">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_37" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_37">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_38" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_38">Permiso 8</label>
-
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_39" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_39">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_40" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_40">Permiso 10</label>
-                                                   </tr>
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
-
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                        </tr>
-                                        <tr>
-                                        <!-- ============== Fin rol 5 ============== -->
-
-                                        
-                                        <!-- ============== Inicio rol 6 ============== -->
-                                            <td>6</td>
-                                            <td>
-                                                <a> Rol 6</a>
-                                            </td>
-                                            <td>Descripción rol 6</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar6">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                            <div id="editar6" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 6</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_41" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_41">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_42" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_42">Permiso 2</label>
-
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_43" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_43">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_44" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_44">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_45" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_45">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_46" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_46">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_47" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_47">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_48" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_48">Permiso 8</label>
-
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_49" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_49">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_50" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_50">Permiso 10</label>
-                                                   </tr>
-                                                      
-
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
-
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                        </tr>
-                                        <tr>
-                                          <!-- ============== Fin rol 6============== -->
-
-                                        
-                                        <!-- ============== Inicio rol 7 ============== -->
-                                            <td>7</td>
-                                            <td>
-                                                <a> Rol 7</a>
-                                            </td>
-                                            <td>Descripción rol 7</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar7">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                            <div id="editar7" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 7</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_51" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_51">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_52" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_52">Permiso 2</label>
-
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_53" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_53">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_54" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_54">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_55" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_55">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_56" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_56">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_57" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_57">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_58" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_58">Permiso 8</label>
-
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_59" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_59">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_60" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_60">Permiso 10</label>
-                                                   </tr>
-                                                      
-
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
-
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>
-                                                <a> Rol 8</a>
-                                            </td>
-                                            <td>Descripción rol 8</td>
-                                            <td colspan="2">
-                                              <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#editar8">Editar</button>
-                                            </td>
-                                            <td colspan="3">
-                                              <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#desactivar">Desactivar</button>
-                                            </td>
-                                            <div id="desactivar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea desactivar este usuario?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Si</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">No</button>
-                                                  </div>
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                            <div id="editar8" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Edición Rol 8</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  </div>
-                                  
-                                                  <div class="form-group">
-                                                    <tr>
-                                                      &nbsp; 
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_61" class="filled-in chk-col-red" checked />
-                                                      <label for="md_checkbox_61">Permiso 1   </label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_62" class="filled-in chk-col-pink" checked />
-                                                      <label for="md_checkbox_62">Permiso 2</label>
-
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_63" class="filled-in chk-col-purple" checked />
-                                                    <label for="md_checkbox_63">Permiso 3</label>
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_64" class="filled-in chk-col-deep-purple" checked />
-                                                    <label for="md_checkbox_64">Permiso 4</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_65" class="filled-in chk-col-indigo" checked />
-                                                    <label for="md_checkbox_65">Permiso 5</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_66" class="filled-in chk-col-blue" checked />
-                                                    <label for="md_checkbox_66">Permiso 6</label>
-                                                    </tr>
-                                                    <tr>
-                                                      &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       
-                                                      <input type="checkbox" id="md_checkbox_67" class="filled-in chk-col-light-blue" checked />
-                                                      <label for="md_checkbox_67">Permiso 7</label>
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      &nbsp;
-                                                      <input type="checkbox" id="md_checkbox_68" class="filled-in chk-col-cyan" checked />
-                                                      <label for="md_checkbox_68">Permiso 8</label>
-
-                                                    </tr>
-                                                   <tr>
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    &nbsp;
-                                                    
-                                                    <input type="checkbox" id="md_checkbox_69" class="filled-in chk-col-teal" checked />
-                                                    <label for="md_checkbox_69">Permiso 9</label>
-                                                    &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                       &nbsp;
-                                                    <input type="checkbox" id="md_checkbox_70" class="filled-in chk-col-green" checked />
-                                                    <label for="md_checkbox_70">Permiso 10</label>
-                                                   </tr>
-                                                   
-                                                      
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                                </div>
-
-                                                </div>
-                                  
-                                              </div>
-                                            </div>
-                                        </tr>
-                                        
                                     </tbody>
-                                    
 
-                                        
+
+
                                    <!-- ============== Inicio crear nuevo rol ============== -->
                                     <tfoot>
                                         <tr>
@@ -1189,117 +199,47 @@
                                                         <div class="modal-body">
                                                           <label class="control-label">Nombre del rol</label>
                                                           <input
-                                                          name="Nombre del rol"
-                                                         
-                                                          type="text"
-                                                          class="form-control">  
-                                                          
-                                                                
+                                                            #nombreRol
+                                                            name="Nombre del rol"
+                                                            type="text"
+                                                            class="form-control"
+                                                            autocomplete="off">
+                                                          <label class="control-label">Descripcion</label>
+                                                          <input
+                                                            #descripcionRol
+                                                            name="Nombre del rol"
+                                                            type="text"
+                                                            class="form-control"
+                                                            autocomplete="off">
                                                            <div class="form-group">
-                                                                                                                                                                                                     
-                                                                   
-                                                                      <div class="switch">
+                                                                      <div class="switch" *ngFor="let permiso of permisos; let i = index " >
                                                                        &nbsp;
                                                                        &nbsp;
                                                                        &nbsp;
                                                                        &nbsp;
-                                                                   
+
                                                                           <label>
-                                                                              <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 1</label>
+                                                                            <input type="checkbox" [checked]=" permiso['estado'] " (change)="isSelected( i )" >
+                                                                            <span class="lever switch-col-yellow"></span>
+                                                                            {{ permiso['nombre'] }}
+                                                                          </label>
                                                                               &nbsp;
                                                                               &nbsp;
                                                                               &nbsp;
                                                                               &nbsp;
                                                                               &nbsp;
                                                                               &nbsp;
-                                                                          <label>
-                                                                           <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 2</label>
-                                                                     
+
                                                                       </div>
-                                                                      <div class="switch">
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                    
-                                                                           <label>
-                                                                               <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 3</label>
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                           <label>
-                                                                            <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 4</label>
-                                                                      
-                                                                       </div>
-                                                                       <div class="switch">
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                    
-                                                                           <label>
-                                                                               <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 5</label>
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                           <label>
-                                                                            <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 6</label>
-                                                                      
-                                                                       </div>
-                                                                       <div class="switch">
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                    
-                                                                           <label>
-                                                                               <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 7</label>
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                           <label>
-                                                                            <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 8</label>
-                                                                      
-                                                                       </div>
-                                                                       <div class="switch">
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                        &nbsp;
-                                                                    
-                                                                           <label>
-                                                                               <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 9</label>
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                               &nbsp;
-                                                                           <label>
-                                                                            <input type="checkbox" ><span class="lever switch-col-yellow"></span>Permiso 10</label>
-                                                                      
-                                                                       </div>
-
-                                                                                                                                  
-                                                                    
-                                                                  
-                                                                                                                                     
-
-                                                                    
                                                                 </div>
-                                                            
+
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Crear</button>
+                                                            <button
+                                                              (click)="crearRol(nombreRol, descripcionRol)"
+                                                              type="button"
+                                                              class="btn btn-info waves-effect"
+                                                              data-dismiss="modal">Crear</button>
                                                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
                                                         </div>
                                                     </div>
@@ -1317,16 +257,16 @@
                                 <!-- ============== Fin crear nuevo rol ============== -->
                                </table>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
 
 
-    
+
 <!-- Row -->
 
 
