@@ -48,8 +48,8 @@ export class UserService {
     return true;
   }
 
+  // USUARIOS
   pedirUsuarios() {
-    console.log(this.userToken);
     this.header = this.header.set('x-access-token', this.userToken );
 
     return this.http.get(`${this.url}/administracion/users`,{ headers: this.header });
@@ -60,13 +60,16 @@ export class UserService {
   }
 
   deleteUsuario(id: string) {
-    return this.http.delete(`${this.url}/administracion/user/eliminar/${id}`);
+    return this.http.put(`${this.url}/administracion/user/eliminar/${id}`,{ Estado: false });
   }
 
   registrarUsuario(usuario: UserModel) {
-    return this.http.post(`${this.url}/administracion/user/registro`, usuario);
+    this.header = this.header.set('x-access-token', this.userToken );
+
+    return this.http.post(`${this.url}/administracion/user/registro`, usuario, { headers: this.header });
   }
 
+  // ROLES
   crearRol(rol: RolModel) {
     return this.http.post(`${this.url}/rol/create`, rol );
   }
