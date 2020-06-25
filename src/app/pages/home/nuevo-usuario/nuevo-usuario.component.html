@@ -60,7 +60,7 @@
 <!--                      <small class="form-control-feedback"> Ingrese ambos apellidos </small> </div>-->
 <!--                  </div>-->
 
-                </div>
+                </div>  
                 <!--/row-->
 
                 <div class="row">
@@ -99,13 +99,17 @@
                         class="form-control">
                     </div>
                   </div>
-                  <!--/span-->
-<!--                  <div class="col-md-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label>Avenida/Calle</label>-->
-<!--                      <input type="text" class="form-control">-->
-<!--                    </div>-->
-<!--                  </div>-->
+                  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Teléfono/Celular</label>
+                      <input
+                        name="Telefono"
+                        [(ngModel)]="usuario.Telefono"
+                        type="text"
+                        class="form-control">
+                    </div>
+                  </div>
                   <!--/span-->
                 </div>
                 <div class="row">
@@ -119,18 +123,22 @@
                         class="form-control">
                     </div>
                   </div>
-                  <!--/span-->
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Teléfono/Celular</label>
-                      <input
-                        name="Telefono"
-                        [(ngModel)]="usuario.Telefono"
-                        type="text"
-                        class="form-control">
+                    <label class="control-label">Rol</label>
+                     <select class="form-control custom-select" data-placeholder="Elija un rol" tabindex="1">
+                     <option value="Category 1">Rol 1</option>
+                     <option value="Category 2">Rol 2</option>
+                     <option value="Category 3">Rol 3</option>
+                     <option value="Category 4">Rol 4</option>
+                     <option value="Category 5">Rol 5</option>
+                     <option value="Category 6">Rol 6</option>
+                     <option value="Category 7">Rol 7</option>
+                    </select>
                     </div>
-                  </div>
+                    </div>
                   <!--/span-->
+                 
                 </div>
 
                 <div class="row">

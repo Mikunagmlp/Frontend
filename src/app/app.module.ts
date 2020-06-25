@@ -13,6 +13,7 @@ import { LefSidebarComponent } from './pages/shared/lef-sidebar/lef-sidebar.comp
 import { UsuariosComponent } from './pages/home/usuarios/usuarios.component';
 import { NuevoUsuarioComponent } from './pages/home/nuevo-usuario/nuevo-usuario.component';
 import { UsuarioRolesComponent } from './pages/home/usuario-roles/usuario-roles.component';
+import { UeCrearComponent } from './pages/home/ue-crear/ue-crear.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UsuarioRolesComponent } from './pages/home/usuario-roles/usuario-roles.
     UsuariosComponent,
     NuevoUsuarioComponent,
     UsuarioRolesComponent,
+    UeCrearComponent,
   ],
   imports: [
     BrowserModule,
