@@ -25,10 +25,6 @@ export class NuevoUsuarioComponent implements OnInit {
     });
   }
 
-  seleccionarRol( index: any ) {
-    console.log(index);
-  }
-
   login(form: NgForm) {
     if (form.invalid) { return ; }
 
