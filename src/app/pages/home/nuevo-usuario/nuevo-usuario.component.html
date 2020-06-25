@@ -60,7 +60,7 @@
 <!--                      <small class="form-control-feedback"> Ingrese ambos apellidos </small> </div>-->
 <!--                  </div>-->
 
-                </div>  
+                </div>
                 <!--/row-->
 
                 <div class="row">
@@ -68,7 +68,8 @@
                     <div class="form-group">
                       <label class="control-label">Género</label>
                       <select name="Genero"
-                              [(ngModel)]="usuario.Genero" class="form-control custom-select" >
+                              [(ngModel)]="usuario.Genero"
+                              class="form-control custom-select" >
                         <option value="Hombre">Hombre</option>
                         <option value="Mujer">Mujer</option>
                       </select>
@@ -99,7 +100,7 @@
                         class="form-control">
                     </div>
                   </div>
-                  
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Teléfono/Celular</label>
@@ -125,20 +126,20 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                    <label class="control-label">Rol</label>
-                     <select class="form-control custom-select" data-placeholder="Elija un rol" tabindex="1">
-                     <option value="Category 1">Rol 1</option>
-                     <option value="Category 2">Rol 2</option>
-                     <option value="Category 3">Rol 3</option>
-                     <option value="Category 4">Rol 4</option>
-                     <option value="Category 5">Rol 5</option>
-                     <option value="Category 6">Rol 6</option>
-                     <option value="Category 7">Rol 7</option>
-                    </select>
+                      <label class="control-label">Rol</label>
+                        <select
+                          name="IdRol"
+                         [(ngModel)]="usuario.IdRol"
+                         class="form-control custom-select"
+                         data-placeholder="Elija un rol"
+                         tabindex="1">
+
+                         <option [value]="rol._id" *ngFor="let rol of roles" > {{ rol.NombreRol }} </option>
+                        </select>
                     </div>
                     </div>
                   <!--/span-->
-                 
+
                 </div>
 
                 <div class="row">

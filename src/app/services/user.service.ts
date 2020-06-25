@@ -48,7 +48,7 @@ export class UserService {
     return true;
   }
 
-  // USUARIOS
+  // TODO: USUARIOS
   pedirUsuarios() {
     this.header = this.header.set('x-access-token', this.userToken );
 
@@ -69,7 +69,7 @@ export class UserService {
     return this.http.post(`${this.url}/administracion/user/registro`, usuario, { headers: this.header });
   }
 
-  // ROLES
+  // TODO: ROLES
   crearRol(rol: RolModel) {
     return this.http.post(`${this.url}/rol/create`, rol );
   }
