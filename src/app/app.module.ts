@@ -14,6 +14,8 @@ import { UsuariosComponent } from './pages/home/usuarios/usuarios.component';
 import { NuevoUsuarioComponent } from './pages/home/nuevo-usuario/nuevo-usuario.component';
 import { UsuarioRolesComponent } from './pages/home/usuario-roles/usuario-roles.component';
 import { UeCrearComponent } from './pages/home/ue-crear/ue-crear.component';
+import { UeEditarComponent } from './pages/home/ue-editar/ue-editar.component';
+import { UePoblacionBeneficiadaComponent } from './pages/home/ue-poblacion-beneficiada/ue-poblacion-beneficiada.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { UeCrearComponent } from './pages/home/ue-crear/ue-crear.component';
     NuevoUsuarioComponent,
     UsuarioRolesComponent,
     UeCrearComponent,
+    UeEditarComponent,
+    UePoblacionBeneficiadaComponent,
   ],
   imports: [
     BrowserModule,

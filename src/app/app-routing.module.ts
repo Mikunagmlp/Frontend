@@ -7,6 +7,8 @@ import {NuevoUsuarioComponent} from "./pages/home/nuevo-usuario/nuevo-usuario.co
 import {UsuarioRolesComponent} from "./pages/home/usuario-roles/usuario-roles.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {UeCrearComponent} from "./pages/home/ue-crear/ue-crear.component";
+import {UeEditarComponent} from "./pages/home/ue-editar/ue-editar.component";
+import {UePoblacionBeneficiadaComponent} from "./pages/home/ue-poblacion-beneficiada/ue-poblacion-beneficiada.component";
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
       { path: 'usuario-roles', component: UsuarioRolesComponent },
       { path: 'ue-crear', component: UeCrearComponent },
+      { path: 'ue-editar', component: UeEditarComponent },
+      { path: 'ue-poblacion-beneficiada', component: UePoblacionBeneficiadaComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },
