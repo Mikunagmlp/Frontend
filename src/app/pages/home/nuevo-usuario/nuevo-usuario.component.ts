@@ -20,7 +20,7 @@ export class NuevoUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.pedirRoles().subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
       this.roles = resp;
     });
   }
@@ -32,10 +32,10 @@ export class NuevoUsuarioComponent implements OnInit {
   login(form: NgForm) {
     if (form.invalid) { return ; }
 
-    console.log(this.usuario);
+    // console.log(this.usuario);
 
     this.service.registrarUsuario( this.usuario ).subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
       this.router.navigateByUrl('/home');
     });
   }
