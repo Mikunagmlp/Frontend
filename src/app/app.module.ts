@@ -16,6 +16,8 @@ import { UsuarioRolesComponent } from './pages/home/usuario-roles/usuario-roles.
 import { UeCrearComponent } from './pages/home/ue-crear/ue-crear.component';
 import { UeEditarComponent } from './pages/home/ue-editar/ue-editar.component';
 import { UePoblacionBeneficiadaComponent } from './pages/home/ue-poblacion-beneficiada/ue-poblacion-beneficiada.component';
+import { ProveedoresCrearComponent } from './pages/home/proveedores-crear/proveedores-crear.component';
+import { ProveedoresEditarComponent } from './pages/home/proveedores-editar/proveedores-editar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { UePoblacionBeneficiadaComponent } from './pages/home/ue-poblacion-benef
     UeCrearComponent,
     UeEditarComponent,
     UePoblacionBeneficiadaComponent,
+    ProveedoresCrearComponent,
+    ProveedoresEditarComponent,
   ],
   imports: [
     BrowserModule,

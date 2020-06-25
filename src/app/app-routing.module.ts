@@ -9,6 +9,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {UeCrearComponent} from "./pages/home/ue-crear/ue-crear.component";
 import {UeEditarComponent} from "./pages/home/ue-editar/ue-editar.component";
 import {UePoblacionBeneficiadaComponent} from "./pages/home/ue-poblacion-beneficiada/ue-poblacion-beneficiada.component";
+import {ProveedoresCrearComponent} from "./pages/home/proveedores-crear/proveedores-crear.component";
+import {ProveedoresEditarComponent} from "./pages/home/proveedores-editar/proveedores-editar.component";
 
 
 const routes: Routes = [
@@ -23,9 +25,13 @@ const routes: Routes = [
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
       { path: 'usuario-roles', component: UsuarioRolesComponent },
+
       { path: 'ue-crear', component: UeCrearComponent },
       { path: 'ue-editar', component: UeEditarComponent },
       { path: 'ue-poblacion-beneficiada', component: UePoblacionBeneficiadaComponent },
+
+      { path: 'proveedores-crear', component: ProveedoresCrearComponent },
+      { path: 'proveedores-editar', component: ProveedoresEditarComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },
