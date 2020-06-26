@@ -14,6 +14,8 @@ export class UeEditarComponent implements OnInit {
   colegioEditar: any = '';
   colegio: UnidadEducativaModel = new UnidadEducativaModel();
   indexEditado: number = 0;
+  indexEliminar: number = 0;
+  colegioEliminar: any = '';
 
   constructor( private service: UserService ) { }
 
@@ -47,6 +49,18 @@ export class UeEditarComponent implements OnInit {
       console.log(resp);
 
       this.colegios[this.indexEditado] = resp;
+    });
+  }
+
+  eliminar(index: number) {
+    this.colegioEliminar = this.colegios[index];
+    console.log(this.colegioEliminar);
+  }
+
+  eliminarColegio() {
+    this.service.eliminarUnidadEducativa( this.colegioEliminar._id ).subscribe(resp => {
+      console.log(resp);
+      location.reload();
     });
   }
 

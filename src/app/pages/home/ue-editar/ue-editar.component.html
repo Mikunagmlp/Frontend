@@ -59,7 +59,12 @@
                             <td> {{ colegio.Distrito }} </td>
                             <td> {{ colegio.CantidadAlumnos }} </td>
                             <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
-                            <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                            <button
+                              (click)="eliminar(i)"
+                              type="button"
+                              class="btn btn-danger btn-rounded"
+                              data-toggle="modal"
+                              data-target="#eliminar">Eliminar</button>
                             <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
@@ -69,7 +74,11 @@
                                     </div>
 
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" >Eliminar</button>
+                                      <button
+                                        (click)="eliminarColegio()"
+                                        type="button"
+                                        class="btn btn-danger waves-effect"
+                                        data-dismiss="modal" >Eliminar</button>
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>
                                   </div>

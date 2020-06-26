@@ -100,4 +100,8 @@ export class UserService {
     return this.http.patch( `${this.url}/colegio/editar/${id}`, ue );
   }
 
+  eliminarUnidadEducativa( id: string) {
+    return this.http.patch( `${this.url}/colegio/eliminar/${id}`, { Estado: false } );
+  }
+
 }
