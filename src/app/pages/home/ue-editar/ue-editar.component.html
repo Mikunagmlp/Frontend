@@ -53,12 +53,12 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let colegio of colegios" >
+                        <tr *ngFor="let colegio of colegios; let i = index" >
                             <td> {{ colegio.CodColegio }} </td>
                             <td> {{ colegio.NombreColegio }} </td>
                             <td> {{ colegio.Distrito }} </td>
                             <td> {{ colegio.CantidadAlumnos }} </td>
-                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Editar</button>
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
                             <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#eliminar">Eliminar</button>
                             <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -97,58 +97,94 @@
                                     action="index.html">
                                     <div class="form-group">
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Nombre </label>
+                                        <label class="text-info" >Nombre del colegio</label>
                                         <input
-                                          type="text"
-                                          class="form-control">
-
-                                      </div>
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Ubicación</label>
-                                        <input
-
-
+                                          #nmc
                                           type="text"
                                           class="form-control"
-                                          >
+                                          [value]="colegioEditar.NombreColegio" >
                                       </div>
+
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Código</label>
+                                        <label class="text-info" >Ruta</label>
                                         <input
-
-
+                                          #rut
                                           type="text"
                                           class="form-control"
-                                           >
+                                          [value]="colegioEditar.Ruta">
                                       </div>
-
-
-
-
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Distrito</label>
                                         <input
-
-
+                                          #dis
                                           type="text"
                                           class="form-control"
-                                           >
+                                          [value]="colegioEditar.Distrito">
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Número de estudiantes</label>
+                                        <label class="text-info" >Codigo del colegio</label>
                                         <input
-
-
+                                          #cod
                                           type="text"
                                           class="form-control"
-                                           >
+                                          [value]="colegioEditar.CodColegio">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Turno</label>
+                                        <input
+                                          #tur
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Turno">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Categoria</label>
+                                        <input
+                                          #cat
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Categoria">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Cantidad alumnos</label>
+                                        <input
+                                          #cant
+                                          type="number"
+                                          class="form-control"
+                                          [value]="colegioEditar.CantidadAlumnos">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Telefono</label>
+                                        <input
+                                          #tel
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Telefono">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Direccion</label>
+                                        <input
+                                          #dir
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Direccion">
                                       </div>
 
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="submit" class="btn btn-info waves-effect" data-dismiss="modal"  >Guardar</button>
+                                      <button
+                                        (click)="editarColegio( nmc, rut, dis, cod, tur, cat, cant, tel, dir )"
+                                        type="submit"
+                                        class="btn btn-info waves-effect"
+                                        data-dismiss="modal">Guardar</button>
+
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>
                                   </form>

@@ -96,4 +96,8 @@ export class UserService {
     return this.http.get( `${this.url}/colegios` );
   }
 
+  actualizarUnidadEducativa( ue: UnidadEducativaModel, id: string ) {
+    return this.http.patch( `${this.url}/colegio/editar/${id}`, ue );
+  }
+
 }
