@@ -92,4 +92,8 @@ export class UserService {
     return this.http.post( `${this.url}/colegio/registrar`, ue );
   }
 
+  listarUnidadesEducativas() {
+    return this.http.get( `${this.url}/colegios` );
+  }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-ue-editar',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UeEditarComponent implements OnInit {
 
-  constructor() { }
+  colegios: any;
+
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
+    this.service.listarUnidadesEducativas().subscribe(resp => {
+      this.colegios = resp;
+      console.log(this.colegios);
+    });
   }
 
 }
