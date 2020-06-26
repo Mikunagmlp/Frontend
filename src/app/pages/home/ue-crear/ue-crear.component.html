@@ -1,6 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
-  
+
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
               <h3 class="text-themecolor">Crear Unidad Educativa</h3>
@@ -9,7 +9,7 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Unidad Educativa</a></li>
                 <li class="breadcrumb-item">Crear</li>
-      
+
               </ol>
             </div>
             <div class="">
@@ -28,54 +28,132 @@
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
-                    <form action="#" class="form-horizontal form-bordered">
-                        <div class="form-body">
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Nombre</label>
-                                <div class="col-md-9">
-                                    <input type="text"  class="form-control">
-                                    <small class="form-control-feedback"> Ingrese el nombre completo de la unidad educativa </small> </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Ubicación</label>
-                                <div class="col-md-9">
-                                    <input type="text"  class="form-control">
-                                    <small class="form-control-feedback"> Ingrese la ubicación completa </small> </div>
-                            </div>
+                    <form
+                      (ngSubmit)="crear(f)"
+                      #f="ngForm"
+                      class="form-horizontal form-bordered">
 
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Código</label>
-                                <div class="col-md-9">
-                                    <input type="text"  class="form-control">
-                                    <small class="form-control-feedback"> Ingrese el código </small> </div>
+                        <div class="form-body">
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Nombre del colegio</label>
+                            <div class="col-md-9">
+                              <input
+                                name="NombreColegio"
+                                [(ngModel)]="unidadEducativa.NombreColegio"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el nombre completo de la unidad educativa </small>
                             </div>
-                           
-                           
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Distrito</label>
-                                <div class="col-md-9">
-                                    <select class="form-control custom-select">
-                                        <option value="Category 1">Distrito 1</option>
-                                        <option value="Category 2">Distrito 2</option>
-                                        <option value="Category 3">Distrito 3</option>
-                                        <option value="Category 4">Distrito 4</option>
-                                        <option value="Category 5">Distrito 5</option>
-                                        <option value="Category 6">Distrito 6</option>
-                                        <option value="Category 7">Distrito 7</option>
-                                        <option value="Category 8">Distrito 8</option>
-                                    </select>
-                                </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Ruta</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Ruta"
+                                [(ngModel)]="unidadEducativa.Ruta"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese la ruta del colegio</small>
                             </div>
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Número de estudiantes</label>
-                                <div class="col-md-9">
-                                    <input type="text"  class="form-control">
-                                    <small class="form-control-feedback"> Ingrese el número de estudiantes de la unidad educativa</small> </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Distrito</label>
+                            <div class="col-md-9">
+                              <select
+                                name="Distrito"
+                                [(ngModel)]="unidadEducativa.Distrito"
+                                class="form-control custom-select">
+
+                                <option value="Distrito 1">Distrito 1</option>
+                                <option value="Distrito 2">Distrito 2</option>
+                                <option value="Distrito 3">Distrito 3</option>
+                                <option value="Distrito 4">Distrito 4</option>
+                                <option value="Distrito 5">Distrito 5</option>
+                                <option value="Distrito 6">Distrito 6</option>
+                                <option value="Distrito 7">Distrito 7</option>
+                                <option value="Distrito 8">Distrito 8</option>
+
+                              </select>
                             </div>
-                                                      
-                           
-                           
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código</label>
+                            <div class="col-md-9">
+                              <input
+                                name="CodColegio"
+                                [(ngModel)]="unidadEducativa.CodColegio"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el código </small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Turno</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Turno"
+                                [(ngModel)]="unidadEducativa.Turno"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback">Turno del colegio</small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Categoria</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Categoria"
+                                [(ngModel)]="unidadEducativa.Categoria"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback">Categoria del colegio</small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Número de estudiantes</label>
+                            <div class="col-md-9">
+                              <input
+                                name="CantidadAlumnos"
+                                [(ngModel)]="unidadEducativa.CantidadAlumnos"
+                                type="number"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el número de estudiantes de la unidad educativa</small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Telefono</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Telefono"
+                                [(ngModel)]="unidadEducativa.Telefono"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el telefono del colegio</small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Direccion</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Direccion"
+                                [(ngModel)]="unidadEducativa.Direccion"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese la direccion del colegio</small>
+                            </div>
+                          </div>
+
                         </div>
+
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-12">
@@ -88,31 +166,14 @@
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
                 </div>
              </div>
         </div>
-
-
-
-
-
-
-
-
          <!-- ============================================================== -->
                     <!-- End Page Content -->
          <!-- ============================================================== -->
-
-
-
-
-
-
-
-
-
-
     </div>
 </div>

@@ -5,6 +5,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 import {RolModel} from "../models/rol.model";
+import { UnidadEducativaModel } from '../models/unidadEducativa.model';
 
 @Injectable({
   providedIn: 'root'
@@ -84,6 +85,11 @@ export class UserService {
 
   disableRol( id: string ) {
     return this.http.put( `${this.url}/rol/desable/${id}`, { Estado: false }  );
+  }
+
+  // TODO: UNIDADES EDUCATIVAS
+  crearUnidadEducativa( ue: UnidadEducativaModel ) {
+    return this.http.post( `${this.url}/colegio/registrar`, ue );
   }
 
 }
