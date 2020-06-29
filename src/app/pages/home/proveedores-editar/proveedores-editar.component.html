@@ -1,1 +1,309 @@
-<p>proveedores-editar works!</p>
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor">Editar Proveedores</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Proveedores</a></li>
+                <li class="breadcrumb-item">Editar</li>
+
+              </ol>
+            </div>
+            <div class="">
+              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+          </div>
+       <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+       <!-- ============================================================== -->
+       <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+              <h6 class="card-subtitle">Búsqueda de proveedores existentes por  códigos o nombres</h6>
+
+
+              <!-- Buscador interno -->
+              <div class="row m-t-40">
+
+                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                <form class="app-search">
+                  <input type="text" class="form-control" placeholder="Buscar Proveedor"> <a class="srh-btn"></a> </form>
+
+                <button type="button">Buscar</button>
+
+              </div>
+              <!-- End Buscador interno -->
+
+              <!-- Inicio Tabla de Proveedores -->
+              <div class="table-responsive">
+                <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
+                    <thead>
+                      <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Representante Legal</th>
+                        <th>Dirección</th>
+
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td> 0001</td>
+                            <td> La Francesa</td>
+                            <td><span class="label label-danger">Deshabilitado</span> </td>
+                            <td> Luis Pedraza </td>
+                            <td> Zona Villa Fátima</td>
+                          
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact"  >Editar</button>
+                            <button
+                              
+                              type="button"
+                              class="btn btn-danger btn-rounded"
+                              data-toggle="modal"
+                              data-target="#eliminar">Eliminar</button>
+                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar este proveeedor?</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button
+                                       
+                                        type="button"
+                                        class="btn btn-danger waves-effect"
+                                        data-dismiss="modal" >Eliminar</button>
+                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </tr>
+
+                        <tr>
+                            <td> 0002</td>
+                            <td> Miga</td>
+                            <td><span class="label label-success">Habilitado</span> </td>
+                            <td> Miriam Soliz </td>
+                            <td> Zona Galindo</td>
+                          
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" >Editar</button>
+                            <button
+                             
+                              type="button"
+                              class="btn btn-danger btn-rounded"
+                              data-toggle="modal"
+                              data-target="#eliminar">Eliminar</button>
+                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar este proveedor?</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button
+                                       
+                                        type="button"
+                                        class="btn btn-danger waves-effect"
+                                        data-dismiss="modal" >Eliminar</button>
+                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </tr>
+                        <tr>
+                            <td> 0003</td>
+                            <td> Coca Cola</td>
+                            <td><span class="label label-success">Habilitado</span> </td>
+                            <td> Paolo Sanchez </td>
+                            <td> Zona Villa Ingenio</td>
+                          
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Editar</button>
+                            <button
+                              
+                              type="button"
+                              class="btn btn-danger btn-rounded"
+                              data-toggle="modal"
+                              data-target="#eliminar">Eliminar</button>
+                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar proveedor?</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button
+                                       
+                                        type="button"
+                                        class="btn btn-danger waves-effect"
+                                        data-dismiss="modal" >Eliminar</button>
+                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                            </div>
+
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="myModalLabel">Editar Proveedor</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                  <form
+                                    class="form-horizontal form-material"
+                                    action="index.html">
+                                    <div class="form-group">
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Código</label>
+                                        <input
+                                          
+                                          type="text"
+                                          class="form-control">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Nombre</label>
+                                        <input
+                                          
+                                          type="text"
+                                          class="form-control">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Representante Legal</label>
+                                        <input
+                                          
+                                          type="text"
+                                          class="form-control"
+                                         >
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Dirección</label>
+                                        <input
+                                          
+                                          type="text"
+                                          class="form-control">
+                                      </div>
+                                      
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info">Estado</label>
+                                        <div class="col-md-9">
+                                          <select class="form-control custom-select" data-placeholder="Choose a Category" >
+                                            <option value="Category 1">Habilitado</option>
+                                            <option value="Category 2">Deshabilitado</option>
+                                           
+                                        </select>
+                                        </div>
+                                      </div>
+
+                                                                     
+
+                                                                       
+
+                                      
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button
+                                       
+                                        type="submit"
+                                        class="btn btn-info waves-effect"
+                                        data-dismiss="modal">Guardar</button>
+
+                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </form>
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </tr>
+                      </tfoot>
+
+                    <tfoot>
+
+                </table>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+       <!-- ============================================================== -->
+                    <!-- End Page Content -->
+       <!-- ============================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
