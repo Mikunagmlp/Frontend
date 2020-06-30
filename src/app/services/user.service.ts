@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {RolModel} from "../models/rol.model";
 import { UnidadEducativaModel } from '../models/unidadEducativa.model';
+import {ProveedorModel} from "../models/proveedor.model";
 
 @Injectable({
   providedIn: 'root'
@@ -102,6 +103,23 @@ export class UserService {
 
   eliminarUnidadEducativa( id: string) {
     return this.http.patch( `${this.url}/colegio/eliminar/${id}`, { Estado: false } );
+  }
+
+  // TODO: PROVEEDORES
+  crearProveedor( proveedor: ProveedorModel ) {
+    return this.http.post(`${this.url}/proveedor/registrar`, proveedor);
+  }
+
+  getProveedores() {
+    return this.http.get(`${this.url}/proveedores`);
+  }
+
+  patchProveedor( proveedor: ProveedorModel, id: string ) {
+    return this.http.patch(`${this.url}/proveedor/editar/${id}`, proveedor);
+  }
+
+  disableProveedor(id: string){
+    return this.http.patch(`${this.url}/proveedor/disable/${id}`,{ Estado: false });
   }
 
 }

@@ -29,43 +29,45 @@
                 </div>
                 <div class="card-body">
                     <form
-                    
+                      (ngSubmit)="crear(f)"
+                      #f="ngForm"
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Código</label>
+                            <label class="control-label text-right col-md-3">Nombre del proveedor</label>
                             <div class="col-md-9">
                               <input
-                                name="codigoprov"
-                                
+                                name="NombreProveedor"
+                                [(ngModel)]="proveedor.NombreProveedor"
+                                type="text"
+                                autocomplete="off"
                                 class="form-control">
-                              
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Nombre del Proveedor</label>
+                            <label class="control-label text-right col-md-3">Codigo</label>
                             <div class="col-md-9">
                               <input
-                                
-                               
+                                name="CodigoProveedor"
+                                [(ngModel)]="proveedor.CodigoProveedor"
+                                autocomplete="off"
+                                type="text"
                                 class="form-control">
-                              
                             </div>
                           </div>
-
-                         
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre del Represente Legal</label>
                             <div class="col-md-9">
                               <input
-                                
-                               
+                                name="NombreEmpresa"
+                                [(ngModel)]="proveedor.NombreEmpresa"
+                                autocomplete="off"
+                                type="text"
                                 class="form-control">
-                              
                             </div>
                           </div>
 
@@ -73,25 +75,27 @@
                             <label class="control-label text-right col-md-3">Dirección</label>
                             <div class="col-md-9">
                               <input
-                               
+                                name="Direccion"
+                                [(ngModel)]="proveedor.Direccion"
+                                autocomplete="off"
                                 type="text"
                                 class="form-control">
-                              
                             </div>
                           </div>
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Estado</label>
-                            <div class="col-md-9">
-                              <select class="form-control custom-select" data-placeholder="Elija el estado" >
-                                <option value="Category 1">Habilitado</option>
-                                <option value="Category 2">Deshabilitado</option>
-                               
-                            </select>
-                            </div>
-                          </div>
-                          
 
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Descripcion</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Descripcion"
+                                [(ngModel)]="proveedor.Descripcion"
+                                autocomplete="off"
+                                type="text"
+                                class="form-control">
+                            </div>
                           </div>
+
+                        </div>
 
                         <div class="form-actions">
                             <div class="row">
@@ -99,7 +103,7 @@
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
                                             <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
-                                            <button type="button" class="btn btn-inverse">Cancelar</button>
+                                            <button type="button" class="btn btn-inverse" (click)="cancelar()" >Cancelar</button>
                                         </div>
                                     </div>
                                 </div>

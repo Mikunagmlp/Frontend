@@ -46,7 +46,6 @@
                       <tr>
                         <th>Código</th>
                         <th>Nombre</th>
-                        <th>Estado</th>
                         <th>Representante Legal</th>
                         <th>Dirección</th>
 
@@ -54,20 +53,27 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td> 0001</td>
-                            <td> La Francesa</td>
-                            <td><span class="label label-danger">Deshabilitado</span> </td>
-                            <td> Luis Pedraza </td>
-                            <td> Zona Villa Fátima</td>
-                          
-                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact"  >Editar</button>
+
+                        <tr *ngFor="let proveedor of proveedores; let i = index;" >
+                            <td> {{ proveedor.CodigoProveedor }} </td>
+                            <td> {{ proveedor.NombreProveedor }} </td>
+                            <td> {{ proveedor.NombreEmpresa }} </td>
+                            <td> {{ proveedor.Direccion }} </td>
+
                             <button
-                              
+                              type="button"
+                              class="btn btn-info btn-rounded"
+                              data-toggle="modal"
+                              (click)="editarIndex(i)"
+                              data-target="#add-contact" >Editar</button>
+
+                            <button
                               type="button"
                               class="btn btn-danger btn-rounded"
                               data-toggle="modal"
+                              (click)="eliminarIndex(i)"
                               data-target="#eliminar">Eliminar</button>
+
                             <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
@@ -78,9 +84,9 @@
 
                                     <div class="modal-footer">
                                       <button
-                                       
                                         type="button"
                                         class="btn btn-danger waves-effect"
+                                        (click)="eliminar()"
                                         data-dismiss="modal" >Eliminar</button>
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>
@@ -88,80 +94,6 @@
 
                                 </div>
                             </div>
-
-                        </tr>
-
-                        <tr>
-                            <td> 0002</td>
-                            <td> Miga</td>
-                            <td><span class="label label-success">Habilitado</span> </td>
-                            <td> Miriam Soliz </td>
-                            <td> Zona Galindo</td>
-                          
-                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" >Editar</button>
-                            <button
-                             
-                              type="button"
-                              class="btn btn-danger btn-rounded"
-                              data-toggle="modal"
-                              data-target="#eliminar">Eliminar</button>
-                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar este proveedor?</h4>
-                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                      <button
-                                       
-                                        type="button"
-                                        class="btn btn-danger waves-effect"
-                                        data-dismiss="modal" >Eliminar</button>
-                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                  </div>
-
-                                </div>
-                            </div>
-
-                        </tr>
-                        <tr>
-                            <td> 0003</td>
-                            <td> Coca Cola</td>
-                            <td><span class="label label-success">Habilitado</span> </td>
-                            <td> Paolo Sanchez </td>
-                            <td> Zona Villa Ingenio</td>
-                          
-                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Editar</button>
-                            <button
-                              
-                              type="button"
-                              class="btn btn-danger btn-rounded"
-                              data-toggle="modal"
-                              data-target="#eliminar">Eliminar</button>
-                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar proveedor?</h4>
-                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                      <button
-                                       
-                                        type="button"
-                                        class="btn btn-danger waves-effect"
-                                        data-dismiss="modal" >Eliminar</button>
-                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                  </div>
-
-                                </div>
-                            </div>
-
                         </tr>
 
                     </tbody>
@@ -182,26 +114,29 @@
                                     action="index.html">
                                     <div class="form-group">
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Código</label>
+                                        <label class="text-info" >Nombre del proveedor</label>
                                         <input
-                                          
+                                          #np
                                           type="text"
+                                          [value]="proveedorEditar.NombreProveedor"
                                           class="form-control">
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Nombre</label>
+                                        <label class="text-info" >Codigo</label>
                                         <input
-                                          
+                                          #c
                                           type="text"
+                                          [value]="proveedorEditar.CodigoProveedor"
                                           class="form-control">
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Representante Legal</label>
                                         <input
-                                          
+                                          #ne
                                           type="text"
+                                          [value]="proveedorEditar.NombreEmpresa"
                                           class="form-control"
                                          >
                                       </div>
@@ -209,32 +144,26 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Dirección</label>
                                         <input
-                                          
+                                          #d
                                           type="text"
+                                          [value]="proveedorEditar.Direccion"
                                           class="form-control">
                                       </div>
-                                      
+
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info">Estado</label>
-                                        <div class="col-md-9">
-                                          <select class="form-control custom-select" data-placeholder="Choose a Category" >
-                                            <option value="Category 1">Habilitado</option>
-                                            <option value="Category 2">Deshabilitado</option>
-                                           
-                                        </select>
-                                        </div>
+                                        <label class="text-info" >Descripcion</label>
+                                        <input
+                                          #des
+                                          type="text"
+                                          [value]="proveedorEditar.Descripcion"
+                                          class="form-control">
                                       </div>
 
-                                                                     
-
-                                                                       
-
-                                      
-
                                     </div>
+
                                     <div class="modal-footer">
                                       <button
-                                       
+                                        (click)="edit(np, c, ne, d, des)"
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal">Guardar</button>

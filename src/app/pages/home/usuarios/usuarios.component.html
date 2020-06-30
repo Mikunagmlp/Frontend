@@ -138,24 +138,28 @@
                                       class="form-control"
                                       [value]=" usuarioEditar.Direccion " >
                                   </div>
-                                  
-                                  
-                                  
+
+
+
                                   <div class="col-md-12 m-b-20">
                                     <label class="text-info" >Género</label>
                                     <div class="col-md-9">
-                                      <select class="form-control custom-select" data-placeholder="Choose a Category" >
-                                        <option value="Category 1">Hombre</option>
-                                        <option value="Category 2">Mujer</option>
-                                     
-                                    </select>
+                                      <select
+                                        #g
+                                        class="form-control custom-select"
+                                        data-placeholder="Choose a Category" >
+
+                                        <option value="Hombre">Hombre</option>
+                                        <option value="Mujer">Mujer</option>
+
+                                      </select>
                                   </div>
-                                      
+
                                   </div>
-                                  
-                                  
-                                  
-                                  
+
+
+
+
                                   <div class="col-md-12 m-b-20">
                                     <label class="text-info" >teléfono</label>
                                     <input
@@ -177,15 +181,19 @@
                                         <option value="Category 5">Rol 5</option>
                                         <option value="Category 6">Rol 6</option>
                                         <option value="Category 7">Rol 7</option>
-                                                                             
+
                                     </select>
                                   </div>
-                                      
+
                                   </div>
 
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="submit" class="btn btn-info waves-effect" data-dismiss="modal" >Guardar</button>
+                                  <button
+                                    (click)="editarUsuario(nc, ce, d, g, t)"
+                                    type="submit"
+                                    class="btn btn-info waves-effect"
+                                    data-dismiss="modal" >Guardar</button>
                                   <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                 </div>
                               </form>

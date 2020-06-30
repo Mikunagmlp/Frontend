@@ -46,6 +46,8 @@ export class UsuariosComponent implements OnInit {
     this.usuario.Genero = g.value;
     this.usuario.Telefono = t.value;
 
+    // console.log(this.usuario);
+
     this.service.actualizarUsuario( this.usuario, this.usuarioEditar._id ).subscribe( resp => {
       this.usuarios[this.index] = resp;
     });

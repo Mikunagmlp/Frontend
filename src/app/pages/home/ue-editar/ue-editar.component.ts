@@ -44,7 +44,7 @@ export class UeEditarComponent implements OnInit {
     this.colegio.Telefono = tel.value;
     this.colegio.Direccion = dir.value;
 
-    console.log(this.colegio, this.colegioEditar._id);
+    // console.log(this.colegio, this.colegioEditar._id);
     this.service.actualizarUnidadEducativa( this.colegio, this.colegioEditar._id ).subscribe( resp => {
       console.log(resp);
 
