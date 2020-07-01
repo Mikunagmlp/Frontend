@@ -11,6 +11,9 @@ import {UeEditarComponent} from "./pages/home/ue-editar/ue-editar.component";
 import {UePoblacionBeneficiadaComponent} from "./pages/home/ue-poblacion-beneficiada/ue-poblacion-beneficiada.component";
 import {ProveedoresCrearComponent} from "./pages/home/proveedores-crear/proveedores-crear.component";
 import {ProveedoresEditarComponent} from "./pages/home/proveedores-editar/proveedores-editar.component";
+import {ProductosCrearComponent} from "./pages/home/productos-crear/productos-crear.component";
+import {AlmacenCrearComponent} from "./pages/home/almacen-crear/almacen-crear.component";
+import {AlmacenEditarComponent} from "./pages/home/almacen-editar/almacen-editar.component";
 
 
 const routes: Routes = [
@@ -32,6 +35,12 @@ const routes: Routes = [
 
       { path: 'proveedores-crear', component: ProveedoresCrearComponent },
       { path: 'proveedores-editar', component: ProveedoresEditarComponent },
+
+      { path: 'productos-crear', component: ProductosCrearComponent },
+      { path: 'productos-editar', component: ProveedoresEditarComponent },
+
+      { path: 'almacen-crear', component: AlmacenCrearComponent },
+      { path: 'almacen-editar', component: AlmacenEditarComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },
