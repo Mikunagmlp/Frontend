@@ -14,6 +14,7 @@ import {ProveedoresEditarComponent} from "./pages/home/proveedores-editar/provee
 import {ProductosCrearComponent} from "./pages/home/productos-crear/productos-crear.component";
 import {AlmacenCrearComponent} from "./pages/home/almacen-crear/almacen-crear.component";
 import {AlmacenEditarComponent} from "./pages/home/almacen-editar/almacen-editar.component";
+import {ProductosEditarComponent} from "./pages/home/productos-editar/productos-editar.component";
 
 
 const routes: Routes = [
@@ -37,7 +38,7 @@ const routes: Routes = [
       { path: 'proveedores-editar', component: ProveedoresEditarComponent },
 
       { path: 'productos-crear', component: ProductosCrearComponent },
-      { path: 'productos-editar', component: ProveedoresEditarComponent },
+      { path: 'productos-editar', component: ProductosEditarComponent },
 
       { path: 'almacen-crear', component: AlmacenCrearComponent },
       { path: 'almacen-editar', component: AlmacenEditarComponent },
