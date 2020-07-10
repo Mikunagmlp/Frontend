@@ -16,6 +16,8 @@ export class AlmacenEditarComponent implements OnInit {
   indexEdiar: any = '';
   almacen: AlmacenModel = new AlmacenModel();
 
+  idAlmacenEliminar: any = '';
+
   constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,17 @@ export class AlmacenEditarComponent implements OnInit {
 
     this.service.actualizarAlmacen(this.almacen, this.almacenEditar._id ).subscribe(resp => {
       this.almacenes[this.indexEdiar] = resp;
+    });
+  }
+
+  eliminar(index: number) {
+    this.idAlmacenEliminar = this.almacenes[index]._id;
+    // console.log(this.idAlmacenEliminar);
+  }
+  eliminarAlmacen(){
+    this.service.eliminarAlmacen(this.idAlmacenEliminar).subscribe(resp => {
+      console.log(resp);
+      location.reload();
     });
   }
 

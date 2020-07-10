@@ -136,4 +136,8 @@ export class UserService {
     return this.http.patch(`${this.url}/almacen/editar/${id}`, almacen);
   }
 
+  eliminarAlmacen(id){
+    return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: false });
+  }
+
 }

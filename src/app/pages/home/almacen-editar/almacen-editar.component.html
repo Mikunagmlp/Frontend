@@ -69,7 +69,7 @@
                               class="btn btn-danger btn-rounded"
                               data-toggle="modal"
 
-                              data-target="#eliminar">Eliminar</button>
+                              data-target="#eliminar" (click)="eliminar(i)" >Eliminar</button>
 
                             <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -84,7 +84,7 @@
                                         type="button"
                                         class="btn btn-danger waves-effect"
 
-                                        data-dismiss="modal" >Eliminar</button>
+                                        data-dismiss="modal" (click)="eliminarAlmacen()" >Eliminar</button>
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>
                                   </div>
