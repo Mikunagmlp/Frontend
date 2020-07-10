@@ -128,4 +128,12 @@ export class UserService {
     return this.http.post(`${this.url}/almacen/registrar`, almacen);
   }
 
+  listarAlmacenes() {
+    return this.http.get(`${this.url}/almacenes`);
+  }
+
+  actualizarAlmacen( almacen: AlmacenModel, id:string ) {
+    return this.http.patch(`${this.url}/almacen/editar/${id}`, almacen);
+  }
+
 }
