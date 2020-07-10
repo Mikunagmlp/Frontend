@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import {RolModel} from "../models/rol.model";
 import { UnidadEducativaModel } from '../models/unidadEducativa.model';
 import {ProveedorModel} from "../models/proveedor.model";
+import {AlmacenModel} from "../models/almacen.model";
 
 @Injectable({
   providedIn: 'root'
@@ -120,6 +121,11 @@ export class UserService {
 
   disableProveedor(id: string){
     return this.http.patch(`${this.url}/proveedor/disable/${id}`,{ Estado: false });
+  }
+
+  // TODO: ALMACENES
+  registrarAlmacen( almacen: AlmacenModel ) {
+    return this.http.post(`${this.url}/almacen/registrar`, almacen);
   }
 
 }
