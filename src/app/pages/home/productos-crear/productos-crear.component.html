@@ -29,8 +29,8 @@
                 </div>
                 <div class="card-body">
                     <form
-                     
-                      
+                      (ngSubmit)="crearProducto(f)"
+                      #f="ngForm"
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
@@ -40,7 +40,7 @@
                             <div class="col-md-9">
                               <input
                                 name="NombreProducto"
-                                
+                                [(ngModel)]="producto.NombreProducto"
                                 type="text"
                                 autocomplete="off"
                                 class="form-control">
@@ -48,11 +48,11 @@
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Empresa Proveedora</label>
+                            <label class="control-label text-right col-md-3">Codigo producto</label>
                             <div class="col-md-9">
                               <input
                                 name="CodigoProducto"
-                              
+                                [(ngModel)]="producto.CodigoProducto"
                                 autocomplete="off"
                                 type="text"
                                 class="form-control">
@@ -60,55 +60,83 @@
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Nivel</label>
+                            <label class="control-label text-right col-md-3">Precio del producto</label>
                             <div class="col-md-9">
                               <input
-                                name="NombreEmpresa"
-                               
+                                name="PrecioProducto"
+                                [(ngModel)]="producto.PrecioProducto"
                                 autocomplete="off"
-                                type="text"
+                                type="number"
                                 class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Precio Unitario</label>
+                            <label class="control-label text-right col-md-3">Cantidad del producto</label>
                             <div class="col-md-9">
                               <input
-                                name="Direccion"
-                               
+                                name="CantidadProducto"
+                                [(ngModel)]="producto.CantidadProducto"
                                 autocomplete="off"
-                                type="text"
+                                type="number"
                                 class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Cantidad</label>
+                            <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
                                 name="Descripcion"
-                              
+                                [(ngModel)]="producto.Descripcion"
                                 autocomplete="off"
                                 type="text"
                                 class="form-control">
                             </div>
                           </div>
 
-                          
+
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad de Medida</label>
+                            <label class="control-label text-right col-md-3">Categoria</label>
                             <div class="col-md-9">
                                 <select
                                 name="Genero"
-                                
+                                [(ngModel)]="producto.IdCategoria"
                                 class="form-control custom-select" >
-                                <option value="Hombre">Gramos</option>
-                                <option value="Mujer">Mililitros</option>
+                                <option value="1">Gramos</option>
+                                <option value="2">Mililitros</option>
                               </select>
                             </div>
                           </div>
-                          
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Proveedor</label>
+                            <div class="col-md-9">
+                              <select
+                                name="Genero"
+                                [(ngModel)]="producto.IdProveedor"
+                                class="form-control custom-select" >
+                                <option [value]="proveedor._id"  *ngFor="let proveedor of proveedores" >
+                                  {{ proveedor.NombreProveedor }}
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Almacen</label>
+                            <div class="col-md-9">
+                              <select
+                                name="Genero"
+                                [(ngModel)]="producto.IdAlmacen"
+                                class="form-control custom-select" >
+                                <option [value]="almacen._id" *ngFor="let almacen of almacenes" >
+                                  {{ almacen.NombreAlmacen }}
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+
                         </div>
 
                         <div class="form-actions">

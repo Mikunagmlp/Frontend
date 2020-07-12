@@ -8,6 +8,7 @@ import {RolModel} from "../models/rol.model";
 import { UnidadEducativaModel } from '../models/unidadEducativa.model';
 import {ProveedorModel} from "../models/proveedor.model";
 import {AlmacenModel} from "../models/almacen.model";
+import {ProductoModel} from "../models/producto.model";
 
 @Injectable({
   providedIn: 'root'
@@ -138,6 +139,11 @@ export class UserService {
 
   eliminarAlmacen(id){
     return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: false });
+  }
+
+  // TODO: PRODUCTOS
+  registrarProducto( producto: ProductoModel ) {
+    return this.http.post(`${this.url}/producto/registrar`, producto);
   }
 
 }
