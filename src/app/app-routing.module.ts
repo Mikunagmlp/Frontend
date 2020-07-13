@@ -15,6 +15,8 @@ import {ProductosCrearComponent} from "./pages/home/productos-crear/productos-cr
 import {AlmacenCrearComponent} from "./pages/home/almacen-crear/almacen-crear.component";
 import {AlmacenEditarComponent} from "./pages/home/almacen-editar/almacen-editar.component";
 import {ProductosEditarComponent} from "./pages/home/productos-editar/productos-editar.component";
+import {CategoriaCrearComponent} from "./pages/home/categoria-crear/categoria-crear.component";
+import {CategoriaEditarComponent} from "./pages/home/categoria-editar/categoria-editar.component";
 
 
 const routes: Routes = [
@@ -42,6 +44,9 @@ const routes: Routes = [
 
       { path: 'almacen-crear', component: AlmacenCrearComponent },
       { path: 'almacen-editar', component: AlmacenEditarComponent },
+
+      { path: 'categoria-crear', component:CategoriaCrearComponent },
+      { path: 'categoria-editar', component:CategoriaEditarComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },

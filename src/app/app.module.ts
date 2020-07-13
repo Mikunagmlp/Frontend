@@ -22,6 +22,8 @@ import { ProductosCrearComponent } from './pages/home/productos-crear/productos-
 import { ProductosEditarComponent } from './pages/home/productos-editar/productos-editar.component';
 import { AlmacenEditarComponent } from './pages/home/almacen-editar/almacen-editar.component';
 import { AlmacenCrearComponent } from './pages/home/almacen-crear/almacen-crear.component';
+import { CategoriaCrearComponent } from './pages/home/categoria-crear/categoria-crear.component';
+import { CategoriaEditarComponent } from './pages/home/categoria-editar/categoria-editar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { AlmacenCrearComponent } from './pages/home/almacen-crear/almacen-crear.
     ProductosEditarComponent,
     AlmacenEditarComponent,
     AlmacenCrearComponent,
+    CategoriaCrearComponent,
+    CategoriaEditarComponent,
   ],
   imports: [
     BrowserModule,
