@@ -19,6 +19,8 @@ export class ProductosEditarComponent implements OnInit {
   almacenes: any = '';
   proveedores: any = '';
 
+  eliminarIndex: number = 0;
+
   constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
@@ -62,6 +64,14 @@ export class ProductosEditarComponent implements OnInit {
     });
   }
 
+  eliminarProducto(index: number) {
+    this.eliminarIndex = index;
+  }
 
+  eliminar() {
+    this.service.eliminarProducto(this.productos[this.eliminarIndex]._id).subscribe(resp => {
+      location.reload();
+    });
+  }
 
 }

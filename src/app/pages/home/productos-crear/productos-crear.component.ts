@@ -36,7 +36,7 @@ export class ProductosCrearComponent implements OnInit {
     // console.log(this.producto);
     this.service.registrarProducto(this.producto).subscribe(resp => {
       console.log(resp);
-      this.router.navigateByUrl('/home/producto-editar');
+      this.router.navigateByUrl('/home/productos-editar');
     });
   }
 

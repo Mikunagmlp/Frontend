@@ -155,4 +155,8 @@ export class UserService {
     return this.http.patch(`${this.url}/producto/editar/${id}`, nuevoProducto);
   }
 
+  eliminarProducto(id) {
+    return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: false });
+  }
+
 }
