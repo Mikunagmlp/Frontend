@@ -121,25 +121,17 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Nombre del producto</label>
                                         <input
-                                          #np
+                                          #nombre
                                           type="text"
-                                          [value]="productoEditar.Nombreproducto"
+                                          [value]="productoEditar.NombreProducto"
                                           class="form-control">
                                       </div>
 
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Codigo</label>
-                                        <input
-                                          #c
-                                          type="text"
-                                          [value]="productoEditar.Codigoproducto"
-                                          class="form-control">
-                                      </div>
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Precio</label>
                                         <input
-                                          #c
+                                          #precio
                                           type="number"
                                           [value]="productoEditar.PrecioProducto"
                                           class="form-control">
@@ -148,7 +140,7 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Cantidad</label>
                                         <input
-                                          #c
+                                          #cantidad
                                           type="number"
                                           [value]="productoEditar.CantidadProducto"
                                           class="form-control">
@@ -158,22 +150,54 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Descripcion</label>
                                         <input
-                                          #des
+                                          #descripcion
                                           type="text"
                                           [value]="productoEditar.Descripcion"
                                           class="form-control">
                                       </div>
+
+                                      <div >
+                                        <label class="text-info">Proveedor</label>
+                                        <div class="col-md-9">
+                                          <select
+                                            #proveedor
+                                            name="Proveedor"
+                                            class="form-control custom-select"
+                                          >
+                                            <option [value]="proveedor._id" *ngFor="let proveedor of proveedores; let i = index;" >
+                                              {{ proveedor.NombreProveedor }}
+                                            </option>
+                                          </select>
+                                        </div>
+                                      </div>
+
+                                      <div >
+                                        <label class="text-info">Almacen</label>
+                                        <div class="col-md-9">
+                                          <select
+                                            #almacen
+                                            name="Almacen"
+                                            class="form-control custom-select"
+                                          >
+                                            <option [value]="almacen._id" *ngFor="let almacen of almacenes; let i = index;" >
+                                              {{ almacen.NombreAlmacen }}
+                                            </option>
+                                          </select>
+                                        </div>
+                                      </div>
+
 
 
 
                                     </div>
 
                                     <div class="modal-footer">
-<!--                                        (click)="edit(np, c, ne, d, des)"-->
                                       <button
                                         type="submit"
                                         class="btn btn-info waves-effect"
-                                        data-dismiss="modal">Guardar</button>
+                                        data-dismiss="modal"
+                                        (click)="editar(nombre, precio, cantidad, descripcion, proveedor, almacen)"
+                                        >Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>

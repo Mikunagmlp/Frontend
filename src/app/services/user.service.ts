@@ -151,4 +151,8 @@ export class UserService {
     return this.http.get(`${this.url}/productos`);
   }
 
+  actualizarProducto( nuevoProducto: ProductoModel, id ) {
+    return this.http.patch(`${this.url}/producto/editar/${id}`, nuevoProducto);
+  }
+
 }
