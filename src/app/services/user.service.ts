@@ -20,7 +20,6 @@ export class UserService {
 
   private url = 'http://localhost:3000';
   private header = new HttpHeaders();
-  private userToken = localStorage.getItem('usuarioToken');
 
 
 
@@ -51,6 +50,8 @@ export class UserService {
 
     return true;
   }
+
+  private userToken = localStorage.getItem('usuarioToken');
 
   // TODO: USUARIOS
   pedirUsuarios() {

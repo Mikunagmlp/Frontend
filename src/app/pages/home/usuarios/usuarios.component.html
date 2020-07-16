@@ -72,7 +72,7 @@
                       </td>
                       <td >
                         <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="llenarEditar(i)" >Editar Usuario</button>
-                        <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                        <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#eliminar" (click)="eliminarUsuario(i)" >Eliminar</button>
                       </td>
 
                       <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,7 +84,7 @@
                             </div>
 
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" (click)="eliminarUsuario(i)" >Eliminar</button>
+                              <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" (click)="confirmarEliminacion()" >Eliminar</button>
                               <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                             </div>
                           </div>

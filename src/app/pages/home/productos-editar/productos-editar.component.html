@@ -9,7 +9,7 @@
             <div class="col-md-7 align-self-center">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Producto</a></li>
-                <li class="breadcrumb-item">Editar</li> 
+                <li class="breadcrumb-item">Editar</li>
 
               </ol>
             </div>
@@ -41,152 +41,152 @@
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de productoes -->
-              <div class="table-responsive">
-                <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
-                    <thead>
-                      <tr>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Proveedor</th>
-                        <th>Precio </th>
+<!--              <div class="table-responsive">-->
+<!--                <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >-->
+<!--                    <thead>-->
+<!--                      <tr>-->
+<!--                        <th>Código</th>-->
+<!--                        <th>Nombre</th>-->
+<!--                        <th>Proveedor</th>-->
+<!--                        <th>Precio </th>-->
 
-                      </tr>
-                    </thead>
+<!--                      </tr>-->
+<!--                    </thead>-->
 
-                    <tbody>
+<!--                    <tbody>-->
 
-                        <tr *ngFor="let producto of productos; let i = index;" >
-                            <td> {{ producto.Codigoproducto }} </td>
-                            <td> {{ producto.Nombreproducto }} </td>
-                            <td> {{ producto.NombreEmpresa }} </td>
-                            <td> {{ producto.Direccion }} </td>
-
-
-
-                            <button
-                              type="button"
-                              class="btn btn-info btn-rounded"
-                              data-toggle="modal"
-                              (click)="editarIndex(i)"
-                              data-target="#add-contact" >Editar</button>
-
-                            <button
-                              type="button"
-                              class="btn btn-danger btn-rounded"
-                              data-toggle="modal"
-                              (click)="eliminarIndex(i)"
-                              data-target="#eliminar">Eliminar</button>
-
-                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar este producto?</h4>
-                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                      <button
-                                        type="button"
-                                        class="btn btn-danger waves-effect"
-                                        (click)="eliminar()"
-                                        data-dismiss="modal" >Eliminar</button>
-                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                  </div>
-
-                                </div>
-                            </div>
-                        </tr>
-
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                          <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 class="modal-title" id="myModalLabel">Editar producto</h4>
-                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                </div>
-
-                                <div class="modal-body">
-
-                                  <form
-                                    class="form-horizontal form-material"
-                                    action="index.html">
-                                    <div class="form-group">
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Nombre del producto</label>
-                                        <input
-                                          #np
-                                          type="text"
-                                          [value]="productoEditar.Nombreproducto"
-                                          class="form-control">
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Codigo</label>
-                                        <input
-                                          #c
-                                          type="text"
-                                          [value]="productoEditar.Codigoproducto"
-                                          class="form-control">
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Representante Legal</label>
-                                        <input
-                                          #ne
-                                          type="text"
-                                          [value]="productoEditar.NombreEmpresa"
-                                          class="form-control"
-                                         >
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Dirección</label>
-                                        <input
-                                          #d
-                                          type="text"
-                                          [value]="productoEditar.Direccion"
-                                          class="form-control">
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Descripcion</label>
-                                        <input
-                                          #des
-                                          type="text"
-                                          [value]="productoEditar.Descripcion"
-                                          class="form-control">
-                                      </div>
-
-                                    </div>
-
-                                    <div class="modal-footer">
-                                      <button
-                                        (click)="edit(np, c, ne, d, des)"
-                                        type="submit"
-                                        class="btn btn-info waves-effect"
-                                        data-dismiss="modal">Guardar</button>
-
-                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                  </form>
-                                </div>
+<!--                        <tr *ngFor="let producto of productos; let i = index;" >-->
+<!--                            <td> {{ producto.Codigoproducto }} </td>-->
+<!--                            <td> {{ producto.Nombreproducto }} </td>-->
+<!--                            <td> {{ producto.NombreEmpresa }} </td>-->
+<!--                            <td> {{ producto.Direccion }} </td>-->
 
 
-                              </div>
-                            </div>
-                          </div>
-                        </tr>
-                      </tfoot>
 
-                    <tfoot>
+<!--                            <button-->
+<!--                              type="button"-->
+<!--                              class="btn btn-info btn-rounded"-->
+<!--                              data-toggle="modal"-->
+<!--                              (click)="editarIndex(i)"-->
+<!--                              data-target="#add-contact" >Editar</button>-->
 
-                </table>
-              </div>
+<!--                            <button-->
+<!--                              type="button"-->
+<!--                              class="btn btn-danger btn-rounded"-->
+<!--                              data-toggle="modal"-->
+<!--                              (click)="eliminarIndex(i)"-->
+<!--                              data-target="#eliminar">Eliminar</button>-->
+
+<!--                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                  <div class="modal-content">-->
+<!--                                    <div class="modal-header">-->
+<!--                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar este producto?</h4>-->
+<!--                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="modal-footer">-->
+<!--                                      <button-->
+<!--                                        type="button"-->
+<!--                                        class="btn btn-danger waves-effect"-->
+<!--                                        (click)="eliminar()"-->
+<!--                                        data-dismiss="modal" >Eliminar</button>-->
+<!--                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </tr>-->
+
+<!--                    </tbody>-->
+<!--                    <tfoot>-->
+<!--                        <tr>-->
+<!--                          <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+<!--                            <div class="modal-dialog">-->
+<!--                              <div class="modal-content">-->
+<!--                                <div class="modal-header">-->
+<!--                                  <h4 class="modal-title" id="myModalLabel">Editar producto</h4>-->
+<!--                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+<!--                                </div>-->
+
+<!--                                <div class="modal-body">-->
+
+<!--                                  <form-->
+<!--                                    class="form-horizontal form-material"-->
+<!--                                    action="index.html">-->
+<!--                                    <div class="form-group">-->
+<!--                                      <div class="col-md-12 m-b-20">-->
+<!--                                        <label class="text-info" >Nombre del producto</label>-->
+<!--                                        <input-->
+<!--                                          #np-->
+<!--                                          type="text"-->
+<!--                                          [value]="productoEditar.Nombreproducto"-->
+<!--                                          class="form-control">-->
+<!--                                      </div>-->
+
+<!--                                      <div class="col-md-12 m-b-20">-->
+<!--                                        <label class="text-info" >Codigo</label>-->
+<!--                                        <input-->
+<!--                                          #c-->
+<!--                                          type="text"-->
+<!--                                          [value]="productoEditar.Codigoproducto"-->
+<!--                                          class="form-control">-->
+<!--                                      </div>-->
+
+<!--                                      <div class="col-md-12 m-b-20">-->
+<!--                                        <label class="text-info" >Representante Legal</label>-->
+<!--                                        <input-->
+<!--                                          #ne-->
+<!--                                          type="text"-->
+<!--                                          [value]="productoEditar.NombreEmpresa"-->
+<!--                                          class="form-control"-->
+<!--                                         >-->
+<!--                                      </div>-->
+
+<!--                                      <div class="col-md-12 m-b-20">-->
+<!--                                        <label class="text-info" >Dirección</label>-->
+<!--                                        <input-->
+<!--                                          #d-->
+<!--                                          type="text"-->
+<!--                                          [value]="productoEditar.Direccion"-->
+<!--                                          class="form-control">-->
+<!--                                      </div>-->
+
+<!--                                      <div class="col-md-12 m-b-20">-->
+<!--                                        <label class="text-info" >Descripcion</label>-->
+<!--                                        <input-->
+<!--                                          #des-->
+<!--                                          type="text"-->
+<!--                                          [value]="productoEditar.Descripcion"-->
+<!--                                          class="form-control">-->
+<!--                                      </div>-->
+
+<!--                                    </div>-->
+
+<!--                                    <div class="modal-footer">-->
+<!--                                      <button-->
+<!--                                        (click)="edit(np, c, ne, d, des)"-->
+<!--                                        type="submit"-->
+<!--                                        class="btn btn-info waves-effect"-->
+<!--                                        data-dismiss="modal">Guardar</button>-->
+
+<!--                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>-->
+<!--                                    </div>-->
+<!--                                  </form>-->
+<!--                                </div>-->
+
+
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </tr>-->
+<!--                      </tfoot>-->
+
+<!--                    <tfoot>-->
+
+<!--                </table>-->
+<!--              </div>-->
 
 
             </div>
@@ -202,37 +202,6 @@
        <!-- ============================================================== -->
                     <!-- End Page Content -->
        <!-- ============================================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

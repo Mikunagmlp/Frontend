@@ -22,6 +22,7 @@ export class UsuariosComponent implements OnInit {
   }];
   usuarioEditar: any = '';
   index: number = 0;
+  indexEliminar: number = 0;
 
   constructor( private service: UserService, private router: Router ) { }
 
@@ -54,11 +55,13 @@ export class UsuariosComponent implements OnInit {
   }
 
   eliminarUsuario(i: number) {
-    console.log(this.usuarios[i]);
+    this.indexEliminar = i;
+    // console.log(this.indexEliminar);
 
-    this.service.deleteUsuario( this.usuarios[i]._id ).subscribe(() => {
-      this.usuarios.splice(i, 1);
-      // TODO: esto recarga toda la pagina
+  }
+
+  confirmarEliminacion() {
+    this.service.deleteUsuario( this.usuarios[this.indexEliminar]._id ).subscribe(() => {
       location.reload();
     });
   }

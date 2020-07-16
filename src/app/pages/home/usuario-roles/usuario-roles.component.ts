@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {RolModel} from "../../../models/rol.model";
-import {UserService} from "../../../services/user.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-usuario-roles',
@@ -11,148 +8,57 @@ import {Router} from "@angular/router";
 })
 export class UsuarioRolesComponent implements OnInit {
 
-  rol: RolModel = new RolModel();
-  permiso1: true;
-  idUser: string = '5eeada870070af04fa43a684';
-  roles: any;
-
-  editRol: any = '';
-  indexEdit: any = '';
-
-  desRol: any = '';
-
-  permisosEditRol: Object[] = [];
-
-  permisos: Object[] = [
-    { nombre: 'permiso1', estado: false },
-    { nombre: 'permiso2', estado: false },
-    { nombre: 'permiso3', estado: false },
-    { nombre: 'permiso4', estado: false },
-    { nombre: 'permiso5', estado: false },
-    { nombre: 'permiso6', estado: false },
-    { nombre: 'permiso7', estado: false },
-    { nombre: 'permiso8', estado: false },
-    { nombre: 'permiso9', estado: false },
-    { nombre: 'permiso10', estado: false },
-  ];
-
-  constructor( private service: UserService, private router:Router) { }
+  roles: Object[] = [{
+      class: 'tab-pane active',
+      idrol: 'rol1',
+      nombre: 'Funcionario Root',
+      descripcion: 'El funcionario Root se encarga de la aprobación de menú y reportes',
+      permisos: 'aprovacion de menu ,reportes'
+    },
+    {
+      class: 'tab-pane',
+      idrol: 'rol2',
+      nombre: 'Administrativo',
+      descripcion: 'El rol administrativo de acceder a reportes,reasignar montos, raciones o productos',
+      permisos: 'reportes, reasignar montos raciones o productos'
+    },
+    {
+      class: 'tab-pane',
+      idrol: 'rol3',
+      nombre: 'Técnico UNACE',
+      descripcion: 'El técnico Unace está  encargado de realizar la elaboración de menús',
+      permisos: 'elavoracion del menu'
+    },
+    {
+      class: 'tab-pane',
+      idrol: 'rol4',
+      nombre: 'Técnico EVA',
+      descripcion: 'El técnico EVA es el encargado de aprobar,modificar menús y asignar por rutas  la entrada de productos,asignación de empresas y lotes',
+      permisos: 'modificar el menu, aprovacion del menu,asignar por rutas la entra de productos,asignacion de empresas y lotes'
+    },
+    {
+      class: 'tab-pane',
+      idrol: 'rol5',
+      nombre: 'Técnico de Transporte',
+      descripcion: 'Encargado de vista por menú y acceso a rutas.',
+      permisos: 'ver menu y ruta'
+    },
+    {
+      class: 'tab-pane',
+      idrol: 'rol6',
+      nombre: 'Usuario Siremo',
+      descripcion: 'Encargado de realizar el control de Ph, obervaciones y firma.',
+      permisos: 'control ph, observaciones, firma'
+    },
+    {
+      class: 'tab-pane',
+      idrol: 'rol7',
+      nombre: 'Usuario Unidad Educativa',
+      descripcion: 'El usuario Unidad Educativa se encarga del envio del Menú',
+      permisos: 'envio de menu'
+    },];
 
   ngOnInit(): void {
-    this.service.pedirRoles().subscribe( resp => {
-      this.roles = resp;
-      this.desRol = '';
-      // console.log(this.roles);
-    });
-  }
-
-  isSelected( index: number ) {
-    // console.log(index);
-    // cambiamos el estado del permiso, true a false, false a true
-    this.permisos[index]['estado'] = !this.permisos[index]['estado'];
-
-    // console.log( this.permisos[index]['estado'] )
-  }
-
-  crearRol( nombreRol, descripcion) {
-    // console.log(nombreRol.value);
-
-    this.rol.NombreRol = nombreRol.value;
-    this.rol.Description = descripcion.value;
-    this.rol.IdUser = this.idUser;
-    let i = 0;
-
-    for (let permiso of this.permisos ) {
-      if ( permiso['estado'] === true ) {
-        i = i + 1;
-        let obj = {
-          NombrePermiso: permiso['nombre'],
-          Idpermiso: i
-        }
-
-        this.rol.Permiso.push( obj );
-      }
-    }
-
-    // console.log( this.rol );
-
-    this.service.crearRol(this.rol).subscribe( resp => {
-      // console.log(resp);
-      location.reload();
-    });
-  }
-
-  editarRol( index: number ) {
-    this.indexEdit = index;
-    this.editRol = this.roles[index];
-    // console.log(this.editRol);
-
-    this.permisosEditRol = [
-      { nombre: 'permiso1', estado: false },
-      { nombre: 'permiso2', estado: false },
-      { nombre: 'permiso3', estado: false },
-      { nombre: 'permiso4', estado: false },
-      { nombre: 'permiso5', estado: false },
-      { nombre: 'permiso6', estado: false },
-      { nombre: 'permiso7', estado: false },
-      { nombre: 'permiso8', estado: false },
-      { nombre: 'permiso9', estado: false },
-      { nombre: 'permiso10', estado: false },
-    ];
-
-    for( let i=0; i<this.editRol.Permiso.length; i++ ) {
-      for(let j=0; j<this.permisosEditRol.length; j++) {
-        if (this.editRol.Permiso[i].NombrePermiso === this.permisosEditRol[j]['nombre']) {
-          this.permisosEditRol[j]['estado'] = true;
-        }
-      }
-    }
-
-    // console.log(this.permisosEditRol)
-  }
-
-  isSelectedEdit(index: number) {
-    this.permisosEditRol[index]['estado'] = !this.permisosEditRol[index]['estado'];
-    // console.log(this.permisosEditRol);
-  }
-
-  guardarEditRol( nombreRol, descripcionRol ) {
-    this.rol.NombreRol = nombreRol.value;
-    this.rol.Description = descripcionRol.value;
-    this.rol.IdUser = this.idUser;
-    this.rol.Estado = true;
-    let i = 0;
-
-    for (let permiso of this.permisosEditRol ) {
-      if ( permiso['estado'] === true ) {
-        i = i + 1;
-        let obj = {
-          NombrePermiso: permiso['nombre'],
-          Idpermiso: i
-        }
-
-        this.rol.Permiso.push( obj );
-      }
-    }
-
-    console.log(this.rol);
-    console.log( this.roles[this.indexEdit]._id );
-    this.service.actualizarRol( this.rol, this.roles[this.indexEdit]._id ).subscribe( rep => {
-      console.log(rep);
-      location.reload();
-    })
-  }
-
-  desactivarRol( index: number ) {
-    console.log(this.roles[index]);
-    this.desRol = this.roles[index];
-  }
-
-  confirmarDesactivar() {
-    this.service.disableRol( this.desRol._id).subscribe( resp => {
-      console.log(resp);
-      location.reload();
-    });
   }
 
 }
