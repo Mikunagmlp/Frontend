@@ -18,6 +18,7 @@ export class ProductosEditarComponent implements OnInit {
 
   almacenes: any = '';
   proveedores: any = '';
+  categorias: any = '';
 
   eliminarIndex: number = 0;
 
@@ -43,21 +44,31 @@ export class ProductosEditarComponent implements OnInit {
     });
   }
 
+  listarCategorias() {
+    this.service.listarCategorias().subscribe(resp => {
+      this.categorias = resp;
+    });
+  }
+
   editarProducto(index: number) {
     this.editarIndex = index;
     this.productoEditar = this.productos[this.editarIndex];
 
+    console.log(this.productoEditar)
+
     this.listarAlmacenes();
     this.listarProveedores();
+    this.listarCategorias();
   }
 
-  editar(nombre, precio, cantidad, descripcion, proveedor, almacen) {
+  editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria) {
     this.producto.NombreProducto = nombre.value;
     this.producto.PrecioProducto = precio.value;
     this.producto.CantidadProducto = cantidad.value;
     this.producto.Descripcion = descripcion.value;
     this.producto.IdProveedor = proveedor.value;
     this.producto.IdAlmacen = almacen.value;
+    this.producto.IdCategoria = categoria.value;
 
     this.service.actualizarProducto(this.producto, this.productoEditar._id).subscribe(resp => {
       location.reload();

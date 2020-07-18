@@ -50,6 +50,7 @@
                         <th>Precio</th>
                         <th>Proveedor</th>
                         <th>Almacen</th>
+                        <th>Categoria</th>
 
                       </tr>
                     </thead>
@@ -62,6 +63,7 @@
                             <td> {{ producto.PrecioProducto }} Bs </td>
                             <td> {{ producto.IdProveedor.NombreProveedor }} </td>
                             <td> {{ producto.IdAlmacen.NombreAlmacen }} </td>
+                            <td> {{ producto.IdCategoria.NombreCategoria }} </td>
 
 
 
@@ -156,7 +158,7 @@
                                           class="form-control">
                                       </div>
 
-                                      <div >
+                                      <div class="col-md-12 m-b-20" >
                                         <label class="text-info">Proveedor</label>
                                         <div class="col-md-9">
                                           <select
@@ -164,14 +166,14 @@
                                             name="Proveedor"
                                             class="form-control custom-select"
                                           >
-                                            <option [value]="proveedor._id" *ngFor="let proveedor of proveedores; let i = index;" >
+                                            <option [selected]="productoEditar.IdProveedor._id === proveedor._id" [value]="proveedor._id" *ngFor="let proveedor of proveedores; let i = index;" >
                                               {{ proveedor.NombreProveedor }}
                                             </option>
                                           </select>
                                         </div>
                                       </div>
 
-                                      <div >
+                                      <div class="col-md-12 m-b-20" >
                                         <label class="text-info">Almacen</label>
                                         <div class="col-md-9">
                                           <select
@@ -186,7 +188,20 @@
                                         </div>
                                       </div>
 
-
+                                      <div class="col-md-12 m-b-20" >
+                                        <label class="text-info">Categoria</label>
+                                        <div class="col-md-9">
+                                          <select
+                                            #categoria
+                                            name="Categoria"
+                                            class="form-control custom-select"
+                                          >
+                                            <option [value]="categoria._id" *ngFor="let categoria of categorias; let i = index;" >
+                                              {{ categoria.NombreCategoria }}
+                                            </option>
+                                          </select>
+                                        </div>
+                                      </div>
 
 
                                     </div>
@@ -196,7 +211,7 @@
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal"
-                                        (click)="editar(nombre, precio, cantidad, descripcion, proveedor, almacen)"
+                                        (click)="editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria)"
                                         >Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
