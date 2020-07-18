@@ -104,8 +104,9 @@ fsdfdsf
                                 name="Genero"
                                 [(ngModel)]="producto.IdCategoria"
                                 class="form-control custom-select" >
-                                <option value="1">Gramos</option>
-                                <option value="2">Mililitros</option>
+                                <option [value]="categoria._id" *ngFor="let categoria of categorias" >
+                                  {{ categoria.NombreCategoria }}
+                                </option>
                               </select>
                             </div>
                           </div>

@@ -19,7 +19,7 @@
        <!-- ============================================================== -->
                     <!-- Start Page Content -->
        <!-- ============================================================== -->
-       
+
        <div class="row">
         <div class="col-12">
           <div class="card">
@@ -39,7 +39,7 @@
 
               </div>
               <!-- End Buscador interno -->
-       
+
        <div class="table-responsive">
            <table class="table">
                <thead>
@@ -47,30 +47,44 @@
                        <th>Código</th>
                        <th>Nombre</th>
                        <th>Descripción</th>
-                       
-                      
-                       
                    </tr>
                </thead>
+
                <tbody>
-                   <tr>
-                       <td>589</td>
-                       <td>Lácteos</td>
-                       <td>Leches,jugos de malta, yogurt</td>
+
+                   <tr *ngFor="let categoria of categorias; let i = index;" >
+                       <td> {{ categoria.CodigoCategoria }} </td>
+                       <td> {{ categoria.NombreCategoria }} </td>
+                       <td> {{ categoria.Descripcion }} </td>
                        <td>
-                       <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" >Editar Usuario</button>
-                       <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#eliminar" >Eliminar</button>
+                       <button
+                         (click)="editar(i)"
+                         type="button"
+                         class="btn btn-info btn-rounded"
+                         data-toggle="modal"
+                         data-target="#add-contact" >Editar Categoria</button>
+
+                       <button
+                         (click)="eliminar(i)"
+                         type="button"
+                         class="btn btn-danger btn-rounded"
+                         data-toggle="modal"
+                         data-target="#eliminar" >Eliminar</button>
                        </td>
                        <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar usuario?</h4>
+                              <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar categoria?</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
 
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" >Eliminar</button>
+                              <button
+                                (click)="eliminarCategoria()"
+                                type="button"
+                                class="btn btn-danger waves-effect"
+                                data-dismiss="modal" >Eliminar</button>
                               <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                             </div>
                           </div>
@@ -78,7 +92,7 @@
                         </div>
                       </div>
                    </tr>
-                  
+
                </tbody>
 
                <tfoot>
@@ -98,39 +112,28 @@
                             action="index.html">
                             <div class="form-group">
                               <div class="col-md-12 m-b-20">
-                                <label class="text-info" >Código</label>
-                                <input
-
-                                  #nc
-                                  type="text"
-                                  class="form-control">
-                                 
-                              </div>
-                              <div class="col-md-12 m-b-20">
                                 <label class="text-info" >Nombre</label>
                                 <input
-
-                                  #ce
+                                  [value]="categoriaEditar.NombreCategoria"
+                                  #nombre
                                   type="text"
                                   class="form-control">
-                                 
+
                               </div>
                               <div class="col-md-12 m-b-20">
                                 <label class="text-info" >Descripción</label>
                                 <input
-
-                                  #d
+                                  [value]="categoriaEditar.Descripcion"
+                                  #descripcion
                                   type="text"
                                   class="form-control">
-                                  
                               </div>
 
-
                             </div>
-                            
+
                             <div class="modal-footer">
                               <button
-                                
+                                (click)="editarCategoria(nombre, descripcion)"
                                 type="submit"
                                 class="btn btn-info waves-effect"
                                 data-dismiss="modal" >Guardar</button>
@@ -142,7 +145,7 @@
 
                       </div>
                     </div>
-                  
+
                 </tr>
               </tfoot>
 

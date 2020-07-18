@@ -29,29 +29,32 @@
                 </div>
                 <div class="card-body">
                     <form
-                     
+                      (ngSubmit)="crearCategoria(f)"
+                      #f="ngForm"
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Código</label>
+                            <label class="control-label text-right col-md-3">Nombre</label>
                             <div class="col-md-9">
                               <input
-                               
-                                type="text"
+                                name="NombreCategoria"
+                                [(ngModel)]="categoria.NombreCategoria"
                                 autocomplete="off"
+                                type="text"
                                 class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Nombre</label>
+                            <label class="control-label text-right col-md-3">Código</label>
                             <div class="col-md-9">
                               <input
-                                
-                                autocomplete="off"
+                                name="CodigoCategoria"
+                                [(ngModel)]="categoria.CodigoCategoria"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
@@ -60,13 +63,15 @@
                             <label class="control-label text-right col-md-3">Descripción</label>
                             <div class="col-md-9">
                               <input
+                                name="Descripcion"
+                                [(ngModel)]="categoria.Descripcion"
                                 autocomplete="off"
-                                type="number"
+                                type="text"
                                 class="form-control">
                             </div>
                           </div>
 
-                          
+
                         </div>
 
                         <div class="form-actions">
