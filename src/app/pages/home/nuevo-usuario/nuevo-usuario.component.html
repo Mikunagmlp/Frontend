@@ -53,12 +53,6 @@
                       <small class="form-control-feedback"> Ingrese el/los nombre(s) </small> </div>
                   </div>
 
-<!--                  <div class="col-md-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label class="control-label">Apellidos</label>-->
-<!--                      <input type="text" id="lastName" class="form-control form-control-danger" placeholder="Medrano Perez">-->
-<!--                      <small class="form-control-feedback"> Ingrese ambos apellidos </small> </div>-->
-<!--                  </div>-->
 
                 </div>
                 <!--/row-->
@@ -76,14 +70,7 @@
                       </select>
                       <small class="form-control-feedback"> Seleccione el género </small> </div>
                   </div>
-                  <!--/span-->
-<!--                  <div class="col-md-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label class="control-label">Fecha de Nacimiento</label>-->
-<!--                      <input type="date" class="form-control" placeholder="dd/mm/yyyy">-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  <!--/span-->
+
                 </div>
                 <!--/row-->
 
@@ -112,9 +99,10 @@
                         class="form-control">
                     </div>
                   </div>
-                  <!--/span-->
                 </div>
+
                 <div class="row">
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Correo Electrónico</label>
@@ -125,6 +113,7 @@
                         class="form-control">
                     </div>
                   </div>
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label">Rol</label>
@@ -134,51 +123,13 @@
                          class="form-control custom-select"
                          data-placeholder="Elija un rol"
                          tabindex="1">
-                         <option value="Category 1">Rol 1</option>
-                                        <option value="Category 2">Rol 2</option>
-                                        <option value="Category 3">Rol 3</option>
-                                        <option value="Category 4">Rol 4</option>
-                                        <option value="Category 5">Rol 5</option>
-                                        <option value="Category 6">Rol 6</option>
-                                        <option value="Category 7">Rol 7</option> 
-
                          <option [value]="rol._id" *ngFor="let rol of roles" > {{ rol.NombreRol }} </option>
                         </select>
                     </div>
                     </div>
-                  <!--/span-->
 
                 </div>
 
-                <div class="row">
-<!--                  <div class="col-md-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label class="control-label">Rol</label>-->
-<!--                      <select class="form-control custom-select" data-placeholder="Elija un rol" tabindex="1">-->
-<!--                        <option value="Category 1">Rol 1</option>-->
-<!--                        <option value="Category 2">Rol 2</option>-->
-<!--                        <option value="Category 3">Rol 3</option>-->
-<!--                        <option value="Category 4">Rol 4</option>-->
-<!--                        <option value="Category 5">Rol 5</option>-->
-<!--                        <option value="Category 6">Rol 6</option>-->
-
-<!--                      </select>-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  <!--/span-->
-<!--                  <div class="col-md-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label class="control-label">Entidad</label>-->
-<!--                      <select class="form-control custom-select" data-placeholder="Elija una Entidad" tabindex="1">-->
-<!--                        <option value="Category 1">SIREMU</option>-->
-<!--                        <option value="Category 2">UNACE</option>-->
-<!--                        <option value="Category 3">EBA</option>-->
-
-<!--                      </select>-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  <!--/span-->
-                </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -190,14 +141,6 @@
                         class="form-control">
                     </div>
                   </div>
-                  <!--/span-->
-<!--                  <div class="col-md-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label>Confirme Contraseña</label>-->
-<!--                      <input type="password" class="form-control">-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  <!--/span-->
                 </div>
 
 
