@@ -24,6 +24,8 @@ import { AlmacenEditarComponent } from './pages/home/almacen-editar/almacen-edit
 import { AlmacenCrearComponent } from './pages/home/almacen-crear/almacen-crear.component';
 import { CategoriaCrearComponent } from './pages/home/categoria-crear/categoria-crear.component';
 import { CategoriaEditarComponent } from './pages/home/categoria-editar/categoria-editar.component';
+import { CamionesCrearComponent } from './pages/home/camiones-crear/camiones-crear.component';
+import { CamionesEditarComponent } from './pages/home/camiones-editar/camiones-editar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { CategoriaEditarComponent } from './pages/home/categoria-editar/categori
     AlmacenCrearComponent,
     CategoriaCrearComponent,
     CategoriaEditarComponent,
+    CamionesCrearComponent,
+    CamionesEditarComponent,
   ],
   imports: [
     BrowserModule,

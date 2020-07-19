@@ -7,5 +7,5 @@ export class UserModel {
   Direccion: string;
   Genero: string;
   Estado: boolean;
-  IdRol: string;
+  Rols: any;
 }
