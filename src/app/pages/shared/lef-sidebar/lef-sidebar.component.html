@@ -10,7 +10,7 @@
           <li class="user-profile">
               <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                 <img src="../assets/images/users/profile.png" alt="user" />
-                <span class="hide-menu">Steave Jobs </span>
+                <span class="hide-menu">Luis Flores</span>
               </a>
               <ul aria-expanded="true" class="collapse" >
                 <li><a href="javascript:void()">Mi Perfil </a></li>
@@ -157,6 +157,27 @@
                 <ul>
                   <li><a [routerLink]="['/home/productos-crear']" >Crear</a></li>
                   <li><a [routerLink]="['/home/productos-editar']" >Editar</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+  <!--     CAMIONES DISTRIBUIDORES -->
+
+          <li>
+            <div class="card-header" id="headingSeven" >
+              <h2 class="mb-0" >
+                <img src="https://img.icons8.com/plasticine/100/000000/truck.png" width="35" height="35"/>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                  Camiones 
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/camiones-crear']">Crear</a></li>
+                  <li><a [routerLink]="['/home/camiones-editar']">Editar</a></li>
                 </ul>
               </div>
             </div>

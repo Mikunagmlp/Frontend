@@ -46,7 +46,44 @@
                               <small class="form-control-feedback"> Ingrese el nombre completo de la unidad educativa </small>
                             </div>
                           </div>
-
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código</label>
+                            <div class="col-md-9">
+                              <input
+                                name="CodColegio"
+                                [(ngModel)]="unidadEducativa.CodColegio"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el código </small>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Nivel</label>
+                            <div class="col-md-9">
+                             
+                              <div class="demo-checkbox">
+                                            
+                                <input type="checkbox" id="md_checkbox_inicial" class="filled-in chk-col-blue" checked />
+                                <label for="md_checkbox_inicial">Inicial</label>
+                                <input type="checkbox" id="md_checkbox_primaria" class="filled-in chk-col-blue"  />
+                                <label for="md_checkbox_primaria">Primaria</label>
+                                 <input type="checkbox" id="md_checkbox_secundaria" class="filled-in chk-col-blue" />
+                                <label for="md_checkbox_secundaria">Secundaria</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Turno</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Turno"
+                                [(ngModel)]="unidadEducativa.Turno"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback">Turno del colegio</small>
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Ruta</label>
                             <div class="col-md-9">
@@ -60,86 +97,48 @@
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Distrito</label>
-                            <div class="col-md-9">
-                              <select
-                                name="Distrito"
-                                [(ngModel)]="unidadEducativa.Distrito"
-                                class="form-control custom-select">
-
-                                <option value="Distrito 1">Distrito 1</option>
-                                <option value="Distrito 2">Distrito 2</option>
-                                <option value="Distrito 3">Distrito 3</option>
-                                <option value="Distrito 4">Distrito 4</option>
-                                <option value="Distrito 5">Distrito 5</option>
-                                <option value="Distrito 6">Distrito 6</option>
-                                <option value="Distrito 7">Distrito 7</option>
-                                <option value="Distrito 8">Distrito 8</option>
-
-                              </select>
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Código</label>
-                            <div class="col-md-9">
-                              <input
-                                name="CodColegio"
-                                [(ngModel)]="unidadEducativa.CodColegio"
-                                type="text"
-                                class="form-control">
-                              <small class="form-control-feedback"> Ingrese el código </small>
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Turno</label>
-                            <div class="col-md-9">
-                              <input
-                                name="Turno"
-                                [(ngModel)]="unidadEducativa.Turno"
-                                type="text"
-                                class="form-control">
-                              <small class="form-control-feedback">Turno del colegio</small>
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Categoria</label>
-                            <div class="col-md-9">
-                              <input
-                                name="Categoria"
-                                [(ngModel)]="unidadEducativa.Categoria"
-                                type="text"
-                                class="form-control">
-                              <small class="form-control-feedback">Categoria del colegio</small>
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Número de estudiantes</label>
+                            <label class="control-label text-right col-md-3">Número de estudiantes Inicial</label>
                             <div class="col-md-9">
                               <input
                                 name="CantidadAlumnos"
                                 [(ngModel)]="unidadEducativa.CantidadAlumnos"
                                 type="number"
                                 class="form-control">
-                              <small class="form-control-feedback"> Ingrese el número de estudiantes de la unidad educativa</small>
+                              <small class="form-control-feedback"> Ingrese el número de estudiantes nivel inicial de la unidad educativa, si no tiene nivel inicial coloque el valor 0</small>
                             </div>
                           </div>
-
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Telefono</label>
+                            <label class="control-label text-right col-md-3">Número de estudiantes Primaria</label>
                             <div class="col-md-9">
                               <input
-                                name="Telefono"
-                                [(ngModel)]="unidadEducativa.Telefono"
-                                type="text"
+                                
+                                type="number"
                                 class="form-control">
-                              <small class="form-control-feedback"> Ingrese el telefono del colegio</small>
+                              <small class="form-control-feedback"> Ingrese el número de estudiantes  nivel primaria de la unidad educativa, si no tiene nivel primaria coloque el valor 0</small>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Número de estudiantes Secundaria</label>
+                            <div class="col-md-9">
+                              <input
+                               
+                                type="number"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el número de estudiantes nivel secundaria de la unidad educativa, si no tiene nivel secundaria coloque el valor 0</small>
                             </div>
                           </div>
 
+                         
+                         
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Director del establecimiento</label>
+                            <div class="col-md-9">
+                              <input
+                               
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el nombre completo del director de la unidad educativa </small>
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Direccion</label>
                             <div class="col-md-9">
@@ -148,9 +147,28 @@
                                 [(ngModel)]="unidadEducativa.Direccion"
                                 type="text"
                                 class="form-control">
-                              <small class="form-control-feedback"> Ingrese la direccion del colegio</small>
+                              <small class="form-control-feedback"> Ingrese la direccion de la unidad educativa</small>
                             </div>
                           </div>
+                          
+
+                       
+                          
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Teléfono de Referencia</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Telefono"
+                                [(ngModel)]="unidadEducativa.Telefono"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el telefono de la unidad educativa</small>
+                            </div>
+                          </div>
+
+                          
+
+                          
 
                         </div>
 

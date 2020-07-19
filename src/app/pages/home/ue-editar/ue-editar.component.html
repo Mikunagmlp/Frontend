@@ -115,30 +115,28 @@
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Ruta</label>
-                                        <input
-                                          #rut
-                                          type="text"
-                                          class="form-control"
-                                          [value]="colegioEditar.Ruta">
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Distrito</label>
-                                        <input
-                                          #dis
-                                          type="text"
-                                          class="form-control"
-                                          [value]="colegioEditar.Distrito">
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Codigo del colegio</label>
+                                        <label class="text-info" >Código del colegio</label>
                                         <input
                                           #cod
                                           type="text"
                                           class="form-control"
                                           [value]="colegioEditar.CodColegio">
+                                      </div>
+
+                                      <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Nivel</label>
+                                        <div class="col-md-9">
+                                         
+                                          <div class="demo-checkbox">
+                                                        
+                                            <input type="checkbox" id="md_checkbox_inicial" class="filled-in chk-col-blue" checked />
+                                            <label for="md_checkbox_inicial">Inicial</label>
+                                            <input type="checkbox" id="md_checkbox_primaria" class="filled-in chk-col-blue"  />
+                                            <label for="md_checkbox_primaria">Primaria</label>
+                                             <input type="checkbox" id="md_checkbox_secundaria" class="filled-in chk-col-blue" />
+                                            <label for="md_checkbox_secundaria">Secundaria</label>
+                                          </div>
+                                        </div>
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
@@ -151,31 +149,58 @@
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Categoria</label>
+                                        <label class="text-info" >Ruta</label>
                                         <input
-                                          #cat
+                                          #rut
                                           type="text"
                                           class="form-control"
-                                          [value]="colegioEditar.Categoria">
+                                          [value]="colegioEditar.Ruta">
                                       </div>
 
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Cantidad alumnos</label>
-                                        <input
-                                          #cant
-                                          type="number"
-                                          class="form-control"
-                                          [value]="colegioEditar.CantidadAlumnos">
+                                      <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Número de estudiantes Inicial</label>
+                                        <div class="col-md-9">
+                                          <input
+                                            
+                                            type="number"
+                                            class="form-control">
+                                          
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Número de estudiantes Primaria</label>
+                                        <div class="col-md-9">
+                                          <input
+                                            
+                                            type="number"
+                                            class="form-control">
+                                          
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Número de estudiantes Secundaria</label>
+                                        <div class="col-md-9">
+                                          <input
+                                           
+                                            type="number"
+                                            class="form-control">
+                                         
+                                        </div>
                                       </div>
 
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Telefono</label>
-                                        <input
-                                          #tel
-                                          type="text"
-                                          class="form-control"
-                                          [value]="colegioEditar.Telefono">
+                                      <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Director del establecimiento</label>
+                                        <div class="col-md-9">
+                                          <input
+                                           
+                                            class="form-control">
+                                         
+                                        </div>
                                       </div>
+
+                                     
+
+                                      
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Direccion</label>
@@ -186,14 +211,27 @@
                                           [value]="colegioEditar.Direccion">
                                       </div>
 
+                                     
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Telefono de referencia</label>
+                                        <input
+                                          #tel
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Telefono">
+                                      </div>
+
+                                     
+
                                     </div>
                                     <div class="modal-footer">
-                                      <button
+                                     <!--  <button
                                         (click)="editarColegio( nmc, rut, dis, cod, tur, cat, cant, tel, dir )"
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal">Guardar</button>
-
+ -->
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>
                                   </form>
