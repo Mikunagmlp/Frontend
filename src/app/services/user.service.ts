@@ -10,6 +10,7 @@ import {ProveedorModel} from "../models/proveedor.model";
 import {AlmacenModel} from "../models/almacen.model";
 import {ProductoModel} from "../models/producto.model";
 import {CategoriaModel} from "../models/categoria.model";
+import {CamionModel} from "../models/camion.model";
 
 @Injectable({
   providedIn: 'root'
@@ -175,6 +176,23 @@ export class UserService {
 
   eliminarCategoria(id) {
     return this.http.patch(`${this.url}/categoria/editar/${id}`, { Estado: false });
+  }
+
+  // TODO: CAMIONES
+  registrarCamion( camion: CamionModel ){
+    return this.http.post(`${this.url}/camion/registrar`, camion);
+  }
+
+  listarCamiones(){
+    return this.http.get(`${this.url}/camiones`);
+  }
+
+  actualizarCamion(camion: CamionModel, id) {
+    return this.http.patch(`${this.url}/camion/editar/${id}`, camion);
+  }
+
+  eliminarCamion(id) {
+    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: false})
   }
 
 }

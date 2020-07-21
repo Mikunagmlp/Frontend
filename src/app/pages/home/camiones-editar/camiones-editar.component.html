@@ -48,31 +48,31 @@
                        <th>Nombre del conductor</th>
                        <th>Ruta</th>
                        <th>Número de placa</th>
-                       
+
                    </tr>
                </thead>
 
                <tbody>
 
-                  <!--  <tr *ngFor="let categoria of categorias; let i = index;" >
-                       <td> {{ categoria.CodigoCategoria }} </td>
-                       <td> {{ categoria.NombreCategoria }} </td>
-                       <td> {{ categoria.Descripcion }} </td> -->
-                       <td>
+                  <tr *ngFor="let camion of camiones; let i = index;" >
+                       <td> {{ camion.Codigo }} </td>
+                       <td> {{ camion.NombreConductor }} </td>
+                       <td> {{ camion.Ruta }} </td>
+                       <td> {{ camion.NumeroPlaca }} </td>
+
                        <button
-                         
+                          (click)="editar(i)"
                          type="button"
                          class="btn btn-info btn-rounded"
                          data-toggle="modal"
                          data-target="#add-contact" >Editar Categoria</button>
 
                        <button
-                         
+                         (click)="eliminar(i)"
                          type="button"
                          class="btn btn-danger btn-rounded"
                          data-toggle="modal"
                          data-target="#eliminar" >Eliminar</button>
-                       </td>
                        <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -83,7 +83,7 @@
 
                             <div class="modal-footer">
                               <button
-                                
+                                (click)="eliminarCamion()"
                                 class="btn btn-danger waves-effect"
                                 data-dismiss="modal" >Eliminar</button>
                               <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
@@ -92,7 +92,7 @@
 
                         </div>
                       </div>
-                   
+                  </tr>
 
                </tbody>
 
@@ -112,66 +112,51 @@
                             class="form-horizontal form-material"
                             action="index.html">
                             <div class="form-group">
-                              <div class="col-md-12 m-b-20">
-                                <label class="text-info" >Código</label>
-                               <!--  <input
-                                  [value]="categoriaEditar.NombreCategoria"
-                                  #nombre
-                                  type="text"
-                                  class="form-control"> -->
 
-                              </div>
                               <div class="col-md-12 m-b-20">
                                 <label class="text-info" >Nombre del Conductor</label>
-                               <!--  <input
-                                  [value]="categoriaEditar.Descripcion"
-                                  #descripcion
+                               <input
+                                  [value]="camionEditar.NombreConductor"
+                                  #conductor
                                   type="text"
-                                  class="form-control"> -->
+                                  class="form-control">
                               </div>
-                              
+
                               <div class="col-md-12 m-b-20">
                                 <label class="text-info" >Ruta</label>
-                               <!--  <input
-                                  [value]="categoriaEditar.Descripcion"
-                                  #descripcion
+                               <input
+                                  [value]="camionEditar.Ruta"
+                                  #ruta
                                   type="text"
-                                  class="form-control"> -->
+                                  class="form-control">
                               </div>
 
                               <div class="col-md-12 m-b-20">
                                 <label class="text-info" >Número de placa</label>
-                               <!--  <input
-                                  [value]="categoriaEditar.Descripcion"
-                                  #descripcion
+                               <input
+                                  [value]="camionEditar.NumeroPlaca"
+                                  #placa
                                   type="text"
-                                  class="form-control"> -->
+                                  class="form-control">
                               </div>
-                              <div class="col-md-12 m-b-20">
-                                <label class="text-info" >Capacidad</label>
-                               <!--  <input
-                                  [value]="categoriaEditar.Descripcion"
-                                  #descripcion
-                                  type="text"
-                                  class="form-control"> -->
-                              </div>
+
                               <div class="col-md-12 m-b-20">
                                 <label class="text-info" >Modelo</label>
-                               <!--  <input
-                                  [value]="categoriaEditar.Descripcion"
-                                  #descripcion
+                               <input
+                                  [value]="camionEditar.Modelo"
+                                  #modelo
                                   type="text"
-                                  class="form-control"> -->
+                                  class="form-control">
                               </div>
                             </div>
 
                             <div class="modal-footer">
-                             <!--  <button
-                                (click)="editarCategoria(nombre, descripcion)"
+                             <button
+                                (click)="editarCamion(conductor, ruta, placa, modelo)"
                                 type="submit"
                                 class="btn btn-info waves-effect"
                                 data-dismiss="modal" >Guardar</button>
-                              <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button> -->
+                              <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                             </div>
                           </form>
                         </div>

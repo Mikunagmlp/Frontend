@@ -23,7 +23,7 @@ export class AlmacenCrearComponent implements OnInit {
     if (form.invalid) { return ; }
 
     this.service.registrarAlmacen(this.almacen).subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
       this.router.navigateByUrl('/home/almacen-editar')
     });
   }
