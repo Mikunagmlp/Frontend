@@ -39,29 +39,35 @@ export class NuevoUsuarioComponent implements OnInit {
       // this.rols.push({ IdRol: id });
 
     } else{
-      this.rols[index] = defaultIfEmpty();
+      this.rols[index] = null;
     }
 
-    console.log(this.rols);
+    // console.log(this.rols);
   }
 
 
   login(form: NgForm) {
     if (form.invalid) { return ; }
 
-    console.log(this.usuario);
-    console.log(this.rols);
+    // console.log(this.usuario);
+    // console.log(this.rols);
 
     for (let i=0;i<=this.rols.length;i++) {
-      if (this.rols === null || this.rols === defaultIfEmpty()) {
-
+      // console.log(  `${i}:` , this.rols[i] );
+      if ( this.rols[i] === undefined || this.rols[i] === null ) {
+        this.rols.splice(i,1)
       }
     }
 
-    // this.service.registrarUsuario( this.usuario ).subscribe(resp => {
-    //   // console.log(resp);
-    //   this.router.navigateByUrl('/home');
-    // });
+    // console.log(this.rols);
+    this.usuario.Rols = this.rols;
+
+    console.log(this.usuario);
+
+    this.service.registrarUsuario( this.usuario ).subscribe(resp => {
+      // console.log(resp);
+      this.router.navigateByUrl('/home');
+    });
   }
 
 

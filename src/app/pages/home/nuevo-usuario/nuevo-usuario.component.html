@@ -114,22 +114,22 @@
                     </div>
                   </div>
 
-<!--                    <div class="col-md-6 ">-->
-<!--                      <div class="form-group">-->
-<!--                        <label class="control-label">Rol II</label>-->
-<!--                        <div class="card">-->
-<!--                            <div class="demo-checkbox" >-->
-<!--                              <div *ngFor="let rol of roles; let i = index;" >-->
-<!--                                <input-->
-<!--                                  (change)="selectRol($event.target.checked, rol._id, i)"-->
-<!--                                  type="checkbox" [id]="rol._id"-->
-<!--                                  class="filled-in chk-col-blue" />-->
-<!--                                <label [for]="rol._id" > {{ rol.NombreRol }} </label>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
+                    <div class="col-md-6 ">
+                      <div class="form-group">
+                        <label class="control-label">Rol II</label>
+                        <div class="card">
+                            <div class="demo-checkbox" >
+                              <div *ngFor="let rol of roles; let i = index;" >
+                                <input
+                                  (change)="selectRol($event.target.checked, rol._id, i)"
+                                  type="checkbox" [id]="rol._id"
+                                  class="filled-in chk-col-blue" />
+                                <label [for]="rol._id" > {{ rol.NombreRol }} </label>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
 
                 </div>
 

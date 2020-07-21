@@ -23,12 +23,13 @@ export class UsuariosComponent implements OnInit {
   usuarioEditar: any = '';
   index: number = 0;
   indexEliminar: number = 0;
+  roles: any = '';
 
   constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
     this.service.pedirUsuarios().subscribe( resp => {
-      console.log(resp);
+      // console.log(resp);
       this.usuarios = resp;
     });
   }
@@ -36,8 +37,17 @@ export class UsuariosComponent implements OnInit {
   llenarEditar( i: number ) {
     this.usuarioEditar = this.usuarios[i];
     this.index = i;
+
+    this.listarRoles();
   }
 
+  listarRoles() {
+    this.service.pedirRoles().subscribe(resp => {
+      this.roles = resp;
+      console.log(this.roles);
+    });
+    console.log(this.usuarioEditar);
+  }
 
   editarUsuario(nc, ce, d, g, t) {
 
