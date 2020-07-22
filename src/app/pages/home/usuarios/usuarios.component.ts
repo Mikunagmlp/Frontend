@@ -27,7 +27,7 @@ export class UsuariosComponent implements OnInit {
   indexEliminar: number = 0;
   roles: any = '';
 
-  rolesEditar: any[] = [];
+  rolesEditar: any[];
 
   constructor( private service: UserService, private router: Router ) { }
 
@@ -39,6 +39,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   llenarEditar( i: number ) {
+    this.rolesEditar = [];
     this.usuarioEditar = this.usuarios[i];
     this.index = i;
 
