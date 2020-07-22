@@ -176,17 +176,13 @@
 
                                           <div class="demo-checkbox">
                                             <div *ngFor="let rol of roles; let i = index;" >
-                                              <div *ngIf="rol._id == usuarioEditar.Rol[i].IdRol._id; " >
-                                                rol
-                                              </div>
-
-<!--                                              <input-->
-<!--                                                *ngIf="usuarioEditar.Rols[i].IdRol === rol._id"-->
-<!--                                                type="checkbox"-->
-<!--                                                [id]="rol._id"-->
-<!--                                                class="filled-in chk-col-blue" />-->
-
-<!--                                              <label [for]="rol._id" > {{ rol.NombreRol }} </label>-->
+                                              <input
+                                                (change)="selectRol($event.target.checked, i)"
+                                                [checked]="usuarioRolesEditar[i]"
+                                                type="checkbox"
+                                                [id]="rol._id"
+                                                class="filled-in chk-col-blue" />
+                                              <label [for]="rol._id" > {{ rol.NombreRol }} </label>
                                             </div>
                                           </div>
 

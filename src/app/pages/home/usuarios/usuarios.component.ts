@@ -21,9 +21,13 @@ export class UsuariosComponent implements OnInit {
     Genero: 'Hombre'
   }];
   usuarioEditar: any = '';
+  usuarioRolesEditar: any[] = [];
+
   index: number = 0;
   indexEliminar: number = 0;
   roles: any = '';
+
+  rolesEditar: any[] = [];
 
   constructor( private service: UserService, private router: Router ) { }
 
@@ -44,9 +48,31 @@ export class UsuariosComponent implements OnInit {
   listarRoles() {
     this.service.pedirRoles().subscribe(resp => {
       this.roles = resp;
-      console.log(this.roles);
+      // console.log(this.roles);
     });
-    console.log(this.usuarioEditar);
+    // console.log(this.usuarioEditar);
+
+    for ( let i = 0; i < this.roles.length; i++ ){
+      let rr = this.roles[i]._id;
+      // console.log('Rol: ',rr)
+      for (let j = 0; j < this.usuarioEditar.Rols.length; j++){
+        let rr2 = this.usuarioEditar.Rols[j].IdRol._id;
+        // console.log('User rol:',rr2);
+        if (rr === rr2) {
+          this.usuarioRolesEditar[i] = true;
+          break;
+        } else{
+          this.usuarioRolesEditar[i] = false;
+        }
+      }
+    }
+
+    // console.log(this.usuarioRolesEditar);
+  }
+
+  selectRol(event, index ){
+    this.usuarioRolesEditar[index] = event;
+    // console.log(this.usuarioRolesEditar);
   }
 
   editarUsuario(nc, ce, d, g, t) {
@@ -57,10 +83,22 @@ export class UsuariosComponent implements OnInit {
     this.usuario.Genero = g.value;
     this.usuario.Telefono = t.value;
 
+    for (let i=0;i<this.usuarioRolesEditar.length;i++){
+      let ure = this.usuarioRolesEditar[i];
+      if (ure === true) {
+        this.rolesEditar.push({
+          IdRol: this.roles[i]._id
+        })
+      }
+    }
+
+    this.usuario.Rols = this.rolesEditar;
     // console.log(this.usuario);
+
 
     this.service.actualizarUsuario( this.usuario, this.usuarioEditar._id ).subscribe( resp => {
       this.usuarios[this.index] = resp;
+      // this.rolesEditar = [];
     });
   }
 

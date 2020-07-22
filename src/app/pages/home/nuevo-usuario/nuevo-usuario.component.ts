@@ -36,8 +36,6 @@ export class NuevoUsuarioComponent implements OnInit {
         IdRol: id
       };
 
-      // this.rols.push({ IdRol: id });
-
     } else{
       this.rols[index] = null;
     }
@@ -49,8 +47,6 @@ export class NuevoUsuarioComponent implements OnInit {
   login(form: NgForm) {
     if (form.invalid) { return ; }
 
-    // console.log(this.usuario);
-    // console.log(this.rols);
 
     for (let i=0;i<=this.rols.length;i++) {
       // console.log(  `${i}:` , this.rols[i] );
@@ -59,7 +55,6 @@ export class NuevoUsuarioComponent implements OnInit {
       }
     }
 
-    // console.log(this.rols);
     this.usuario.Rols = this.rols;
 
     console.log(this.usuario);
