@@ -48,6 +48,16 @@
                         <th>Nombre</th>
                         <th>Representante Legal</th>
                         <th>Dirección</th>
+                        <th>Prod 1</th>
+                        <th>Prod 2</th>
+                        <th>Prod 3</th>
+                        <th>Prod 4</th>
+                        <th>Prod 5</th>
+                        <th>Prod 6</th>
+                        <th>Prod 7</th>
+                        <th>Prod 8</th>
+                        <th>Prod 9</th>
+                        <th>Prod 10</th>
 
                       </tr>
                     </thead>
@@ -59,6 +69,17 @@
                             <td> {{ proveedor.NombreProveedor }} </td>
                             <td> {{ proveedor.NombreEmpresa }} </td>
                             <td> {{ proveedor.Direccion }} </td>
+                            <td> {{ proveedor.Lote }} </td>
+                            <td> {{ proveedor.pro1 }} </td>
+                            <td> {{ proveedor.pro2 }} </td>
+                            <td> {{ proveedor.pro3 }} </td>
+                            <td> {{ proveedor.pro4 }} </td>
+                            <td> {{ proveedor.pro5 }} </td>
+                            <td> {{ proveedor.pro6 }} </td>
+                            <td> {{ proveedor.pro7 }} </td>
+                            <td> {{ proveedor.pro8 }} </td>
+                            <td> {{ proveedor.pro9 }} </td>
+                            <td> {{ proveedor.pro10 }} </td>
 
                             <button
                               type="button"
@@ -144,14 +165,14 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Producto 1</label>
                                         <input
-                                         
+                                          #pro1
                                           class="form-control"
                                          >
                                       </div>
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Producto 2</label>
                                         <input
-                                         
+                                          #pro2
                                           class="form-control"
                                          >
                                       </div>
@@ -159,7 +180,7 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Producto 3</label>
                                         <input
-                                          
+                                          #pro3
                                           class="form-control"
                                          >
                                       </div>
@@ -167,7 +188,7 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Producto 4</label>
                                         <input
-                                          
+                                          #pro4
                                           class="form-control"
                                          >
                                       </div>
@@ -175,9 +196,49 @@
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Producto 5</label>
                                         <input
-                                         
+                                          #pro5
                                           class="form-control"
                                          >
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Producto 6</label>
+                                        <input
+                                          #pro6
+                                          class="form-control"
+                                        >
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Producto 7</label>
+                                        <input
+                                          #pro7
+                                          class="form-control"
+                                        >
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Producto 8</label>
+                                        <input
+                                          #pro8
+                                          class="form-control"
+                                        >
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Producto 9</label>
+                                        <input
+                                          #pro9
+                                          class="form-control"
+                                        >
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Producto 10</label>
+                                        <input
+                                          #pro10
+                                          class="form-control"
+                                        >
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
@@ -202,7 +263,7 @@
 
                                     <div class="modal-footer">
                                       <button
-                                        (click)="edit(np, c, ne, d, des)"
+                                        (click)="edit(np, c, ne, d, des, pro1, pro2, pro3, pro4, pro5, pro6, pro7, pro8, pro9, pro10)"
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal">Guardar</button>

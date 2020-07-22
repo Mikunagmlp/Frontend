@@ -57,13 +57,13 @@
                               <small class="form-control-feedback"> Ingrese el código </small>
                             </div>
                           </div>
-                          
+
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nivel</label>
                             <div class="col-md-9">
-                             
+
                               <div class="demo-checkbox">
-                                            
+
                                 <input type="checkbox" id="md_checkbox_inicial" class="filled-in chk-col-blue" checked />
                                 <label for="md_checkbox_inicial">Inicial</label>
                                 <input type="checkbox" id="md_checkbox_primaria" class="filled-in chk-col-blue"  />
@@ -73,6 +73,7 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Turno</label>
                             <div class="col-md-9">
@@ -84,6 +85,19 @@
                               <small class="form-control-feedback">Turno del colegio</small>
                             </div>
                           </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Categoria</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Turno"
+                                [(ngModel)]="unidadEducativa.Categoria"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback">Categoria del colegio</small>
+                            </div>
+                          </div>
+
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Ruta</label>
                             <div class="col-md-9">
@@ -97,11 +111,23 @@
                           </div>
 
                           <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Distrito</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Distrito"
+                                [(ngModel)]="unidadEducativa.Distrito"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el distrito del colegio</small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Número de estudiantes Inicial</label>
                             <div class="col-md-9">
                               <input
-                                name="CantidadAlumnos"
-                                [(ngModel)]="unidadEducativa.CantidadAlumnos"
+                                name="CantidadAlumnosInicial"
+                                [(ngModel)]="unidadEducativa.CantidadAlumnosInicial"
                                 type="number"
                                 class="form-control">
                               <small class="form-control-feedback"> Ingrese el número de estudiantes nivel inicial de la unidad educativa, si no tiene nivel inicial coloque el valor 0</small>
@@ -111,7 +137,8 @@
                             <label class="control-label text-right col-md-3">Número de estudiantes Primaria</label>
                             <div class="col-md-9">
                               <input
-                                
+                                name="CantidadAlumnosPrimaria"
+                                [(ngModel)]="unidadEducativa.CantidadAlumnosPrimaria"
                                 type="number"
                                 class="form-control">
                               <small class="form-control-feedback"> Ingrese el número de estudiantes  nivel primaria de la unidad educativa, si no tiene nivel primaria coloque el valor 0</small>
@@ -121,20 +148,22 @@
                             <label class="control-label text-right col-md-3">Número de estudiantes Secundaria</label>
                             <div class="col-md-9">
                               <input
-                               
+                                name="CantidadAlumnosSecundaria"
+                                [(ngModel)]="unidadEducativa.CantidadAlumnosSecundaria"
                                 type="number"
                                 class="form-control">
                               <small class="form-control-feedback"> Ingrese el número de estudiantes nivel secundaria de la unidad educativa, si no tiene nivel secundaria coloque el valor 0</small>
                             </div>
                           </div>
 
-                         
-                         
+
+
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Director del establecimiento</label>
                             <div class="col-md-9">
                               <input
-                               
+                                name="Encargado"
+                                [(ngModel)]="unidadEducativa.Encargado"
                                 class="form-control">
                               <small class="form-control-feedback"> Ingrese el nombre completo del director de la unidad educativa </small>
                             </div>
@@ -150,10 +179,10 @@
                               <small class="form-control-feedback"> Ingrese la direccion de la unidad educativa</small>
                             </div>
                           </div>
-                          
 
-                       
-                          
+
+
+
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Teléfono de Referencia</label>
                             <div class="col-md-9">
@@ -166,9 +195,9 @@
                             </div>
                           </div>
 
-                          
 
-                          
+
+
 
                         </div>
 

@@ -29,7 +29,7 @@ export class UsuariosComponent implements OnInit {
 
   rolesEditar: any[];
 
-  constructor( private service: UserService, private router: Router ) { }
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
     this.service.pedirUsuarios().subscribe( resp => {

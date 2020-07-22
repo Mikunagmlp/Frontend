@@ -102,7 +102,7 @@ export class UserService {
     return this.http.get( `${this.url}/colegios` );
   }
 
-  actualizarUnidadEducativa( ue: UnidadEducativaModel, id: string ) {
+  actualizarUnidadEducativa( ue: UnidadEducativaModel, id ) {
     return this.http.patch( `${this.url}/colegio/editar/${id}`, ue );
   }
 

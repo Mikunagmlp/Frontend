@@ -5,7 +5,10 @@ export class UnidadEducativaModel {
   CodColegio: string;
   Turno: string;
   Categoria: string;
-  CantidadAlumnos: number;
   Telefono: string;
   Direccion: string;
+  Encargado: string;
+  CantidadAlumnosInicial: number;
+  CantidadAlumnosPrimaria: number;
+  CantidadAlumnosSecundaria: number;
 }

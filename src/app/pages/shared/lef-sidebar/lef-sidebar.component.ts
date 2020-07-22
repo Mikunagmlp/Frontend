@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LefSidebarComponent implements OnInit {
 
+  nombre: string = localStorage.getItem('usuarioNombreCompleto');
+
   constructor() { }
 
   ngOnInit(): void {

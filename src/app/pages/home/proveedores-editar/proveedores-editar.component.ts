@@ -36,12 +36,22 @@ export class ProveedoresEditarComponent implements OnInit {
     // console.log(this.proveedorEditar);
   }
 
-  edit(np, c, ne, d, des) {
+  edit(np, c, ne, d, des, pro1, pro2, pro3, pro4, pro5, pro6, pro7, pro8, pro9, pro10) {
     this.proveedor.NombreProveedor = np.value;
     this.proveedor.CodigoProveedor = c.value;
     this.proveedor.NombreEmpresa = ne.value;
     this.proveedor.Direccion = d.value;
     this.proveedor.Descripcion = des.value;
+    this.proveedor.pro1 = pro1.value;
+    this.proveedor.pro2 = pro2.value;
+    this.proveedor.pro3 = pro3.value;
+    this.proveedor.pro4 = pro4.value;
+    this.proveedor.pro5 = pro5.value;
+    this.proveedor.pro6 = pro6.value;
+    this.proveedor.pro7 = pro7.value;
+    this.proveedor.pro8 = pro8.value;
+    this.proveedor.pro9 = pro9.value;
+    this.proveedor.pro10 = pro10.value;
 
     this.service.patchProveedor(this.proveedor, this.proveedorEditar._id).subscribe(resp => {
       this.proveedores[this.indexEditar] = resp;
