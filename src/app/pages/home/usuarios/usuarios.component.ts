@@ -29,13 +29,15 @@ export class UsuariosComponent implements OnInit {
 
   rolesEditar: any[];
 
-  constructor( private service: UserService, private router: Router ) { }
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
     this.service.pedirUsuarios().subscribe( resp => {
       // console.log(resp);
       this.usuarios = resp;
+      this.listarRoles();
     });
+
   }
 
   llenarEditar( i: number ) {
@@ -43,7 +45,7 @@ export class UsuariosComponent implements OnInit {
     this.usuarioEditar = this.usuarios[i];
     this.index = i;
 
-    this.listarRoles();
+    this.listarRolesBool();
   }
 
   listarRoles() {
@@ -53,6 +55,9 @@ export class UsuariosComponent implements OnInit {
     });
     // console.log(this.usuarioEditar);
 
+  }
+
+  listarRolesBool() {
     for ( let i = 0; i < this.roles.length; i++ ){
       let rr = this.roles[i]._id;
       // console.log('Rol: ',rr)
@@ -67,8 +72,6 @@ export class UsuariosComponent implements OnInit {
         }
       }
     }
-
-    // console.log(this.usuarioRolesEditar);
   }
 
   selectRol(event, index ){
@@ -98,8 +101,9 @@ export class UsuariosComponent implements OnInit {
 
 
     this.service.actualizarUsuario( this.usuario, this.usuarioEditar._id ).subscribe( resp => {
-      this.usuarios[this.index] = resp;
+      // this.usuarios[this.index] = resp;
       // this.rolesEditar = [];
+      location.reload();
     });
   }
 
