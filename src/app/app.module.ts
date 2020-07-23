@@ -26,6 +26,7 @@ import { CategoriaCrearComponent } from './pages/home/categoria-crear/categoria-
 import { CategoriaEditarComponent } from './pages/home/categoria-editar/categoria-editar.component';
 import { CamionesCrearComponent } from './pages/home/camiones-crear/camiones-crear.component';
 import { CamionesEditarComponent } from './pages/home/camiones-editar/camiones-editar.component';
+import { RecoverPasswordComponent } from './pages/login/recover-password/recover-password.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CamionesEditarComponent } from './pages/home/camiones-editar/camiones-e
     CategoriaEditarComponent,
     CamionesCrearComponent,
     CamionesEditarComponent,
+    RecoverPasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-ue-poblacion-beneficiada',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UePoblacionBeneficiadaComponent implements OnInit {
 
-  constructor() { }
+  colegios: any = '';
+
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
+    this.service.listarUnidadesEducativas().subscribe(resp => {
+      this.colegios = resp;
+
+      console.log(this.colegios);
+    });
   }
 
 }

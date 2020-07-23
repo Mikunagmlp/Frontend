@@ -9,7 +9,7 @@
 <section id="wrapper">
   <div class="login-register" style="background-image:url(../../../assets/images/fondo-amarillo-login.jpg);">
     <div class="login-box card">
-      <div class="card-body">
+      <div class="card-body" *ngIf="!recover" >
 
         <form
           (ngSubmit)="login(f)"
@@ -49,20 +49,6 @@
               </div>
             </div>
 
-            <div class="form-group row">
-              <div class="col-md-12">
-                  <div class="checkbox checkbox-info pull-left p-t-0">
-                    <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
-                    <label for="checkbox-signup" class="text-primary" > Recuerdame </label>
-                  </div>
-
-                    <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right">
-                      <i class="fa fa-lock m-r-5"></i>
-                      ¿Olvidaste tu contraseña?
-                    </a>
-              </div>
-            </div>
-
             <div class="form-group text-center">
               <div class="col-xs-12 p-b-20">
                 <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar</button>
@@ -73,25 +59,66 @@
             </div>
         </form>
 
-        <form class="form-horizontal" id="recoverform" action="index.html">
+        <div class="form-group row">
+          <div class="col-md-12">
+            <div class="checkbox checkbox-info pull-left p-t-0">
+              <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+              <label for="checkbox-signup" class="text-primary" > Recuerdame </label>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-dark pull-right"
+              data-target="#recover"
+              (click)="recover  = !recover"
+              data-dismiss="modal" >recuperar password</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card-body" *ngIf="recover" >
+
+        <form
+          class="form-horizontal form-material "
+          action="index.html">
+
+          <a href="#" class="text-center db" >
+            <img src="../../../assets/images/logo-sidace.png" width="150" height="100" alt="Home" />
+            <h4>Recover password</h4>
+            <br/>
+          </a>
+
+          <h3 class="box-title m-b-20"></h3>
+
           <div class="form-group ">
             <div class="col-xs-12">
-              <h3>¿Olvidó su contraseña?</h3>
-              <p class="text-muted">Ingrese un correo electrónico y le será enviado instrucciones para recuperar su contraseña </p>
+              <input
+                #email
+                class="form-control"
+                type="email"
+                required="true"
+                placeholder="Correo electrónico">
             </div>
           </div>
-          <div class="form-group ">
-            <div class="col-xs-12">
-              <input class="form-control" type="text" required="" placeholder="Correo Electrónico"> </div>
-          </div>
-          <div class="form-group text-center m-t-20">
-            <div class="col-xs-12">
-              <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Enviar</button>
+
+          <div class="form-group text-center">
+            <div class="col-xs-12 p-b-20">
+              <button
+                (click)="recoverPassword(email)"
+                class="btn btn-block btn-lg btn-warning btn-rounded"
+                type="submit">Enviar</button>
             </div>
+          </div>
+          <div class="form-group m-b-0">
+              <button
+                (click)="recover = !recover"
+                class="btn btn-block btn-sm btn-danger btn-rounded">Cancelar</button>
           </div>
         </form>
 
       </div>
+
     </div>
   </div>
 </section>
