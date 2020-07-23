@@ -33,18 +33,21 @@ export class UeEditarComponent implements OnInit {
     // console.log(this.colegioEditar);
   }
 
-  editarColegio( nmc, rut, dis, cod, tur, cat, cant, tel, dir ) {
-    this.colegio.NombreColegio = nmc.value;
-    this.colegio.Ruta = rut.value;
-    this.colegio.Distrito = dis.value;
-    this.colegio.CodColegio = cod.value;
-    this.colegio.Turno = tur.value;
-    this.colegio.Categoria = cat.value;
-    this.colegio.CantidadAlumnos = cant.value;
-    this.colegio.Telefono = tel.value;
-    this.colegio.Direccion = dir.value;
+  editarColegio( nmc, tur, categoria, rut, distrito, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel ) {
 
-    // console.log(this.colegio, this.colegioEditar._id);
+    this.colegio.NombreColegio = nmc.value;
+    this.colegio.Turno = tur.value;
+    this.colegio.Categoria = categoria.value;
+    this.colegio.Ruta = rut.value;
+    this.colegio.Distrito = distrito.value;
+    this.colegio.CantidadAlumnosInicial = alumnosInicial.value;
+    this.colegio.CantidadAlumnosPrimaria = alumnosPrimaria.value;
+    this.colegio.CantidadAlumnosSecundaria = alumnosSecundaria.value;
+    this.colegio.Encargado = encargado.value;
+    this.colegio.Direccion = dir.value;
+    this.colegio.Telefono = tel.value;
+
+    console.log(this.colegio, this.colegioEditar._id);
     this.service.actualizarUnidadEducativa( this.colegio, this.colegioEditar._id ).subscribe( resp => {
       console.log(resp);
 

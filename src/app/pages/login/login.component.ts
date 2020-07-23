@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   usuario: UserModel = new UserModel();
+  recover: boolean = false;
 
   constructor( private service: UserService, private router: Router) { }
 
@@ -29,6 +30,12 @@ export class LoginComponent implements OnInit {
       console.log(resp);
       this.router.navigateByUrl('/home');
     });
+  }
+
+  recoverPassword(email) {
+    console.log(email.value);
+
+    this.router.navigateByUrl('/recover-password');
   }
 
 }

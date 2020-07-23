@@ -7,4 +7,5 @@ export class ProductoModel {
   IdCategoria: any;
   IdProveedor: any;
   IdAlmacen: any;
+  Lote: string;
 }

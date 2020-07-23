@@ -28,15 +28,15 @@
 
 
               <!-- Buscador interno -->
-              <div class="row m-t-40">
+<!--              <div class="row m-t-40">-->
 
-                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                <form class="app-search">
-                  <input type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>
+<!--                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>-->
+<!--                <form class="app-search">-->
+<!--                  <input type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>-->
 
-                <button type="button">Buscar</button>
+<!--                <button type="button">Buscar</button>-->
 
-              </div>
+<!--              </div>-->
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de Usuarios -->
@@ -46,8 +46,12 @@
                       <tr>
                         <th>Código</th>
                         <th>Nombre</th>
+                        <th>Nivel</th>
                         <th>Distrito</th>
-                        <th>Número de estudiantes</th>
+                        <th>Director</th>
+                        <th>Alumnos Incial</th>
+                        <th>Alumnos Primaria</th>
+                        <th>Alumnos Secundaria</th>
 
                       </tr>
                     </thead>
@@ -56,8 +60,12 @@
                         <tr *ngFor="let colegio of colegios; let i = index" >
                             <td> {{ colegio.CodColegio }} </td>
                             <td> {{ colegio.NombreColegio }} </td>
+                            <td> {{ colegio.Categoria }} </td>
                             <td> {{ colegio.Distrito }} </td>
-                            <td> {{ colegio.CantidadAlumnos }} </td>
+                            <td> {{ colegio.Encargado }} </td>
+                            <td> {{ colegio.CantidadAlumnosInicial }} </td>
+                            <td> {{ colegio.CantidadAlumnosPrimaria }} </td>
+                            <td> {{ colegio.CantidadAlumnosSecundaria }} </td>
                             <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
                             <button
                               (click)="eliminar(i)"
@@ -114,30 +122,21 @@
                                           [value]="colegioEditar.NombreColegio" >
                                       </div>
 
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Código del colegio</label>
-                                        <input
-                                          #cod
-                                          type="text"
-                                          class="form-control"
-                                          [value]="colegioEditar.CodColegio">
-                                      </div>
+<!--                                      <div class="form-group row">-->
+<!--                                        <label class="control-label text-right col-md-3">Nivel</label>-->
+<!--                                        <div class="col-md-9">-->
 
-                                      <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Nivel</label>
-                                        <div class="col-md-9">
-                                         
-                                          <div class="demo-checkbox">
-                                                        
-                                            <input type="checkbox" id="md_checkbox_inicial" class="filled-in chk-col-blue" checked />
-                                            <label for="md_checkbox_inicial">Inicial</label>
-                                            <input type="checkbox" id="md_checkbox_primaria" class="filled-in chk-col-blue"  />
-                                            <label for="md_checkbox_primaria">Primaria</label>
-                                             <input type="checkbox" id="md_checkbox_secundaria" class="filled-in chk-col-blue" />
-                                            <label for="md_checkbox_secundaria">Secundaria</label>
-                                          </div>
-                                        </div>
-                                      </div>
+<!--                                          <div class="demo-checkbox">-->
+
+<!--                                            <input type="checkbox" id="md_checkbox_inicial" class="filled-in chk-col-blue" checked />-->
+<!--                                            <label for="md_checkbox_inicial">Inicial</label>-->
+<!--                                            <input type="checkbox" id="md_checkbox_primaria" class="filled-in chk-col-blue"  />-->
+<!--                                            <label for="md_checkbox_primaria">Primaria</label>-->
+<!--                                             <input type="checkbox" id="md_checkbox_secundaria" class="filled-in chk-col-blue" />-->
+<!--                                            <label for="md_checkbox_secundaria">Secundaria</label>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Turno</label>
@@ -149,6 +148,15 @@
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Categoria</label>
+                                        <input
+                                          #categoria
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Categoria">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Ruta</label>
                                         <input
                                           #rut
@@ -157,34 +165,46 @@
                                           [value]="colegioEditar.Ruta">
                                       </div>
 
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Distrito</label>
+                                        <input
+                                          #distrito
+                                          type="text"
+                                          class="form-control"
+                                          [value]="colegioEditar.Distrito">
+                                      </div>
+
                                       <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Número de estudiantes Inicial</label>
                                         <div class="col-md-9">
                                           <input
-                                            
+                                            #alumnosInicial
+                                            [value]="colegioEditar.CantidadAlumnosInicial"
                                             type="number"
                                             class="form-control">
-                                          
+
                                         </div>
                                       </div>
                                       <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Número de estudiantes Primaria</label>
                                         <div class="col-md-9">
                                           <input
-                                            
+                                            #alumnosPrimaria
+                                            [value]="colegioEditar.CantidadAlumnosPrimaria"
                                             type="number"
                                             class="form-control">
-                                          
+
                                         </div>
                                       </div>
                                       <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Número de estudiantes Secundaria</label>
                                         <div class="col-md-9">
                                           <input
-                                           
+                                            #alumnosSecundaria
+                                            [value]="colegioEditar.CantidadAlumnosSecundaria"
                                             type="number"
                                             class="form-control">
-                                         
+
                                         </div>
                                       </div>
 
@@ -192,15 +212,14 @@
                                         <label class="control-label text-right col-md-3">Director del establecimiento</label>
                                         <div class="col-md-9">
                                           <input
-                                           
+                                            #encargado
+                                            [value]="colegioEditar.Encargado"
+                                            type="text"
                                             class="form-control">
-                                         
+
                                         </div>
                                       </div>
 
-                                     
-
-                                      
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Direccion</label>
@@ -211,7 +230,7 @@
                                           [value]="colegioEditar.Direccion">
                                       </div>
 
-                                     
+
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Telefono de referencia</label>
@@ -222,16 +241,16 @@
                                           [value]="colegioEditar.Telefono">
                                       </div>
 
-                                     
+
 
                                     </div>
                                     <div class="modal-footer">
-                                     <!--  <button
-                                        (click)="editarColegio( nmc, rut, dis, cod, tur, cat, cant, tel, dir )"
+                                      <button
+                                        (click)="editarColegio( nmc, tur, categoria, rut, distrito, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel )"
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal">Guardar</button>
- -->
+
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                     </div>
                                   </form>

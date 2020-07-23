@@ -61,7 +61,7 @@ export class ProductosEditarComponent implements OnInit {
     this.listarCategorias();
   }
 
-  editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria) {
+  editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria, lote) {
     this.producto.NombreProducto = nombre.value;
     this.producto.PrecioProducto = precio.value;
     this.producto.CantidadProducto = cantidad.value;
@@ -69,6 +69,7 @@ export class ProductosEditarComponent implements OnInit {
     this.producto.IdProveedor = proveedor.value;
     this.producto.IdAlmacen = almacen.value;
     this.producto.IdCategoria = categoria.value;
+    this.producto.Lote = lote.value;
 
     this.service.actualizarProducto(this.producto, this.productoEditar._id).subscribe(resp => {
       location.reload();

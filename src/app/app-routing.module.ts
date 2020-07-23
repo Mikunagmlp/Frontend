@@ -19,11 +19,13 @@ import {CategoriaCrearComponent} from "./pages/home/categoria-crear/categoria-cr
 import {CategoriaEditarComponent} from "./pages/home/categoria-editar/categoria-editar.component";
 import {CamionesCrearComponent} from "./pages/home/camiones-crear/camiones-crear.component";
 import {CamionesEditarComponent} from "./pages/home/camiones-editar/camiones-editar.component";
+import {RecoverPasswordComponent} from "./pages/login/recover-password/recover-password.component";
 
 
 const routes: Routes = [
   // { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'recover-password', component: RecoverPasswordComponent },
 
   // TODO: para produccion utilizar lo que esta comentado
   // { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] , children:[

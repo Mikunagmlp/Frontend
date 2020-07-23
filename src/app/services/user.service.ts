@@ -102,7 +102,7 @@ export class UserService {
     return this.http.get( `${this.url}/colegios` );
   }
 
-  actualizarUnidadEducativa( ue: UnidadEducativaModel, id: string ) {
+  actualizarUnidadEducativa( ue: UnidadEducativaModel, id ) {
     return this.http.patch( `${this.url}/colegio/editar/${id}`, ue );
   }
 
@@ -194,5 +194,8 @@ export class UserService {
   eliminarCamion(id) {
     return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: false})
   }
+
+  // TODO: RECOVER PASSWORD
+
 
 }

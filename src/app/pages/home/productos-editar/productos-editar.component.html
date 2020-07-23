@@ -29,15 +29,15 @@
 
 
               <!-- Buscador interno -->
-              <div class="row m-t-40">
+<!--              <div class="row m-t-40">-->
 
-                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                <form class="app-search">
-                  <input type="text" class="form-control" placeholder="Buscar Producto"> <a class="srh-btn"></a> </form>
+<!--                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>-->
+<!--                <form class="app-search">-->
+<!--                  <input type="text" class="form-control" placeholder="Buscar Producto"> <a class="srh-btn"></a> </form>-->
 
-                <button type="button">Buscar</button>
+<!--                <button type="button">Buscar</button>-->
 
-              </div>
+<!--              </div>-->
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de productoes -->
@@ -51,6 +51,7 @@
                         <th>Proveedor</th>
                         <th>Almacen</th>
                         <th>Categoria</th>
+                        <th>Lote</th>
 
                       </tr>
                     </thead>
@@ -64,7 +65,6 @@
                             <td> {{ producto.IdProveedor.NombreProveedor }} </td>
                             <td> {{ producto.IdAlmacen.NombreAlmacen }} </td>
                             <td> {{ producto.IdCategoria.NombreCategoria }} </td>
-
 
 
                             <button
@@ -203,6 +203,15 @@
                                         </div>
                                       </div>
 
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Lote</label>
+                                        <input
+                                          #lote
+                                          type="text"
+                                          [value]="productoEditar.Lote"
+                                          class="form-control">
+                                      </div>
+
 
                                     </div>
 
@@ -211,7 +220,7 @@
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal"
-                                        (click)="editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria)"
+                                        (click)="editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria, lote)"
                                         >Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
