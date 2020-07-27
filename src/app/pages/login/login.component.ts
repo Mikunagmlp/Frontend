@@ -35,7 +35,12 @@ export class LoginComponent implements OnInit {
   recoverPassword(email) {
     console.log(email.value);
 
-    this.router.navigateByUrl('/recover-password');
+
+    this.service.resetPassword(email.value).subscribe(resp => {
+      console.log(resp);
+    });
+
+
   }
 
 }
