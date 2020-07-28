@@ -55,14 +55,38 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let colegio of colegios" >
+                        <tr *ngFor="let colegio of colegios; let i = index;" >
                             <td> {{ colegio.CodColegio }} </td>
                             <td> {{ colegio.NombreColegio }} </td>
-                            <td> {{ colegio.CantidadAlumnosInicial }} </td>
-                            <td> {{ colegio.CantidadAlumnosPrimaria }} </td>
-                            <td> {{ colegio.CantidadAlumnosSecundaria }} </td>
+<!--                            <td> {{ colegio.CantidadAlumnosInicial }} </td>-->
+                            <td>
+                              <input
+                                #inicial
+                                [value]="colegio.CantidadAlumnosInicial"
+                                class="form-control"
+                                type="number">
+                            </td>
+                          <td>
+                            <input
+                              #primaria
+                              [value]="colegio.CantidadAlumnosPrimaria"
+                              class="form-control"
+                              type="number">
+                          </td>
+                          <td>
+                            <input
+                              #secundaria
+                              [value]="colegio.CantidadAlumnosSecundaria"
+                              class="form-control"
+                              type="number">
+                          </td>
 
-
+                          <button
+                            (click)="actualizar(inicial, primaria, secundaria, i)"
+                            type="button"
+                            class="btn btn-warning btn-rounded"
+                            data-toggle="modal"
+                            data-target="#add-contact" >Actualizar</button>
 
                         </tr>
 
