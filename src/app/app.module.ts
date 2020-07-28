@@ -27,6 +27,13 @@ import { CategoriaEditarComponent } from './pages/home/categoria-editar/categori
 import { CamionesCrearComponent } from './pages/home/camiones-crear/camiones-crear.component';
 import { CamionesEditarComponent } from './pages/home/camiones-editar/camiones-editar.component';
 import { RecoverPasswordComponent } from './pages/login/recover-password/recover-password.component';
+import { UsuariosEliminadosComponent } from './pages/home/eliminados/usuarios-eliminados/usuarios-eliminados.component';
+import { ColegiosEliminadosComponent } from './pages/home/eliminados/colegios-eliminados/colegios-eliminados.component';
+import { ProveedoresEliminadosComponent } from './pages/home/eliminados/proveedores-eliminados/proveedores-eliminados.component';
+import { AlmacenesEliminadosComponent } from './pages/home/eliminados/almacenes-eliminados/almacenes-eliminados.component';
+import { CategoriasEliminadosComponent } from './pages/home/eliminados/categorias-eliminados/categorias-eliminados.component';
+import { ProductosEliminadosComponent } from './pages/home/eliminados/productos-eliminados/productos-eliminados.component';
+import { CamionesEliminadosComponent } from './pages/home/eliminados/camiones-eliminados/camiones-eliminados.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +59,13 @@ import { RecoverPasswordComponent } from './pages/login/recover-password/recover
     CamionesCrearComponent,
     CamionesEditarComponent,
     RecoverPasswordComponent,
+    UsuariosEliminadosComponent,
+    ColegiosEliminadosComponent,
+    ProveedoresEliminadosComponent,
+    AlmacenesEliminadosComponent,
+    CategoriasEliminadosComponent,
+    ProductosEliminadosComponent,
+    CamionesEliminadosComponent,
   ],
   imports: [
     BrowserModule,
