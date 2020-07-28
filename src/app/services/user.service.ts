@@ -76,6 +76,10 @@ export class UserService {
     return this.http.post(`${this.url}/administracion/user/registro`, usuario, { headers: this.header });
   }
 
+  buscarUsuario(query) {
+    return this.http.get(`${this.url}/administracion/search/user?q=${query}`);
+  }
+
   // TODO: ROLES
   crearRol(rol: RolModel) {
     return this.http.post(`${this.url}/rol/create`, rol );

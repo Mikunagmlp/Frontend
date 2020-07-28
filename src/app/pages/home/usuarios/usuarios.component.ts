@@ -103,7 +103,8 @@ export class UsuariosComponent implements OnInit {
     this.service.actualizarUsuario( this.usuario, this.usuarioEditar._id ).subscribe( resp => {
       // this.usuarios[this.index] = resp;
       // this.rolesEditar = [];
-      location.reload();
+      this.usuarios[this.index] = resp;
+      // location.reload();
     });
   }
 
@@ -116,6 +117,15 @@ export class UsuariosComponent implements OnInit {
   confirmarEliminacion() {
     this.service.deleteUsuario( this.usuarios[this.indexEliminar]._id ).subscribe(() => {
       location.reload();
+    });
+  }
+
+  buscarUsuario(query) {
+    let qr = query.value;
+
+    this.service.buscarUsuario(qr).subscribe(resp => {
+      console.log(resp);
+      this.usuarios = resp;
     });
   }
 
