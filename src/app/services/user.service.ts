@@ -81,21 +81,21 @@ export class UserService {
   }
 
   // TODO: ROLES
-  crearRol(rol: RolModel) {
-    return this.http.post(`${this.url}/rol/create`, rol );
-  }
+  // crearRol(rol: RolModel) {
+  //   return this.http.post(`${this.url}/rol/create`, rol );
+  // }
 
   pedirRoles() {
     return this.http.get(`${this.url}/roles`);
   }
 
-  actualizarRol( rol: RolModel, id ) {
-    return this.http.put( `${this.url}/rol/editar/${id}`, rol );
-  }
-
-  disableRol( id: string ) {
-    return this.http.put( `${this.url}/rol/desable/${id}`, { Estado: false }  );
-  }
+  // actualizarRol( rol: RolModel, id ) {
+  //   return this.http.put( `${this.url}/rol/editar/${id}`, rol );
+  // }
+  //
+  // disableRol( id: string ) {
+  //   return this.http.put( `${this.url}/rol/desable/${id}`, { Estado: false }  );
+  // }
 
   // TODO: UNIDADES EDUCATIVAS
   crearUnidadEducativa( ue: UnidadEducativaModel ) {
@@ -112,6 +112,10 @@ export class UserService {
 
   eliminarUnidadEducativa( id: string) {
     return this.http.patch( `${this.url}/colegio/eliminar/${id}`, { Estado: false } );
+  }
+
+  buscarUnidadEducativa(query) {
+    return this.http.get(`${this.url}/colegio/search?q=${query}`);
   }
 
   // TODO: PROVEEDORES

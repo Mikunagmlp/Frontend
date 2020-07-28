@@ -67,4 +67,12 @@ export class UeEditarComponent implements OnInit {
     });
   }
 
+  buscarColegio(query) {
+    let qr = query.value;
+
+    this.service.buscarUnidadEducativa(qr).subscribe(resp => {
+      this.colegios = resp;
+    });
+  }
+
 }
