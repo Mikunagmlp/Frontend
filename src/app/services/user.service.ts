@@ -135,6 +135,10 @@ export class UserService {
     return this.http.patch(`${this.url}/proveedor/disable/${id}`,{ Estado: false });
   }
 
+  buscarProveedor(query) {
+
+  }
+
   // TODO: ALMACENES
   registrarAlmacen( almacen: AlmacenModel ) {
     return this.http.post(`${this.url}/almacen/registrar`, almacen);

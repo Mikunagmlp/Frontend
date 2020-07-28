@@ -32,9 +32,9 @@
 
                 <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                 <form class="app-search">
-                  <input type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>
+                  <input #query type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>
 
-                <button type="button">Buscar</button>
+                <button (click)="buscarUnidadesEducativas(query)" type="button">Buscar</button>
 
               </div>
               <!-- End Buscador interno -->

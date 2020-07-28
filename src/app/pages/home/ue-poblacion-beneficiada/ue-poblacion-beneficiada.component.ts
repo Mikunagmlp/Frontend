@@ -21,4 +21,12 @@ export class UePoblacionBeneficiadaComponent implements OnInit {
     });
   }
 
+  buscarUnidadesEducativas(query) {
+    let q = query.value;
+
+    this.service.buscarUnidadEducativa(q).subscribe(resp => {
+      this.colegios = resp;
+    });
+  }
+
 }
