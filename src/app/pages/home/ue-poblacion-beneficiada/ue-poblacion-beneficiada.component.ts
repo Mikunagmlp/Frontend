@@ -38,10 +38,8 @@ export class UePoblacionBeneficiadaComponent implements OnInit {
 
     this.col.NombreColegio = c.NombreColegio;
     this.col.Ruta = c.Ruta;
-    this.col.Distrito = c.Distrito;
     this.col.CodColegio = c.CodColegio;
     this.col.Turno = c.Turno;
-    this.col.Categoria = c.Categoria;
     this.col.Telefono = c.Telefono;
     this.col.Direccion = c.Direccion;
     this.col.Encargado = c.Encargado;
