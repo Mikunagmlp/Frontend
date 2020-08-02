@@ -37,9 +37,7 @@ export class UeEditarComponent implements OnInit {
 
     this.colegio.NombreColegio = nmc.value;
     this.colegio.Turno = tur.value;
-    this.colegio.Categoria = categoria.value;
     this.colegio.Ruta = rut.value;
-    this.colegio.Distrito = distrito.value;
     this.colegio.CantidadAlumnosInicial = alumnosInicial.value;
     this.colegio.CantidadAlumnosPrimaria = alumnosPrimaria.value;
     this.colegio.CantidadAlumnosSecundaria = alumnosSecundaria.value;
