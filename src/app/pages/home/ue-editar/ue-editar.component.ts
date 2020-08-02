@@ -33,7 +33,7 @@ export class UeEditarComponent implements OnInit {
     // console.log(this.colegioEditar);
   }
 
-  editarColegio( nmc, tur, categoria, rut, distrito, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel ) {
+  editarColegio( nmc, tur, rut, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel ) {
 
     this.colegio.NombreColegio = nmc.value;
     this.colegio.Turno = tur.value;
