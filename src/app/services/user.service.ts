@@ -80,22 +80,19 @@ export class UserService {
     return this.http.get(`${this.url}/administracion/search/user?q=${query}`);
   }
 
+  listarUsuariosEliminados() {
+    return this.http.get(`${this.url}/administracion/usersdisabled`);
+  }
+
+  habilitarUsuario(id) {
+    return this.http.patch(`${this.url}/administracion/user/editar/${id}`, { Estado: true });
+  }
+
   // TODO: ROLES
-  // crearRol(rol: RolModel) {
-  //   return this.http.post(`${this.url}/rol/create`, rol );
-  // }
 
   pedirRoles() {
     return this.http.get(`${this.url}/roles`);
   }
-
-  // actualizarRol( rol: RolModel, id ) {
-  //   return this.http.put( `${this.url}/rol/editar/${id}`, rol );
-  // }
-  //
-  // disableRol( id: string ) {
-  //   return this.http.put( `${this.url}/rol/desable/${id}`, { Estado: false }  );
-  // }
 
   // TODO: UNIDADES EDUCATIVAS
   crearUnidadEducativa( ue: UnidadEducativaModel ) {
@@ -118,6 +115,14 @@ export class UserService {
     return this.http.get(`${this.url}/colegio/search?q=${query}`);
   }
 
+  listarColegiosEliminados() {
+    return this.http.get(`${this.url}/colegios/disabled`);
+  }
+
+  habilitarColegio(id){
+    return this.http.patch(`${this.url}/colegio/editar/${id}`, { Estado: true });
+  }
+
   // TODO: PROVEEDORES
   crearProveedor( proveedor: ProveedorModel ) {
     return this.http.post(`${this.url}/proveedor/registrar`, proveedor);
@@ -135,6 +140,13 @@ export class UserService {
     return this.http.patch(`${this.url}/proveedor/disable/${id}`,{ Estado: false });
   }
 
+  listarProveedoresEliminados(){
+    return this.http.get(`${this.url}/proveedores/disabled`);
+  }
+
+  habilitarProveedor(id) {
+    return this.http.patch(`${this.url}/proveedor/editar/${id}`, { Estado: true });
+  }
 
   // TODO: ALMACENES
   registrarAlmacen( almacen: AlmacenModel ) {
@@ -151,6 +163,14 @@ export class UserService {
 
   eliminarAlmacen(id){
     return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: false });
+  }
+
+  listarAlmacenesEliminados() {
+    return this.http.get(`${this.url}/almacenes/disabled`);
+  }
+
+  habilitarAlmacen(id){
+    return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: true });
   }
 
   // TODO: PRODUCTOS
@@ -170,6 +190,14 @@ export class UserService {
     return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: false });
   }
 
+  listarProductosEliminados() {
+    return this.http.get(`${this.url}/productos/disabled`);
+  }
+
+  habilitarProducto(id) {
+    return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: true });
+  }
+
   // TODO: CATEGORIAS
   registrarCategoria( categoria: CategoriaModel ) {
     return this.http.post(`${this.url}/categoria/registrar`, categoria);
@@ -187,6 +215,14 @@ export class UserService {
     return this.http.patch(`${this.url}/categoria/editar/${id}`, { Estado: false });
   }
 
+  listarCategoriasEliminadas() {
+    return this.http.get(`${this.url}/categorias/disabled`);
+  }
+
+  habilitarCategoria(id) {
+    return this.http.patch(`${this.url}/categoria/editar/${id}`, { Estado: true });
+  }
+
   // TODO: CAMIONES
   registrarCamion( camion: CamionModel ){
     return this.http.post(`${this.url}/camion/registrar`, camion);
@@ -201,7 +237,15 @@ export class UserService {
   }
 
   eliminarCamion(id) {
-    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: false})
+    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: false});
+  }
+
+  listarCamionesEliminados(){
+    return this.http.get(`${this.url}/camiones/disabled`);
+  }
+
+  habilitarCamion(id) {
+    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: true});
   }
 
   // TODO: RECOVER PASSWORD

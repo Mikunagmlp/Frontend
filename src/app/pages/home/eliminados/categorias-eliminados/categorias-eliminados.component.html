@@ -1,37 +1,37 @@
 <div class="page-wrapper">
 
     <div class="container-fluid">
-  
+
       <div class="row page-titles">
         <div class="col-md-5 align-self-center">
           <h3 class="text-themecolor">Datos Eliminados Categorias</h3>
         </div>
-  
+
         <div class="col-md-7 align-self-center">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="javascript:void(0)">Datos Eliminados</a>
             </li>
             <li class="breadcrumb-item">Categorias</li>
-  
+
           </ol>
         </div>
-  
+
         <div class="">
           <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10">
             <i class="ti-settings text-white"></i>
           </button>
         </div>
       </div>
-  
-  
+
+
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-body">
               <h6 class="card-subtitle">Los presentes datos eliminados de categorias están disponibles para ser habilitados </h6>
-             
-  
+
+
               <!-- Inicio Tabla -->
               <div class="table-responsive">
                 <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
@@ -40,39 +40,30 @@
                         <th>Nombre</th>
                         <th>Código</th>
                         <th>Descripción</th>
-                        
+
                         </tr>
                     </thead>
-  
+
                     <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>1</td>
-                         
-                        
+                      <tr *ngFor="let categorias of categoriasEliminadas; let i = index;" >
+                          <td>{{ categorias.NombreCategoria }}</td>
+                          <td>{{ categorias.CodigoCategoria }}</td>
+                          <td>{{ categorias.Descripcion }}</td>
+
                         <td >
-                          <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#habilitar3"  >Habilitar</button>
-                          
+                          <button
+                            (click)="botonHabilitar(i)"
+                            type="button"
+                            class="btn btn-info btn-rounded"
+                            data-toggle="modal"
+                            data-target="#habilitar3"  >Habilitar</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
-                        
-                      
-                      <td >
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#habilitar3"  >Habilitar</button>
-                        
-                      </td>
 
-                     </tr>
-                        
-  
+
                     </tbody>
                     <tfoot>
-  
+
                         <div id="habilitar3" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
@@ -80,31 +71,35 @@
                                 <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea habilitar este categoría?</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                               </div>
-  
+
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-info btn-rounded" data-dismiss="modal">Habilitar</button>
+                                <button
+                                  (click)="habilitar()"
+                                  type="button"
+                                  class="btn btn-info btn-rounded"
+                                  data-dismiss="modal">Habilitar</button>
                                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                               </div>
                             </div>
-  
+
                           </div>
                         </div>
                      </tfoot>
 
 
-                      
-                      
-  
+
+
+
                 </table>
-              
-  
-  
-           
+
+
+
+
       </div>
-  
-    
+
+
     <footer class="footer"> © 2020 Sidace GAMLP </footer>
-  
-  
+
+
 
 

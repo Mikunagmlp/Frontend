@@ -1,37 +1,37 @@
 <div class="page-wrapper">
 
     <div class="container-fluid">
-  
+
       <div class="row page-titles">
         <div class="col-md-5 align-self-center">
           <h3 class="text-themecolor">Datos Eliminados Almacenes</h3>
         </div>
-  
+
         <div class="col-md-7 align-self-center">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="javascript:void(0)">Datos Eliminados</a>
             </li>
             <li class="breadcrumb-item">Almacenes</li>
-  
+
           </ol>
         </div>
-  
+
         <div class="">
           <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10">
             <i class="ti-settings text-white"></i>
           </button>
         </div>
       </div>
-  
-  
+
+
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-body">
               <h6 class="card-subtitle">Los presentes datos eliminados de Almacenes están disponibles para ser habilitados </h6>
-             
-  
+
+
               <!-- Inicio Tabla -->
               <div class="table-responsive">
                 <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
@@ -40,39 +40,26 @@
                         <th>Código</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        
+
                         </tr>
                     </thead>
-  
+
                     <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>1</td>
-                        
+                      <tr *ngFor="let almacen of almacenes; let i = index;" >
+                          <td>{{ almacen.CodigoAlmacen }}</td>
+                          <td>{{ almacen.NombreAlmacen }}</td>
+                          <td>{{ almacen.Descripcion }}</td>
+
                         <td >
-                          <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#habilitar"  >Habilitar</button>
-                          
+                          <button
+                            (click)="botonHabilitar(i)"
+                            type="button"
+                            class="btn btn-info btn-rounded"
+                            data-toggle="modal"
+                            data-target="#habilitar" >Habilitar</button>
                         </td>
-  
-                        
                       </tr>
 
-
-                      <tr>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
-                      
-                      <td >
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#habilitar"  >Habilitar</button>
-                        
-                      </td>
-
-                      </tr>
-  
                     </tbody>
 
                     <tfoot>
@@ -83,29 +70,33 @@
                                   <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea habilitar este almacén?</h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 </div>
-    
+
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-info btn-rounded" data-dismiss="modal">Habilitar</button>
+                                  <button
+                                    (click)="habilitar()"
+                                    type="button"
+                                    class="btn btn-info btn-rounded"
+                                    data-dismiss="modal">Habilitar</button>
                                   <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
                                 </div>
                               </div>
-    
+
                             </div>
                           </div>
 
 
 
                     </tfoot>
-  
-  
+
+
                 </table>
-              
-  
-  
-           
+
+
+
+
       </div>
-  
-    
+
+
     <footer class="footer"> © 2020 Sidace GAMLP </footer>
-  
-  
+
+
