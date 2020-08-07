@@ -27,6 +27,10 @@ import {AlmacenesEliminadosComponent} from "./pages/home/eliminados/almacenes-el
 import {CategoriasEliminadosComponent} from "./pages/home/eliminados/categorias-eliminados/categorias-eliminados.component";
 import {ProductosEliminadosComponent} from "./pages/home/eliminados/productos-eliminados/productos-eliminados.component";
 import {CamionesEliminadosComponent} from "./pages/home/eliminados/camiones-eliminados/camiones-eliminados.component";
+import {CalculosDiariosComponent} from "./pages/home/calculos-diarios/calculos-diarios.component";
+import {MenuElaboracionComponent} from "./pages/home/menu-elaboracion/menu-elaboracion.component";
+import {MenuEbaComponent} from "./pages/home/menu-eba/menu-eba.component";
+import {MenuJefaComponent} from "./pages/home/menu-jefa/menu-jefa.component";
 
 
 const routes: Routes = [
@@ -70,6 +74,11 @@ const routes: Routes = [
       { path: 'categorias-eliminados', component:CategoriasEliminadosComponent },
       { path: 'productos-eliminados', component:ProductosEliminadosComponent },
       { path: 'camiones-eliminados', component:CamionesEliminadosComponent },
+
+      { path: 'calculos-diarios', component: CalculosDiariosComponent },
+      { path: 'menu-elaboracion', component: MenuElaboracionComponent },
+      { path: 'menu-eba', component: MenuEbaComponent },
+      { path: 'menu-jefa', component: MenuJefaComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },
