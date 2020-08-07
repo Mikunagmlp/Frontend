@@ -189,7 +189,7 @@
           <li>
             <div class="card-header" id="headingEight" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/plasticine/100/000000/truck.png" width="35" height="35"/>
+                <img src="https://img.icons8.com/color/48/000000/delete-database.png" width="30" height="30 "/>
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
                   Datos Eliminados
                 </button>
@@ -210,6 +210,32 @@
               </div>
             </div>
           </li>
+
+<!------------ MENÚ---------------->
+
+<li>
+  <div class="card-header" id="headingNine" >
+    <h2 class="mb-0" >
+      <img src="https://img.icons8.com/color/48/000000/strawberry.png" width="30" height="30"/>
+      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+        Menú
+      </button>
+    </h2>
+  </div>
+
+  <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+    <div class="card-body">
+      <ul>
+        <li><a [routerLink]="['/home/calculos-diarios']">Calculos Diarios</a></li>
+        <li><a [routerLink]="['/home/menu-elaboracion']">Elaboración</a></li>
+        <li><a [routerLink]="['/home/menu-eba']">Aprobación EBA</a></li>
+        <li><a [routerLink]="['/home/menu-jefa']">Aprobación Final</a></li>
+       
+      </ul>
+    </div>
+  </div>
+</li>
+
 
 <!--          calculos diarios  [routerLink]="['/home/calculos-diarios']" -->
 

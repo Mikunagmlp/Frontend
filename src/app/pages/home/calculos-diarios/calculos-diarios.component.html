@@ -1,1 +1,269 @@
-<p>calculos-diarios works!</p>
+<div class="page-wrapper">
+    <div class="container-fluid">
+  
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+          <h3 class="text-themecolor">Calculos Diarios</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Menú</a></li>
+            <li class="breadcrumb-item">Calculos Diarios</li>
+  
+          </ol>
+        </div>
+        <div class="">
+          <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+  
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Calculos Diarios</h4>
+        
+        <div class="table-responsive m-t-40">
+            <table class="table color-table warning-table">
+                                      
+                
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Producto</th>
+                        <th>Categoria</th>
+                        <th>Nivel</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td>Banana </td>
+                        <td>Frutas</td>
+                        <td>Inicial</td>
+                        <td >
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#Calcular" >Calcular</button>
+                            
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>Banana </td>
+                        <td>Frutas</td>
+                        <td>Primaria</td>
+                        <td >
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#Calcular" >Calcular</button>
+                            
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td>Banana </td>
+                        <td>Frutas</td>
+                        <td>Secundaria</td>
+                        <td >
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#Calcular" >Calcular</button>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td> Leche Milk </td>
+                        <td>Lacteos</td>
+                        <td>Inicial</td>
+                        <td >
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#Calcular" >Calcular</button>
+                            
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td>Leche Milk</td>
+                        <td>Lacteos</td>
+                        <td>Primaria</td>
+                        <td >
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#Calcular" >Calcular</button>
+                            
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td>Leche Milk </td>
+                        <td>Lacteos</td>
+                        <td>Secundaria</td>
+                        <td >
+                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#Calcular" >Calcular</button>
+                            
+                        </td>
+                    </tr>
+
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">CALCULO DIARIO SELECCIONADO</h4>
+           
+            <div class="table-responsive">
+                <table class="table color-table warning-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Población Beneficiaria</th>
+                            <th>Cantidad</th>
+                            <th>Frecuencia Inicial</th>
+                            <th>Presupuesto Inicial(Bs.-)</th>
+                            <th>Frecuencia Disponible</th>
+                            <th>Presupuesto Disponible(Bs.-)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Población Nivel Inicial</td>
+                            <td>1200</td>
+                            <td>59</td>
+                            <td>120000</td>
+                            <td>20</td>
+                            <td>80000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Población Nivel Primaria</td>
+                            <td>5007</td>
+                            <td>42</td>
+                            <td>230000</td>
+                            <td>27</td>
+                            <td>100500</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Población Nivel Secundaria</td>
+                            <td>9023</td>
+                            <td>50</td>
+                            <td>278000</td>
+                            <td>31</td>
+                            <td>189500</td>
+                           
+                        </tr>
+                    </tbody>
+
+
+                   
+                </table>
+           
+        </div>
+    </div>
+</div>
+</div>
+
+<tfoot>
+    <tr>
+      <div id="Calcular" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Calculo de Frecuencias y Presupuesto</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+
+            <div class="modal-body">
+
+              <form>
+
+                <div class="table-responsive">
+                    <table class="table color-table warning-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Población Beneficiaria</th>
+                                <th>Cantidad</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Presupuesto Inicial(Bs.-)</th>
+                                <th>Frecuencia Disponible</th>
+                                <th>Presupuesto Disponible(Bs.-)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Población Nivel Inicial</td>
+                                <td>1200</td>
+                                <td>59</td>
+                                <td>120000</td>
+                                <td>20</td>
+                                <td>80000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Población Nivel Primaria</td>
+                                <td>5007</td>
+                                <td>42</td>
+                                <td>230000</td>
+                                <td>27</td>
+                                <td>100500</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Población Nivel Secundaria</td>
+                                <td>9023</td>
+                                <td>50</td>
+                                <td>278000</td>
+                                <td>31</td>
+                                <td>189500</td>
+                               
+                            </tr>
+                        </tbody>
+    
+    
+                       
+                    </table>
+               
+            </div>   
+
+
+                
+              </form>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </tr>
+  </tfoot>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
