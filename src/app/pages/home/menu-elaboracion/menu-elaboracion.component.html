@@ -5,7 +5,7 @@
       <!-- ============================================================== -->
       <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-          <h3 class="text-themecolor">Elaboración de Menú</h3>
+          <h2 class="text-themecolor">Elaboración de Menú</h2>
         </div>
         <div class="col-md-7 align-self-center">
           <ol class="breadcrumb">
@@ -46,7 +46,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="label label-danger">SÓLIDO</span> </td>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
                                 <td>
                                     
                                       <select  name="Producto SÓLIDO"                                       
@@ -127,7 +127,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="label label-danger">SÓLIDO</span> </td>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
                                 <td>
                                     
                                       <select  name="Producto SÓLIDO"                                       
@@ -208,7 +208,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="label label-danger">SÓLIDO</span> </td>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
                                 <td>
                                     
                                       <select  name="Producto SÓLIDO"                                       
@@ -275,7 +275,12 @@
             <div class="card-body">
                 
                 <td >
-                    <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#EnviarMenu" >Enviar Menú</button>
+                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
+                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
+                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
+                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp; 
+                   
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EnviarMenu" >Enviar Menú</button>
                     
                 </td>
 
@@ -286,7 +291,31 @@
       </div>
   
 
+      <tfoot>
+        <tr>
 
+            <div id="EnviarMenu" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea enviar el presente menú?
+                        <br> Recuerde que se enviará al funcionario EBA para su respectiva aprobación u observación.
+                      </h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"  >Aceptar</button>
+                      <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+               
+        </tr>
+      </tfoot>
       
 
 
