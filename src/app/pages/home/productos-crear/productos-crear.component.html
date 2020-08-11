@@ -61,30 +61,6 @@ fsdfdsf
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Precio del producto</label>
-                            <div class="col-md-9">
-                              <input
-                                name="PrecioProducto"
-                                [(ngModel)]="producto.PrecioProducto"
-                                autocomplete="off"
-                                type="number"
-                                class="form-control">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Cantidad del producto</label>
-                            <div class="col-md-9">
-                              <input
-                                name="CantidadProducto"
-                                [(ngModel)]="producto.CantidadProducto"
-                                autocomplete="off"
-                                type="number"
-                                class="form-control">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
@@ -96,11 +72,10 @@ fsdfdsf
                             </div>
                           </div>
 
-
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Categoria</label>
                             <div class="col-md-9">
-                                <select
+                              <select
                                 name="Genero"
                                 [(ngModel)]="producto.IdCategoria"
                                 class="form-control custom-select" >
@@ -147,6 +122,70 @@ fsdfdsf
                                 [(ngModel)]="producto.Lote"
                                 autocomplete="off"
                                 type="text"
+                                class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Volumen</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Volumen"
+                                [(ngModel)]="producto.Volumen"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Gramage</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Gramage"
+                                [(ngModel)]="producto.Gramage"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Presupuesto inicial</label>
+                            <div class="col-md-9">
+                              <input
+                                name="PresupuestoInicial"
+                                [(ngModel)]="producto.PresupuestoInicial"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+
+<!--                          TODO: se debe cambiar esta parte-->
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Niveles</label>
+                            <div class="card">
+                              <div class="demo-checkbox">
+                                <div *ngFor="let nivel of niveles; let i = index;" >
+                                  <input
+                                    (change)="selectNivel($event.target.checked ,i)"
+                                    type="checkbox" [id]="i"
+                                    class="filled-in chk-col-blue" />
+                                  <label [for]="i" > {{ nivel }} </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Precio Unitario</label>
+                            <div class="col-md-9">
+                              <input
+                                name="PrecioUnitario"
+                                [(ngModel)]="producto.PrecioUnitario"
+                                autocomplete="off"
+                                type="number"
                                 class="form-control">
                             </div>
                           </div>

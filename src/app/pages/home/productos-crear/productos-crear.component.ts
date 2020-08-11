@@ -12,6 +12,9 @@ import {Router} from "@angular/router";
 })
 export class ProductosCrearComponent implements OnInit {
 
+  niveles: any = ['Inicial', 'Primaria', 'Secundaria'];
+  nivelesBool: any = [];
+
   producto: ProductoModel = new ProductoModel();
   proveedores: any = '';
   almacenes: any = '';
@@ -38,11 +41,41 @@ export class ProductosCrearComponent implements OnInit {
   crearProducto(form: NgForm) {
     if (form.invalid) {return;}
 
+    for (let i=0; i<=this.nivelesBool.length; i++) {
+      // console.log(  `${i}:` , this.nivelesBool[i] );
+      if ( this.nivelesBool[i] === undefined || this.nivelesBool[i] === null ) {
+        this.nivelesBool.splice(i,1)
+      }
+    }
+
+    for (let i=0; i<=this.nivelesBool.length; i++) {
+      // console.log(  `${i}:` , this.nivelesBool[i] );
+      if ( this.nivelesBool[i] === undefined || this.nivelesBool[i] === null ) {
+        this.nivelesBool.splice(i,1)
+      }
+    }
+
+    this.producto.Nivels = this.nivelesBool;
+
     // console.log(this.producto);
     this.service.registrarProducto(this.producto).subscribe(resp => {
       console.log(resp);
       this.router.navigateByUrl('/home/productos-editar');
     });
+
+    // console.log(this.nivelesBool);
+  }
+
+  selectNivel(event, index) {
+    // console.log(event, index);
+
+    if (event) {
+      this.nivelesBool[index] = {
+        Nivel: this.niveles[index]
+      }
+    } else{
+      this.nivelesBool[index] = null;
+    }
   }
 
 }

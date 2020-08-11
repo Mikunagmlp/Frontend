@@ -63,8 +63,8 @@ export class ProductosEditarComponent implements OnInit {
 
   editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria, lote) {
     this.producto.NombreProducto = nombre.value;
-    this.producto.PrecioProducto = precio.value;
-    this.producto.CantidadProducto = cantidad.value;
+    // this.producto.PrecioProducto = precio.value;
+    // this.producto.CantidadProducto = cantidad.value;
     this.producto.Descripcion = descripcion.value;
     this.producto.IdProveedor = proveedor.value;
     this.producto.IdAlmacen = almacen.value;
