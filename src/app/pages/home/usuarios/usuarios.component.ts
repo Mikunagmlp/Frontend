@@ -35,6 +35,7 @@ export class UsuariosComponent implements OnInit {
     this.service.pedirUsuarios().subscribe( resp => {
       // console.log(resp);
       this.usuarios = resp;
+
       this.listarRoles();
     });
 

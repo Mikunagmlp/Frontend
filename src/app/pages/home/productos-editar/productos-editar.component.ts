@@ -11,6 +11,10 @@ import {ProductoModel} from "../../../models/producto.model";
 })
 export class ProductosEditarComponent implements OnInit {
 
+  niveles = ['Inicial', 'Primaria', 'Secundaria'];
+  nivelesBool = [];
+  nivelesEnviar = [];
+
   productos: any = '';
   productoEditar: any = '';
   editarIndex: number = 0;
@@ -50,26 +54,64 @@ export class ProductosEditarComponent implements OnInit {
     });
   }
 
+  nivelesBoolLlenar() {
+    for ( let i = 0; i < this.niveles.length; i++ ){
+      let ni = this.niveles[i];
+      // console.log('Rol: ',ni)
+      for (let j = 0; j < this.productoEditar.Nivels.length; j++){
+        let rr2 = this.productoEditar.Nivels[j].Nivel;
+        // console.log('User rol:',rr2);
+        if (ni === rr2) {
+          this.nivelesBool[i] = true;
+          break;
+        } else{
+          this.nivelesBool[i] = false;
+        }
+      }
+    }
+
+    console.log(this.nivelesBool);
+  }
+
   editarProducto(index: number) {
     this.editarIndex = index;
     this.productoEditar = this.productos[this.editarIndex];
 
-    console.log(this.productoEditar)
+    console.log(this.productoEditar);
 
     this.listarAlmacenes();
     this.listarProveedores();
     this.listarCategorias();
+    this.nivelesBoolLlenar()
   }
 
-  editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria, lote) {
+  selectNivel(event, index){
+    this.nivelesBool[index] = event;
+  }
+
+  editar(nombre, descripcion, categoria, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario) {
     this.producto.NombreProducto = nombre.value;
-    // this.producto.PrecioProducto = precio.value;
-    // this.producto.CantidadProducto = cantidad.value;
     this.producto.Descripcion = descripcion.value;
+    this.producto.IdCategoria = categoria.value;
     this.producto.IdProveedor = proveedor.value;
     this.producto.IdAlmacen = almacen.value;
-    this.producto.IdCategoria = categoria.value;
     this.producto.Lote = lote.value;
+    this.producto.Volumen = volumen.value;
+    this.producto.Gramage = gramage.value;
+    this.producto.PresupuestoInicial = presInicial.value;
+    this.producto.PrecioUnitario = precUnitario.value;
+
+    for (let i=0;i<this.nivelesBool.length;i++){
+      let niv = this.nivelesBool[i];
+      if (niv === true) {
+        this.nivelesEnviar.push({
+          Nivel: this.niveles[i]
+        });
+      }
+    }
+
+    this.producto.Nivels = this.nivelesEnviar;
+    console.log(this.producto);
 
     this.service.actualizarProducto(this.producto, this.productoEditar._id).subscribe(resp => {
       location.reload();
