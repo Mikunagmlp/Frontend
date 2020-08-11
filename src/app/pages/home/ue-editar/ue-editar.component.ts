@@ -40,7 +40,7 @@ export class UeEditarComponent implements OnInit {
     this.colegio.Ruta = rut.value;
     this.colegio.CantidadAlumnosInicial = alumnosInicial.value;
     this.colegio.CantidadAlumnosPrimaria = alumnosPrimaria.value;
-    this.colegio.CantidadAlumnosSecundaria = alumnosSecundaria.value;
+    this.colegio.CantidadAlumnosSegundaria = alumnosSecundaria.value;
     this.colegio.Encargado = encargado.value;
     this.colegio.Direccion = dir.value;
     this.colegio.Telefono = tel.value;

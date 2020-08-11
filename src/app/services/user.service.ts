@@ -261,4 +261,13 @@ export class UserService {
     return this.http.post(`${this.url}/new-password`, { newpass: password, resettoken: token })
   }
 
+  //TODO: MENU
+  listarProductosReporte() {
+    return this.http.get(`${this.url}/reporte/listadoproductos`);
+  }
+
+  calculoDiario(id) {
+    return this.http.get(`${this.url}/reporte/calculodiario/${id}`)
+  }
+
 }

@@ -8,5 +8,5 @@ export class UnidadEducativaModel {
   Encargado: string;
   CantidadAlumnosInicial: number;
   CantidadAlumnosPrimaria: number;
-  CantidadAlumnosSecundaria: number;
+  CantidadAlumnosSegundaria: number;
 }

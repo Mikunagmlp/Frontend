@@ -45,7 +45,7 @@ export class UePoblacionBeneficiadaComponent implements OnInit {
     this.col.Encargado = c.Encargado;
     this.col.CantidadAlumnosInicial = inicial.value;
     this.col.CantidadAlumnosPrimaria = primaria.value;
-    this.col.CantidadAlumnosSecundaria = secundaria.value;
+    this.col.CantidadAlumnosSegundaria = secundaria.value;
 
     this.service.actualizarUnidadEducativa(this.col, c._id).subscribe(resp => {
       this.colegios[this.indexEditar] = resp;
