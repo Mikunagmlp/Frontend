@@ -10,14 +10,14 @@ import {UserService} from "../../../services/user.service";
 export class CalculosDiariosComponent implements OnInit {
 
 
-  // FrecuenciaInicialInicial: "Infinity"
-  // FrecuenciaInicialPrimaria: "0.00"
+  // FrecuenciaInicialInicial: "0.00"
+  // FrecuenciaInicialPrimaria: "0.75"
   // FrecuenciaInicialSegundaria: "0.00"
-  // PresupuestoInicial: "8760.00"
-  // TotalAlumnos: 0
-  // TotalAlumnosInicial: 0
-  // TotalAlumnosPrimaria: 0
-  // TotalAlumnosSegundaria: 0
+  // PresupuestoInicial: "6490.00"
+  // TotalAlumnos: 3994
+  // TotalAlumnosInicial: 1131
+  // TotalAlumnosPrimaria: 1576
+  // TotalAlumnosSegundaria: 1287
 
   productos: any = '';
   idCalcular: string = '';
