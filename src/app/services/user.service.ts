@@ -198,30 +198,6 @@ export class UserService {
     return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: true });
   }
 
-  // TODO: CATEGORIAS
-  registrarCategoria( categoria: CategoriaModel ) {
-    return this.http.post(`${this.url}/categoria/registrar`, categoria);
-  }
-
-  listarCategorias() {
-    return this.http.get(`${this.url}/categorias`);
-  }
-
-  actualizarCategoria(categoria: CategoriaModel, id) {
-    return this.http.patch(`${this.url}/categoria/editar/${id}`, categoria);
-  }
-
-  eliminarCategoria(id) {
-    return this.http.patch(`${this.url}/categoria/editar/${id}`, { Estado: false });
-  }
-
-  listarCategoriasEliminadas() {
-    return this.http.get(`${this.url}/categorias/disabled`);
-  }
-
-  habilitarCategoria(id) {
-    return this.http.patch(`${this.url}/categoria/editar/${id}`, { Estado: true });
-  }
 
   // TODO: CAMIONES
   registrarCamion( camion: CamionModel ){

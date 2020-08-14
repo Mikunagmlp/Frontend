@@ -18,14 +18,12 @@ export class ProductosCrearComponent implements OnInit {
   producto: ProductoModel = new ProductoModel();
   proveedores: any = '';
   almacenes: any = '';
-  categorias: any = '';
+  solido: boolean = true;
+  liquido: boolean = false;
 
   constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
-    this.service.listarCategorias().subscribe(resp =>{
-      this.categorias = resp;
-    });
 
     this.service.getProveedores().subscribe(resp => {
       this.proveedores = resp;

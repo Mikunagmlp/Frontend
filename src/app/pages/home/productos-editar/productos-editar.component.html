@@ -135,21 +135,6 @@
                                       </div>
 
                                       <div class="col-md-12 m-b-20" >
-                                        <label class="text-info">Categoria</label>
-                                        <div class="col-md-9">
-                                          <select
-                                            #categoria
-                                            name="Categoria"
-                                            class="form-control custom-select"
-                                          >
-                                            <option [value]="categoria._id" *ngFor="let categoria of categorias; let i = index;" >
-                                              {{ categoria.NombreCategoria }}
-                                            </option>
-                                          </select>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20" >
                                         <label class="text-info">Proveedor</label>
                                         <div class="col-md-9">
                                           <select
@@ -244,7 +229,7 @@
 
                                     <div class="modal-footer">
                                       <button
-                                        (click)="editar(nombre, descripcion, categoria, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario)"
+                                        (click)="editar(nombre, descripcion, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario)"
                                         type="submit"
                                         class="btn btn-info waves-effect"
                                         data-dismiss="modal"

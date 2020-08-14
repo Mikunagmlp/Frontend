@@ -2,7 +2,7 @@ export class ProductoModel {
   NombreProducto: string;
   CodigoProducto: string;
   Descripcion: string;
-  IdCategoria:string;
+  Solido_Liquido: boolean;
   IdProveedor: string;
   IdAlmacen: string;
   Lote: string;

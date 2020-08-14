@@ -22,8 +22,6 @@ import { ProductosCrearComponent } from './pages/home/productos-crear/productos-
 import { ProductosEditarComponent } from './pages/home/productos-editar/productos-editar.component';
 import { AlmacenEditarComponent } from './pages/home/almacen-editar/almacen-editar.component';
 import { AlmacenCrearComponent } from './pages/home/almacen-crear/almacen-crear.component';
-import { CategoriaCrearComponent } from './pages/home/categoria-crear/categoria-crear.component';
-import { CategoriaEditarComponent } from './pages/home/categoria-editar/categoria-editar.component';
 import { CamionesCrearComponent } from './pages/home/camiones-crear/camiones-crear.component';
 import { CamionesEditarComponent } from './pages/home/camiones-editar/camiones-editar.component';
 import { RecoverPasswordComponent } from './pages/login/recover-password/recover-password.component';
@@ -31,7 +29,6 @@ import { UsuariosEliminadosComponent } from './pages/home/eliminados/usuarios-el
 import { ColegiosEliminadosComponent } from './pages/home/eliminados/colegios-eliminados/colegios-eliminados.component';
 import { ProveedoresEliminadosComponent } from './pages/home/eliminados/proveedores-eliminados/proveedores-eliminados.component';
 import { AlmacenesEliminadosComponent } from './pages/home/eliminados/almacenes-eliminados/almacenes-eliminados.component';
-import { CategoriasEliminadosComponent } from './pages/home/eliminados/categorias-eliminados/categorias-eliminados.component';
 import { ProductosEliminadosComponent } from './pages/home/eliminados/productos-eliminados/productos-eliminados.component';
 import { CamionesEliminadosComponent } from './pages/home/eliminados/camiones-eliminados/camiones-eliminados.component';
 import { CalculosDiariosComponent } from './pages/home/calculos-diarios/calculos-diarios.component';
@@ -69,8 +66,6 @@ import { ReporteEntregaComponent } from './pages/home/reporte-entrega/reporte-en
     ProductosEditarComponent,
     AlmacenEditarComponent,
     AlmacenCrearComponent,
-    CategoriaCrearComponent,
-    CategoriaEditarComponent,
     CamionesCrearComponent,
     CamionesEditarComponent,
     RecoverPasswordComponent,
@@ -78,7 +73,6 @@ import { ReporteEntregaComponent } from './pages/home/reporte-entrega/reporte-en
     ColegiosEliminadosComponent,
     ProveedoresEliminadosComponent,
     AlmacenesEliminadosComponent,
-    CategoriasEliminadosComponent,
     ProductosEliminadosComponent,
     CamionesEliminadosComponent,
     CalculosDiariosComponent,

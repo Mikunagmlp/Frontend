@@ -15,8 +15,6 @@ import {ProductosCrearComponent} from "./pages/home/productos-crear/productos-cr
 import {AlmacenCrearComponent} from "./pages/home/almacen-crear/almacen-crear.component";
 import {AlmacenEditarComponent} from "./pages/home/almacen-editar/almacen-editar.component";
 import {ProductosEditarComponent} from "./pages/home/productos-editar/productos-editar.component";
-import {CategoriaCrearComponent} from "./pages/home/categoria-crear/categoria-crear.component";
-import {CategoriaEditarComponent} from "./pages/home/categoria-editar/categoria-editar.component";
 import {CamionesCrearComponent} from "./pages/home/camiones-crear/camiones-crear.component";
 import {CamionesEditarComponent} from "./pages/home/camiones-editar/camiones-editar.component";
 import {RecoverPasswordComponent} from "./pages/login/recover-password/recover-password.component";
@@ -24,7 +22,6 @@ import {UsuariosEliminadosComponent} from "./pages/home/eliminados/usuarios-elim
 import {ColegiosEliminadosComponent} from "./pages/home/eliminados/colegios-eliminados/colegios-eliminados.component";
 import {ProveedoresEliminadosComponent} from "./pages/home/eliminados/proveedores-eliminados/proveedores-eliminados.component";
 import {AlmacenesEliminadosComponent} from "./pages/home/eliminados/almacenes-eliminados/almacenes-eliminados.component";
-import {CategoriasEliminadosComponent} from "./pages/home/eliminados/categorias-eliminados/categorias-eliminados.component";
 import {ProductosEliminadosComponent} from "./pages/home/eliminados/productos-eliminados/productos-eliminados.component";
 import {CamionesEliminadosComponent} from "./pages/home/eliminados/camiones-eliminados/camiones-eliminados.component";
 import {CalculosDiariosComponent} from "./pages/home/calculos-diarios/calculos-diarios.component";
@@ -72,8 +69,6 @@ const routes: Routes = [
       { path: 'almacen-crear', component: AlmacenCrearComponent },
       { path: 'almacen-editar', component: AlmacenEditarComponent },
 
-      { path: 'categoria-crear', component:CategoriaCrearComponent },
-      { path: 'categoria-editar', component:CategoriaEditarComponent },
 
       { path: 'camiones-crear', component:CamionesCrearComponent },
       { path: 'camiones-editar', component:CamionesEditarComponent },
@@ -83,7 +78,6 @@ const routes: Routes = [
       { path: 'colegios-eliminados', component:ColegiosEliminadosComponent },
       { path: 'proveedores-eliminados', component:ProveedoresEliminadosComponent },
       { path: 'almacenes-eliminados', component:AlmacenesEliminadosComponent },
-      { path: 'categorias-eliminados', component:CategoriasEliminadosComponent },
       { path: 'productos-eliminados', component:ProductosEliminadosComponent },
       { path: 'camiones-eliminados', component:CamionesEliminadosComponent },
 

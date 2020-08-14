@@ -22,7 +22,6 @@ export class ProductosEditarComponent implements OnInit {
 
   almacenes: any = '';
   proveedores: any = '';
-  categorias: any = '';
 
   eliminarIndex: number = 0;
 
@@ -48,11 +47,6 @@ export class ProductosEditarComponent implements OnInit {
     });
   }
 
-  listarCategorias() {
-    this.service.listarCategorias().subscribe(resp => {
-      this.categorias = resp;
-    });
-  }
 
   nivelesBoolLlenar() {
     for ( let i = 0; i < this.niveles.length; i++ ){
@@ -81,7 +75,6 @@ export class ProductosEditarComponent implements OnInit {
 
     this.listarAlmacenes();
     this.listarProveedores();
-    this.listarCategorias();
     this.nivelesBoolLlenar()
   }
 
@@ -89,10 +82,9 @@ export class ProductosEditarComponent implements OnInit {
     this.nivelesBool[index] = event;
   }
 
-  editar(nombre, descripcion, categoria, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario) {
+  editar(nombre, descripcion, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario) {
     this.producto.NombreProducto = nombre.value;
     this.producto.Descripcion = descripcion.value;
-    this.producto.IdCategoria = categoria.value;
     this.producto.IdProveedor = proveedor.value;
     this.producto.IdAlmacen = almacen.value;
     this.producto.Lote = lote.value;
