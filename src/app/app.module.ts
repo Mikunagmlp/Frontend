@@ -38,6 +38,17 @@ import { CalculosDiariosComponent } from './pages/home/calculos-diarios/calculos
 import { MenuElaboracionComponent } from './pages/home/menu-elaboracion/menu-elaboracion.component';
 import { MenuEbaComponent } from './pages/home/menu-eba/menu-eba.component';
 import { MenuJefaComponent } from './pages/home/menu-jefa/menu-jefa.component';
+import { ProveedoresAsignacionlotesComponent } from './pages/home/proveedores-asignacionlotes/proveedores-asignacionlotes.component';
+import { ReporteConsultalotesComponent } from './pages/home/reporte-consultalotes/reporte-consultalotes.component';
+import { ReporteMenuconfirmadoComponent } from './pages/home/reporte-menuconfirmado/reporte-menuconfirmado.component';
+import { ReporteProductosdispComponent } from './pages/home/reporte-productosdisp/reporte-productosdisp.component';
+import { ReporteConsolidadoueComponent } from './pages/home/reporte-consolidadoue/reporte-consolidadoue.component';
+import { ReporteConsolidadoglobComponent } from './pages/home/reporte-consolidadoglob/reporte-consolidadoglob.component';
+import { ReporteConsolidadoprepComponent } from './pages/home/reporte-consolidadoprep/reporte-consolidadoprep.component';
+import { ReporteEstadisticoComponent } from './pages/home/reporte-estadistico/reporte-estadistico.component';
+import { ReporteIncidenciaComponent } from './pages/home/reporte-incidencia/reporte-incidencia.component';
+import { ReporteRuteoComponent } from './pages/home/reporte-ruteo/reporte-ruteo.component';
+import { ReporteEntregaComponent } from './pages/home/reporte-entrega/reporte-entrega.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +85,17 @@ import { MenuJefaComponent } from './pages/home/menu-jefa/menu-jefa.component';
     MenuElaboracionComponent,
     MenuEbaComponent,
     MenuJefaComponent,
+    ProveedoresAsignacionlotesComponent,
+    ReporteConsultalotesComponent,
+    ReporteMenuconfirmadoComponent,
+    ReporteProductosdispComponent,
+    ReporteConsolidadoueComponent,
+    ReporteConsolidadoglobComponent,
+    ReporteConsolidadoprepComponent,
+    ReporteEstadisticoComponent,
+    ReporteIncidenciaComponent,
+    ReporteRuteoComponent,
+    ReporteEntregaComponent,
   ],
   imports: [
     BrowserModule,

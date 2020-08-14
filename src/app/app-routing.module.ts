@@ -31,6 +31,17 @@ import {CalculosDiariosComponent} from "./pages/home/calculos-diarios/calculos-d
 import {MenuElaboracionComponent} from "./pages/home/menu-elaboracion/menu-elaboracion.component";
 import {MenuEbaComponent} from "./pages/home/menu-eba/menu-eba.component";
 import {MenuJefaComponent} from "./pages/home/menu-jefa/menu-jefa.component";
+import {ProveedoresAsignacionlotesComponent} from "./pages/home/proveedores-asignacionlotes/proveedores-asignacionlotes.component";
+import {ReporteConsultalotesComponent} from "./pages/home/reporte-consultalotes/reporte-consultalotes.component";
+import {ReporteMenuconfirmadoComponent} from "./pages/home/reporte-menuconfirmado/reporte-menuconfirmado.component";
+import {ReporteProductosdispComponent} from "./pages/home/reporte-productosdisp/reporte-productosdisp.component";
+import {ReporteConsolidadoueComponent} from "./pages/home/reporte-consolidadoue/reporte-consolidadoue.component";
+import {ReporteConsolidadoglobComponent} from "./pages/home/reporte-consolidadoglob/reporte-consolidadoglob.component";
+import {ReporteConsolidadoprepComponent} from "./pages/home/reporte-consolidadoprep/reporte-consolidadoprep.component";
+import {ReporteEstadisticoComponent} from "./pages/home/reporte-estadistico/reporte-estadistico.component";
+import {ReporteIncidenciaComponent} from "./pages/home/reporte-incidencia/reporte-incidencia.component";
+import {ReporteRuteoComponent} from "./pages/home/reporte-ruteo/reporte-ruteo.component";
+import {ReporteEntregaComponent} from "./pages/home/reporte-entrega/reporte-entrega.component";
 
 
 const routes: Routes = [
@@ -53,6 +64,7 @@ const routes: Routes = [
 
       { path: 'proveedores-crear', component: ProveedoresCrearComponent },
       { path: 'proveedores-editar', component: ProveedoresEditarComponent },
+      { path: 'proveedores-asignacionlotes', component: ProveedoresAsignacionlotesComponent },
 
       { path: 'productos-crear', component: ProductosCrearComponent },
       { path: 'productos-editar', component: ProductosEditarComponent },
@@ -79,6 +91,17 @@ const routes: Routes = [
       { path: 'menu-elaboracion', component: MenuElaboracionComponent },
       { path: 'menu-eba', component: MenuEbaComponent },
       { path: 'menu-jefa', component: MenuJefaComponent },
+
+      { path: 'reporte-consultalotes', component: ReporteConsultalotesComponent },
+      { path: 'reporte-menuconfirmado', component: ReporteMenuconfirmadoComponent },
+      { path: 'reporte-productosdisp', component: ReporteProductosdispComponent },
+      { path: 'reporte-consolidadoue', component: ReporteConsolidadoueComponent },
+      { path: 'reporte-consolidadoglob', component: ReporteConsolidadoglobComponent },
+      { path: 'reporte-consolidadoprep', component: ReporteConsolidadoprepComponent },
+      { path: 'reporte-estadistico', component: ReporteEstadisticoComponent },
+      { path: 'reporte-incidencia', component: ReporteIncidenciaComponent },
+      { path: 'reporte-ruteo', component: ReporteRuteoComponent },
+      { path: 'reporte-entrega', component: ReporteEntregaComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },

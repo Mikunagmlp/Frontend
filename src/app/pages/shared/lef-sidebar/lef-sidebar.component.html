@@ -93,6 +93,7 @@
                 <ul>
                   <li><a [routerLink]="['/home/proveedores-crear']" >Crear</a></li>
                   <li><a [routerLink]="['/home/proveedores-editar']" >Editar</a></li>
+                  <li><a [routerLink]="['/home/proveedores-asignacionlotes']" >Asignacion lotes</a></li>
                 </ul>
               </div>
             </div>
@@ -213,28 +214,58 @@
 
 <!------------ MENÚ---------------->
 
-<li>
-  <div class="card-header" id="headingNine" >
-    <h2 class="mb-0" >
-      <img src="https://img.icons8.com/color/48/000000/strawberry.png" width="30" height="30"/>
-      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
-        Menú
-      </button>
-    </h2>
-  </div>
+          <li>
+            <div class="card-header" id="headingNine" >
+              <h2 class="mb-0" >
+                <img src="https://img.icons8.com/color/48/000000/strawberry.png" width="30" height="30"/>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                  Menú
+                </button>
+              </h2>
+            </div>
 
-  <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
-    <div class="card-body">
-      <ul>
-        <li><a [routerLink]="['/home/calculos-diarios']">Calculos Diarios</a></li>
-        <li><a [routerLink]="['/home/menu-elaboracion']">Elaboración</a></li>
-        <li><a [routerLink]="['/home/menu-eba']">Aprobación EBA</a></li>
-        <li><a [routerLink]="['/home/menu-jefa']">Aprobación Final</a></li>
-       
-      </ul>
-    </div>
-  </div>
-</li>
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/calculos-diarios']">Calculos Diarios</a></li>
+                  <li><a [routerLink]="['/home/menu-elaboracion']">Elaboración</a></li>
+                  <li><a [routerLink]="['/home/menu-eba']">Aprobación EBA</a></li>
+                  <li><a [routerLink]="['/home/menu-jefa']">Aprobación Final</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </li>
+
+<!--          REPORTES-->
+
+          <li>
+            <div class="card-header" id="headingNine" >
+              <h2 class="mb-0" >
+                <img src="https://img.icons8.com/color/48/000000/strawberry.png" width="30" height="30"/>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                  Reportes
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/reporte-consultalotes']">Consulta lotes</a></li>
+                  <li><a [routerLink]="['/home/reporte-menuconfirmado']">Menu confirmado</a></li>
+                  <li><a [routerLink]="['/home/reporte-productosdisp']">Productos disponibles</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoue']">Consolidado unidad educativa</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoglob']">Consolidado global</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoprep']">Consolidado prep</a></li>
+                  <li><a [routerLink]="['/home/reporte-estadistico']">Estadistico</a></li>
+                  <li><a [routerLink]="['/home/reporte-incidencia']">Incidencia</a></li>
+                  <li><a [routerLink]="['/home/reporte-ruteo']">Ruteo</a></li>
+                  <li><a [routerLink]="['/home/reporte-entrega']">Entrega</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
 
 
 <!--          calculos diarios  [routerLink]="['/home/calculos-diarios']" -->

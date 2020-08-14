@@ -15,7 +15,7 @@ import {defaultIfEmpty} from "rxjs/operators";
 export class NuevoUsuarioComponent implements OnInit {
 
   usuario: UserModel = new UserModel();
-  roles: any;
+  roles: any = '';
 
   rols: any = [];
 
