@@ -25,6 +25,8 @@ export class ProductosEditarComponent implements OnInit {
 
   eliminarIndex: number = 0;
 
+  solidLiquid: boolean = null;
+
   constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
@@ -70,6 +72,7 @@ export class ProductosEditarComponent implements OnInit {
   editarProducto(index: number) {
     this.editarIndex = index;
     this.productoEditar = this.productos[this.editarIndex];
+    this.solidLiquid = this.productoEditar.Solido_Liquido;
 
     console.log(this.productoEditar);
 
@@ -82,9 +85,10 @@ export class ProductosEditarComponent implements OnInit {
     this.nivelesBool[index] = event;
   }
 
-  editar(nombre, descripcion, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario) {
+  editar(nombre, descripcion, solido_liquido, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario) {
     this.producto.NombreProducto = nombre.value;
     this.producto.Descripcion = descripcion.value;
+    this.producto.Solido_Liquido = this.solidLiquid;
     this.producto.IdProveedor = proveedor.value;
     this.producto.IdAlmacen = almacen.value;
     this.producto.Lote = lote.value;
@@ -103,7 +107,9 @@ export class ProductosEditarComponent implements OnInit {
     }
 
     this.producto.Nivels = this.nivelesEnviar;
-    console.log(this.producto);
+    // console.log(this.producto);
+
+    console.log(this.solidLiquid);
 
     this.service.actualizarProducto(this.producto, this.productoEditar._id).subscribe(resp => {
       location.reload();
