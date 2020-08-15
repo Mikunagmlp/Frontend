@@ -100,7 +100,7 @@ export class UserService {
   }
 
   listarUnidadesEducativas() {
-    return this.http.get( `${this.url}/colegios` );
+    return this.http.get( `${this.url}/colegios?limit=2` );
   }
 
   actualizarUnidadEducativa( ue: UnidadEducativaModel, id ) {

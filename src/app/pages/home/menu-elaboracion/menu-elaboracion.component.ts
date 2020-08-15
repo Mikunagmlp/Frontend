@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-menu-elaboracion',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuElaboracionComponent implements OnInit {
 
-  constructor() { }
+  productos: any = '';
+
+  constructor( private service: UserService) { }
 
   ngOnInit(): void {
+    this.service.listarProductosReporte().subscribe(resp => {
+      this.productos = resp;
+      console.log(this.productos);
+    });
   }
 
 }
