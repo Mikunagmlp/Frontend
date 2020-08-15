@@ -46,6 +46,8 @@ import { ReporteEstadisticoComponent } from './pages/home/reporte-estadistico/re
 import { ReporteIncidenciaComponent } from './pages/home/reporte-incidencia/reporte-incidencia.component';
 import { ReporteRuteoComponent } from './pages/home/reporte-ruteo/reporte-ruteo.component';
 import { ReporteEntregaComponent } from './pages/home/reporte-entrega/reporte-entrega.component';
+import { CrearRutaComponent } from './pages/home/crear-ruta/crear-ruta.component';
+import { EditarRutaComponent } from './pages/home/editar-ruta/editar-ruta.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { ReporteEntregaComponent } from './pages/home/reporte-entrega/reporte-en
     ReporteIncidenciaComponent,
     ReporteRuteoComponent,
     ReporteEntregaComponent,
+    CrearRutaComponent,
+    EditarRutaComponent,
   ],
   imports: [
     BrowserModule,

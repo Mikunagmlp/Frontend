@@ -35,7 +35,6 @@
                     <tr>
                         <th>#</th>
                         <th>Producto</th>
-                        <th>Categoria</th>
                         <th>Nivel</th>
                     </tr>
                 </thead>
@@ -44,7 +43,6 @@
                     <tr *ngFor="let producto of productos; let i = index;" >
                         <th> {{ i+1 }} </th>
                         <td> {{ producto.NombreProducto }} </td>
-                        <td> {{ producto.IdCategoria.NombreCategoria }} </td>
                         <td>
                           <div class="" *ngFor="let nivel of producto.Nivels; let i = index;" >
                                 - {{ nivel.Nivel }}

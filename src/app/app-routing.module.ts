@@ -39,6 +39,8 @@ import {ReporteEstadisticoComponent} from "./pages/home/reporte-estadistico/repo
 import {ReporteIncidenciaComponent} from "./pages/home/reporte-incidencia/reporte-incidencia.component";
 import {ReporteRuteoComponent} from "./pages/home/reporte-ruteo/reporte-ruteo.component";
 import {ReporteEntregaComponent} from "./pages/home/reporte-entrega/reporte-entrega.component";
+import {CrearRutaComponent} from "./pages/home/crear-ruta/crear-ruta.component";
+import {EditarRutaComponent} from "./pages/home/editar-ruta/editar-ruta.component";
 
 
 const routes: Routes = [
@@ -73,6 +75,8 @@ const routes: Routes = [
       { path: 'camiones-crear', component:CamionesCrearComponent },
       { path: 'camiones-editar', component:CamionesEditarComponent },
 
+      { path: 'ruta-crear', component: CrearRutaComponent },
+      { path: 'ruta-editar', component: EditarRutaComponent },
 
       { path: 'usuarios-eliminados', component:UsuariosEliminadosComponent },
       { path: 'colegios-eliminados', component:ColegiosEliminadosComponent },

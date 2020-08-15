@@ -185,6 +185,26 @@
               </div>
             </div>
           </li>
+
+          <li>
+            <div class="card-header" id="headingSeven" >
+              <h2 class="mb-0" >
+                <img src="https://img.icons8.com/plasticine/100/000000/truck.png" width="35" height="35"/>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                  Rutas
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/ruta-crear']">Crear</a></li>
+                  <li><a [routerLink]="['/home/ruta-editar']">Editar</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
 <!--     DATOS ELIMINADOS -->
 
           <li>
