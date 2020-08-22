@@ -254,4 +254,24 @@ export class UserService {
     return this.http.get(`${this.url}/menu/productos/getSolidoInicial?solidoinicial=${nombre}`);
   }
 
+  getLiquidoInicial(nombre) {
+    return this.http.get(`${this.url}/menu/productos/getLiquidoInicial?liquidoinicial=${nombre}`);
+  }
+
+  getSolidoPrimaria(nombre) {
+    return this.http.get(`${this.url}/menu/productos/getSolidoPrimario?solidoprimario=${nombre}`);
+  }
+
+  getLiquidoPrimaria(nombre) {
+    return this.http.get(`${this.url}/menu/productos/getLiquidoPrimario?liquidoprimaria=${nombre}`);
+  }
+
+  getSolidoSecundaria(nombre) {
+    return this.http.get(`${this.url}/menu/productos/getSolidoSegundario?solidosegundario=${nombre}`);
+  }
+
+  getLiquidoSecundaria(nombre) {
+    return this.http.get(`${this.url}/menu/productos/getLiquidoSegundario?liquidosegundario=${nombre}`);
+  }
+
 }

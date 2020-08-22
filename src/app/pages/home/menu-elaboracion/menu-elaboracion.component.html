@@ -50,15 +50,18 @@
                             <tr >
                                 <td><span class="label label-success">SÓLIDO</span> </td>
                                 <td >
-                                  <form >
                                     <select
                                       (change)="calculoSolidoInicial($event)"
-                                      class="custom-select"
-                                      id="inputGroupSelect01">
-                                      <option selected>Producto ...</option>
+                                      class="custom-select" >
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option
+                                        *ngFor="let producto of productosInicialSolido; let i = index;"
+                                        [value]="producto.NombreProducto"
+                                      >
+                                        {{ producto.NombreProducto }}
+                                      </option>
 
                                     </select>
-                                  </form>
                                 </td>
                                 <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
                                 <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
@@ -70,17 +73,21 @@
                                 <td  >
                                   <form >
                                     <select
-                                      (change)="calculoSolidoInicial($event)"
+                                      (change)="calculoLiquidoInicial($event)"
                                       class="custom-select"
                                       id="inputGroupSelect01">
-                                      <option selected>Producto ...</option>
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option *ngFor="let producto of productosInicialLiquido">
+                                        {{ producto.NombreProducto }}
+                                      </option>
 
                                     </select>
                                   </form>
                                 </td>
-                                <td>56</td>
-                                <td>45000</td>
-
+                              <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                              <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
+                              <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
+                              <td> {{ calculosInicialLiquido.montoLiquidoInicial }} </td>
 
                             </tr>
                         </tbody>
@@ -111,41 +118,58 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Estado</th>
-                                <th>Producto</th>
-                                <th>Frecuencia Disponible</th>
-                                <th>Monto Residual(Bs.-)</th>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td  >
-
-                                      <select  name="Producto SÓLIDO"
-                                      class="form-control custom-select" >
+                                <td>
+                                  <form >
+                                    <select
+                                      (change)="calculoSolidoPrimaria($event)"
+                                      class="custom-select"
+                                      id="inputGroupSelect01">
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option *ngFor="let producto of productosPrimariaSolido">
+                                        {{ producto.NombreProducto }}
+                                      </option>
 
                                     </select>
-
+                                  </form>
                                 </td>
-                                <td>49</td>
-                                <td>39000</td>
+                              <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
+                              <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td  >
+                                <td>
+                                  <form >
+                                    <select
+                                      (change)="calculoLiquidoPrimaria($event)"
+                                      class="custom-select"
+                                      id="inputGroupSelect01">
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option *ngFor="let producto of productosPrimariaLiquido">
+                                        {{ producto.NombreProducto }}
+                                      </option>
 
-                                    <select  name="Producto Liquido"
-                                    class="form-control custom-select" >
-
-                                  </select>
-
-
+                                    </select>
+                                  </form>
                                 </td>
-                                <td>56</td>
-                                <td>45000</td>
+                              <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaLiquido.frecuenciaLiquidoPrimariaInicial }} </td>
+                              <td> {{ calculosPrimariaLiquido.montoLiquidoPrimaria }} </td>
 
 
                             </tr>
@@ -178,59 +202,58 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Estado</th>
-                                <th>Producto</th>
-                                <th>Frecuencia Disponible</th>
-                                <th>Monto Residual(Bs.-)</th>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td  >
+                                <td>
+                                  <form >
+                                    <select
+                                      (change)="calculoSolidoSecundaria($event)"
+                                      class="custom-select"
+                                      id="inputGroupSelect01">
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option *ngFor="let producto of productosSecundariaSolido">
+                                        {{ producto.NombreProducto }}
+                                      </option>
 
-<!--                                      <select-->
-<!--                                        name="Producto SÓLIDO"-->
-<!--                                        class="form-control custom-select" >-->
-<!--                                        <option-->
-<!--                                          *ngFor="let producto of productosSecundariaSolido "-->
-<!--                                          (change)="calculoSolidoInicial($event)"-->
-<!--                                          [value]="producto.NombreProducto"  >-->
-<!--                                          {{ producto.NombreProducto }}-->
-<!--                                        </option>-->
-<!--                                    </select>-->
-
-<!--                                  <div class="demo-radio-button">-->
-<!--                                    <div *ngFor="let producto of productosInicialSolido; let i = index;">-->
-<!--                                      <input-->
-<!--                                        (change)="calculoSolidoInicial($event.target)"-->
-<!--                                        type="radio"-->
-<!--                                        [id] = "i"-->
-<!--                                        class="filled-in chk-col-blue"-->
-<!--                                      >-->
-<!--                                      <label [for]="i" > {{ producto.NombreProducto }} </label>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-
+                                    </select>
+                                  </form>
                                 </td>
-                                <td>49</td>
-                                <td>39000</td>
+                              <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                              <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
+                              <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
+                              <td> {{ calculosSecundariaSolido.montoSolildosegundario }} </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td  >
+                                <td>
+                                  <form >
+                                    <select
+                                      (change)="calculoLiquidoSecundaria($event)"
+                                      class="custom-select"
+                                      id="inputGroupSelect01">
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option *ngFor="let producto of productosSecundariaLiquido">
+                                        {{ producto.NombreProducto }}
+                                      </option>
 
-                                    <select  name="Producto Liquido"
-                                    class="form-control custom-select" >
-
-                                  </select>
-
-
+                                    </select>
+                                  </form>
                                 </td>
-                                <td>56</td>
-                                <td>45000</td>
+                              <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                              <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
+                              <td> {{ calculosSecundariaLiquido.frecuenciaLiquidoSegundarioInicial }} </td>
+                              <td> {{ calculosSecundariaLiquido.montoLiquidoSegundario }} </td>
 
 
                             </tr>

@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class ProductosCrearComponent implements OnInit {
 
-  niveles: any = ['Inicial', 'Primaria', 'Secundaria'];
+  niveles: any = ['Inicial', 'Primaria', 'Segundaria'];
   nivelesBool: any = [];
 
   producto: ProductoModel = new ProductoModel();

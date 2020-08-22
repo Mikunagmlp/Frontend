@@ -11,7 +11,7 @@ import {ProductoModel} from "../../../models/producto.model";
 })
 export class ProductosEditarComponent implements OnInit {
 
-  niveles = ['Inicial', 'Primaria', 'Secundaria'];
+  niveles = ['Inicial', 'Primaria', 'Segundaria'];
   nivelesBool = [];
   nivelesEnviar = [];
 

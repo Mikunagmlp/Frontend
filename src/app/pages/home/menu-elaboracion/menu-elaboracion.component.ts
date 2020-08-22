@@ -10,6 +10,8 @@ import {UserService} from "../../../services/user.service";
 export class MenuElaboracionComponent implements OnInit {
 
   productosTodos: any = '';
+  productos: any = '';
+
 
   productosInicialSolido: any[] = [];
   productosInicialLiquido: any[] = [];
@@ -41,93 +43,96 @@ export class MenuElaboracionComponent implements OnInit {
   ordenarPorGrupos() {
 
     for ( let i = 0; i < this.productosTodos.length; i++ ){
-      let producto = this.productosTodos[i];
-      console.log(producto);
+      this.productos = this.productosTodos[i];
+      console.log(this.productos);
 
-      if ( producto.Solido_Liquido ) { // si es producto solido
+      if ( this.productos.Solido_Liquido ) { // si es this.productos solido
 
-        for (let j=0; j < producto.Nivels.length; j++){
-          let nivelSolido = producto.Nivels[j];
+        for (let j=0; j < this.productos.Nivels.length; j++){
+          let nivelSolido = this.productos.Nivels[j];
 
           if ( nivelSolido.Nivel === 'Inicial' ) {
-            // this.productosInicialSolido.push(producto[i]);
-            console.log(producto[i]);
+            this.productosInicialSolido.push(this.productos);
+            // console.log(this.productos);
 
           } else if ( nivelSolido.Nivel === 'Primaria' ) {
-            // this.productosPrimariaSolido.push(producto[i]);
-            console.log(producto[i]);
+            this.productosPrimariaSolido.push(this.productos);
+            // console.log(this.productos);
 
-          } else if ( nivelSolido.Nivel === 'Secundaria' ) {
-            // this.productosSecundariaSolido.push(producto[i]);
-            console.log(producto[i]);
-
+          } else if ( nivelSolido.Nivel === 'Segundaria' ) {
+            this.productosSecundariaSolido.push(this.productos);
+            // console.log(this.productos);
           }
         }
 
-      } else if ( !producto.Solido_Liquido ){ // si es producto liquido
+      } else if ( !this.productos.Solido_Liquido ){ // si es this.productos liquido
 
-        for (let x=0; x < producto.Nivels.length; x++){
-          let nivelLiquido = producto.Nivels[x];
+        for (let x=0; x < this.productos.Nivels.length; x++){
+          let nivelLiquido = this.productos.Nivels[x];
 
           if ( nivelLiquido.Nivel === 'Inicial' ) {
-            // this.productosInicialLiquido.push(producto[i]);
-            console.log(producto[i]);
+            this.productosInicialLiquido.push(this.productos);
+            // console.log(this.productos);
           } else if ( nivelLiquido.Nivel === 'Primaria' ) {
-            // this.productosPrimariaLiquido.push(producto[i]);
-            console.log(producto[i]);
-          } else if ( nivelLiquido.Nivel === 'Secundaria' ) {
-            // this.productosSecundariaLiquido.push(producto[i]);
-            console.log(producto[i]);
+            this.productosPrimariaLiquido.push(this.productos);
+            // console.log(this.productos);
+          } else if ( nivelLiquido.Nivel === 'Segundaria' ) {
+            this.productosSecundariaLiquido.push(this.productos);
+            // console.log(this.productos);
           }
         }
       }
     }
 
-    // console.log('Inicial solido',this.productosInicialSolido);
-    // console.log('Primaria solido',this.productosPrimariaSolido);
-    // console.log('Secundaria solido',this.productosSecundariaSolido);
-    // console.log('Inicial liquido',this.productosInicialLiquido);
-    // console.log('Primaria liquido',this.productosPrimariaLiquido);
-    // console.log('Secundaria liquido',this.productosSecundariaLiquido);
-
   }
 
-  // get(nivel: string, solido_liquido: boolean) {
-  //
-  //   console.log('entra')
-  //
-  //   if (nivel === 'Inicial' && solido_liquido === true) {
-  //     this.service.getProductosMenu(solido_liquido, nivel).subscribe(resp => {
-  //       this.productosInicialSolido = resp;
-  //     });
-  //   } else if (nivel === 'Inicial' && solido_liquido === false) {
-  //     this.service.getProductosMenu(solido_liquido, nivel).subscribe(resp => {
-  //       this.productosInicialLiquido = resp;
-  //     });
-  //   } else if (nivel === 'Primaria' && solido_liquido === true ) {
-  //     this.service.getProductosMenu(solido_liquido, nivel).subscribe(resp => {
-  //       this.productosPrimariaSolido = resp;
-  //     });
-  //   } else if (nivel === 'Primaria' && solido_liquido === false ) {
-  //     this.service.getProductosMenu(solido_liquido, nivel).subscribe(resp => {
-  //       this.productosPrimariaLiquido = resp;
-  //     });
-  //   } else if (nivel === 'Secundaria' && solido_liquido === true ) {
-  //     this.service.getProductosMenu(solido_liquido, nivel).subscribe(resp => {
-  //       this.productosSecundariaSolido = resp;
-  //     });
-  //   } else if (nivel === 'Secundaria' && solido_liquido === false ) {
-  //     this.service.getProductosMenu(solido_liquido, nivel).subscribe(resp => {
-  //       this.productosSecundariaLiquido = resp;
-  //     });
-  //   }
-  // }
-
   calculoSolidoInicial(event) {
+    // console.log(event.target.value);
     this.service.getSolidoInicial(event.target.value).subscribe(resp => {
       this.calculosInicialSolido = resp;
+      // console.log(this.calculosInicialSolido);
+    });
+  }
 
-      console.log(this.calculosInicialSolido);
+
+  calculoLiquidoInicial(event){
+    // console.log(event.target.value);
+    this.service.getLiquidoInicial(event.target.value).subscribe(resp => {
+      this.calculosInicialLiquido = resp;
+      // console.log(this.calculosInicialLiquido);
+    });
+  }
+
+  calculoSolidoPrimaria(event){
+    // console.log(event.target.value);
+    this.service.getSolidoPrimaria(event.target.value).subscribe(resp => {
+      this.calculosPrimariaSolido = resp;
+      // console.log(this.calculosPrimariaSolido);
+    });
+  }
+
+  calculoLiquidoPrimaria(event){
+    // console.log(event.target.value);
+    this.service.getLiquidoPrimaria(event.target.value).subscribe(resp => {
+      this.calculosPrimariaLiquido = resp;
+      // console.log(this.calculosPrimariaLiquido);
+    });
+  }
+
+  calculoSolidoSecundaria(event){
+    // console.log(event.target.value);
+    this.service.getSolidoSecundaria(event.target.value).subscribe(resp => {
+      this.calculosSecundariaSolido = resp;
+      // console.log(this.calculosSecundariaSolido);
+    });
+  }
+
+
+  calculoLiquidoSecundaria(event){
+    // console.log(event.target.value);
+    this.service.getLiquidoSecundaria(event.target.value).subscribe(resp => {
+      this.calculosSecundariaLiquido = resp;
+      // console.log(this.calculosSecundariaLiquido);
     });
   }
 
