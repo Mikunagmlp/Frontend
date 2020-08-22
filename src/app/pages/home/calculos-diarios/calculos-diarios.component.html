@@ -40,7 +40,7 @@
                 </thead>
 
                 <tbody>
-                    
+
                     <tr *ngFor="let producto of productos; let i = index;" >
                       <th> {{ i+1 }} </th>
                       <td> {{ producto.NombreProducto }} </td>
@@ -89,8 +89,7 @@
                                 <th>Cantidad de alumnos</th>
                                 <th>Frecuencia Inicial</th>
                                 <th>Presupuesto Inicial(Bs.-)</th>
-                                <th>Frecuencia Disponible</th>
-                                <th>Presupuesto Disponible(Bs.-)</th>
+                                <th>Total alumnos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,18 +98,16 @@
                                 <td>Población Nivel Inicial</td>
                                 <td> {{ calculoDiario.TotalAlumnosInicial }} </td>
                                 <td> {{ calculoDiario.FrecuenciaInicialInicial }} </td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
+                                <td> {{ calculoDiario.PresupuestoInicial }} </td>
+                                <td> {{ calculoDiario.TotalAlumnos }} </td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Población Nivel Primaria</td>
                                 <td> {{ calculoDiario.TotalAlumnosPrimaria }} </td>
                                 <td> {{ calculoDiario.FrecuenciaInicialPrimaria }} </td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
+                              <td> {{ calculoDiario.PresupuestoInicial }} </td>
+                              <td> {{ calculoDiario.TotalAlumnos }} </td>
 
                             </tr>
                             <tr>
@@ -118,9 +115,8 @@
                                 <td>Población Nivel Secundaria</td>
                                 <td> {{ calculoDiario.TotalAlumnosSegundaria }} </td>
                                 <td> {{ calculoDiario.FrecuenciaInicialSegundaria }} </td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
+                              <td> {{ calculoDiario.PresupuestoInicial }} </td>
+                              <td> {{ calculoDiario.TotalAlumnos }} </td>
 
                             </tr>
                         </tbody>

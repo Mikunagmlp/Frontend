@@ -182,6 +182,10 @@ export class UserService {
     return this.http.get(`${this.url}/productos`);
   }
 
+  getProductosMenu(solido_liquido, nivel) {
+    return this.http.get(`${this.url}/productos/generarMenu?solido_liquido=${solido_liquido}&nivel=${nivel}`);
+  }
+
   actualizarProducto( nuevoProducto: ProductoModel, id ) {
     return this.http.patch(`${this.url}/producto/editar/${id}`, nuevoProducto);
   }
@@ -244,6 +248,10 @@ export class UserService {
 
   calculoDiario(id) {
     return this.http.get(`${this.url}/reporte/calculodiario/${id}`)
+  }
+
+  getSolidoInicial(nombre) {
+    return this.http.get(`${this.url}/menu/productos/getSolidoInicial?solidoinicial=${nombre}`);
   }
 
 }
