@@ -287,4 +287,12 @@ export class UserService {
     return this.http.patch(`${this.url}/menu/aprobar/menueba/${id}`, body);
   }
 
+  listarMenuUnace() {
+    return this.http.get(`${this.url}/menu/listado/unace`);
+  }
+
+  aprobarMenuUnace(id, body) {
+    return this.http.patch(`${this.url}/menu/aprobar/menuunace/${id}`, body);
+  }
+
 }

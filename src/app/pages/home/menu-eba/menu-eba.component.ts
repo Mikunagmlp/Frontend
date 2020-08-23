@@ -25,7 +25,7 @@ export class MenuEbaComponent implements OnInit {
     console.log(observaciones.value);
     let obj = {
       AprovadoEba: true,
-      EnviadoEba: false,
+      EnviadoEba: true,
       ObservacionEba: observaciones.value,
       EnviadoJefeUnace: true
     }
