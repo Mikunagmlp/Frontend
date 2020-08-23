@@ -49,17 +49,20 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td> Producto Sólido 1</td>
-
-                                <td>49</td>
-                                <td>39000</td>
+                                <td> {{ menu.ProductoSolidoInicial }} </td>
+                                <td> {{ menu.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                <td> {{ menu.MontoSolildoUtilizadoInicial }} </td>
+                                <td> {{ menu.frecuenciaSolidoInicialInicial }} </td>
+                                <td> {{ menu.montoSolildoInicial }} </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td> Producto Liquido 5          </td>
-                                <td>56</td>
-                                <td>45000</td>
+                                <td> {{ menu.ProductoLiquidoInicial }} </td>
+                                <td> {{ menu.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                                <td> {{ menu.MontoLiquidaUtilizadoInicial }} </td>
+                                <td> {{ menu.frecuenciaLiquidaInicialInicial }} </td>
+                                <td> {{ menu.montoLiquidaInicial }} </td>
 
 
                             </tr>
@@ -104,24 +107,20 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-
-                                     Producto 45
-                                </td>
-                                <td>49</td>
-                                <td>39000</td>
+                              <td> {{ menu.ProductoSolidoPrimaria }} </td>
+                              <td> {{ menu.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                              <td> {{ menu.MontoSolildoUtilizadoPrimaria }} </td>
+                              <td> {{ menu.frecuenciaSolidoPrimariaInicial }} </td>
+                              <td> {{ menu.montoSolidoPrimaria }} </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-
-                                    Producto 56
-
-
-                                </td>
-                                <td>56</td>
-                                <td>45000</td>
+                              <td> {{ menu.ProductoLiquidoPrimaria }} </td>
+                              <td> {{ menu.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                              <td> {{ menu.MontoLiquidaUtilizadoPrimaria }} </td>
+                              <td> {{ menu.frecuenciaLiquidaPrimariaInicial }} </td>
+                              <td> {{ menu.montoLiquidaPrimaria }} </td>
 
 
                             </tr>
@@ -166,28 +165,22 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-                                    Producto 45
-
-                                </td>
-                                <td>49</td>
-                                <td>39000</td>
+                              <td> {{ menu.ProductoSolidoSegundaria }} </td>
+                              <td> {{ menu.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                              <td> {{ menu.MontoSolildoUtilizadaSegundaria }} </td>
+                              <td> {{ menu.frecuenciaSolidoSegundariaInicial }} </td>
+                              <td> {{ menu.montoSolildoSegundaria }} </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-
-                                   Producto 67
-
-
-                                </td>
-                                <td>56</td>
-                                <td>45000</td>
-
+                              <td> {{ menu.ProductoLiquidoSegundaria }} </td>
+                              <td> {{ menu.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                              <td> {{ menu.MontoLiquidaUtilizadoSegundaria }} </td>
+                              <td> {{ menu.frecuenciaLiquidaSegundariaInicial }} </td>
+                              <td> {{ menu.montoLiquidaSegundaria }} </td>
 
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
@@ -211,12 +204,7 @@
             <div class="card-body">
 
                 <td >
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AprobarMenuEBA"  >Aprobar Menú</button>
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesEBA">Observaciones</button>
                 </td>
 
@@ -263,47 +251,23 @@
 
                   <form class="form-horizontal">
                     <div class="form-group row">
-                        <label for="solidoinicial" class="col-sm-3 text-right control-label col-form-label text-info">Sólido Nivel Inicial </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="solidoinicial" placeholder="Ingresar observación">
+<!--                            <input type="area" class="form-control" id="solidoinicial" placeholder="Ingresar observación">-->
+                          <textarea
+                            #observaciones
+                            class="form-control"
+                            id="exampleFormControlTextarea1"
+                            rows="4"></textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="liquidoinicial" class="col-sm-3 text-right control-label col-form-label text-info">Líquido Nivel Inicial</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="liquidoinicial" placeholder="Ingresar observación">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="solidoprimaria" class="col-sm-3 text-right control-label col-form-label text-info">Sólido Nivel Primaria</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="solidoprimaria" placeholder="Ingresar observación">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="liquidoprimaria" class="col-sm-3 text-right control-label col-form-label text-info">Líquido Nivel Primaria</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="liquidoprimaria" placeholder="Ingresar observación">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="solidosecundaria" class="col-sm-3 text-right control-label col-form-label text-info">Sólido Nivel Secundaria</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="solidosecundaria" placeholder="Ingresar observación">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="liquidosecundaria" class="col-sm-3 text-right control-label col-form-label text-info">Líquido Nivel Secundaria</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="liquidosecundaria" placeholder="Ingresar observación">
-                      </div>
-                  </div>
 
                     <div class="form-group m-b-0">
                         <div class="offset-sm-3 col-sm-9">
-                           <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"  >Enviar</button>
-
-                            &nbsp;  &nbsp;   &nbsp;   &nbsp;
+                           <button
+                             (click)="enviarMenu(observaciones)"
+                             type="button"
+                             class="btn btn-secondary waves-effect"
+                             data-dismiss="modal"  >Enviar</button>
                             <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>

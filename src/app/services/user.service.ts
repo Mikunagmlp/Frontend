@@ -283,4 +283,8 @@ export class UserService {
     return this.http.get(`${this.url}/menu/listado/eba`);
   }
 
+  aprobarMenuEBA(id, body) {
+    return this.http.patch(`${this.url}/menu/aprobar/menueba/${id}`, body);
+  }
+
 }
