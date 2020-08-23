@@ -35,7 +35,7 @@
 
                         <div class="form-body">
 
-                         <!-- <div class="form-group row">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de Almacén</label>
                             <div class="col-md-9">
                               <input
@@ -45,18 +45,18 @@
                                 autocomplete="off"
                                 class="form-control">
                             </div>
-                          </div>-->
+                          </div>
 
-                          <div class="form-group row">
+                         <!-- <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de Almacén</label>
                             <div class="col-md-9">
                             <input [(ngModel)]="almacen.NombreAlmacen" #nombre="ngModel" type="text" name="NombreAlmacen" id="NombreAlmacen" placeholder="NombreAlmacen" minlength="8"
                               maxlength="40" required>
                             <div *ngIf="NombreAlmacen.touched && !NombreAlmacen.valid">
                               <div *ngIf="NombreAlmacen.errors.required">Nombre es requerido</div>
-                              <div *ngIf="NombreAlmacen.errors.minlength">Nombre debe ser de al menos {{nombre.errors.minlength.requiredLength}} caracteres.</div>
+                              <div *ngIf="NombreAlmacen.errors.minlength">Nombre debe ser de al menos {{NombreAlmacen.errors.minlength.requiredLength}} caracteres.</div>
                             </div>
-                          </div>
+                          </div>-->
 
 
 
@@ -112,6 +112,7 @@
          <!-- ============================================================== -->
     </div>
 </div>
+
 
 
 
