@@ -1,14 +1,21 @@
-<img src="../assets/images/logo-icon-sidace.png" width="200" height="100" alt="homepage" class="dark-logo" />
-<img src="../assets/images/logo-text-sidace.png" width="200" height="150" alt="homepage" class="dark-logo" />
+<!-- <img src="../assets/images/logo-icon-sidace.png" width="200" height="100" alt="homepage" class="dark-logo" />
+<img src="../assets/images/logo-text-sidace.png" width="200" height="150" alt="homepage" class="dark-logo" /> -->
 
-<div class="card-no-border">
+  <div class="card-no-border">
 
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<section id="wrapper">
+<section id="wrapper" >
   <div class="login-register" style="background-image:url(../../../assets/images/fondo-amarillo-login.jpg);">
-    <div class="login-box card">
+
+   <div class="container login-container">
+    <div class="row">
+      <div class="col-md-7 ">
+     <img src="../assets/images/sisacebienvenido.png" width="500" height="650" /> 
+      </div>
+     <div class="col-md-5 login-box card"  > 
+         
       <div class="card-body" *ngIf="!recover" >
 
         <form
@@ -17,13 +24,16 @@
           class="form-horizontal form-material "
           id="loginform"
           action="index.html">
-
+          <br>
+          <br>
             <a href="#" class="text-center db" >
-              <img src="../../../assets/images/logo-sidace.png" width="150" height="100" alt="Home" />
+              <img src="../../../assets/images/logosisace.png" width="300" height="200" alt="Home" />
               <br/>
+              <br>
+              
             </a>
 
-            <h3 class="box-title m-b-20"></h3>
+           
 
             <div class="form-group ">
               <div class="col-xs-12">
@@ -36,6 +46,7 @@
                   placeholder="Correo electrónico">
               </div>
             </div>
+            <br>
 
             <div class="form-group">
               <div class="col-xs-12">
@@ -48,10 +59,10 @@
                   placeholder="Contraseña">
               </div>
             </div>
-
+            <br>
             <div class="form-group text-center">
               <div class="col-xs-12 p-b-20">
-                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar</button>
+                <button class="btn  btn-lg btn-info btn-rounded" type="submit">Ingresar</button>
               </div>
             </div>
             <div class="form-group m-b-0">
@@ -63,7 +74,7 @@
           <div class="col-md-12">
             <div class="checkbox checkbox-info pull-left p-t-0">
               <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
-              <label for="checkbox-signup" class="text-primary" > Recuerdame </label>
+              <label for="checkbox-signup" class="text-primary" > Recuérdame </label>
             </div>
 
             <button
@@ -71,21 +82,23 @@
               class="btn btn-dark pull-right"
               data-target="#recover"
               (click)="recover  = !recover"
-              data-dismiss="modal" >recuperar password</button>
+              data-dismiss="modal" >Recuperar Contraseña</button>
           </div>
         </div>
 
       </div>
-
       <div class="card-body" *ngIf="recover" >
 
         <form
           class="form-horizontal form-material "
           action="index.html">
+         <br>
+         <br>
+        
 
           <a href="#" class="text-center db" >
-            <img src="../../../assets/images/logo-sidace.png" width="150" height="100" alt="Home" />
-            <h4>Recover password</h4>
+            <img src="../../../assets/images/logosisace.png" width="300" height="200" alt="Home" />
+            <h4>Recuperar Contraseña</h4>
             <br/>
           </a>
 
@@ -101,26 +114,60 @@
                 placeholder="Correo electrónico">
             </div>
           </div>
-
+          <div class="row justify-content-center h-100" >
+           
           <div class="form-group text-center">
             <div class="col-xs-12 p-b-20">
               <button
                 (click)="recoverPassword(email)"
-                class="btn btn-block btn-lg btn-warning btn-rounded"
+                class="btn  btn-lg btn-info btn-rounded"
                 type="submit">Enviar</button>
             </div>
           </div>
+          &nbsp; &nbsp; &nbsp;
+
           <div class="form-group m-b-0">
               <button
                 (click)="recover = !recover"
-                class="btn btn-block btn-sm btn-danger btn-rounded">Cancelar</button>
+                class="btn  btn-lg btn-danger btn-rounded">Cancelar</button>
           </div>
+        </div>
         </form>
 
       </div>
 
+   </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
     </div>
-  </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+    </div>
+ 
 </section>
 
 </div>
