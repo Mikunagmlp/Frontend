@@ -11,6 +11,7 @@ import {AlmacenModel} from "../models/almacen.model";
 import {ProductoModel} from "../models/producto.model";
 import {CategoriaModel} from "../models/categoria.model";
 import {CamionModel} from "../models/camion.model";
+import {MenuModel} from "../models/menu.model";
 
 @Injectable({
   providedIn: 'root'
@@ -272,6 +273,14 @@ export class UserService {
 
   getLiquidoSecundaria(nombre) {
     return this.http.get(`${this.url}/menu/productos/getLiquidoSegundario?liquidosegundario=${nombre}`);
+  }
+
+  createMenu(menu: MenuModel) {
+    return this.http.post(`${this.url}/menu/registrar/menudiario`, menu);
+  }
+
+  listarMenuEba() {
+    return this.http.get(`${this.url}/menu/listado/eba`);
   }
 
 }

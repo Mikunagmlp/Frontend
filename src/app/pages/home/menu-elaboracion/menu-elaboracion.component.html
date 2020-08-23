@@ -87,7 +87,7 @@
                               <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
                               <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
                               <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
-                              <td> {{ calculosInicialLiquido.montoLiquidoInicial }} </td>
+                              <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
 
                             </tr>
                         </tbody>
@@ -168,8 +168,8 @@
                                 </td>
                               <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
                               <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaLiquido.frecuenciaLiquidoPrimariaInicial }} </td>
-                              <td> {{ calculosPrimariaLiquido.montoLiquidoPrimaria }} </td>
+                              <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
+                              <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
 
 
                             </tr>
@@ -231,7 +231,7 @@
                               <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
                               <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
                               <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
-                              <td> {{ calculosSecundariaSolido.montoSolildosegundario }} </td>
+                              <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
 
                             </tr>
                             <tr>
@@ -252,8 +252,8 @@
                                 </td>
                               <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
                               <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaLiquido.frecuenciaLiquidoSegundarioInicial }} </td>
-                              <td> {{ calculosSecundariaLiquido.montoLiquidoSegundario }} </td>
+                              <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
+                              <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
 
 
                             </tr>
@@ -311,7 +311,11 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"  >Aceptar</button>
+                      <button
+                        (click)="enviarMenu()"
+                        type="button"
+                        class="btn btn-secondary waves-effect"
+                        data-dismiss="modal"  >Aceptar</button>
                       <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
                     </div>
                   </div>
@@ -322,11 +326,6 @@
 
         </tr>
       </tfoot>
-
-
-
-
-
        <!-- ============================================================== -->
       <!-- End Page Content -->
       <!-- ============================================================== -->
