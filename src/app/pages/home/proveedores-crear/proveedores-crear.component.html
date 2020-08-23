@@ -34,39 +34,40 @@
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
-                          <div class="form-group row">
+                         <!-- <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de la empresa proveedora</label>
                             <div class="col-md-9">
                               <input
-                                name="NombreProveedor"
+                                name="NombreProveedor" input-field col s6
                                 [(ngModel)]="proveedor.NombreProveedor"
                                 type="text"
                                 autocomplete="off"
                                 class="form-control">
                             </div>
+                          </div>  
+                        input-field col s6 - form-group row 
+                        -->
+
+
+                         <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Nombre de la empresa proveedora</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.NombreProveedor" #NombreProveedor="ngModel" type="text"
+                                name="NombreProveedor" id="NombreProveedor" placeholder="NombreProveedor" minlength="8"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NombreProveedor.touched && !NombreProveedor.valid">
+                                  <div *ngIf="NombreProveedor.errors.required">Nombre es requerido</div>
+                                  <div *ngIf="NombreProveedor.errors.minlength">Nombre debe ser de al menos {{NombreProveedor.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
                           </div>
 
 
-<!--                          <div class="form-group row">-->
-<!--                            <label class="control-label text-right col-md-3">Nombre de la empresa proveedora</label>-->
-<!--                            <div class="col-md-9">-->
-<!--                              <input [(ngModel)]="Proveedor.Nombre" #nombre="ngModel" type="text"-->
-<!--                                name="NombreProveedor" id="NombreProveedor" placeholder="Nombre -Proveedor" minlength="8"-->
-<!--                                maxlength="40" required>-->
-<!--                                [(ngModel)]="proveedor.NombreProveedor"-->
-<!--                                type="text"-->
-<!--                                autocomplete="off"-->
-<!--                                class="form-control">-->
-<!--                                <div *ngIf="NombreProveedor.touched && !NombreProveedor.valid">-->
-<!--                                  <div *ngIf="NombreProveedor.errors.required">Nombre es requerido</div>-->
-<!--                                  <div *ngIf="NombreProveedor.errors.minlength">Nombre debe ser de al menos {{nombre.errors.minlength.requiredLength}} caracteres.</div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
 
-
-
-                          <div class="form-group row">
+                         <!-- <div class="form-group row">
                             <label class="control-label text-right col-md-3">Codigo</label>
                             <div class="col-md-9">
                               <input
@@ -76,9 +77,26 @@
                                 type="text"
                                 class="form-control">
                             </div>
+                          </div>-->
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Codigo</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.CodigoProveedor" #CodigoProveedor="ngModel" type="text"
+                                name="CodigoProveedor" id="CodigoProveedor" placeholder="CodigoProveedor" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="CodigoProveedor.touched && !CodigoProveedor.valid">
+                                  <div *ngIf="CodigoProveedor.errors.required">Codigo es requerido</div>
+                                  <div *ngIf="CodigoProveedor.errors.minlength">Codigo debe ser de al menos {{CodigoProveedor.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
                           </div>
 
-                          <div class="form-group row">
+
+                        <!--  <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre del Represente Legal</label>
                             <div class="col-md-9">
                               <input
@@ -88,7 +106,28 @@
                                 type="text"
                                 class="form-control">
                             </div>
+                          </div>-->
+
+
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Nombre del Represente Legal</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.NombreEmpresa" #NombreEmpresa="ngModel" type="text"
+                                name="NombreEmpresa" id="NombreEmpresa" placeholder="NombreEmpresa" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NombreEmpresa.touched && !NombreEmpresa.valid">
+                                  <div *ngIf="NombreEmpresa.errors.required">Codigo es requerido</div>
+                                  <div *ngIf="NombreEmpresa.errors.minlength">Codigo debe ser de al menos {{NombreEmpresa.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
                           </div>
+
+
+
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Producto 1</label>
