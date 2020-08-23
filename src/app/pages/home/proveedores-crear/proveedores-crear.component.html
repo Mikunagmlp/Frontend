@@ -129,7 +129,7 @@
 
 
 
-                          <div class="form-group row">
+                          <!--  <div class="form-group row">
                             <label class="control-label text-right col-md-3">Producto 1</label>
                             <div class="col-md-9">
                               <input
@@ -138,7 +138,6 @@
                                 type="text"
                                 class="form-control">
                             </div>
-                          </div>
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Producto 2</label>
@@ -239,7 +238,189 @@
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          </div>-->
+
+                          
+
+
+                        <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 1</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro1" #pro1="ngModel" type="text"
+                                name="pro1" id="pro1" placeholder="pro1" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro1.touched && !pro1.valid">
+                                  <div *ngIf="pro1.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro1.errors.minlength">Nombre de producto de al menos {{pro1.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 2</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro2" #pro2="ngModel" type="text"
+                                name="pro2" id="pro2" placeholder="pro1" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro2.touched && !pro2.valid">
+                                  <div *ngIf="pro2.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro2.errors.minlength">Nombre de producto de al menos {{pro2.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 3</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro3" #pro3="ngModel" type="text"
+                                name="pro3" id="pro3" placeholder="pro3" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro3.touched && !pro3.valid">
+                                  <div *ngIf="pro3.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro3.errors.minlength">Nombre de producto de al menos {{pro3.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 4</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro4" #pro4="ngModel" type="text"
+                                name="pro4" id="pro4" placeholder="pro4" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro4.touched && !pro4.valid">
+                                  <div *ngIf="pro4.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro4.errors.minlength">Nombre de producto de al menos {{pro4.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 5</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro5" #pro5="ngModel" type="text"
+                                name="pro5" id="pro5" placeholder="pro5" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro5.touched && !pro5.valid">
+                                  <div *ngIf="pro5.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro5.errors.minlength">Nombre de producto de al menos {{pro5.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 6</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro6" #pro6="ngModel" type="text"
+                                name="pro6" id="pro6" placeholder="pro6" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro6.touched && !pro6.valid">
+                                  <div *ngIf="pro6.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro6.errors.minlength">Nombre de producto de al menos {{pro6.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 7</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro7" #pro7="ngModel" type="text"
+                                name="pro7" id="pro7" placeholder="pro7" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro7.touched && !pro7.valid">
+                                  <div *ngIf="pro7.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro7.errors.minlength">Nombre de producto de al menos {{pro7.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 8</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro8" #pro8="ngModel" type="text"
+                                name="pro8" id="pro8" placeholder="pro8" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro8.touched && !pro8.valid">
+                                  <div *ngIf="pro8.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro8.errors.minlength">Nombre de producto de al menos {{pro8.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 8</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro8" #pro8="ngModel" type="text"
+                                name="pro8" id="pro8" placeholder="pro8" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro8.touched && !pro8.valid">
+                                  <div *ngIf="pro8.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro8.errors.minlength">Nombre de producto de al menos {{pro8.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                       
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 9</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro9" #pro9="ngModel" type="text"
+                                name="pro9" id="pro9" placeholder="pro9" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro9.touched && !pro9.valid">
+                                  <div *ngIf="pro9.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro9.errors.minlength">Nombre de producto de al menos {{pro9.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 10</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro10" #pro10="ngModel" type="text"
+                                name="pro10" id="pro10" placeholder="pro10" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro10.touched && !pro10.valid">
+                                  <div *ngIf="pro10.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro10.errors.minlength">Nombre de producto de al menos {{pro10.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+  <!-- 10 productos -->
+                   
+
+
+                         <!--  <div class="form-group row">
                             <label class="control-label text-right col-md-3">Dirección</label>
                             <div class="col-md-9">
                               <input
@@ -250,8 +431,7 @@
                                 class="form-control">
                             </div>
                           </div>
-
-                          <div class="form-group row">
+                        <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
@@ -262,6 +442,44 @@
                                 class="form-control">
                             </div>
                           </div>
+                        -->
+                   
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Descripcion</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.Descripcion" #Descripcion="ngModel" type="text"
+                                name="Descripcion" id="Descripcion" placeholder="Descripcion" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Descripcion.touched && !Descripcion.valid">
+                                  <div *ngIf="Descripcion.errors.required">Nombre de Descripción es requerido</div>
+                                  <div *ngIf="Descripcion.errors.minlength">Nombre de Descripción de al menos {{Descripcion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                         
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Dirección</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.Direccion" #Direccion="ngModel" type="text"
+                                name="Direccion" id="Direccion" placeholder="Direccion" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Direccion.touched && !Direccion.valid">
+                                  <div *ngIf="Direccion.errors.required">Nombre de Dirección es requerido</div>
+                                  <div *ngIf="Direccion.errors.minlength">Nombre de Dirección de al menos {{Direccion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                          
+
+
+                          
 
                         </div>
 

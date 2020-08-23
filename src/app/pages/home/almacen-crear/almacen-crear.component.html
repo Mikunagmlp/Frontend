@@ -35,7 +35,9 @@
 
                         <div class="form-body">
 
-                          <div class="form-group row">
+                         
+  <!-- 
+                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de Almacén</label>
                             <div class="col-md-9">
                               <input
@@ -46,20 +48,6 @@
                                 class="form-control">
                             </div>
                           </div>
-
-                         <!-- <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Nombre de Almacén</label>
-                            <div class="col-md-9">
-                            <input [(ngModel)]="almacen.NombreAlmacen" #nombre="ngModel" type="text" name="NombreAlmacen" id="NombreAlmacen" placeholder="NombreAlmacen" minlength="8"
-                              maxlength="40" required>
-                            <div *ngIf="NombreAlmacen.touched && !NombreAlmacen.valid">
-                              <div *ngIf="NombreAlmacen.errors.required">Nombre es requerido</div>
-                              <div *ngIf="NombreAlmacen.errors.minlength">Nombre debe ser de al menos {{NombreAlmacen.errors.minlength.requiredLength}} caracteres.</div>
-                            </div>
-                          </div>-->
-
-
-
 
 
                           <div class="form-group row">
@@ -74,7 +62,7 @@
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
@@ -85,6 +73,58 @@
                                 class="form-control">
                             </div>
                           </div>
+                         -->
+
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Nombre de Almacén</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="almacen.NombreAlmacen" #NombreAlmacen="ngModel" type="text"
+                                name="NombreAlmacen" id="NombreAlmacen" placeholder="NombreAlmacen" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NombreAlmacen.touched && !NombreAlmacen.valid">
+                                  <div *ngIf="NombreAlmacen.errors.required">Nombre del almacen es requerido</div>
+                                  <div *ngIf="NombreAlmacen.errors.minlength">Nombre de almacen de al menos {{NombreAlmacen.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div> 
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Código del almacen</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="almacen.CodigoAlmacen" #CodigoAlmacen="ngModel" type="text"
+                                name="CodigoAlmacen" id="CodigoAlmacen" placeholder="CodigoAlmacen" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="CodigoAlmacen.touched && !CodigoAlmacen.valid">
+                                  <div *ngIf="CodigoAlmacen.errors.required">Código del almacen es requerido</div>
+                                  <div *ngIf="CodigoAlmacen.errors.minlength">Código de almacen de al menos {{CodigoAlmacen.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div> 
+                    
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Descripcion</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="almacen.Descripcion" #Descripcion="ngModel" type="text"
+                                name="Descripcion" id="Descripcion" placeholder="Descripcion" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Descripcion.touched && !Descripcion.valid">
+                                  <div *ngIf="Descripcion.errors.required">Descripción del almacen es requerido</div>
+                                  <div *ngIf="Descripcion.errors.minlength">Descripción de almacen de al menos {{Descripcion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div> 
+
+                         
 
 
                         </div>
@@ -112,6 +152,7 @@
          <!-- ============================================================== -->
     </div>
 </div>
+
 
 
 
