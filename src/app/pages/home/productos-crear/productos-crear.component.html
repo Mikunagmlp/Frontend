@@ -1,4 +1,3 @@
-fsdfdsf
 <div class="page-wrapper">
     <div class="container-fluid">
 
@@ -35,7 +34,7 @@ fsdfdsf
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
-
+<!--
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de Producto</label>
                             <div class="col-md-9">
@@ -47,8 +46,7 @@ fsdfdsf
                                 class="form-control">
                             </div>
                           </div>
-
-                          <div class="form-group row">
+                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Codigo producto</label>
                             <div class="col-md-9">
                               <input
@@ -59,8 +57,7 @@ fsdfdsf
                                 class="form-control">
                             </div>
                           </div>
-
-                          <div class="form-group row">
+                            <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
@@ -71,7 +68,59 @@ fsdfdsf
                                 class="form-control">
                             </div>
                           </div>
+-->
 
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Nombre de Producto</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.NombreProducto" #NombreProducto="ngModel" type="text"
+                                name="NombreProducto" id="NombreProducto" placeholder="NombreProducto" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NombreProducto.touched && !NombreProducto.valid">
+                                  <div *ngIf="NombreProducto.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="NombreProducto.errors.minlength">Nombre de producto de al menos {{NombreProducto.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Codigo producto</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.CodigoProducto" #CodigoProducto="ngModel" type="text"
+                                name="CodigoProducto" id="CodigoProducto" placeholder="CodigoProducto" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="CodigoProducto.touched && !CodigoProducto.valid">
+                                  <div *ngIf="CodigoProducto.errors.required">Código del producto es requerido</div>
+                                  <div *ngIf="CodigoProducto.errors.minlength">Insertar al menos {{CodigoProducto.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Descripción</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Descripcion" #Descripcion="ngModel" type="text"
+                                name="Descripcion" id="Descripcion" placeholder="Descripcion" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Descripcion.touched && !Descripcion.valid">
+                                  <div *ngIf="Descripcion.errors.required">Descripción del producto es requerido</div>
+                                  <div *ngIf="Descripcion.errors.minlength">Insertar al menos {{Descripcion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                         
+
+                      
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Categoria del producto</label>
 
@@ -162,6 +211,8 @@ fsdfdsf
                                 class="form-control">
                             </div>
                           </div>
+
+
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Presupuesto inicial</label>
