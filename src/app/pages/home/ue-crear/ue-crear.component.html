@@ -36,8 +36,7 @@
                         <div class="form-body">
 
 
-  <!--
-                          <div class="form-group row">
+  <!--    <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre del colegio</label>
                             <div class="col-md-9">
                               <input
@@ -48,7 +47,23 @@
                               <small class="form-control-feedback"> Ingrese el nombre completo de la unidad educativa </small>
                             </div>
                           </div>
--->
+                        
+                        
+                                      
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código</label>
+                            <div class="col-md-9">
+                              <input
+                                name="CodColegio"
+                                [(ngModel)]="unidadEducativa.CodColegio"
+                                type="text"
+                                class="form-control">
+                              <small class="form-control-feedback"> Ingrese el código </small>
+                            </div>
+                          </div>
+
+                        
+                        -->
 
                           <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Nombre del colegio</label>
@@ -68,16 +83,48 @@
                           </div>
 
 
-                         
-                          <div class="form-group row">
+           
+
+
+
+
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Código</label>
                             <div class="col-md-9">
-                              <input
-                                name="CodColegio"
-                                [(ngModel)]="unidadEducativa.CodColegio"
+                              <input [(ngModel)]="unidadEducativa.CodColegio" #CodColegio="ngModel" type="text"
+                                name="CodColegio" id="CodColegio" placeholder="CodColegio" minlength="1"
+                                maxlength="40" required
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
-                              <small class="form-control-feedback"> Ingrese el código </small>
+                                <small class="form-control-feedback"> Ingrese el código </small>
+                                <div *ngIf="CodColegio.touched && !CodColegio.valid">
+                                  <div *ngIf="CodColegio.errors.required">Código requerido</div>
+                                  <div *ngIf="CodColegio.errors.minlength">Insertar al menos {{CodColegio.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+
+
+
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Nombre del colegio</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="unidadEducativa.NombreColegio" #NombreColegio="ngModel" type="text"
+                                name="NombreColegio" id="NombreColegio" placeholder="NombreColegio" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <small class="form-control-feedback"> Ingrese el nombre completo de la unidad educativa </small>
+                                <div *ngIf="NombreColegio.touched && !NombreColegio.valid">
+                                  <div *ngIf="NombreColegio.errors.required">Nombre del Colegio es requerido</div>
+                                  <div *ngIf="NombreColegio.errors.minlength">Insertar al menos {{NombreColegio.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
 
