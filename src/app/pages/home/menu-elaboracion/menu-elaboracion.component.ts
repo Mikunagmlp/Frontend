@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {MenuModel} from "../../../models/menu.model";
+import {trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-menu-elaboracion',
@@ -10,9 +11,16 @@ import {MenuModel} from "../../../models/menu.model";
 })
 export class MenuElaboracionComponent implements OnInit {
 
+  menuNuevo: boolean = true;
+  menuNoAprobado: boolean = false;
+  menuAprobado: boolean = false;
+
   productosTodos: any = '';
   productos: any = '';
   menu: MenuModel = new MenuModel();
+
+  listaMenusAprobados: any = '';
+  listaMenusNoAprobados: any = '';
 
 
   productosInicialSolido: any[] = [];
@@ -28,8 +36,6 @@ export class MenuElaboracionComponent implements OnInit {
   calculosPrimariaLiquido: any = '';
   calculosSecundariaSolido: any = '';
   calculosSecundariaLiquido: any = '';
-
-
 
 
   constructor( private service: UserService) { }
@@ -88,7 +94,6 @@ export class MenuElaboracionComponent implements OnInit {
 
   }
 
-
   calculoSolidoInicial(event) {
     // console.log(event.target.value);
     this.service.getSolidoInicial(event.target.value).subscribe(resp => {
@@ -104,8 +109,6 @@ export class MenuElaboracionComponent implements OnInit {
 
     });
   }
-
-
   calculoLiquidoInicial(event){
     // console.log(event.target.value);
     this.service.getLiquidoInicial(event.target.value).subscribe(resp => {
@@ -121,7 +124,6 @@ export class MenuElaboracionComponent implements OnInit {
 
     });
   }
-
   calculoSolidoPrimaria(event){
     // console.log(event.target.value);
     this.service.getSolidoPrimaria(event.target.value).subscribe(resp => {
@@ -137,7 +139,6 @@ export class MenuElaboracionComponent implements OnInit {
 
     });
   }
-
   calculoLiquidoPrimaria(event){
     // console.log(event.target.value);
     this.service.getLiquidoPrimaria(event.target.value).subscribe(resp => {
@@ -153,7 +154,6 @@ export class MenuElaboracionComponent implements OnInit {
 
     });
   }
-
   calculoSolidoSecundaria(event){
     // console.log(event.target.value);
     this.service.getSolidoSecundaria(event.target.value).subscribe(resp => {
@@ -169,7 +169,6 @@ export class MenuElaboracionComponent implements OnInit {
 
     });
   }
-
   calculoLiquidoSecundaria(event){
     // console.log(event.target.value);
     this.service.getLiquidoSecundaria(event.target.value).subscribe(resp => {
@@ -190,6 +189,7 @@ export class MenuElaboracionComponent implements OnInit {
     console.log(this.menu);
     this.service.createMenu(this.menu).subscribe(resp => {
       console.log(resp);
+      location.reload();
     });
   }
 

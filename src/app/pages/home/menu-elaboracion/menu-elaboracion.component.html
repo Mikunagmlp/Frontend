@@ -25,8 +25,8 @@
       <!-- ============================================================== -->
       <!-- Start Page Content -->
       <!-- ============================================================== -->
-     
-      
+
+
       <!-- Inicio Listado Menus aprobados y no aprobados -->
       <div class="row">
         <div class="col-lg-12">
@@ -34,13 +34,8 @@
 
             <div class="card-body">
               <tr>
-            
-            
-            
                 <td >
-                 
                   <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#crearmenu" d-flex>Crear Menú</button>
-
                 </td>
               </tr>
 
@@ -50,59 +45,56 @@
       </div>
 
       <div class="row">
-       
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Listado de Menús Aprobados</h4>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Código</th>
-                                    <th>Fecha</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Menu 1</td>
-                                    <td>09-07-09</td>
-                                  
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Menu 2</td>
-                                    <td>10-07-09</td>
 
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Menu 3</td>
-                                    <td>10-07-09</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Menu 4</td>
-                                    <td>10-07-09</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Menu 5</td>
-                                    <td>10-07-09</td>
-                                 </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Menu 6</td>
-                                    <td>10-07-09</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Listado de Menús Aprobados</h4>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Código</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Menu 1</td>
+                      <td>09-07-09</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Menu 2</td>
+                      <td>10-07-09</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Menu 3</td>
+                      <td>10-07-09</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Menu 4</td>
+                      <td>10-07-09</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Menu 5</td>
+                      <td>10-07-09</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Menu 6</td>
+                      <td>10-07-09</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </div>
         </div>
         <div class="col-lg-6">
             <div class="card">
@@ -115,15 +107,14 @@
                                 <th>#</th>
                                 <th>Código</th>
                                 <th>Fecha</th>
-                               
                             </tr>
-                        </thead>
-                        <tbody>
+                          </thead>
+                          <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>Menu 1</td>
                                 <td>09-07-09</td>
-                              
+
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -151,307 +142,339 @@
                                 <td>Menu 6</td>
                                 <td>10-07-09</td>
                             </tr>
-                        </tbody>
+                          </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
       </div>
-   
 
-
-
-      
       <!-- Fin Listado Menus aprobados y no aprobados -->
-      
-      <!-- Inicio Menús editables sin observaciones -->
-    
-      <div class="row">
-        
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
-            </div>
-            <div class="card-body">
+
+
+      <!-- Inicio menu nuevo-->
+
+      <div *ngIf="menuNuevo" >
+        <div class="row">
+          <h1>Elaborar nuevo menu</h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
 
                 <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Estado</th>
-                                <th>Producto</th>
-                                <th>Frecuencia Utilizada</th>
-                                <th>Monto Utilizado(Bs.-)</th>
-                                <th>Frecuencia Inicial</th>
-                                <th>Monto Inicial(Bs.-)</th>
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr >
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td >
-                                    <select
-                                      (change)="calculoSolidoInicial($event)"
-                                      class="custom-select" >
-                                      <option value="nada">Seleccionar ...</option>
-                                      <option
-                                        *ngFor="let producto of productosInicialSolido; let i = index;"
-                                        [value]="producto.NombreProducto"
-                                      >
-                                        {{ producto.NombreProducto }}
-                                      </option>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td >
+                        <select
+                          (change)="calculoSolidoInicial($event)"
+                          class="custom-select" >
+                          <option value="nada">Seleccionar ...</option>
+                          <option
+                            *ngFor="let producto of productosInicialSolido; let i = index;"
+                            [value]="producto.NombreProducto"
+                          >
+                            {{ producto.NombreProducto }}
+                          </option>
 
-                                    </select>
-                                </td>
-                                <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
-                                <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
-                                <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
-                                <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td  >
-                                  <form >
-                                    <select
-                                      (change)="calculoLiquidoInicial($event)"
-                                      class="custom-select"
-                                      id="inputGroupSelect01">
-                                      <option value="nada">Seleccionar ...</option>
-                                      <option *ngFor="let producto of productosInicialLiquido">
-                                        {{ producto.NombreProducto }}
-                                      </option>
+                        </select>
+                      </td>
+                      <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
+                      <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td  >
+                        <form >
+                          <select
+                            (change)="calculoLiquidoInicial($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosInicialLiquido">
+                              {{ producto.NombreProducto }}
+                            </option>
 
-                                    </select>
-                                  </form>
-                                </td>
-                              <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                              <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
-                              <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
-                              <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
+                      <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
 
-                            </tr>
-                        </tbody>
-                    </table>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
-
-
-
-
-
-
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
-            </div>
-            <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
 
                 <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-                                  <form >
-                                    <select
-                                      (change)="calculoSolidoPrimaria($event)"
-                                      class="custom-select"
-                                      id="inputGroupSelect01">
-                                      <option value="nada">Seleccionar ...</option>
-                                      <option *ngFor="let producto of productosPrimariaSolido">
-                                        {{ producto.NombreProducto }}
-                                      </option>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoSolidoPrimaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosPrimariaSolido">
+                              {{ producto.NombreProducto }}
+                            </option>
 
-                                    </select>
-                                  </form>
-                                </td>
-                              <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
-                              <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
+                      <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
 
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-                                  <form >
-                                    <select
-                                      (change)="calculoLiquidoPrimaria($event)"
-                                      class="custom-select"
-                                      id="inputGroupSelect01">
-                                      <option value="nada">Seleccionar ...</option>
-                                      <option *ngFor="let producto of productosPrimariaLiquido">
-                                        {{ producto.NombreProducto }}
-                                      </option>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoLiquidoPrimaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosPrimariaLiquido">
+                              {{ producto.NombreProducto }}
+                            </option>
 
-                                    </select>
-                                  </form>
-                                </td>
-                              <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
-                              <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
-
-
-                            </tr>
-
-                        </tbody>
-                    </table>
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
+                      <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
-
-
-
-
-
-
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
-            </div>
-            <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
 
                 <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-                                  <form >
-                                    <select
-                                      (change)="calculoSolidoSecundaria($event)"
-                                      class="custom-select"
-                                      id="inputGroupSelect01">
-                                      <option value="nada">Seleccionar ...</option>
-                                      <option *ngFor="let producto of productosSecundariaSolido">
-                                        {{ producto.NombreProducto }}
-                                      </option>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoSolidoSecundaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosSecundariaSolido">
+                              {{ producto.NombreProducto }}
+                            </option>
 
-                                    </select>
-                                  </form>
-                                </td>
-                              <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
-                              <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
-                              <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                      <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
+                      <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
+                      <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
 
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-                                  <form >
-                                    <select
-                                      (change)="calculoLiquidoSecundaria($event)"
-                                      class="custom-select"
-                                      id="inputGroupSelect01">
-                                      <option value="nada">Seleccionar ...</option>
-                                      <option *ngFor="let producto of productosSecundariaLiquido">
-                                        {{ producto.NombreProducto }}
-                                      </option>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoLiquidoSecundaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosSecundariaLiquido">
+                              {{ producto.NombreProducto }}
+                            </option>
 
-                                    </select>
-                                  </form>
-                                </td>
-                              <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
-                              <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                      <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
+                      <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
+                      <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
 
-
-                            </tr>
-
-                        </tbody>
-                    </table>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
-
-
-
-
-
-
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
 
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-
-            <div class="card-body">
-
+              <div class="card-body">
                 <td >
-                 
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EnviarMenu" >Enviar Menú</button>
-
                 </td>
-
-
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-  <!-- Fin Menús editables sin observaciones -->
-     
-      <!-- Inicio Menús no editables con observaciones -->
-     
-      <div class="row">
-        
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
-            </div>
-            <div class="card-body">
+      <!-- Fin menu nuevo-->
 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
+
+      <!-- Inicio Menús editables con observaciones -->
+      <div *ngIf="menuNoAprobado" >
+        <div class="row">
+          <h1>Menu no aprobado</h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Estado</th>
+                                  <th>Producto</th>
+                                  <th>Frecuencia Utilizada</th>
+                                  <th>Monto Utilizado(Bs.-)</th>
+                                  <th>Frecuencia Inicial</th>
+                                  <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr >
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td >
+                                      <select
+                                        class="custom-select" >
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option>
+                                          producto solido
+                                        </option>
+                                      </select>
+                                  </td>
+                                  <td> FrecuenciaSolidoUtilizadoInicial </td>
+                                  <td> MontoSolildoUtilizadoInicial </td>
+                                  <td> frecuenciaSolidoInicialInicial </td>
+                                  <td> montoSolildoInicial </td>
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td  >
+                                    <form >
+                                      <select
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option >
+                                          prod
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td> FrecuenciaLiquidaUtilizadoInicial </td>
+                                <td> MontoLiquidaUtilizadoInicial </td>
+                                <td> frecuenciaLiquidoInicialInicial </td>
+                                <td> montoLiquidaInicial </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
                                 <th>Estado</th>
                                 <th>Producto</th>
                                 <th>Frecuencia Utilizada</th>
@@ -459,202 +482,348 @@
                                 <th>Frecuencia Inicial</th>
                                 <th>Monto Inicial(Bs.-)</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr >
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td >
-                                   Producto 1
-                                </td>
-                                <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
-                                <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
-                                <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
-                                <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td  >
-                                 Producto 2
-                                </td>
-                              <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                              <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
-                              <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
-                              <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        class="custom-select"
+                                      >
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option >
+                                          producto solido
+                                        </option>
 
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td> FrecuenciaSolidoUtilizadoPrimaria </td>
+                                <td> MontoSolildoUtilizadoPrimaria </td>
+                                <td> frecuenciaSolidoPrimariaInicial </td>
+                                <td> montoSolidoPrimaria </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option >
+                                          prod liquido
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td> FrecuenciaLiquidaUtilizadoPrimaria </td>
+                                <td> MontoLiquidaUtilizadoPrimaria </td>
+                                <td> frecuenciaLiquidaPrimariaInicial </td>
+                                <td> montoLiquidaPrimaria </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option >
+                                          pord solido
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td> FrecuenciaSolidoUtilizadoSegundaria </td>
+                                <td> MontoSolildoUtilizadaSegundaria </td>
+                                <td> frecuenciaSolidoSegundariaInicial </td>
+                                <td> montoSolildoSegundaria </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        (change)="calculoLiquidoSecundaria($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option *ngFor="let producto of productosSecundariaLiquido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
+                                <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+
+              <div class="card-body">
+                  <td >
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditarMenu" >Enviar Menú</button>
+                  </td>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Menús editables con observaciones -->
+
+      <!-- Inicio Menús no editables sin observaciones -->
+
+      <div *ngIf="menuAprobado" >
+        <div class="row">
+          <h1>Menu aprobado anteriormente</h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Estado</th>
+                                  <th>Producto</th>
+                                  <th>Frecuencia Utilizada</th>
+                                  <th>Monto Utilizado(Bs.-)</th>
+                                  <th>Frecuencia Inicial</th>
+                                  <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr >
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td >
+                                     Producto 1
+                                  </td>
+                                  <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                  <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
+                                  <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
+                                  <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td  >
+                                   Producto 2
+                                  </td>
+                                <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                                <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
+                                <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
+                                <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td>
+                                    Producto 3
+                                  </td>
+                                <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
+                                <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
+                                <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td>
+                                    Producto 4
+                                  </td>
+                                <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
+                                <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
 
 
 
 
 
 
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td>
+                                    Producto 20
+                                  </td>
+                                <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                                <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
+                                <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
+                                <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td>
+                                    Producto 21
+                                  </td>
+                                <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
+                                <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+
+              <div class="card-body">
+                <tr>
+
+                 <td><h5>Observaciones Funcionario Proveedor:</h5></td>
+
+                <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
+
+
+              </tr>
+                  <td >
+
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditarMenu" >Editar Menú</button>
+
+                  </td>
+
+
+              </div>
             </div>
           </div>
         </div>
       </div>
 
 
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
-            </div>
-            <div class="card-body">
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-                                  Producto 3
-                                </td>
-                              <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
-                              <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
-
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-                                  Producto 4
-                                </td>
-                              <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
-                              <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
-
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-
-
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
-            </div>
-            <div class="card-body">
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-                                  Producto 20
-                                </td>
-                              <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
-                              <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
-                              <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
-
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-                                  Producto 21
-                                </td>
-                              <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
-                              <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
-
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-
-
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-
-            <div class="card-body">
-              <tr>
-
-               <td><h5>Observaciones Funcionario Proveedor:</h5></td>
-               &nbsp; &nbsp;
-             
-              <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
-              
-            
-            </tr>
-                <td >
-                 
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditarMenu" >Editar Menú</button>
-
-                </td>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-  <!-- Fin Menús no editables con observaciones -->
+      <!-- Fin Menús no editables sin observaciones -->
 
 
       <tfoot>
         <tr>
-
             <div id="EnviarMenu" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -677,9 +846,34 @@
 
                 </div>
               </div>
-
-
         </tr>
+      </tfoot>
+
+      <tfoot>
+      <tr>
+        <div id="EditarMenu" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea enviar el presente menú?
+                  <br>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  (click)="enviarMenu()"
+                  type="button"
+                  class="btn btn-secondary waves-effect"
+                  data-dismiss="modal"  >Aceptar</button>
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </tr>
       </tfoot>
        <!-- ============================================================== -->
       <!-- End Page Content -->
