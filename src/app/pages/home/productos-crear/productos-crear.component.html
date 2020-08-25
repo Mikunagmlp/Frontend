@@ -56,6 +56,7 @@
                                 type="text"
                                 class="form-control">
                             </div>
+                            
                           </div>
                             <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
@@ -175,8 +176,9 @@
                               </select>
                             </div>
                           </div>
-
-                          <div class="form-group row">
+  <!--   
+                         
+                            <div class="form-group row">
                             <label class="control-label text-right col-md-3">Lote</label>
                             <div class="col-md-9">
                               <input
@@ -187,8 +189,10 @@
                                 class="form-control">
                             </div>
                           </div>
-
-                          <div class="form-group row">
+                        
+                        
+                    
+                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Volumen</label>
                             <div class="col-md-9">
                               <input
@@ -199,7 +203,6 @@
                                 class="form-control">
                             </div>
                           </div>
-
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Gramage</label>
                             <div class="col-md-9">
@@ -211,10 +214,7 @@
                                 class="form-control">
                             </div>
                           </div>
-
-
-
-                          <div class="form-group row">
+                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Presupuesto inicial</label>
                             <div class="col-md-9">
                               <input
@@ -225,6 +225,107 @@
                                 class="form-control">
                             </div>
                           </div>
+
+                           <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Niveles</label>
+                            <div class="card">
+                              <div class="demo-checkbox">
+                                <div *ngFor="let nivel of niveles; let i = index;" >
+                                  <input
+                                    (change)="selectNivel($event.target.checked ,i)"
+                                    type="checkbox" [id]="i"
+                                    class="filled-in chk-col-blue" />
+                                  <label [for]="i" > {{ nivel }} </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                            <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Precio Unitario</label>
+                            <div class="col-md-9">
+                              <input
+                                name="PrecioUnitario"
+                                [(ngModel)]="producto.PrecioUnitario"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+
+                        -->
+                      
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Lote</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Lote" #Lote="ngModel" type="text"
+                                name="Lote" id="Lote" placeholder="Lote" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Lote.touched && !Lote.valid">
+                                  <div *ngIf="Lote.errors.required">Nombre del Lote es requerido</div>
+                                  <div *ngIf="Lote.errors.minlength">Insertar al menos {{Lote.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Volumen</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Volumen" #Volumen="ngModel" type="text"
+                                name="Volumen" id="Volumen" placeholder="Volumen" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Volumen.touched && !Volumen.valid">
+                                  <div *ngIf="Volumen.errors.required">Dato de volumen es requerido</div>
+                                  <div *ngIf="Volumen.errors.minlength">Debe insertar al menos {{Volumen.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+                           <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Gramage</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Gramage" #Gramage="ngModel" type="text"
+                                name="Gramage" id="Gramage" placeholder="Gramage" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Gramage.touched && !Gramage.valid">
+                                  <div *ngIf="Gramage.errors.required">Dato de gramaje es requerido</div>
+                                  <div *ngIf="Gramage.errors.minlength">Debe insertar al menos {{Gramage.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Presupuesto inicial</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.PresupuestoInicial" #PresupuestoInicial="ngModel" type="text"
+                                name="PresupuestoInicial" id="PresupuestoInicial" placeholder="PresupuestoInicial" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="PresupuestoInicial.touched && !PresupuestoInicial.valid">
+                                  <div *ngIf="PresupuestoInicial.errors.required">Dato de presupuesto inicial requerido</div>
+                                  <div *ngIf="PresupuestoInicial.errors.minlength">Debe insertar al menos {{PresupuestoInicial.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
 
 <!--                          TODO: se debe cambiar esta parte-->
                           <div class="form-group row">
@@ -242,17 +343,25 @@
                             </div>
                           </div>
 
-                          <div class="form-group row">
+    
+
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Precio Unitario</label>
                             <div class="col-md-9">
-                              <input
-                                name="PrecioUnitario"
-                                [(ngModel)]="producto.PrecioUnitario"
+                              <input [(ngModel)]="producto.PrecioUnitario" #PrecioUnitario="ngModel" type="text"
+                                name="PrecioUnitario" id="PrecioUnitario" placeholder="PrecioUnitario" minlength="1"
+                                maxlength="40" required
+                                type="text"
                                 autocomplete="off"
-                                type="number"
                                 class="form-control">
+                                <div *ngIf="PrecioUnitario.touched && !PrecioUnitario.valid">
+                                  <div *ngIf="PrecioUnitario.errors.required">Dato de precio inicial requerido</div>
+                                  <div *ngIf="PrecioUnitario.errors.minlength">Debe insertar al menos {{PrecioUnitario.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
+
+
 
                         </div>
 
