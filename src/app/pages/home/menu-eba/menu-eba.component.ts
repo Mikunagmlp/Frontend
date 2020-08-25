@@ -66,4 +66,15 @@ export class MenuEbaComponent implements OnInit {
     });
   }
 
+  aprobarMenuEBA(id) {
+    let obj = {
+      AprovadoEba: true,
+      EnviadoJefeUnace: true
+    }
+
+    this.service.aprobarMenuEBA(id, obj).subscribe(resp => {
+      location.reload();
+    });
+  }
+
 }

@@ -438,9 +438,7 @@
               <div class="card-body">
                 <tr>
                   <td *ngIf="menuEbaNoAprobado.ObservacionJefeUnace" ><h5>Observaciones Jefe/a Unace:</h5></td>
-                  <td *ngIf="menuEbaNoAprobado.ObservacionEba" ><h5>Observaciones EBA:</h5></td>
                   <td *ngIf="menuEbaNoAprobado.ObservacionJefeUnace" > {{ menuEbaNoAprobado.ObservacionJefeUnace }} </td>
-                  <td *ngIf="menuEbaNoAprobado.ObservacionEba" > {{ menuEbaNoAprobado.ObservacionEba }} </td>
                 </tr>
 
                 <td >
@@ -468,7 +466,11 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"  >Aceptar</button>
+                      <button
+                        (click)="aprobarMenuEBA(menuEbaNoAprobado._id)"
+                        type="button"
+                        class="btn btn-secondary waves-effect"
+                        data-dismiss="modal"  >Aceptar</button>
                       <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
                     </div>
                   </div>
