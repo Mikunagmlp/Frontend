@@ -287,6 +287,14 @@ export class UserService {
     return this.http.get(`${this.url}/menu/listado/eba-no-aprobado`);
   }
 
+  listarMenuUnaceAprobados() {
+    return this.http.get(`${this.url}/menu/listado/unace-aprobado`);
+  }
+
+  listarMenuUnaceNoAprobados() {
+    return this.http.get(`${this.url}/menu/listado/unace-no-aprobado`);
+  }
+
   listarMenu(id) {
     return this.http.get(`${this.url}/listarMenu/${id}`);
   }

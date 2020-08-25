@@ -30,60 +30,37 @@
          <!-- Inicio Listado Menus aprobados y no aprobados -->
 
          <div class="row">
-       
-          <div class="col-lg-6">
-              <div class="card">
-                  <div class="card-body">
-                      <h4 class="card-title">Listado de Menús Aprobados</h4>
-                      <div class="table-responsive">
-                          <table class="table">
-                              <thead>
-                                  <tr>
-                                      <th>#</th>
-                                      <th>Código</th>
-                                      <th>Fecha</th>
-                                     
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Menu 1</td>
-                                      <td>09-07-09</td>
-                                    
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td>Menu 2</td>
-                                      <td>10-07-09</td>
-  
-                                  </tr>
-                                  <tr>
-                                      <td>3</td>
-                                      <td>Menu 3</td>
-                                      <td>10-07-09</td>
-                                  </tr>
-                                  <tr>
-                                      <td>4</td>
-                                      <td>Menu 4</td>
-                                      <td>10-07-09</td>
-                                  </tr>
-                                  <tr>
-                                      <td>5</td>
-                                      <td>Menu 5</td>
-                                      <td>10-07-09</td>
-                                   </tr>
-                                  <tr>
-                                      <td>6</td>
-                                      <td>Menu 6</td>
-                                      <td>10-07-09</td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
+           <div class="col-lg-6">
+             <div class="card">
+               <div class="card-body">
+                 <h4 class="card-title">Listado de Menús Aprobados</h4>
+                 <div class="table-responsive">
+                   <table class="table table-hover">
+                     <thead>
+                     <tr>
+                       <th>#</th>
+                       <th>Código</th>
+                       <th>Fecha</th>
+
+                     </tr>
+                     </thead>
+                     <tbody>
+                       <tr
+                         (click)="listarMenuAprobado(menu._id, false, true)"
+                         *ngFor="let menu of menusAprobados; let i = index;" >
+                         <td> {{ i+1 }} </td>
+                         <td> {{ menu.codigoGenerado }} </td>
+                         <td> {{ convertDate(menu.createdAt) }} </td>
+
+                       </tr>
+
+                     </tbody>
+                   </table>
+                 </div>
+               </div>
+             </div>
+           </div>
+
           <div class="col-lg-6">
               <div class="card">
                   <div class="card-body">
@@ -95,42 +72,18 @@
                                   <th>#</th>
                                   <th>Código</th>
                                   <th>Fecha</th>
-                                 
+
                               </tr>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>Menu 1</td>
-                                  <td>09-07-09</td>
-                                
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Menu 2</td>
-                                  <td>10-07-09</td>
-  
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Menu 3</td>
-                                  <td>10-07-09</td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>Menu 4</td>
-                                  <td>10-07-09</td>
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>Menu 5</td>
-                                  <td>10-07-09</td>
-                               </tr>
-                              <tr>
-                                  <td>6</td>
-                                  <td>Menu 6</td>
-                                  <td>10-07-09</td>
-                              </tr>
+                          <tr
+                            (click)="listarMenuNoAprobado(menu._id, true, false)"
+                            *ngFor="let menu of menusNoAprobados; let i = index;" >
+                            <td> {{ i+1 }} </td>
+                            <td> {{ menu.codigoGenerado }} </td>
+                            <td> {{ convertDate(menu.createdAt) }} </td>
+
+                          </tr>
                           </tbody>
                           </table>
                       </div>
@@ -138,415 +91,387 @@
               </div>
           </div>
         </div>
-     
-  
-  
-  
-        
+
+
+
+
+
         <!-- Fin Listado Menus aprobados y no aprobados -->
          <!-- Inicio Menús  sin observaciones -->
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
-            </div>
-            <div class="card-body">
 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td><span class="label label-success">SÓLIDO</span> </td>
-                          <td> {{ menu.ProductoSolidoInicial }} </td>
-                          <td> {{ menu.FrecuenciaSolidoUtilizadoInicial }} </td>
-                          <td> {{ menu.MontoSolildoUtilizadoInicial }} </td>
-                          <td> {{ menu.frecuenciaSolidoInicialInicial }} </td>
-                          <td> {{ menu.montoSolildoInicial }} </td>
-
-                        </tr>
-                        <tr>
-                          <td><span class="label label-info">LÍQUIDO</span> </td>
-                          <td> {{ menu.ProductoLiquidoInicial }} </td>
-                          <td> {{ menu.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                          <td> {{ menu.MontoLiquidaUtilizadoInicial }} </td>
-                          <td> {{ menu.frecuenciaLiquidaInicialInicial }} </td>
-                          <td> {{ menu.montoLiquidaInicial }} </td>
-
-
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-
-
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
-            </div>
-            <div class="card-body">
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="label label-success">SÓLIDO</span> </td>
-                              <td> {{ menu.ProductoSolidoPrimaria }} </td>
-                              <td> {{ menu.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                              <td> {{ menu.MontoSolildoUtilizadoPrimaria }} </td>
-                              <td> {{ menu.frecuenciaSolidoPrimariaInicial }} </td>
-                              <td> {{ menu.montoSolidoPrimaria }} </td>
-
-                            </tr>
-                            <tr>
-                                <td><span class="label label-info">LÍQUIDO</span> </td>
-                              <td> {{ menu.ProductoLiquidoPrimaria }} </td>
-                              <td> {{ menu.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ menu.MontoLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ menu.frecuenciaLiquidaPrimariaInicial }} </td>
-                              <td> {{ menu.montoLiquidaPrimaria }} </td>
-
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-
-
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header bg-info">
-              <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
-            </div>
-            <div class="card-body">
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              <th>Estado</th>
-                              <th>Producto</th>
-                              <th>Frecuencia Utilizada</th>
-                              <th>Monto Utilizado(Bs.-)</th>
-                              <th>Frecuencia Inicial</th>
-                              <th>Monto Inicial(Bs.-)</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td><span class="label label-success">SÓLIDO</span> </td>
-                          <td> {{ menu.ProductoSolidoSegundaria }} </td>
-                          <td> {{ menu.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                          <td> {{ menu.MontoSolildoUtilizadaSegundaria }} </td>
-                          <td> {{ menu.frecuenciaSolidoSegundariaInicial }} </td>
-                          <td> {{ menu.montoSolildoSegundaria }} </td>
-
-                        </tr>
-                        <tr>
-                          <td><span class="label label-info">LÍQUIDO</span> </td>
-                          <td> {{ menu.ProductoLiquidoSegundaria }} </td>
-                          <td> {{ menu.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                          <td> {{ menu.MontoLiquidaUtilizadoSegundaria }} </td>
-                          <td> {{ menu.frecuenciaLiquidaSegundariaInicial }} </td>
-                          <td> {{ menu.montoLiquidaSegundaria }} </td>
-
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-
-
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-    
-  <!-- Fin Menús  sin observaciones -->
-  
-  <!-- Inicio Menús Final -->
-           <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header bg-info">
-                  <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
-                </div>
-                <div class="card-body">
-    
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                  <th>Estado</th>
-                                  <th>Producto</th>
-                                  <th>Frecuencia Utilizada</th>
-                                  <th>Monto Utilizado(Bs.-)</th>
-                                  <th>Frecuencia Inicial</th>
-                                  <th>Monto Inicial(Bs.-)</th>
-    
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                              <td><span class="label label-success">SÓLIDO</span> </td>
-                              <td> {{ menu.ProductoSolidoInicial }} </td>
-                              <td> {{ menu.FrecuenciaSolidoUtilizadoInicial }} </td>
-                              <td> {{ menu.MontoSolildoUtilizadoInicial }} </td>
-                              <td> {{ menu.frecuenciaSolidoInicialInicial }} </td>
-                              <td> {{ menu.montoSolildoInicial }} </td>
-    
-                            </tr>
-                            <tr>
-                              <td><span class="label label-info">LÍQUIDO</span> </td>
-                              <td> {{ menu.ProductoLiquidoInicial }} </td>
-                              <td> {{ menu.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                              <td> {{ menu.MontoLiquidaUtilizadoInicial }} </td>
-                              <td> {{ menu.frecuenciaLiquidaInicialInicial }} </td>
-                              <td> {{ menu.montoLiquidaInicial }} </td>
-    
-    
-                            </tr>
-    
-                            </tbody>
-                        </table>
-                    </div>
-    
-    
-    
-    
-    
-    
-                </div>
+      <div *ngIf="listaMenusAprobadosCard">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
               </div>
-            </div>
-          </div>
-    
-    
-    
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header bg-info">
-                  <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
-                </div>
-                <div class="card-body">
-    
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                  <th>Estado</th>
-                                  <th>Producto</th>
-                                  <th>Frecuencia Utilizada</th>
-                                  <th>Monto Utilizado(Bs.-)</th>
-                                  <th>Frecuencia Inicial</th>
-                                  <th>Monto Inicial(Bs.-)</th>
-    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span class="label label-success">SÓLIDO</span> </td>
-                                  <td> {{ menu.ProductoSolidoPrimaria }} </td>
-                                  <td> {{ menu.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                                  <td> {{ menu.MontoSolildoUtilizadoPrimaria }} </td>
-                                  <td> {{ menu.frecuenciaSolidoPrimariaInicial }} </td>
-                                  <td> {{ menu.montoSolidoPrimaria }} </td>
-    
-                                </tr>
-                                <tr>
-                                    <td><span class="label label-info">LÍQUIDO</span> </td>
-                                  <td> {{ menu.ProductoLiquidoPrimaria }} </td>
-                                  <td> {{ menu.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                                  <td> {{ menu.MontoLiquidaUtilizadoPrimaria }} </td>
-                                  <td> {{ menu.frecuenciaLiquidaPrimariaInicial }} </td>
-                                  <td> {{ menu.montoLiquidaPrimaria }} </td>
-    
-    
-                                </tr>
-    
-                            </tbody>
-                        </table>
-                    </div>
-    
-    
-    
-    
-    
-    
-                </div>
-              </div>
-            </div>
-          </div>
-    
-    
-    
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header bg-info">
-                  <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
-                </div>
-                <div class="card-body">
-    
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                  <th>Estado</th>
-                                  <th>Producto</th>
-                                  <th>Frecuencia Utilizada</th>
-                                  <th>Monto Utilizado(Bs.-)</th>
-                                  <th>Frecuencia Inicial</th>
-                                  <th>Monto Inicial(Bs.-)</th>
-    
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                              <td><span class="label label-success">SÓLIDO</span> </td>
-                              <td> {{ menu.ProductoSolidoSegundaria }} </td>
-                              <td> {{ menu.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                              <td> {{ menu.MontoSolildoUtilizadaSegundaria }} </td>
-                              <td> {{ menu.frecuenciaSolidoSegundariaInicial }} </td>
-                              <td> {{ menu.montoSolildoSegundaria }} </td>
-    
-                            </tr>
-                            <tr>
-                              <td><span class="label label-info">LÍQUIDO</span> </td>
-                              <td> {{ menu.ProductoLiquidoSegundaria }} </td>
-                              <td> {{ menu.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ menu.MontoLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ menu.frecuenciaLiquidaSegundariaInicial }} </td>
-                              <td> {{ menu.montoLiquidaSegundaria }} </td>
-    
-                            </tr>
-    
-                            </tbody>
-                        </table>
-                    </div>
-    
-    
-    
-    
-    
-    
-                </div>
-              </div>
-            </div>
-          </div>
-    
-    
-    
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-    
-                <div class="card-body">
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td><span class="label label-success">SÓLIDO</span> </td>
+                            <td> {{ menuAprobado.ProductoSolidoInicial }} </td>
+                            <td> {{ menuAprobado.FrecuenciaSolidoUtilizadoInicial }} </td>
+                            <td> {{ menuAprobado.MontoSolildoUtilizadoInicial }} </td>
+                            <td> {{ menuAprobado.frecuenciaSolidoInicialInicial }} </td>
+                            <td> {{ menuAprobado.montoSolildoInicial }} </td>
+
+                          </tr>
+                          <tr>
+                            <td><span class="label label-info">LÍQUIDO</span> </td>
+                            <td> {{ menuAprobado.ProductoLiquidoInicial }} </td>
+                            <td> {{ menuAprobado.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                            <td> {{ menuAprobado.MontoLiquidaUtilizadoInicial }} </td>
+                            <td> {{ menuAprobado.frecuenciaLiquidaInicialInicial }} </td>
+                            <td> {{ menuAprobado.montoLiquidaInicial }} </td>
 
 
-    
-                    <td >
-                      &nbsp;  &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-    
-                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#RevisarMenu"  >Revisar Menú</button>
-                      &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;
-                       <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesFinal">Observaciones</button>
-                       &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;
-                   
-                       <button
-                         type="button"
-                         class="btn btn-success"
-                         data-toggle="modal"
-                         data-target="#AprobacionFinal">Aprobación Final</button>
-                    </td>
-    
-    
-                </div>
-              </div>
-            </div>
-          </div>
-    
-      <!-- Fin Menús  Final -->
-      <tfoot>
-        <tr>
+                          </tr>
 
-            <div id="RevisarMenu" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea enviar las modificaciones del presente menú?</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"  >Aceptar</button>
-                      <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
-                    </div>
+                          </tbody>
+                      </table>
                   </div>
 
-                </div>
+
+
+
+
+
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td> {{ menuAprobado.ProductoSolidoPrimaria }} </td>
+                                <td> {{ menuAprobado.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                <td> {{ menuAprobado.MontoSolildoUtilizadoPrimaria }} </td>
+                                <td> {{ menuAprobado.frecuenciaSolidoPrimariaInicial }} </td>
+                                <td> {{ menuAprobado.montoSolidoPrimaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td> {{ menuAprobado.ProductoLiquidoPrimaria }} </td>
+                                <td> {{ menuAprobado.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ menuAprobado.MontoLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ menuAprobado.frecuenciaLiquidaPrimariaInicial }} </td>
+                                <td> {{ menuAprobado.montoLiquidaPrimaria }} </td>
 
 
-        </tr>
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td><span class="label label-success">SÓLIDO</span> </td>
+                            <td> {{ menuAprobado.ProductoSolidoSegundaria }} </td>
+                            <td> {{ menuAprobado.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                            <td> {{ menuAprobado.MontoSolildoUtilizadaSegundaria }} </td>
+                            <td> {{ menuAprobado.frecuenciaSolidoSegundariaInicial }} </td>
+                            <td> {{ menuAprobado.montoSolildoSegundaria }} </td>
+
+                          </tr>
+                          <tr>
+                            <td><span class="label label-info">LÍQUIDO</span> </td>
+                            <td> {{ menuAprobado.ProductoLiquidoSegundaria }} </td>
+                            <td> {{ menuAprobado.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                            <td> {{ menuAprobado.MontoLiquidaUtilizadoSegundaria }} </td>
+                            <td> {{ menuAprobado.frecuenciaLiquidaSegundariaInicial }} </td>
+                            <td> {{ menuAprobado.montoLiquidaSegundaria }} </td>
+
+                          </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+  <!-- Fin Menús  sin observaciones -->
+
+  <!-- Inicio Menús Final -->
+
+      <div *ngIf="listaMenusNoAprobadosCard">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td> {{ menuNoAprobado.ProductoSolidoInicial }} </td>
+                      <td> {{ menuNoAprobado.FrecuenciaSolidoUtilizadoInicial }} </td>
+                      <td> {{ menuNoAprobado.MontoSolildoUtilizadoInicial }} </td>
+                      <td> {{ menuNoAprobado.frecuenciaSolidoInicialInicial }} </td>
+                      <td> {{ menuNoAprobado.montoSolildoInicial }} </td>
+
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td> {{ menuNoAprobado.ProductoLiquidoInicial }} </td>
+                      <td> {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                      <td> {{ menuNoAprobado.MontoLiquidaUtilizadoInicial }} </td>
+                      <td> {{ menuNoAprobado.frecuenciaLiquidaInicialInicial }} </td>
+                      <td> {{ menuNoAprobado.montoLiquidaInicial }} </td>
+
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td> {{ menuNoAprobado.ProductoSolidoPrimaria }} </td>
+                      <td> {{ menuNoAprobado.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                      <td> {{ menuNoAprobado.MontoSolildoUtilizadoPrimaria }} </td>
+                      <td> {{ menuNoAprobado.frecuenciaSolidoPrimariaInicial }} </td>
+                      <td> {{ menuNoAprobado.montoSolidoPrimaria }} </td>
+
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td> {{ menuNoAprobado.ProductoLiquidoPrimaria }} </td>
+                      <td> {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                      <td> {{ menuNoAprobado.MontoLiquidaUtilizadoPrimaria }} </td>
+                      <td> {{ menuNoAprobado.frecuenciaLiquidaPrimariaInicial }} </td>
+                      <td> {{ menuNoAprobado.montoLiquidaPrimaria }} </td>
+
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td> {{ menuNoAprobado.ProductoSolidoSegundaria }} </td>
+                      <td> {{ menuNoAprobado.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                      <td> {{ menuNoAprobado.MontoSolildoUtilizadaSegundaria }} </td>
+                      <td> {{ menuNoAprobado.frecuenciaSolidoSegundariaInicial }} </td>
+                      <td> {{ menuNoAprobado.montoSolildoSegundaria }} </td>
+
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td> {{ menuNoAprobado.ProductoLiquidoSegundaria }} </td>
+                      <td> {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                      <td> {{ menuNoAprobado.MontoLiquidaUtilizadoSegundaria }} </td>
+                      <td> {{ menuNoAprobado.frecuenciaLiquidaSegundariaInicial }} </td>
+                      <td> {{ menuNoAprobado.montoLiquidaSegundaria }} </td>
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+
+              <div class="card-body">
+
+
+
+                <td >
+
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    data-toggle="modal"
+                    data-target="#AprobacionFinal">Aprobación Final</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesFinal">Observaciones</button>
+
+                </td>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Fin Menús  Final -->
+      <tfoot>
         <tr>
 
             <div id="AprobacionFinal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

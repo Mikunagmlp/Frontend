@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
+import * as moment from 'moment';
+moment.locale('es');
 
 @Component({
   selector: 'app-menu-jefa',
@@ -9,38 +11,79 @@ import {UserService} from "../../../services/user.service";
 })
 export class MenuJefaComponent implements OnInit {
 
-  menu: any = '';
-  obj: any = {
-    ObservacionEba: this.menu.ObservacionEba,
-    ObservacionJefeUnace: 'Sin observaciones',
-    AprovadoEba: true,
-    Aprovado: false,
-    EnviadoJefeUnace: false,
+  listaMenusAprobadosCard:boolean = false;
+  listaMenusNoAprobadosCard:boolean = false;
 
-  };
+  menusAprobados: any = '';
+  menusNoAprobados: any = '';
+
+  menuAprobado: any = '';
+  menuNoAprobado: any = '';
+
+
 
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
-    this.service.listarMenuUnace().subscribe(resp => {
-      this.menu = resp[0];
+    this.service.listarMenuUnaceAprobados().subscribe(resp => {
+      this.menusAprobados = resp;
+    });
 
-      console.log(this.menu);
+    this.service.listarMenuUnaceNoAprobados().subscribe(resp => {
+      this.menusNoAprobados = resp;
     });
   }
 
-  agregarObservaciones(observaciones) {
-    this.obj.ObservacionJefeUnace = observaciones.value;
+  convertDate(date) {
+    return moment(date).format("dddd, MMMM DD YYYY, h:mm:ss a");
+  }
+
+  listarMenuAprobado(id, menuNoAprobado, menuAprobado) {
+
+    this.listaMenusAprobadosCard = menuAprobado;
+    this.listaMenusNoAprobadosCard = menuNoAprobado;
+
+    this.service.listarMenu(id).subscribe(resp => {
+      this.menuAprobado =  resp;
+    });
+
+  }
+
+  listarMenuNoAprobado(id, menuNoAprobado, menuAprobado) {
+
+    this.listaMenusAprobadosCard = menuAprobado;
+    this.listaMenusNoAprobadosCard = menuNoAprobado;
+
+    this.service.listarMenu(id).subscribe(resp => {
+      this.menuNoAprobado =  resp;
+      console.log(this.menuNoAprobado);
+    });
+
   }
 
   enviarMenuAprobado() {
-    this.obj.Aprovado = true;
-    this.obj.EnviadoJefeUnace = true;
+    let obj = {
+      Aprovado: true
+    }
 
-    this.service.aprobarMenuUnace(this.menu._id, this.obj).subscribe(resp => {
-      console.log(resp);
+    this.service.aprobarMenuUnace(this.menuNoAprobado._id, obj).subscribe(resp => {
+      location.reload();
     });
 
+  }
+
+  agregarObservaciones(observaciones) {
+    // this.obj.ObservacionJefeUnace = observaciones.value;
+    let obj = {
+      EnviadoJefeUnace: false,
+      AprovadoEba: false,
+      ObservacionJefeUnace: observaciones.value
+    }
+
+
+    this.service.aprobarMenuUnace(this.menuNoAprobado._id, obj).subscribe(resp => {
+      location.reload();
+    });
   }
 
 }
