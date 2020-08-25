@@ -25,128 +25,263 @@
       <!-- ============================================================== -->
       <!-- Start Page Content -->
       <!-- ============================================================== -->
-     
-     
+
+
       <!-- Inicio Listado Menus aprobados y no aprobados -->
 
        <div class="row">
-       
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Listado de Menús Aprobados</h4>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Código</th>
-                                    <th>Fecha</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Menu 1</td>
-                                    <td>09-07-09</td>
-                                  
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Menu 2</td>
-                                    <td>10-07-09</td>
+         <div class="col-lg-6">
+           <div class="card">
+             <div class="card-body">
+               <h4 class="card-title">Listado de menus aprobados</h4>
+               <div class="table-responsive">
+                 <table class="table table-hover">
+                   <thead>
+                   <tr>
+                     <th>#</th>
+                     <th>Código</th>
+                     <th>Fecha</th>
 
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Menu 3</td>
-                                    <td>10-07-09</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Menu 4</td>
-                                    <td>10-07-09</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Menu 5</td>
-                                    <td>10-07-09</td>
-                                 </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Menu 6</td>
-                                    <td>10-07-09</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Listado de Menús No Aprobados</h4>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Código</th>
-                                <th>Fecha</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Menu 1</td>
-                                <td>09-07-09</td>
-                              
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Menu 2</td>
-                                <td>10-07-09</td>
+                   </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td> 1 </td>
+                       <td> codigo </td>
+                       <td> fecha </td>
+                     </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+           </div>
+         </div>
 
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Menu 3</td>
-                                <td>10-07-09</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Menu 4</td>
-                                <td>10-07-09</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Menu 5</td>
-                                <td>10-07-09</td>
-                             </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Menu 6</td>
-                                <td>10-07-09</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-   
+         <div class="col-lg-6">
+           <div class="card">
+             <div class="card-body">
+               <h4 class="card-title">Listado de Menús No Aprobados</h4>
+               <div class="table-responsive">
+                 <table class="table table-hover">
+                   <thead>
+                   <tr>
+                     <th>#</th>
+                     <th>Código</th>
+                     <th>Fecha</th>
+
+                   </tr>
+                   </thead>
+                   <tbody>
+                    <tr
+                      (click)="listarMenuNoAprobado(menu._id, true, false)"
+                      *ngFor="let menu of listarMenusEnviadosAEba; let i = index;" >
+                      <td> {{ i+1 }} </td>
+                      <td> {{ menu.codigoGenerado }} </td>
+                      <td> {{ convertDate(menu.createdAt) }} </td>
+                    </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
 
 
 
-      
+
+
       <!-- Fin Listado Menus aprobados y no aprobados -->
 
        <!-- Inicio Menús  sin observaciones -->
-      <div class="row">
+      <div *ngIf="menuAprobado" >
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> ProductoSolidoInicial </td>
+                                  <td> FrecuenciaSolidoUtilizadoInicial </td>
+                                  <td> MontoSolildoUtilizadoInicial </td>
+                                  <td> frecuenciaSolidoInicialInicial </td>
+                                  <td> montoSolildoInicial </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> roductoLiquidoInicial </td>
+                                  <td> recuenciaLiquidaUtilizadoInicial </td>
+                                  <td> ontoLiquidaUtilizadoInicial </td>
+                                  <td> recuenciaLiquidaInicialInicial </td>
+                                  <td> ontoLiquidaInicial </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td> ProductoSolidoPrimaria </td>
+                                <td> FrecuenciaSolidoUtilizadoPrimaria </td>
+                                <td> MontoSolildoUtilizadoPrimaria </td>
+                                <td> frecuenciaSolidoPrimariaInicial </td>
+                                <td> montoSolidoPrimaria </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td> ProductoLiquidoPrimaria </td>
+                                <td> FrecuenciaLiquidaUtilizadoPrimaria </td>
+                                <td> MontoLiquidaUtilizadoPrimaria </td>
+                                <td> frecuenciaLiquidaPrimariaInicial </td>
+                                <td> montoLiquidaPrimaria </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td> ProductoSolidoSegundaria </td>
+                                <td> FrecuenciaSolidoUtilizadoSegundaria </td>
+                                <td> MontoSolildoUtilizadaSegundaria </td>
+                                <td> frecuenciaSolidoSegundariaInicial </td>
+                                <td> montoSolildoSegundaria </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td> ProductoLiquidoSegundaria </td>
+                                <td> FrecuenciaLiquidaUtilizadoSegundaria </td>
+                                <td> MontoLiquidaUtilizadoSegundaria </td>
+                                <td> frecuenciaLiquidaSegundariaInicial </td>
+                                <td> montoLiquidaSegundaria </td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+
+              <div class="card-body">
+                <tr>
+                  <td><h5>Observaciones Jefe/a Unace:</h5></td>
+                  <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
+                </tr>
+
+                <td >
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AprobarMenuEBA"  >Aprobar Menú</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesEBA">Observaciones</button>
+                </td>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <!--Fin  Menús  sin observaciones -->
+   <!-- Inicio Menús  con observaciones -->
+      <div *ngIf="menuNoAprobado" >
+        <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header bg-info">
@@ -170,20 +305,20 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td> {{ menu.ProductoSolidoInicial }} </td>
-                                <td> {{ menu.FrecuenciaSolidoUtilizadoInicial }} </td>
-                                <td> {{ menu.MontoSolildoUtilizadoInicial }} </td>
-                                <td> {{ menu.frecuenciaSolidoInicialInicial }} </td>
-                                <td> {{ menu.montoSolildoInicial }} </td>
+                                <td> {{ menuEbaNoAprobado.ProductoSolidoInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.FrecuenciaSolidoUtilizadoInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.MontoSolildoUtilizadoInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.frecuenciaSolidoInicialInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.montoSolildoInicial }}  </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td> {{ menu.ProductoLiquidoInicial }} </td>
-                                <td> {{ menu.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                                <td> {{ menu.MontoLiquidaUtilizadoInicial }} </td>
-                                <td> {{ menu.frecuenciaLiquidaInicialInicial }} </td>
-                                <td> {{ menu.montoLiquidaInicial }} </td>
+                                <td> {{ menuEbaNoAprobado.ProductoLiquidoInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.MontoLiquidaUtilizadoInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.frecuenciaLiquidaInicialInicial }}  </td>
+                                <td> {{ menuEbaNoAprobado.montoLiquidaInicial }}  </td>
 
 
                             </tr>
@@ -192,19 +327,12 @@
                     </table>
                 </div>
 
-
-
-
-
-
             </div>
           </div>
         </div>
       </div>
 
-
-
-      <div class="row">
+        <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header bg-info">
@@ -228,20 +356,20 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                              <td> {{ menu.ProductoSolidoPrimaria }} </td>
-                              <td> {{ menu.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                              <td> {{ menu.MontoSolildoUtilizadoPrimaria }} </td>
-                              <td> {{ menu.frecuenciaSolidoPrimariaInicial }} </td>
-                              <td> {{ menu.montoSolidoPrimaria }} </td>
+                              <td> {{ menuEbaNoAprobado.ProductoSolidoPrimaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.FrecuenciaSolidoUtilizadoPrimaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.MontoSolildoUtilizadoPrimaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.frecuenciaSolidoPrimariaInicial }}  </td>
+                              <td> {{ menuEbaNoAprobado.montoSolidoPrimaria }}  </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                              <td> {{ menu.ProductoLiquidoPrimaria }} </td>
-                              <td> {{ menu.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ menu.MontoLiquidaUtilizadoPrimaria }} </td>
-                              <td> {{ menu.frecuenciaLiquidaPrimariaInicial }} </td>
-                              <td> {{ menu.montoLiquidaPrimaria }} </td>
+                              <td> {{ menuEbaNoAprobado.ProductoLiquidoPrimaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.MontoLiquidaUtilizadoPrimaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.frecuenciaLiquidaPrimariaInicial }}  </td>
+                              <td> {{ menuEbaNoAprobado.montoLiquidaPrimaria }}  </td>
 
 
                             </tr>
@@ -250,19 +378,12 @@
                     </table>
                 </div>
 
-
-
-
-
-
             </div>
           </div>
         </div>
       </div>
 
-
-
-      <div class="row">
+        <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header bg-info">
@@ -286,238 +407,53 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                              <td> {{ menu.ProductoSolidoSegundaria }} </td>
-                              <td> {{ menu.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                              <td> {{ menu.MontoSolildoUtilizadaSegundaria }} </td>
-                              <td> {{ menu.frecuenciaSolidoSegundariaInicial }} </td>
-                              <td> {{ menu.montoSolildoSegundaria }} </td>
+                              <td> {{ menuEbaNoAprobado.ProductoSolidoSegundaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.FrecuenciaSolidoUtilizadoSegundaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.MontoSolildoUtilizadaSegundaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.frecuenciaSolidoSegundariaInicial }}  </td>
+                              <td> {{ menuEbaNoAprobado.montoSolildoSegundaria }}  </td>
 
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                              <td> {{ menu.ProductoLiquidoSegundaria }} </td>
-                              <td> {{ menu.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ menu.MontoLiquidaUtilizadoSegundaria }} </td>
-                              <td> {{ menu.frecuenciaLiquidaSegundariaInicial }} </td>
-                              <td> {{ menu.montoLiquidaSegundaria }} </td>
+                              <td> {{ menuEbaNoAprobado.ProductoLiquidoSegundaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.MontoLiquidaUtilizadoSegundaria }}  </td>
+                              <td> {{ menuEbaNoAprobado.frecuenciaLiquidaSegundariaInicial }}  </td>
+                              <td> {{ menuEbaNoAprobado.montoLiquidaSegundaria }}  </td>
 
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-
-
-
-
-
             </div>
           </div>
         </div>
       </div>
 
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <tr>
+                  <td *ngIf="menuEbaNoAprobado.ObservacionJefeUnace" ><h5>Observaciones Jefe/a Unace:</h5></td>
+                  <td *ngIf="menuEbaNoAprobado.ObservacionEba" ><h5>Observaciones EBA:</h5></td>
+                  <td *ngIf="menuEbaNoAprobado.ObservacionJefeUnace" > {{ menuEbaNoAprobado.ObservacionJefeUnace }} </td>
+                  <td *ngIf="menuEbaNoAprobado.ObservacionEba" > {{ menuEbaNoAprobado.ObservacionEba }} </td>
+                </tr>
+
+                <td >
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AprobarMenuEBA"  >Aprobar Menú</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesEBA">Observaciones</button>
+                </td>
 
 
-        
-  <!--Fin  Menús  sin observaciones --> 
-   <!-- Inicio Menús  con observaciones -->
-   <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header bg-info">
-          <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
-        </div>
-        <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                          <th>Estado</th>
-                          <th>Producto</th>
-                          <th>Frecuencia Utilizada</th>
-                          <th>Monto Utilizado(Bs.-)</th>
-                          <th>Frecuencia Inicial</th>
-                          <th>Monto Inicial(Bs.-)</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="label label-success">SÓLIDO</span> </td>
-                            <td> {{ menu.ProductoSolidoInicial }} </td>
-                            <td> {{ menu.FrecuenciaSolidoUtilizadoInicial }} </td>
-                            <td> {{ menu.MontoSolildoUtilizadoInicial }} </td>
-                            <td> {{ menu.frecuenciaSolidoInicialInicial }} </td>
-                            <td> {{ menu.montoSolildoInicial }} </td>
-
-                        </tr>
-                        <tr>
-                            <td><span class="label label-info">LÍQUIDO</span> </td>
-                            <td> {{ menu.ProductoLiquidoInicial }} </td>
-                            <td> {{ menu.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                            <td> {{ menu.MontoLiquidaUtilizadoInicial }} </td>
-                            <td> {{ menu.frecuenciaLiquidaInicialInicial }} </td>
-                            <td> {{ menu.montoLiquidaInicial }} </td>
-
-
-                        </tr>
-
-                    </tbody>
-                </table>
+              </div>
             </div>
-
-
-
-
-
-
-        </div>
+          </div>
       </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header bg-info">
-          <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
-        </div>
-        <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                          <th>Estado</th>
-                          <th>Producto</th>
-                          <th>Frecuencia Utilizada</th>
-                          <th>Monto Utilizado(Bs.-)</th>
-                          <th>Frecuencia Inicial</th>
-                          <th>Monto Inicial(Bs.-)</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="label label-success">SÓLIDO</span> </td>
-                          <td> {{ menu.ProductoSolidoPrimaria }} </td>
-                          <td> {{ menu.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                          <td> {{ menu.MontoSolildoUtilizadoPrimaria }} </td>
-                          <td> {{ menu.frecuenciaSolidoPrimariaInicial }} </td>
-                          <td> {{ menu.montoSolidoPrimaria }} </td>
-
-                        </tr>
-                        <tr>
-                            <td><span class="label label-info">LÍQUIDO</span> </td>
-                          <td> {{ menu.ProductoLiquidoPrimaria }} </td>
-                          <td> {{ menu.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                          <td> {{ menu.MontoLiquidaUtilizadoPrimaria }} </td>
-                          <td> {{ menu.frecuenciaLiquidaPrimariaInicial }} </td>
-                          <td> {{ menu.montoLiquidaPrimaria }} </td>
-
-
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-
-
-
-
-
-        </div>
       </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header bg-info">
-          <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
-        </div>
-        <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                          <th>Estado</th>
-                          <th>Producto</th>
-                          <th>Frecuencia Utilizada</th>
-                          <th>Monto Utilizado(Bs.-)</th>
-                          <th>Frecuencia Inicial</th>
-                          <th>Monto Inicial(Bs.-)</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="label label-success">SÓLIDO</span> </td>
-                          <td> {{ menu.ProductoSolidoSegundaria }} </td>
-                          <td> {{ menu.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                          <td> {{ menu.MontoSolildoUtilizadaSegundaria }} </td>
-                          <td> {{ menu.frecuenciaSolidoSegundariaInicial }} </td>
-                          <td> {{ menu.montoSolildoSegundaria }} </td>
-
-                        </tr>
-                        <tr>
-                            <td><span class="label label-info">LÍQUIDO</span> </td>
-                          <td> {{ menu.ProductoLiquidoSegundaria }} </td>
-                          <td> {{ menu.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                          <td> {{ menu.MontoLiquidaUtilizadoSegundaria }} </td>
-                          <td> {{ menu.frecuenciaLiquidaSegundariaInicial }} </td>
-                          <td> {{ menu.montoLiquidaSegundaria }} </td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-
-
-
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-
-        <div class="card-body">
-          <tr>
-
-            <td><h5>Observaciones Jefe/a Unace:</h5></td>
-            &nbsp; &nbsp;
-          
-           <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
-           
-         
-         </tr>
-
-            <td >
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AprobarMenuEBA"  >Aprobar Menú</button>
-               <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesEBA">Observaciones</button>
-            </td>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
 <!--Fin  Menús  con observaciones -->
 
       <tfoot>
@@ -560,6 +496,7 @@
 <!--                            <input type="area" class="form-control" id="solidoinicial" placeholder="Ingresar observación">-->
                           <textarea
                             #observaciones
+                            placeholder="Observaciones de EBA ..."
                             class="form-control"
                             id="exampleFormControlTextarea1"
                             rows="4"></textarea>
@@ -569,7 +506,7 @@
                     <div class="form-group m-b-0">
                         <div class="offset-sm-3 col-sm-9">
                            <button
-                             (click)="enviarMenu(observaciones)"
+                             (click)="enviarMenuConObservaciones(observaciones)"
                              type="button"
                              class="btn btn-secondary waves-effect"
                              data-dismiss="modal"  >Enviar</button>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
+import * as moment from 'moment';
+moment.locale('es');
 
 @Component({
   selector: 'app-menu-eba',
@@ -9,30 +11,59 @@ import {UserService} from "../../../services/user.service";
 })
 export class MenuEbaComponent implements OnInit {
 
-  menu: any = '';
+  menuEbaAprobado: any = '';
+  menuEbaNoAprobado: any = '';
+
+  menuAprobado: boolean = false;
+  menuNoAprobado: boolean = false;
+
+  listarMenusEnviadosAEba: any = '';
+  listarMenusNoAprobadosJefaUnace: any = '';
 
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
-    this.service.listarMenuEba().subscribe(resp => {
-      this.menu = resp[0];
+    // this.service.listarMenuEbaAprobados().subscribe(resp => {
+    //   this.menusAprobados = resp;
+    //   console.log(this.menusAprobados);
+    // });
 
-      console.log(this.menu);
+    this.service.listarMenuEbaNoAprobados().subscribe(resp => {
+      this.listarMenusEnviadosAEba = resp;
+      console.log(this.listarMenusEnviadosAEba);
     });
   }
 
-  enviarMenu( observaciones ) {
+  enviarMenuConObservaciones( observaciones ) {
     console.log(observaciones.value);
     let obj = {
-      AprovadoEba: true,
-      EnviadoEba: true,
+      EnviadoEba: false,
+      AprovadoEba: false,
       ObservacionEba: observaciones.value,
-      EnviadoJefeUnace: true
     }
 
-    this.service.aprobarMenuEBA(this.menu._id, obj).subscribe(resp => {
+    this.service.aprobarMenuEBA(this.menuEbaNoAprobado._id, obj).subscribe(resp => {
       console.log(resp);
       location.reload();
     });
+
   }
+
+  convertDate(date) {
+    return moment(date).format("dddd, MMMM DD YYYY, h:mm:ss a");
+  }
+
+  listarMenuNoAprobado(id, menuNoAprobado, menuAprobado) {
+
+    this.menuNoAprobado = menuNoAprobado;
+    this.menuAprobado = menuAprobado;
+
+    console.log(id);
+    this.service.listarMenu(id).subscribe(resp => {
+      this.menuEbaNoAprobado = resp;
+
+      console.log(this.menuEbaNoAprobado);
+    });
+  }
+
 }

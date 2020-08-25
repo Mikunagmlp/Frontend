@@ -279,8 +279,16 @@ export class UserService {
     return this.http.post(`${this.url}/menu/registrar/menudiario`, menu);
   }
 
-  listarMenuEba() {
-    return this.http.get(`${this.url}/menu/listado/eba`);
+  listarMenuEbaAprobados() {
+    return this.http.get(`${this.url}/menu/listado/eba-aprobado`);
+  }
+
+  listarMenuEbaNoAprobados() {
+    return this.http.get(`${this.url}/menu/listado/eba-no-aprobado`);
+  }
+
+  listarMenu(id) {
+    return this.http.get(`${this.url}/listarMenu/${id}`);
   }
 
   aprobarMenuEBA(id, body) {
