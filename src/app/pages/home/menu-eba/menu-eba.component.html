@@ -45,10 +45,12 @@
                    </tr>
                    </thead>
                    <tbody>
-                     <tr>
-                       <td> 1 </td>
-                       <td> codigo </td>
-                       <td> fecha </td>
+                     <tr
+                       (click)="listarMenuAprobado(menu._id, false, true)"
+                       *ngFor="let menu of listarMenusAprobadosPorEBA;let i = index;" >
+                       <td> {{ i+1 }} </td>
+                       <td> {{ menu.codigoGenerado }} </td>
+                       <td> {{ convertDate(menu.createdAt) }} </td>
                      </tr>
                    </tbody>
                  </table>
@@ -74,7 +76,7 @@
                    <tbody>
                     <tr
                       (click)="listarMenuNoAprobado(menu._id, true, false)"
-                      *ngFor="let menu of listarMenusEnviadosAEba; let i = index;" >
+                      *ngFor="let menu of listarMenusNoAprobados; let i = index;" >
                       <td> {{ i+1 }} </td>
                       <td> {{ menu.codigoGenerado }} </td>
                       <td> {{ convertDate(menu.createdAt) }} </td>
@@ -119,20 +121,20 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
-                                  <td> ProductoSolidoInicial </td>
-                                  <td> FrecuenciaSolidoUtilizadoInicial </td>
-                                  <td> MontoSolildoUtilizadoInicial </td>
-                                  <td> frecuenciaSolidoInicialInicial </td>
-                                  <td> montoSolildoInicial </td>
+                                  <td> {{ menuEbaAprobado.ProductoSolidoInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.FrecuenciaSolidoUtilizadoInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.MontoSolildoUtilizadoInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.frecuenciaSolidoInicialInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.montoSolildoInicial }}  </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
-                                  <td> roductoLiquidoInicial </td>
-                                  <td> recuenciaLiquidaUtilizadoInicial </td>
-                                  <td> ontoLiquidaUtilizadoInicial </td>
-                                  <td> recuenciaLiquidaInicialInicial </td>
-                                  <td> ontoLiquidaInicial </td>
+                                  <td> {{ menuEbaAprobado.ProductoLiquidoInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.FrecuenciaLiquidaUtilizadoInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.MontoLiquidaUtilizadoInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.frecuenciaLiquidaInicialInicial }}  </td>
+                                  <td> {{ menuEbaAprobado.montoLiquidaInicial }}  </td>
 
 
                               </tr>
@@ -140,12 +142,6 @@
                           </tbody>
                       </table>
                   </div>
-
-
-
-
-
-
               </div>
             </div>
           </div>
@@ -175,20 +171,20 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td> ProductoSolidoPrimaria </td>
-                                <td> FrecuenciaSolidoUtilizadoPrimaria </td>
-                                <td> MontoSolildoUtilizadoPrimaria </td>
-                                <td> frecuenciaSolidoPrimariaInicial </td>
-                                <td> montoSolidoPrimaria </td>
+                                <td> {{ menuEbaAprobado.ProductoSolidoPrimaria }}  </td>
+                                <td> {{ menuEbaAprobado.FrecuenciaSolidoUtilizadoPrimaria }}  </td>
+                                <td> {{ menuEbaAprobado.MontoSolildoUtilizadoPrimaria }}  </td>
+                                <td> {{ menuEbaAprobado.frecuenciaSolidoPrimariaInicial }}  </td>
+                                <td> {{ menuEbaAprobado.montoSolidoPrimaria }}  </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td> ProductoLiquidoPrimaria </td>
-                                <td> FrecuenciaLiquidaUtilizadoPrimaria </td>
-                                <td> MontoLiquidaUtilizadoPrimaria </td>
-                                <td> frecuenciaLiquidaPrimariaInicial </td>
-                                <td> montoLiquidaPrimaria </td>
+                                <td> {{ menuEbaAprobado.ProductoLiquidoPrimaria }}  </td>
+                                <td> {{ menuEbaAprobado.FrecuenciaLiquidaUtilizadoPrimaria }}  </td>
+                                <td> {{ menuEbaAprobado.MontoLiquidaUtilizadoPrimaria }}  </td>
+                                <td> {{ menuEbaAprobado.frecuenciaLiquidaPrimariaInicial }}  </td>
+                                <td> {{ menuEbaAprobado.montoLiquidaPrimaria }}  </td>
 
 
                               </tr>
@@ -196,12 +192,6 @@
                           </tbody>
                       </table>
                   </div>
-
-
-
-
-
-
               </div>
             </div>
           </div>
@@ -231,20 +221,20 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td> ProductoSolidoSegundaria </td>
-                                <td> FrecuenciaSolidoUtilizadoSegundaria </td>
-                                <td> MontoSolildoUtilizadaSegundaria </td>
-                                <td> frecuenciaSolidoSegundariaInicial </td>
-                                <td> montoSolildoSegundaria </td>
+                                <td> {{ menuEbaAprobado.ProductoSolidoSegundaria }}  </td>
+                                <td> {{ menuEbaAprobado.FrecuenciaSolidoUtilizadoSegundaria }}  </td>
+                                <td> {{ menuEbaAprobado.MontoSolildoUtilizadaSegundaria }}  </td>
+                                <td> {{ menuEbaAprobado.frecuenciaSolidoSegundariaInicial }}  </td>
+                                <td> {{ menuEbaAprobado.montoSolildoSegundaria }}  </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td> ProductoLiquidoSegundaria </td>
-                                <td> FrecuenciaLiquidaUtilizadoSegundaria </td>
-                                <td> MontoLiquidaUtilizadoSegundaria </td>
-                                <td> frecuenciaLiquidaSegundariaInicial </td>
-                                <td> montoLiquidaSegundaria </td>
+                                <td> {{ menuEbaAprobado.ProductoLiquidoSegundaria }}  </td>
+                                <td> {{ menuEbaAprobado.FrecuenciaLiquidaUtilizadoSegundaria }}  </td>
+                                <td> {{ menuEbaAprobado.MontoLiquidaUtilizadoSegundaria }}  </td>
+                                <td> {{ menuEbaAprobado.frecuenciaLiquidaSegundariaInicial }}  </td>
+                                <td> {{ menuEbaAprobado.montoLiquidaSegundaria }}  </td>
 
                               </tr>
                           </tbody>
@@ -255,26 +245,6 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-
-              <div class="card-body">
-                <tr>
-                  <td><h5>Observaciones Jefe/a Unace:</h5></td>
-                  <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
-                </tr>
-
-                <td >
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AprobarMenuEBA"  >Aprobar Menú</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesEBA">Observaciones</button>
-                </td>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
 

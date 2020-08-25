@@ -17,20 +17,19 @@ export class MenuEbaComponent implements OnInit {
   menuAprobado: boolean = false;
   menuNoAprobado: boolean = false;
 
-  listarMenusEnviadosAEba: any = '';
-  listarMenusNoAprobadosJefaUnace: any = '';
+  listarMenusNoAprobados: any = '';
+  listarMenusAprobadosPorEBA: any = '';
 
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
-    // this.service.listarMenuEbaAprobados().subscribe(resp => {
-    //   this.menusAprobados = resp;
-    //   console.log(this.menusAprobados);
-    // });
+    this.service.listarMenuEbaAprobados().subscribe(resp => {
+      this.listarMenusAprobadosPorEBA = resp;
+    });
 
     this.service.listarMenuEbaNoAprobados().subscribe(resp => {
-      this.listarMenusEnviadosAEba = resp;
-      console.log(this.listarMenusEnviadosAEba);
+      this.listarMenusNoAprobados = resp;
+      // console.log(this.listarMenusNoAprobados);
     });
   }
 
@@ -58,11 +57,22 @@ export class MenuEbaComponent implements OnInit {
     this.menuNoAprobado = menuNoAprobado;
     this.menuAprobado = menuAprobado;
 
-    console.log(id);
+    // console.log(id);
     this.service.listarMenu(id).subscribe(resp => {
       this.menuEbaNoAprobado = resp;
 
       console.log(this.menuEbaNoAprobado);
+    });
+  }
+
+  listarMenuAprobado(id, menuNoAprobado, menuAprobado) {
+    this.menuNoAprobado = menuNoAprobado;
+    this.menuAprobado = menuAprobado;
+
+    this.service.listarMenu(id).subscribe(resp => {
+      this.menuEbaAprobado = resp;
+
+      console.log(this.menuEbaAprobado);
     });
   }
 
