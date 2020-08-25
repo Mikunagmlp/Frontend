@@ -27,8 +27,30 @@
       <!-- ============================================================== -->
      
       
+      <!-- Inicio Listado Menus aprobados y no aprobados -->
       <div class="row">
-        <!-- column -->
+        <div class="col-lg-12">
+          <div class="card">
+
+            <div class="card-body">
+              <tr>
+            
+            
+            
+                <td >
+                 
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#crearmenu" d-flex>Crear Menú</button>
+
+                </td>
+              </tr>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+       
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
@@ -135,15 +157,18 @@
                 </div>
             </div>
         </div>
+      </div>
    
 
 
 
       
-
-     
-     
+      <!-- Fin Listado Menus aprobados y no aprobados -->
+      
+      <!-- Inicio Menús editables sin observaciones -->
+    
       <div class="row">
+        
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header bg-info">
@@ -399,11 +424,7 @@
             <div class="card-body">
 
                 <td >
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;
-                  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;
-
+                 
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EnviarMenu" >Enviar Menú</button>
 
                 </td>
@@ -413,6 +434,222 @@
           </div>
         </div>
       </div>
+
+  <!-- Fin Menús editables sin observaciones -->
+     
+      <!-- Inicio Menús no editables con observaciones -->
+     
+      <div class="row">
+        
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header bg-info">
+              <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td >
+                                   Producto 1
+                                </td>
+                                <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
+                                <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
+                                <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
+                            </tr>
+                            <tr>
+                                <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td  >
+                                 Producto 2
+                                </td>
+                              <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                              <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
+                              <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
+                              <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header bg-info">
+              <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td>
+                                  Producto 3
+                                </td>
+                              <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
+                              <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td>
+                                  Producto 4
+                                </td>
+                              <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
+                              <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
+                              <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header bg-info">
+              <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td>
+                                  Producto 20
+                                </td>
+                              <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                              <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
+                              <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
+                              <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td>
+                                  Producto 21
+                                </td>
+                              <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                              <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
+                              <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
+                              <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+
+            <div class="card-body">
+              <tr>
+
+               <td><h5>Observaciones Funcionario Proveedor:</h5></td>
+               &nbsp; &nbsp;
+             
+              <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
+              
+            
+            </tr>
+                <td >
+                 
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditarMenu" >Editar Menú</button>
+
+                </td>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Fin Menús no editables con observaciones -->
 
 
       <tfoot>
