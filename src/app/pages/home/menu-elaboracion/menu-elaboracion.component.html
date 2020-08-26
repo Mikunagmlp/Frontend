@@ -60,42 +60,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Menu 1</td>
-                      <td>09-07-09</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Menu 2</td>
-                      <td>10-07-09</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Menu 3</td>
-                      <td>10-07-09</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Menu 4</td>
-                      <td>10-07-09</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>Menu 5</td>
-                      <td>10-07-09</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>Menu 6</td>
-                      <td>10-07-09</td>
-                    </tr>
+                  <tr
+                    (click)="listarMenuAprobado(menu._id, false, false, true)"
+                    *ngFor="let menu of listaMenusAprobados;let i = index;" >
+                    <td> {{ i+1 }} </td>
+                    <td> {{ menu.codigoGenerado }} </td>
+                    <td> {{ convertDate(menu.createdAt) }} </td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
@@ -110,44 +88,20 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Menu 1</td>
-                                <td>09-07-09</td>
-
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Menu 2</td>
-                                <td>10-07-09</td>
-
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Menu 3</td>
-                                <td>10-07-09</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Menu 4</td>
-                                <td>10-07-09</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Menu 5</td>
-                                <td>10-07-09</td>
-                             </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Menu 6</td>
-                                <td>10-07-09</td>
-                            </tr>
+                          <tr
+                            (click)="listarMenuNoAprobado(menu._id, false, true, false)"
+                            *ngFor="let menu of listaMenusNoAprobados;let i = index;" >
+                            <td> {{ i+1 }} </td>
+                            <td> {{ menu.codigoGenerado }} </td>
+                            <td> {{ convertDate(menu.createdAt) }} </td>
+                          </tr>
                           </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+
       </div>
 
       <!-- Fin Listado Menus aprobados y no aprobados -->
@@ -396,6 +350,7 @@
 
       <!-- Inicio Menús editables con observaciones -->
       <div *ngIf="menuNoAprobado" >
+
         <div class="row">
           <h1>Menu no aprobado</h1>
           <div class="col-lg-12">
@@ -411,6 +366,7 @@
                               <tr>
                                   <th>Estado</th>
                                   <th>Producto</th>
+                                  <th></th>
                                   <th>Frecuencia Utilizada</th>
                                   <th>Monto Utilizado(Bs.-)</th>
                                   <th>Frecuencia Inicial</th>
@@ -421,39 +377,50 @@
                           <tbody>
                               <tr >
                                   <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoSolidoInicial }} </td>
                                   <td >
-                                      <select
-                                        class="custom-select" >
-                                        <option value="nada">Seleccionar ...</option>
-                                        <option>
-                                          producto solido
-                                        </option>
-                                      </select>
+                                    <select
+                                      (change)="calculoSolidoInicialEditar($event)"
+                                      class="custom-select" >
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option
+                                        *ngFor="let producto of productosInicialSolido; let i = index;"
+                                        [value]="producto.NombreProducto"
+                                        [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                      >
+                                        {{ producto.NombreProducto }}
+                                      </option>
+
+                                    </select>
                                   </td>
-                                  <td> FrecuenciaSolidoUtilizadoInicial </td>
-                                  <td> MontoSolildoUtilizadoInicial </td>
-                                  <td> frecuenciaSolidoInicialInicial </td>
-                                  <td> montoSolildoInicial </td>
+                                  <td> {{ menusNoAprobados.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                  <td> {{ menusNoAprobados.MontoSolildoUtilizadoInicial }} </td>
+                                  <td> {{ menusNoAprobados.frecuenciaSolidoInicialInicial }} </td>
+                                  <td> {{ menusNoAprobados.montoSolildoInicial }} </td>
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoLiquidoInicial }} </td>
                                   <td  >
                                     <form >
                                       <select
+                                        (change)="calculoSolidoPrimariaEditar($event)"
                                         class="custom-select"
                                         id="inputGroupSelect01">
                                         <option value="nada">Seleccionar ...</option>
-                                        <option >
-                                          prod
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosPrimariaSolido">
+                                          {{ producto.NombreProducto }}
                                         </option>
 
                                       </select>
                                     </form>
                                   </td>
-                                <td> FrecuenciaLiquidaUtilizadoInicial </td>
-                                <td> MontoLiquidaUtilizadoInicial </td>
-                                <td> frecuenciaLiquidoInicialInicial </td>
-                                <td> montoLiquidaInicial </td>
+                                <td> {{ menusNoAprobados.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                                <td> {{ menusNoAprobados.MontoLiquidaUtilizadoInicial }} </td>
+                                <td> {{ menusNoAprobados.frecuenciaLiquidoInicialInicial }} </td>
+                                <td> {{ menusNoAprobados.montoLiquidaInicial }} </td>
                               </tr>
                           </tbody>
                       </table>
@@ -477,6 +444,7 @@
                               <tr>
                                 <th>Estado</th>
                                 <th>Producto</th>
+                                <th></th>
                                 <th>Frecuencia Utilizada</th>
                                 <th>Monto Utilizado(Bs.-)</th>
                                 <th>Frecuencia Inicial</th>
@@ -487,44 +455,53 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoSolidoPrimaria }} </td>
                                   <td>
                                     <form >
                                       <select
+                                        (change)="calculoSolidoPrimariaEditar($event)"
                                         class="custom-select"
-                                      >
+                                        id="inputGroupSelect01">
                                         <option value="nada">Seleccionar ...</option>
-                                        <option >
-                                          producto solido
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosPrimariaSolido">
+                                          {{ producto.NombreProducto }}
                                         </option>
 
                                       </select>
                                     </form>
                                   </td>
-                                <td> FrecuenciaSolidoUtilizadoPrimaria </td>
-                                <td> MontoSolildoUtilizadoPrimaria </td>
-                                <td> frecuenciaSolidoPrimariaInicial </td>
-                                <td> montoSolidoPrimaria </td>
+                                <td> {{ menusNoAprobados.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                <td> {{ menusNoAprobados.MontoSolildoUtilizadoPrimaria }} </td>
+                                <td> {{ menusNoAprobados.frecuenciaSolidoPrimariaInicial }} </td>
+                                <td> {{ menusNoAprobados.montoSolidoPrimaria }} </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoLiquidoPrimaria }} </td>
                                   <td>
                                     <form >
+
                                       <select
+                                        (change)="calculoLiquidoPrimariaEditar($event)"
                                         class="custom-select"
                                         id="inputGroupSelect01">
                                         <option value="nada">Seleccionar ...</option>
-                                        <option >
-                                          prod liquido
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosPrimariaLiquido">
+                                          {{ producto.NombreProducto }}
                                         </option>
 
                                       </select>
                                     </form>
                                   </td>
-                                <td> FrecuenciaLiquidaUtilizadoPrimaria </td>
-                                <td> MontoLiquidaUtilizadoPrimaria </td>
-                                <td> frecuenciaLiquidaPrimariaInicial </td>
-                                <td> montoLiquidaPrimaria </td>
+                                <td> {{ menusNoAprobados.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ menusNoAprobados.MontoLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ menusNoAprobados.frecuenciaLiquidaPrimariaInicial }} </td>
+                                <td> {{ menusNoAprobados.montoLiquidaPrimaria }} </td>
                               </tr>
                           </tbody>
                       </table>
@@ -548,6 +525,7 @@
                               <tr>
                                 <th>Estado</th>
                                 <th>Producto</th>
+                                <th></th>
                                 <th>Frecuencia Utilizada</th>
                                 <th>Monto Utilizado(Bs.-)</th>
                                 <th>Frecuencia Inicial</th>
@@ -558,45 +536,52 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoSolidoSegundaria }} </td>
                                   <td>
                                     <form >
                                       <select
+                                        (change)="calculoSolidoSecundariaEditar($event)"
                                         class="custom-select"
                                         id="inputGroupSelect01">
                                         <option value="nada">Seleccionar ...</option>
-                                        <option >
-                                          pord solido
-                                        </option>
-
-                                      </select>
-                                    </form>
-                                  </td>
-                                <td> FrecuenciaSolidoUtilizadoSegundaria </td>
-                                <td> MontoSolildoUtilizadaSegundaria </td>
-                                <td> frecuenciaSolidoSegundariaInicial </td>
-                                <td> montoSolildoSegundaria </td>
-
-                              </tr>
-                              <tr>
-                                  <td><span class="label label-info">LÍQUIDO</span> </td>
-                                  <td>
-                                    <form >
-                                      <select
-                                        (change)="calculoLiquidoSecundaria($event)"
-                                        class="custom-select"
-                                        id="inputGroupSelect01">
-                                        <option value="nada">Seleccionar ...</option>
-                                        <option *ngFor="let producto of productosSecundariaLiquido">
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosSecundariaSolido">
                                           {{ producto.NombreProducto }}
                                         </option>
 
                                       </select>
                                     </form>
                                   </td>
-                                <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                                <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
-                                <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
-                                <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+                                <td> {{ menusNoAprobados.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                                <td> {{ menusNoAprobados.MontoSolildoUtilizadaSegundaria }} </td>
+                                <td> {{ menusNoAprobados.frecuenciaSolidoSegundariaInicial }} </td>
+                                <td> {{ menusNoAprobados.montoSolildoSegundaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoLiquidoSegundaria }} </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        (change)="calculoLiquidoSecundariaEditar($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosSecundariaLiquido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td> {{ menusNoAprobados.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ menusNoAprobados.MontoLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ menusNoAprobados.frecuenciaLiquidaSegundariaInicial }} </td>
+                                <td> {{ menusNoAprobados.montoLiquidaSegundaria }} </td>
 
                               </tr>
                           </tbody>
@@ -612,13 +597,22 @@
             <div class="card">
 
               <div class="card-body">
-                  <td >
+                <tr>
+                  <td *ngIf="menusNoAprobados.ObservacionJefeUnace" ><h5>Observaciones Jefe/a Unace:</h5></td>
+                  <td *ngIf="menusNoAprobados.ObservacionEba" ><h5>Observaciones EBA:</h5></td>
+                  <td *ngIf="menusNoAprobados.ObservacionJefeUnace" > {{ menusNoAprobados.ObservacionJefeUnace }} </td>
+                  <td *ngIf="menusNoAprobados.ObservacionEba" > {{ menusNoAprobados.ObservacionEba }} </td>
+                </tr>
+
+
+                <td >
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditarMenu" >Enviar Menú</button>
                   </td>
               </div>
             </div>
           </div>
         </div>
+
       </div>
       <!-- Fin Menús editables con observaciones -->
 
@@ -650,23 +644,19 @@
                           <tbody>
                               <tr >
                                   <td><span class="label label-success">SÓLIDO</span> </td>
-                                  <td >
-                                     Producto 1
-                                  </td>
-                                  <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
-                                  <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
-                                  <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
-                                  <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
+                                  <td> {{ menusAprobados.ProductoSolidoInicial }} </td>
+                                  <td> {{ menusAprobados.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                  <td> {{ menusAprobados.MontoSolildoUtilizadoInicial }} </td>
+                                  <td> {{ menusAprobados.frecuenciaSolidoInicialInicial }} </td>
+                                  <td> {{ menusAprobados.montoSolildoInicial }} </td>
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
-                                  <td  >
-                                   Producto 2
-                                  </td>
-                                <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                                <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
-                                <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
-                                <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
+                                  <td  > {{ menusAprobados.ProductoLiquidoInicial }} </td>
+                                <td> {{ menusAprobados.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                                <td> {{ menusAprobados.MontoLiquidaUtilizadoInicial }} </td>
+                                <td> {{ menusAprobados.frecuenciaLiquidoInicialInicial }} </td>
+                                <td> {{ menusAprobados.montoLiquidaInicial }} </td>
 
                               </tr>
                           </tbody>
@@ -702,24 +692,20 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
-                                  <td>
-                                    Producto 3
-                                  </td>
-                                <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                                <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
-                                <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
-                                <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
+                                  <td> {{ menusAprobados.ProductoSolidoPrimaria }} </td>
+                                <td> {{ menusAprobados.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                <td> {{ menusAprobados.MontoSolildoUtilizadoPrimaria }} </td>
+                                <td> {{ menusAprobados.frecuenciaSolidoPrimariaInicial }} </td>
+                                <td> {{ menusAprobados.montoSolidoPrimaria }} </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
-                                  <td>
-                                    Producto 4
-                                  </td>
-                                <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                                <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
-                                <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
-                                <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
+                                  <td> {{ menusAprobados.ProductoLiquidoPrimaria }} </td>
+                                <td> {{ menusAprobados.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ menusAprobados.MontoLiquidaUtilizadoPrimaria }} </td>
+                                <td> {{ menusAprobados.frecuenciaLiquidaPrimariaInicial }} </td>
+                                <td> {{ menusAprobados.montoLiquidaPrimaria }} </td>
 
 
                               </tr>
@@ -762,24 +748,20 @@
                           <tbody>
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
-                                  <td>
-                                    Producto 20
-                                  </td>
-                                <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                                <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
-                                <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
-                                <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
+                                  <td> {{ menusAprobados.ProductoSolidoSegundaria }} </td>
+                                <td> {{ menusAprobados.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                                <td> {{ menusAprobados.MontoSolildoUtilizadaSegundaria }} </td>
+                                <td> {{ menusAprobados.frecuenciaSolidoSegundariaInicial }} </td>
+                                <td> {{ menusAprobados.montoSolildoSegundaria }} </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
-                                  <td>
-                                    Producto 21
-                                  </td>
-                                <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                                <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
-                                <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
-                                <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+                                  <td> {{ menusAprobados.ProductoLiquidoSegundaria }} </td>
+                                <td> {{ menusAprobados.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ menusAprobados.MontoLiquidaUtilizadoSegundaria }} </td>
+                                <td> {{ menusAprobados.frecuenciaLiquidaSegundariaInicial }} </td>
+                                <td> {{ menusAprobados.montoLiquidaSegundaria }} </td>
 
 
                               </tr>
@@ -792,30 +774,6 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-
-              <div class="card-body">
-                <tr>
-
-                 <td><h5>Observaciones Funcionario Proveedor:</h5></td>
-
-                <td> Se sugiere que se cambio el producto 1 por el producto 5 por que es más saludable.</td>
-
-
-              </tr>
-                  <td >
-
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditarMenu" >Editar Menú</button>
-
-                  </td>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
 
@@ -863,7 +821,7 @@
 
               <div class="modal-footer">
                 <button
-                  (click)="enviarMenu()"
+                  (click)="editarMenu()"
                   type="button"
                   class="btn btn-secondary waves-effect"
                   data-dismiss="modal"  >Aceptar</button>

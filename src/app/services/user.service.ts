@@ -311,6 +311,16 @@ export class UserService {
     return this.http.patch(`${this.url}/menu/aprobar/menuunace/${id}`, body);
   }
 
+  listadoMenusAprobados() {
+    return this.http.get(`${this.url}/menu/listado/aprobado`);
+  }
 
+  listadoMenusNoAprobados() {
+    return this.http.get(`${this.url}/menu/listado/noaprobado`);
+  }
+
+  actualizarMenu(id, body) {
+    return this.http.patch(`${this.url}/menu/update/menudiario/${id}`, body);
+  }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {MenuModel} from "../../../models/menu.model";
 import {trigger} from "@angular/animations";
+import * as moment from "moment";
 
 @Component({
   selector: 'app-menu-elaboracion',
@@ -21,6 +22,9 @@ export class MenuElaboracionComponent implements OnInit {
 
   listaMenusAprobados: any = '';
   listaMenusNoAprobados: any = '';
+
+  menusAprobados: any = '';
+  menusNoAprobados: any = '';
 
 
   productosInicialSolido: any[] = [];
@@ -45,6 +49,14 @@ export class MenuElaboracionComponent implements OnInit {
       this.productosTodos = resp;
       console.log(this.productosTodos);
       this.ordenarPorGrupos();
+    });
+
+    this.service.listadoMenusAprobados().subscribe(resp => {
+      this.listaMenusAprobados = resp;
+    });
+
+    this.service.listadoMenusNoAprobados().subscribe(resp => {
+      this.listaMenusNoAprobados = resp;
     });
   }
 
@@ -185,6 +197,126 @@ export class MenuElaboracionComponent implements OnInit {
     });
   }
 
+
+  calculoSolidoInicialEditar(event) {
+    // console.log(event.target.value);
+    this.service.getSolidoInicial(event.target.value).subscribe(resp => {
+      this.calculosInicialSolido = resp;
+      console.log(this.calculosInicialSolido);
+
+      this.menusNoAprobados.CodigoSolidoInicial = this.calculosInicialSolido.CodigoSolidoInicial;
+      this.menusNoAprobados.FrecuenciaSolidoUtilizadoInicial = this.calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial;
+      this.menusNoAprobados.MontoSolildoUtilizadoInicial = this.calculosInicialSolido.MontoSolildoUtilizadoInicial;
+      this.menusNoAprobados.ProductoSolidoInicial = this.calculosInicialSolido.ProductoSolidoInicial;
+      this.menusNoAprobados.frecuenciaSolidoInicialInicial = this.calculosInicialSolido.frecuenciaSolidoInicialInicial;
+      this.menusNoAprobados.montoSolildoInicial = this.calculosInicialSolido.montoSolildoInicial;
+
+    });
+  }
+  calculoLiquidoInicialEditar(event){
+    // console.log(event.target.value);
+    this.service.getLiquidoInicial(event.target.value).subscribe(resp => {
+      this.calculosInicialLiquido = resp;
+      console.log(this.calculosInicialLiquido);
+
+      this.menusNoAprobados.CodigoLiquidoInicial = this.calculosInicialLiquido.CodigoLiquidoInicial;
+      this.menusNoAprobados.FrecuenciaLiquidaUtilizadoInicial = this.calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial;
+      this.menusNoAprobados.MontoLiquidaUtilizadoInicial = this.calculosInicialLiquido.MontoLiquidaUtilizadoInicial;
+      this.menusNoAprobados.ProductoLiquidoInicial = this.calculosInicialLiquido.ProductoLiquidoInicial;
+      this.menusNoAprobados.frecuenciaLiquidaInicialInicial = this.calculosInicialLiquido.frecuenciaLiquidoInicialInicial;
+      this.menusNoAprobados.montoLiquidaInicial = this.calculosInicialLiquido.montoLiquidaInicial;
+
+    });
+  }
+  calculoSolidoPrimariaEditar(event){
+    // console.log(event.target.value);
+    this.service.getSolidoPrimaria(event.target.value).subscribe(resp => {
+      this.calculosPrimariaSolido = resp;
+      console.log(this.calculosPrimariaSolido);
+
+      this.menusNoAprobados.CodigoSolidoPrimaria = this.calculosPrimariaSolido.CodigoSolidoPrimaria;
+      this.menusNoAprobados.FrecuenciaSolidoUtilizadoPrimaria = this.calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria;
+      this.menusNoAprobados.MontoSolildoUtilizadoPrimaria = this.calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria;
+      this.menusNoAprobados.ProductoSolidoPrimaria = this.calculosPrimariaSolido.ProductoSolidoPrimaria;
+      this.menusNoAprobados.frecuenciaSolidoPrimariaInicial = this.calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial;
+      this.menusNoAprobados.montoSolildoPrimaria = this.calculosPrimariaSolido.montoSolidoPrimaria;
+
+    });
+  }
+  calculoLiquidoPrimariaEditar(event){
+    // console.log(event.target.value);
+    this.service.getLiquidoPrimaria(event.target.value).subscribe(resp => {
+      this.calculosPrimariaLiquido = resp;
+      console.log(this.calculosPrimariaLiquido);
+
+      this.menusNoAprobados.CodigoLiquidoPrimaria = this.calculosPrimariaLiquido.CodigoLiquidoPrimaria;
+      this.menusNoAprobados.FrecuenciaLiquidaUtilizadoPrimaria = this.calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria;
+      this.menusNoAprobados.MontoLiquidaUtilizadoPrimaria = this.calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria;
+      this.menusNoAprobados.ProductoLiquidoPrimaria = this.calculosPrimariaLiquido.ProductoLiquidoPrimaria;
+      this.menusNoAprobados.frecuenciaLiquidaPrimariaInicial = this.calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial;
+      this.menusNoAprobados.montoLiquidaPrimaria = this.calculosPrimariaLiquido.montoLiquidaPrimaria;
+
+    });
+  }
+  calculoSolidoSecundariaEditar(event){
+    // console.log(event.target.value);
+    this.service.getSolidoSecundaria(event.target.value).subscribe(resp => {
+      this.calculosSecundariaSolido = resp;
+      console.log(this.calculosSecundariaSolido);
+
+      this.menusNoAprobados.CodigoSolidoSegundaria = this.calculosSecundariaSolido.CodigoSolidoSegundaria;
+      this.menusNoAprobados.FrecuenciaSolidoUtilizadoSegundaria = this.calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria;
+      this.menusNoAprobados.MontoSolildoUtilizadaSegundaria = this.calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria;
+      this.menusNoAprobados.ProductoSolidoSegundaria = this.calculosSecundariaSolido.ProductoSolidoSegundaria;
+      this.menusNoAprobados.frecuenciaSolidoSegundariaInicial = this.calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial;
+      this.menusNoAprobados.montoSolildoSegundaria = this.calculosSecundariaSolido.montoSolildoSegundaria;
+
+    });
+  }
+  calculoLiquidoSecundariaEditar(event){
+    // console.log(event.target.value);
+    this.service.getLiquidoSecundaria(event.target.value).subscribe(resp => {
+      this.calculosSecundariaLiquido = resp;
+      console.log(this.calculosSecundariaLiquido);
+
+      this.menusNoAprobados.CodigoLiquidoSegundaria = this.calculosSecundariaLiquido.CodigoLiquidoSegundaria;
+      this.menusNoAprobados.FrecuenciaLiquidaUtilizadoSegundaria = this.calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria;
+      this.menusNoAprobados.MontoLiquidaUtilizadoSegundaria = this.calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria;
+      this.menusNoAprobados.ProductoLiquidoSegundaria = this.calculosSecundariaLiquido.ProductoLiquidoSegundaria;
+      this.menusNoAprobados.frecuenciaLiquidaSegundariaInicial = this.calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial;
+      this.menusNoAprobados.montoLiquidaSegundaria = this.calculosSecundariaLiquido.montoLiquidaSegundaria;
+
+    });
+  }
+
+  convertDate(date) {
+    return moment(date).format("dddd, MMMM DD YYYY, h:mm:ss a");
+  }
+
+  listarMenuAprobado( id, menuNuevo, menuNoAprobado, menuAprobado ) {
+    this.menuNuevo = menuNuevo;
+    this.menuNoAprobado = menuNoAprobado;
+    this.menuAprobado = menuAprobado;
+
+    this.service.listarMenu(id).subscribe(resp => {
+      this.menusAprobados = resp;
+
+      console.log(this.menusAprobados);
+    });
+  }
+
+  listarMenuNoAprobado( id, menuNuevo, menuNoAprobado, menuAprobado ) {
+    this.menuNuevo = menuNuevo;
+    this.menuNoAprobado = menuNoAprobado;
+    this.menuAprobado = menuAprobado;
+
+    this.service.listarMenu(id).subscribe(resp => {
+      this.menusNoAprobados = resp;
+
+      console.log(this.menusNoAprobados);
+    });
+  }
+
   enviarMenu() {
     console.log(this.menu);
     this.service.createMenu(this.menu).subscribe(resp => {
@@ -192,5 +324,28 @@ export class MenuElaboracionComponent implements OnInit {
       location.reload();
     });
   }
+
+  editarMenu() {
+    this.menusNoAprobados.EnviadoEba = true;
+    this.menusNoAprobados.AprovadoEba = false;
+    this.menusNoAprobados.EnviadoJefeUnace = false;
+    this.menusNoAprobados.Aprovado = false;
+    this.menusNoAprobados.ObservacionJefeUnace = undefined;
+    this.menusNoAprobados.ObservacionEba = undefined;
+
+    delete this.menusNoAprobados.createdAt;
+    delete this.menusNoAprobados.updatedAt;
+    delete this.menusNoAprobados.__v;
+
+    console.log(this.menusNoAprobados);
+
+    this.service.actualizarMenu(this.menusNoAprobados._id, this.menusNoAprobados).subscribe(resp => {
+      console.log(resp);
+      location.reload();
+    });
+
+  }
+
+
 
 }
