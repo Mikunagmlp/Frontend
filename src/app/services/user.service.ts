@@ -323,4 +323,10 @@ export class UserService {
     return this.http.patch(`${this.url}/menu/update/menudiario/${id}`, body);
   }
 
+  // TODO: REPORTES
+  menusAprobados( body ) {
+    console.log(body)
+    return this.http.post(`${this.url}/reporte/menu/aprobado`, body );
+  }
+
 }
