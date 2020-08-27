@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -24,7 +25,7 @@
          <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                <div class="card-header bg-info">
+                <div class="card-header bg-warning">
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
@@ -65,7 +66,7 @@
                         
                         -->
 
-                          <div class="input-field col s6">
+                         <!--  <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Nombre del colegio</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="unidadEducativa.NombreColegio" #NombreColegio="ngModel" type="text"
@@ -80,15 +81,15 @@
                                   <div *ngIf="NombreColegio.errors.minlength">Insertar al menos {{NombreColegio.errors.minlength.requiredLength}} caracteres.</div>
                                 </div>
                             </div>
-                          </div>
+                          </div> -->
 
 
            
 
 
 
-
-                          <div class="input-field col s6">
+                          <div class="form-group row">
+                          
                             <label class="control-label text-right col-md-3">Código</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="unidadEducativa.CodColegio" #CodColegio="ngModel" type="text"
@@ -103,6 +104,7 @@
                                   <div *ngIf="CodColegio.errors.minlength">Insertar al menos {{CodColegio.errors.minlength.requiredLength}} caracteres.</div>
                                 </div>
                             </div>
+                          
                           </div>
 
 
@@ -111,7 +113,7 @@
 
 
 
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre del colegio</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="unidadEducativa.NombreColegio" #NombreColegio="ngModel" type="text"
@@ -220,14 +222,14 @@
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Direccion</label>
+                            <label class="control-label text-right col-md-3">Dirección</label>
                             <div class="col-md-9">
                               <input
                                 name="Direccion"
                                 [(ngModel)]="unidadEducativa.Direccion"
                                 type="text"
                                 class="form-control">
-                              <small class="form-control-feedback"> Ingrese la direccion de la unidad educativa</small>
+                              <small class="form-control-feedback"> Ingrese la dirección de la unidad educativa</small>
                             </div>
                           </div>
 
@@ -239,7 +241,7 @@
                                 [(ngModel)]="unidadEducativa.Telefono"
                                 type="text"
                                 class="form-control">
-                              <small class="form-control-feedback"> Ingrese el telefono de la unidad educativa</small>
+                              <small class="form-control-feedback"> Ingrese el teléfono de la unidad educativa</small>
                             </div>
                           </div>
 
@@ -250,8 +252,9 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
-                                            <button type="button" class="btn btn-inverse">Cancelar</button>
+                                            <button type="submit" class="btn btn-warning"> <i class="fa fa-check"></i> Guardar</button>
+                                            &nbsp;
+                                            <button type="button" class="btn btn-secondary waves-effect">Cancelar</button>
                                         </div>
                                     </div>
                                 </div>

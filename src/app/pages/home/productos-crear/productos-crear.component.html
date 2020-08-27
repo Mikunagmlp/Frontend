@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -21,10 +22,10 @@
                     <!-- Start Page Content -->
          <!-- ============================================================== -->
 
-         <div class="row">
+         <div class="form-group row">
             <div class="col-lg-12">
                 <div class="card">
-                <div class="card-header bg-info">
+                <div class="card-header bg-warning">
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
@@ -71,7 +72,7 @@
                           </div>
 -->
 
-                          <div class="input-field col s6">
+                          <div class="form-group row"> 
                             <label class="control-label text-right col-md-3">Nombre de Producto</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.NombreProducto" #NombreProducto="ngModel" type="text"
@@ -88,8 +89,8 @@
                           </div>
 
 
-                          <div class="input-field col s6">
-                            <label class="control-label text-right col-md-3">Codigo producto</label>
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código producto</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.CodigoProducto" #CodigoProducto="ngModel" type="text"
                                 name="CodigoProducto" id="CodigoProducto" placeholder="CodigoProducto" minlength="1"
@@ -103,7 +104,7 @@
                                 </div>
                             </div>
                           </div>
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripción</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.Descripcion" #Descripcion="ngModel" type="text"
@@ -256,8 +257,7 @@
 
                         -->
 
-
-                          <div class="input-field col s6">
+                        <div class="form-group row">
                             <label class="control-label text-right col-md-3">Lote</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.Lote" #Lote="ngModel" type="text"
@@ -275,7 +275,7 @@
 
 
 
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Volumen</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.Volumen" #Volumen="ngModel" type="text"
@@ -292,7 +292,7 @@
                           </div>
 
 
-                           <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Gramage</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.Gramage" #Gramage="ngModel" type="text"
@@ -310,7 +310,7 @@
 
 
 
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Presupuesto inicial</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.PresupuestoInicial" #PresupuestoInicial="ngModel" type="text"
@@ -345,11 +345,11 @@
 
 
 
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Precio Unitario</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="producto.PrecioUnitario" #PrecioUnitario="ngModel" type="text"
-                                name="PrecioUnitario" id="PrecioUnitario" placeholder="PrecioUnitario" minlength="1"
+                                name="PrecioUnitario" id="PreciosUnitario" placeholder="PrecioUnitario" minlength="1"
                                 maxlength="40" required
                                 type="number"
                                 autocomplete="off"
@@ -366,12 +366,12 @@
                         </div>
 
                         <div class="form-actions">
-                            <div class="row">
+                            <div class="form-group row">
                                 <div class="col-md-12">
-                                    <div class="row">
+                                    <div class="form-group row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
-                                            <button type="button" class="btn btn-inverse"  >Cancelar</button>
+                                            <button type="submit" class="btn btn-warning"> <i class="fa fa-check"></i> Guardar</button>
+                                            <button type="button" class="btn btn-secondary waves-effect"  >Cancelar</button>
                                         </div>
                                     </div>
                                 </div>

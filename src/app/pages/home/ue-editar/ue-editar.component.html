@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -62,7 +63,7 @@
                             <td> {{ colegio.CantidadAlumnosInicial }} </td>
                             <td> {{ colegio.CantidadAlumnosPrimaria }} </td>
                             <td> {{ colegio.CantidadAlumnosSegundaria }} </td>
-                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
+                            <button type="button" class="btn btn-success btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
                             <button
                               (click)="eliminar(i)"
                               type="button"
@@ -228,7 +229,7 @@
                                       <button
                                         (click)="editarColegio( nmc, tur, rut, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel )"
                                         type="submit"
-                                        class="btn btn-info waves-effect"
+                                        class="btn btn-success waves-effect"
                                         data-dismiss="modal">Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
