@@ -77,7 +77,7 @@
                          -->
 
 
-                          <div class="input-field col s6">
+                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de Almacén</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="almacen.NombreAlmacen" #NombreAlmacen="ngModel" type="text"
@@ -93,7 +93,7 @@
                             </div>
                           </div> 
 
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Código del almacen</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="almacen.CodigoAlmacen" #CodigoAlmacen="ngModel" type="text"
@@ -109,7 +109,7 @@
                             </div>
                           </div> 
                     
-                          <div class="input-field col s6">
+                          <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input [(ngModel)]="almacen.Descripcion" #Descripcion="ngModel" type="text"
@@ -136,6 +136,7 @@
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
                                             <button type="submit" class="btn btn-warning"> <i class="fa fa-check"></i> Guardar</button>
+                                           &nbsp;
                                             <button type="button" class="btn btn-secondary waves-effect" (click)="cancelar()" >Cancelar</button>
                                         </div>
                                     </div>

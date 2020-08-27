@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -59,7 +60,7 @@
 
                             <button
                               type="button"
-                              class="btn btn-info btn-rounded"
+                              class="btn btn-warning btn-rounded"
                               data-toggle="modal"
                               (click)="editar(i)"
                               data-target="#add-contact" >Editar</button>
@@ -120,7 +121,7 @@
                                       </div>
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Descripcion</label>
+                                        <label class="text-info" >Descripción</label>
                                         <input
                                           #descripcion
                                           type="text"
@@ -135,7 +136,7 @@
                                       <button
                                         (click)="editarAlmacen(nombrealmacen, descripcion)"
                                         type="submit"
-                                        class="btn btn-info waves-effect"
+                                        class="btn btn-warning waves-effect"
                                         data-dismiss="modal">Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
