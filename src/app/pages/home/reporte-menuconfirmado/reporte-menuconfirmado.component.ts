@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user.service";
+
+import * as moment from 'moment';
+moment.locale('es');
 
 @Component({
   selector: 'app-reporte-menuconfirmado',
@@ -8,9 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReporteMenuconfirmadoComponent implements OnInit {
 
-  constructor() { }
+  fechaHoy: Date = new Date();
+  mostrarMenus: boolean = false;
+
+  menus: any = '';
+
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
+  }
+
+  buscarPorFecha(fechaInicio, fechaFinal){
+    this.mostrarMenus = true;
+    fechaInicio = new Date(fechaInicio.value).toISOString();
+    fechaFinal = new Date(fechaFinal.value).toISOString();
+
+    console.log('inicio: ', fechaInicio);
+    console.log('final: ', fechaFinal);
+
+    let body = {
+      fechaInicio: fechaInicio,
+      fechaFin: fechaFinal,
+
+    }
+
+    this.service.menusAprobados(body).subscribe(resp => {
+      this.menus = resp;
+
+      console.log(this.menus);
+    });
+
+  }
+
+  convertDate(date) {
+
+    return moment(date).format("dddd, MMMM DD YYYY, h:mm:ss a");
   }
 
 }

@@ -10,11 +10,26 @@ import {UserService} from "../../../services/user.service";
 export class CalculosDiariosComponent implements OnInit {
 
 
-  // FrecuenciaInicialInicial: "0.00"
-  // FrecuenciaInicialPrimaria: "0.75"
-  // FrecuenciaInicialSegundaria: "0.00"
-  // PresupuestoInicial: "6490.00"
+  // CodigoProducto: "1111"
+
+  // FrecuenciaInicialInicial: "0.52"
+  // FrecuenciaInicialPrimaria: "0.00"
+  // FrecuenciaInicialSegundaria: "0.46"
+
+  // FrecuendiaInicialDisponible: "-0.48"
+  // FrecuendiaPrimariaDisponible: 0
+  // FrecuendiaSegundariaDisponible: "-0.54"
+
+  // NombreProducto: "Manzana"
+
+  // PresupuestoDisponibleInicial: "-2975.50"
+  // PresupuestoDisponiblePrimaria: 0
+  // PresupuestoDisponibleSegundaria: "-3833.50"
+
+  // PresupuestoInicial: "3245.00"
+
   // TotalAlumnos: 3994
+
   // TotalAlumnosInicial: 1131
   // TotalAlumnosPrimaria: 1576
   // TotalAlumnosSegundaria: 1287

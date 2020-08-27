@@ -72,7 +72,7 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Calculo de Frecuencias y Presupuesto</h4>
+              <h4 class="modal-title" id="myModalLabel">Calculo de Frecuencias y Presupuesto de: {{ calculoDiario.NombreProducto }}</h4>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
 
@@ -85,9 +85,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Población Beneficiaria</th>
-                                <th>Cantidad de alumnos</th>
+                                <th>Poblacion</th>
                                 <th>Frecuencia Inicial</th>
+                                <th>Frecuencia Disponible</th>
+                                <th>Presupuesto Disponible</th>
                                 <th>Presupuesto Inicial(Bs.-)</th>
                                 <th>Total alumnos</th>
                             </tr>
@@ -96,28 +97,29 @@
                             <tr>
                                 <td>1</td>
                                 <td>Población Nivel Inicial</td>
-                                <td> {{ calculoDiario.TotalAlumnosInicial }} </td>
                                 <td> {{ calculoDiario.FrecuenciaInicialInicial }} </td>
+                                <td> {{ calculoDiario.FrecuendiaInicialDisponible }} </td>
+                                <td> {{ calculoDiario.PresupuestoDisponibleInicial }} </td>
                                 <td> {{ calculoDiario.PresupuestoInicial }} </td>
-                                <td> {{ calculoDiario.TotalAlumnos }} </td>
+                                <td> {{ calculoDiario.TotalAlumnosInicial }} </td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Población Nivel Primaria</td>
-                                <td> {{ calculoDiario.TotalAlumnosPrimaria }} </td>
-                                <td> {{ calculoDiario.FrecuenciaInicialPrimaria }} </td>
+                              <td>1</td>
+                              <td>Población Nivel Primaria</td>
+                              <td> {{ calculoDiario.FrecuenciaInicialPrimaria }} </td>
+                              <td> {{ calculoDiario.FrecuendiaPrimariaDisponible }} </td>
+                              <td> {{ calculoDiario.PresupuestoDisponiblePrimaria }} </td>
                               <td> {{ calculoDiario.PresupuestoInicial }} </td>
-                              <td> {{ calculoDiario.TotalAlumnos }} </td>
-
+                              <td> {{ calculoDiario.TotalAlumnosPrimaria }} </td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>Población Nivel Secundaria</td>
-                                <td> {{ calculoDiario.TotalAlumnosSegundaria }} </td>
-                                <td> {{ calculoDiario.FrecuenciaInicialSegundaria }} </td>
+                              <td>1</td>
+                              <td>Población Nivel Secundaria</td>
+                              <td> {{ calculoDiario.FrecuenciaInicialSegundaria }} </td>
+                              <td> {{ calculoDiario.FrecuendiaSegundariaDisponible }} </td>
+                              <td> {{ calculoDiario.PresupuestoDisponibleSegundaria }} </td>
                               <td> {{ calculoDiario.PresupuestoInicial }} </td>
-                              <td> {{ calculoDiario.TotalAlumnos }} </td>
-
+                              <td> {{ calculoDiario.TotalAlumnosSegundaria }} </td>
                             </tr>
                         </tbody>
 
@@ -139,19 +141,6 @@
       </div>
     </tr>
   </tfoot>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 </div>

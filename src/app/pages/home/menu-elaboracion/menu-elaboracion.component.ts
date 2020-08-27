@@ -336,6 +336,8 @@ export class MenuElaboracionComponent implements OnInit {
     delete this.menusNoAprobados.createdAt;
     delete this.menusNoAprobados.updatedAt;
     delete this.menusNoAprobados.__v;
+    // delete this.menusNoAprobados.Estado;
+
 
     console.log(this.menusNoAprobados);
 
