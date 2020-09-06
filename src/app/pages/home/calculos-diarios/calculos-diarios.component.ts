@@ -38,6 +38,8 @@ export class CalculosDiariosComponent implements OnInit {
   idCalcular: string = '';
   calculoDiario: any = '';
 
+  niveles: any = '';
+
   constructor( private service: UserService ) { }
 
   ngOnInit(): void {
@@ -49,6 +51,9 @@ export class CalculosDiariosComponent implements OnInit {
 
   botonCalcular(index) {
     this.idCalcular = this.productos[index]._id;
+    this.niveles = this.productos[index].Nivels;
+
+    console.log(this.niveles);
 
     this.service.calculoDiario(this.idCalcular).subscribe(resp => {
       this.calculoDiario = resp;

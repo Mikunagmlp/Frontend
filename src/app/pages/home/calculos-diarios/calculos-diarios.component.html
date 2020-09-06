@@ -85,41 +85,53 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Poblacion</th>
+                                <th>Nivel</th>
                                 <th>Frecuencia Inicial</th>
                                 <th>Frecuencia Disponible</th>
                                 <th>Presupuesto Disponible</th>
                                 <th>Presupuesto Inicial(Bs.-)</th>
-                                <th>Total alumnos</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Población Nivel Inicial</td>
-                                <td> {{ calculoDiario.FrecuenciaInicialInicial }} </td>
-                                <td> {{ calculoDiario.FrecuendiaInicialDisponible }} </td>
-                                <td> {{ calculoDiario.PresupuestoDisponibleInicial }} </td>
-                                <td> {{ calculoDiario.PresupuestoInicial }} </td>
-                                <td> {{ calculoDiario.TotalAlumnosInicial }} </td>
+                                <td>Inicial</td>
+                                <td *ngIf="calculoDiario.FrecuenciaInicialInicial > 0" > {{ calculoDiario.FrecuenciaInicialInicial }} </td>
+                                <td *ngIf="calculoDiario.FrecuenciaInicialInicial === 0.00" > - </td>
+
+                                <td *ngIf="calculoDiario.FrecuendiaInicialDisponible > 0" > {{ calculoDiario.FrecuendiaInicialDisponible }} </td>
+                                <td *ngIf="calculoDiario.FrecuendiaInicialDisponible === 0" > - </td>
+
+                                <td *ngIf="calculoDiario.PresupuestoDisponibleInicial > 0" > {{ calculoDiario.PresupuestoDisponibleInicial }} </td>
+                                <td *ngIf="calculoDiario.PresupuestoDisponibleInicial === 0" > - </td>
+
+                                <td *ngIf="calculoDiario.PresupuestoDisponibleInicial > 0" > {{ calculoDiario.PresupuestoInicial }} </td>
+                                <td *ngIf="calculoDiario.PresupuestoDisponibleInicial === 0" > - </td>
+
                             </tr>
                             <tr>
                               <td>1</td>
-                              <td>Población Nivel Primaria</td>
-                              <td> {{ calculoDiario.FrecuenciaInicialPrimaria }} </td>
-                              <td> {{ calculoDiario.FrecuendiaPrimariaDisponible }} </td>
-                              <td> {{ calculoDiario.PresupuestoDisponiblePrimaria }} </td>
-                              <td> {{ calculoDiario.PresupuestoInicial }} </td>
-                              <td> {{ calculoDiario.TotalAlumnosPrimaria }} </td>
+                              <td>Primaria</td>
+                              <td *ngIf="calculoDiario.FrecuenciaInicialPrimaria > 0 " > {{ calculoDiario.FrecuenciaInicialPrimaria }} </td>
+                              <td *ngIf="calculoDiario.FrecuenciaInicialPrimaria === 0.00 " > - </td>
+                              <td *ngIf="calculoDiario.FrecuendiaPrimariaDisponible > 0 " > {{ calculoDiario.FrecuendiaPrimariaDisponible }} </td>
+                              <td *ngIf="calculoDiario.FrecuendiaPrimariaDisponible === 0 " > - </td>
+                              <td *ngIf="calculoDiario.PresupuestoDisponiblePrimaria > 0 " > {{ calculoDiario.PresupuestoDisponiblePrimaria }} </td>
+                              <td *ngIf="calculoDiario.PresupuestoDisponiblePrimaria === 0 " > - </td>
+                              <td *ngIf="calculoDiario.PresupuestoInicial > 0 " > {{ calculoDiario.PresupuestoInicial }} </td>
+                              <td *ngIf="calculoDiario.PresupuestoInicial === 0 " > - </td>
                             </tr>
                             <tr>
                               <td>1</td>
-                              <td>Población Nivel Secundaria</td>
-                              <td> {{ calculoDiario.FrecuenciaInicialSegundaria }} </td>
-                              <td> {{ calculoDiario.FrecuendiaSegundariaDisponible }} </td>
-                              <td> {{ calculoDiario.PresupuestoDisponibleSegundaria }} </td>
-                              <td> {{ calculoDiario.PresupuestoInicial }} </td>
-                              <td> {{ calculoDiario.TotalAlumnosSegundaria }} </td>
+                              <td>Secundaria</td>
+                              <td *ngIf="calculoDiario.FrecuenciaInicialSegundaria > 0" > {{ calculoDiario.FrecuenciaInicialSegundaria }} </td>
+                              <td *ngIf="calculoDiario.FrecuenciaInicialSegundaria === 0.00" > - </td>
+                              <td *ngIf="calculoDiario.FrecuendiaSegundariaDisponible > 0" > {{ calculoDiario.FrecuendiaSegundariaDisponible }} </td>
+                              <td *ngIf="calculoDiario.FrecuendiaSegundariaDisponible === 0" > - </td>
+                              <td *ngIf="calculoDiario.PresupuestoDisponibleSegundaria > 0" > {{ calculoDiario.PresupuestoDisponibleSegundaria }} </td>
+                              <td *ngIf="calculoDiario.PresupuestoDisponibleSegundaria === 0" > - </td>
+                              <td *ngIf="calculoDiario.PresupuestoInicial > 0" > {{ calculoDiario.PresupuestoInicial }} </td>
+                              <td *ngIf="calculoDiario.PresupuestoInicial === 0" > - </td>
                             </tr>
                         </tbody>
 
