@@ -11,7 +11,7 @@ import * as moment from "moment";
   ]
 })
 export class MenuElaboracionComponent implements OnInit {
-
+  
   menuNuevo: boolean = true;
   menuNoAprobado: boolean = false;
   menuAprobado: boolean = false;

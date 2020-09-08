@@ -127,19 +127,19 @@
                           <tr>
                             <td><span class="label label-success">SÓLIDO</span> </td>
                             <td> {{ menuAprobado.ProductoSolidoInicial }} </td>
-                            <td> {{ menuAprobado.FrecuenciaSolidoUtilizadoInicial }} </td>
-                            <td> {{ menuAprobado.MontoSolildoUtilizadoInicial }} </td>
-                            <td> {{ menuAprobado.frecuenciaSolidoInicialInicial }} </td>
-                            <td> {{ menuAprobado.montoSolildoInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.FrecuenciaSolidoUtilizadoInicial < 0 } " > {{ menuAprobado.FrecuenciaSolidoUtilizadoInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.MontoSolildoUtilizadoInicial < 0 } " > {{ menuAprobado.MontoSolildoUtilizadoInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.frecuenciaSolidoInicialInicial < 0 } " > {{ menuAprobado.frecuenciaSolidoInicialInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.montoSolildoInicial < 0 } " > {{ menuAprobado.montoSolildoInicial }} </td>
 
                           </tr>
                           <tr>
                             <td><span class="label label-info">LÍQUIDO</span> </td>
                             <td> {{ menuAprobado.ProductoLiquidoInicial }} </td>
-                            <td> {{ menuAprobado.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                            <td> {{ menuAprobado.MontoLiquidaUtilizadoInicial }} </td>
-                            <td> {{ menuAprobado.frecuenciaLiquidaInicialInicial }} </td>
-                            <td> {{ menuAprobado.montoLiquidaInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.FrecuenciaLiquidaUtilizadoInicial < 0 } " > {{ menuAprobado.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.MontoLiquidaUtilizadoInicial < 0 } " > {{ menuAprobado.MontoLiquidaUtilizadoInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.frecuenciaLiquidaInicialInicial < 0 } " > {{ menuAprobado.frecuenciaLiquidaInicialInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.montoLiquidaInicial < 0 } " > {{ menuAprobado.montoLiquidaInicial }} </td>
 
 
                           </tr>
@@ -183,19 +183,19 @@
                               <tr>
                                   <td><span class="label label-success">SÓLIDO</span> </td>
                                 <td> {{ menuAprobado.ProductoSolidoPrimaria }} </td>
-                                <td> {{ menuAprobado.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                                <td> {{ menuAprobado.MontoSolildoUtilizadoPrimaria }} </td>
-                                <td> {{ menuAprobado.frecuenciaSolidoPrimariaInicial }} </td>
-                                <td> {{ menuAprobado.montoSolidoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.FrecuenciaSolidoUtilizadoPrimaria < 0 } " > {{ menuAprobado.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.MontoSolildoUtilizadoPrimaria < 0 } " > {{ menuAprobado.MontoSolildoUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.frecuenciaSolidoPrimariaInicial < 0 } " > {{ menuAprobado.frecuenciaSolidoPrimariaInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.montoSolidoPrimaria < 0 } " > {{ menuAprobado.montoSolidoPrimaria }} </td>
 
                               </tr>
                               <tr>
                                   <td><span class="label label-info">LÍQUIDO</span> </td>
                                 <td> {{ menuAprobado.ProductoLiquidoPrimaria }} </td>
-                                <td> {{ menuAprobado.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                                <td> {{ menuAprobado.MontoLiquidaUtilizadoPrimaria }} </td>
-                                <td> {{ menuAprobado.frecuenciaLiquidaPrimariaInicial }} </td>
-                                <td> {{ menuAprobado.montoLiquidaPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.FrecuenciaLiquidaUtilizadoPrimaria < 0 } " > {{ menuAprobado.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.MontoLiquidaUtilizadoPrimaria < 0 } " > {{ menuAprobado.MontoLiquidaUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.frecuenciaLiquidaPrimariaInicial < 0 } " > {{ menuAprobado.frecuenciaLiquidaPrimariaInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menuAprobado.montoLiquidaPrimaria < 0 } " > {{ menuAprobado.montoLiquidaPrimaria }} </td>
 
 
                               </tr>
@@ -239,19 +239,19 @@
                           <tr>
                             <td><span class="label label-success">SÓLIDO</span> </td>
                             <td> {{ menuAprobado.ProductoSolidoSegundaria }} </td>
-                            <td> {{ menuAprobado.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                            <td> {{ menuAprobado.MontoSolildoUtilizadaSegundaria }} </td>
-                            <td> {{ menuAprobado.frecuenciaSolidoSegundariaInicial }} </td>
-                            <td> {{ menuAprobado.montoSolildoSegundaria }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.FrecuenciaSolidoUtilizadoSegundaria < 0 } " > {{ menuAprobado.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.MontoSolildoUtilizadaSegundaria < 0 } " > {{ menuAprobado.MontoSolildoUtilizadaSegundaria }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.frecuenciaSolidoSegundariaInicial < 0 } " > {{ menuAprobado.frecuenciaSolidoSegundariaInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.montoSolildoSegundaria < 0 } " > {{ menuAprobado.montoSolildoSegundaria }} </td>
 
                           </tr>
                           <tr>
                             <td><span class="label label-info">LÍQUIDO</span> </td>
                             <td> {{ menuAprobado.ProductoLiquidoSegundaria }} </td>
-                            <td> {{ menuAprobado.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                            <td> {{ menuAprobado.MontoLiquidaUtilizadoSegundaria }} </td>
-                            <td> {{ menuAprobado.frecuenciaLiquidaSegundariaInicial }} </td>
-                            <td> {{ menuAprobado.montoLiquidaSegundaria }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.FrecuenciaLiquidaUtilizadoSegundaria < 0 } " > {{ menuAprobado.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.MontoLiquidaUtilizadoSegundaria < 0 } " > {{ menuAprobado.MontoLiquidaUtilizadoSegundaria }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.frecuenciaLiquidaSegundariaInicial < 0 } " > {{ menuAprobado.frecuenciaLiquidaSegundariaInicial }} </td>
+                            <td [ngClass]=" { 'text-danger': menuAprobado.montoLiquidaSegundaria < 0 } " > {{ menuAprobado.montoLiquidaSegundaria }} </td>
 
                           </tr>
 
@@ -304,19 +304,19 @@
                     <tr>
                       <td><span class="label label-success">SÓLIDO</span> </td>
                       <td> {{ menuNoAprobado.ProductoSolidoInicial }} </td>
-                      <td> {{ menuNoAprobado.FrecuenciaSolidoUtilizadoInicial }} </td>
-                      <td> {{ menuNoAprobado.MontoSolildoUtilizadoInicial }} </td>
-                      <td> {{ menuNoAprobado.frecuenciaSolidoInicialInicial }} </td>
-                      <td> {{ menuNoAprobado.montoSolildoInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.FrecuenciaSolidoUtilizadoInicial < 0 } " > {{ menuNoAprobado.FrecuenciaSolidoUtilizadoInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.MontoSolildoUtilizadoInicial < 0 } " > {{ menuNoAprobado.MontoSolildoUtilizadoInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.frecuenciaSolidoInicialInicial < 0 } " > {{ menuNoAprobado.frecuenciaSolidoInicialInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.montoSolildoInicial < 0 } " > {{ menuNoAprobado.montoSolildoInicial }} </td>
 
                     </tr>
                     <tr>
                       <td><span class="label label-info">LÍQUIDO</span> </td>
                       <td> {{ menuNoAprobado.ProductoLiquidoInicial }} </td>
-                      <td> {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoInicial }} </td>
-                      <td> {{ menuNoAprobado.MontoLiquidaUtilizadoInicial }} </td>
-                      <td> {{ menuNoAprobado.frecuenciaLiquidaInicialInicial }} </td>
-                      <td> {{ menuNoAprobado.montoLiquidaInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.FrecuenciaLiquidaUtilizadoInicial < 0 } " > {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.MontoLiquidaUtilizadoInicial < 0 } " > {{ menuNoAprobado.MontoLiquidaUtilizadoInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.frecuenciaLiquidaInicialInicial < 0 } " > {{ menuNoAprobado.frecuenciaLiquidaInicialInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.montoLiquidaInicial < 0 } " > {{ menuNoAprobado.montoLiquidaInicial }} </td>
 
 
                     </tr>
@@ -360,19 +360,19 @@
                     <tr>
                       <td><span class="label label-success">SÓLIDO</span> </td>
                       <td> {{ menuNoAprobado.ProductoSolidoPrimaria }} </td>
-                      <td> {{ menuNoAprobado.FrecuenciaSolidoUtilizadoPrimaria }} </td>
-                      <td> {{ menuNoAprobado.MontoSolildoUtilizadoPrimaria }} </td>
-                      <td> {{ menuNoAprobado.frecuenciaSolidoPrimariaInicial }} </td>
-                      <td> {{ menuNoAprobado.montoSolidoPrimaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.FrecuenciaSolidoUtilizadoPrimaria < 0 } " > {{ menuNoAprobado.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.MontoSolildoUtilizadoPrimaria < 0 } " > {{ menuNoAprobado.MontoSolildoUtilizadoPrimaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.frecuenciaSolidoPrimariaInicial < 0 } " > {{ menuNoAprobado.frecuenciaSolidoPrimariaInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.montoSolidoPrimaria < 0 } " > {{ menuNoAprobado.montoSolidoPrimaria }} </td>
 
                     </tr>
                     <tr>
                       <td><span class="label label-info">LÍQUIDO</span> </td>
                       <td> {{ menuNoAprobado.ProductoLiquidoPrimaria }} </td>
-                      <td> {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
-                      <td> {{ menuNoAprobado.MontoLiquidaUtilizadoPrimaria }} </td>
-                      <td> {{ menuNoAprobado.frecuenciaLiquidaPrimariaInicial }} </td>
-                      <td> {{ menuNoAprobado.montoLiquidaPrimaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria < 0 } " > {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.MontoLiquidaUtilizadoPrimaria < 0 } " > {{ menuNoAprobado.MontoLiquidaUtilizadoPrimaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.frecuenciaLiquidaPrimariaInicial < 0 } " > {{ menuNoAprobado.frecuenciaLiquidaPrimariaInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.montoLiquidaPrimaria < 0 } " > {{ menuNoAprobado.montoLiquidaPrimaria }} </td>
 
 
                     </tr>
@@ -416,19 +416,19 @@
                     <tr>
                       <td><span class="label label-success">SÓLIDO</span> </td>
                       <td> {{ menuNoAprobado.ProductoSolidoSegundaria }} </td>
-                      <td> {{ menuNoAprobado.FrecuenciaSolidoUtilizadoSegundaria }} </td>
-                      <td> {{ menuNoAprobado.MontoSolildoUtilizadaSegundaria }} </td>
-                      <td> {{ menuNoAprobado.frecuenciaSolidoSegundariaInicial }} </td>
-                      <td> {{ menuNoAprobado.montoSolildoSegundaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.FrecuenciaSolidoUtilizadoSegundaria < 0 } " > {{ menuNoAprobado.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.MontoSolildoUtilizadaSegundaria < 0 } " > {{ menuNoAprobado.MontoSolildoUtilizadaSegundaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.frecuenciaSolidoSegundariaInicial < 0 } " > {{ menuNoAprobado.frecuenciaSolidoSegundariaInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.montoSolildoSegundaria < 0 } " > {{ menuNoAprobado.montoSolildoSegundaria }} </td>
 
                     </tr>
                     <tr>
                       <td><span class="label label-info">LÍQUIDO</span> </td>
                       <td> {{ menuNoAprobado.ProductoLiquidoSegundaria }} </td>
-                      <td> {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
-                      <td> {{ menuNoAprobado.MontoLiquidaUtilizadoSegundaria }} </td>
-                      <td> {{ menuNoAprobado.frecuenciaLiquidaSegundariaInicial }} </td>
-                      <td> {{ menuNoAprobado.montoLiquidaSegundaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria < 0 } " > {{ menuNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.MontoLiquidaUtilizadoSegundaria < 0 } " > {{ menuNoAprobado.MontoLiquidaUtilizadoSegundaria }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.frecuenciaLiquidaSegundariaInicial < 0 } " > {{ menuNoAprobado.frecuenciaLiquidaSegundariaInicial }} </td>
+                      <td [ngClass]=" { 'text-danger': menuNoAprobado.montoLiquidaSegundaria < 0 } " > {{ menuNoAprobado.montoLiquidaSegundaria }} </td>
 
                     </tr>
 
