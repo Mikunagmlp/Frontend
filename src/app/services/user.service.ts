@@ -12,6 +12,7 @@ import {ProductoModel} from "../models/producto.model";
 import {CategoriaModel} from "../models/categoria.model";
 import {CamionModel} from "../models/camion.model";
 import {MenuModel} from "../models/menu.model";
+import {RutaModel} from "../models/ruta.model";
 
 @Injectable({
   providedIn: 'root'
@@ -227,6 +228,11 @@ export class UserService {
 
   habilitarCamion(id) {
     return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: true});
+  }
+
+  // TODO: RUTAS
+  crearRuta(ruta: RutaModel) {
+    return this.http.post(`${this.url}/ruta/registrar`, ruta);
   }
 
   // TODO: RECOVER PASSWORD

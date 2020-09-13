@@ -29,7 +29,9 @@
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
-                    <form                
+                    <form
+                      (ngSubmit)="crearRuta(f)"
+                      #f="ngForm"
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
@@ -38,9 +40,10 @@
                             <label class="control-label text-right col-md-3">Nombre de la Ruta</label>
                             <div class="col-md-9">
                               <input
-                                name="NombreProducto"
+                                [(ngModel)]="ruta.NombreRuta"
+                                name="NombreRuta"
                                 type="text"
-                               
+
                                 class="form-control">
                             </div>
                           </div>
@@ -49,132 +52,127 @@
                             <label class="control-label text-right col-md-3">Código de Ruta</label>
                             <div class="col-md-9">
                               <input
-                                name="CodigoProducto"
+                                [(ngModel)]="ruta.Codigo"
+                                name="Codigo"
                                 type="text"
                                 class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Camiones asignados</label>
+                            <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
-                               
+                                [(ngModel)]="ruta.Descripcion"
+                                name="Descripcion"
                                 type="text"
                                 class="form-control">
                             </div>
                           </div>
 
-                          
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad Educativa 1</label>
-                            <div class="col-md-9">
-                              <select  class="form-control custom-select" >  
 
-                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>
-                                <option value="ue1">Unidad Educativa 1</option>
-                                <option value="ue2">Unidad Educativa 2</option>
-                                <option value="ue3">Unidad Educativa 3</option>
-                                <option value="ue4">Unidad Educativa 4</option>
-                                <option value="ue5">Unidad Educativa 5</option>
-                                <option value="ue6">Unidad Educativa 6</option>
+<!--                          <div class="form-group row">-->
+<!--                            <label class="control-label text-right col-md-3">Unidad Educativa 1</label>-->
+<!--                            <div class="col-md-9">-->
+<!--                              <select  class="form-control custom-select" >  -->
 
-                                </select>
-                            </div>
-                          </div>
+<!--                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>-->
+<!--                                <option value="ue1">Unidad Educativa 1</option>-->
+<!--                                <option value="ue2">Unidad Educativa 2</option>-->
+<!--                                <option value="ue3">Unidad Educativa 3</option>-->
+<!--                                <option value="ue4">Unidad Educativa 4</option>-->
+<!--                                <option value="ue5">Unidad Educativa 5</option>-->
+<!--                                <option value="ue6">Unidad Educativa 6</option>-->
 
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad Educativa 2</label>
-                            <div class="col-md-9">
-                              <select  class="form-control custom-select" >  
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
-                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>
-                                <option value="ue11">Unidad Educativa 1</option>
-                                <option value="ue21">Unidad Educativa 2</option>
-                                <option value="ue31">Unidad Educativa 3</option>
-                                <option value="ue41">Unidad Educativa 4</option>
-                                <option value="ue51">Unidad Educativa 5</option>
-                                <option value="ue61">Unidad Educativa 6</option>
+<!--                          <div class="form-group row">-->
+<!--                            <label class="control-label text-right col-md-3">Unidad Educativa 2</label>-->
+<!--                            <div class="col-md-9">-->
+<!--                              <select  class="form-control custom-select" >  -->
 
-                                </select>
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad Educativa 3</label>
-                            <div class="col-md-9">
-                              <select  class="form-control custom-select" >  
+<!--                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>-->
+<!--                                <option value="ue11">Unidad Educativa 1</option>-->
+<!--                                <option value="ue21">Unidad Educativa 2</option>-->
+<!--                                <option value="ue31">Unidad Educativa 3</option>-->
+<!--                                <option value="ue41">Unidad Educativa 4</option>-->
+<!--                                <option value="ue51">Unidad Educativa 5</option>-->
+<!--                                <option value="ue61">Unidad Educativa 6</option>-->
 
-                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>
-                                <option value="ue12">Unidad Educativa 1</option>
-                                <option value="ue22">Unidad Educativa 2</option>
-                                <option value="ue32">Unidad Educativa 3</option>
-                                <option value="ue42">Unidad Educativa 4</option>
-                                <option value="ue52">Unidad Educativa 5</option>
-                                <option value="ue62">Unidad Educativa 6</option>
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
-                                </select>
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad Educativa 4</label>
-                            <div class="col-md-9">
-                              <select  class="form-control custom-select" >  
+<!--                          <div class="form-group row">-->
+<!--                            <label class="control-label text-right col-md-3">Unidad Educativa 3</label>-->
+<!--                            <div class="col-md-9">-->
+<!--                              <select  class="form-control custom-select" >  -->
 
-                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>
-                                <option value="ue13">Unidad Educativa 1</option>
-                                <option value="ue23">Unidad Educativa 2</option>
-                                <option value="ue33">Unidad Educativa 3</option>
-                                <option value="ue43">Unidad Educativa 4</option>
-                                <option value="ue53">Unidad Educativa 5</option>
-                                <option value="ue63">Unidad Educativa 6</option>
+<!--                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>-->
+<!--                                <option value="ue12">Unidad Educativa 1</option>-->
+<!--                                <option value="ue22">Unidad Educativa 2</option>-->
+<!--                                <option value="ue32">Unidad Educativa 3</option>-->
+<!--                                <option value="ue42">Unidad Educativa 4</option>-->
+<!--                                <option value="ue52">Unidad Educativa 5</option>-->
+<!--                                <option value="ue62">Unidad Educativa 6</option>-->
 
-                                </select>
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad Educativa 5</label>
-                            <div class="col-md-9">
-                              <select  class="form-control custom-select" >  
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
-                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>
-                                <option value="ue14">Unidad Educativa 1</option>
-                                <option value="ue24">Unidad Educativa 2</option>
-                                <option value="ue34">Unidad Educativa 3</option>
-                                <option value="ue44">Unidad Educativa 4</option>
-                                <option value="ue54">Unidad Educativa 5</option>
-                                <option value="ue64">Unidad Educativa 6</option>
+<!--                          <div class="form-group row">-->
+<!--                            <label class="control-label text-right col-md-3">Unidad Educativa 4</label>-->
+<!--                            <div class="col-md-9">-->
+<!--                              <select  class="form-control custom-select" >  -->
 
-                                </select>
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Unidad Educativa 6</label>
-                            <div class="col-md-9">
-                              <select  class="form-control custom-select" >  
+<!--                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>-->
+<!--                                <option value="ue13">Unidad Educativa 1</option>-->
+<!--                                <option value="ue23">Unidad Educativa 2</option>-->
+<!--                                <option value="ue33">Unidad Educativa 3</option>-->
+<!--                                <option value="ue43">Unidad Educativa 4</option>-->
+<!--                                <option value="ue53">Unidad Educativa 5</option>-->
+<!--                                <option value="ue63">Unidad Educativa 6</option>-->
 
-                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>
-                                <option value="ue15">Unidad Educativa 1</option>
-                                <option value="ue25">Unidad Educativa 2</option>
-                                <option value="ue35">Unidad Educativa 3</option>
-                                <option value="ue45">Unidad Educativa 4</option>
-                                <option value="ue55">Unidad Educativa 5</option>
-                                <option value="ue65">Unidad Educativa 6</option>
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
-                                </select>
-                            </div>
-                          </div>
+<!--                          <div class="form-group row">-->
+<!--                            <label class="control-label text-right col-md-3">Unidad Educativa 5</label>-->
+<!--                            <div class="col-md-9">-->
+<!--                              <select  class="form-control custom-select" >  -->
 
+<!--                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>-->
+<!--                                <option value="ue14">Unidad Educativa 1</option>-->
+<!--                                <option value="ue24">Unidad Educativa 2</option>-->
+<!--                                <option value="ue34">Unidad Educativa 3</option>-->
+<!--                                <option value="ue44">Unidad Educativa 4</option>-->
+<!--                                <option value="ue54">Unidad Educativa 5</option>-->
+<!--                                <option value="ue64">Unidad Educativa 6</option>-->
 
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
+<!--                          <div class="form-group row">-->
+<!--                            <label class="control-label text-right col-md-3">Unidad Educativa 6</label>-->
+<!--                            <div class="col-md-9">-->
+<!--                              <select  class="form-control custom-select" >  -->
 
+<!--                                <option value="" disabled selected>Elija la unidad educativa correspondiente</option>-->
+<!--                                <option value="ue15">Unidad Educativa 1</option>-->
+<!--                                <option value="ue25">Unidad Educativa 2</option>-->
+<!--                                <option value="ue35">Unidad Educativa 3</option>-->
+<!--                                <option value="ue45">Unidad Educativa 4</option>-->
+<!--                                <option value="ue55">Unidad Educativa 5</option>-->
+<!--                                <option value="ue65">Unidad Educativa 6</option>-->
 
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
-                         
-
-                          
-                          
-
-                          
                         </div>
 
                         <div class="form-actions">
