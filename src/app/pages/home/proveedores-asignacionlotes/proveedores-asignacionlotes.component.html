@@ -16,9 +16,10 @@
 
           </ol>
         </div>
+
         <div class="col-md-5 align-self-center">
 
-            </div>
+        </div>
         <div class="">
           <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
         </div>
@@ -42,51 +43,13 @@
                             <tr>
                                 <th>#</th>
                                 <th>Unidad Educativa</th>
-
                             </tr>
                         </thead>
+
                         <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td><a href="javascript:void(0)"><Em>Elizardo Pérez</Em></a></td>
-
-
-                            </tr>
-                            <tr>
-                              <td>2</td>
-                                <td><a href="javascript:void(0)">San Francisco</a></td>
-
-
-                            </tr>
-                            <tr>
-                              <td>3</td>
-                                <td><a href="javascript:void(0)">16 de Febrero</a></td>
-
-
-                            </tr>
-                            <tr>
-                              <td>4</td>
-                                <td><a href="javascript:void(0)">Boliviano Holandés</a></td>
-
-
-                            </tr>
-                            <tr>
-                              <td>5</td>
-                                <td><a href="javascript:void(0)">República de Japón</a></td>
-
-
-                            </tr>
-                            <tr>
-                              <td>6</td>
-                                <td><a href="javascript:void(0)">Boliviano Noruego</a></td>
-
-
-                            </tr>
-                            <tr>
-                              <td>7</td>
-                                <td><a href="javascript:void(0)">San Guillermo</a></td>
-
-
+                            <tr *ngFor="let colegio of colegios; let i = index;"  >
+                              <td> {{ i+1 }} </td>
+                              <td><a href="javascript:void(0)"><Em> {{ colegio.NombreColegio }} </Em></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -101,26 +64,17 @@
    <div class="row">
         <div class="col-lg-12">
           <div class="card">
-
             <div class="card-body">
              <tr>
+                 <td>
+                    <h4 class="card-title">Podrá asignar proveedores y lotes al menú seleccionado, Por favor seleccione el menú que desea asignar. </h4>
+                 </td>
+
                <td>
-              <h4 class="card-title">Podrá asignar proveedores y lotes al menú seleccionado, Por favor seleccione el menú que desea asignar. </h4>
+                  <select  class="form-control custom-select" >
+                    <option [value]="menu.codigoGenerado" *ngFor="let menu of menusAprobados; let i = index;" >Menu-{{ menu.codigoGenerado }}</option>
+                  </select>
                </td>
-              <td >
-                <select  class="form-control custom-select" >
-
-                <option value="Menu020321">Menu020321</option>
-                <option value="Menu050321">Menu050321</option>
-                <option value="Menu020321">Menu060321</option>
-                <option value="Menu050321">Menu070321</option>
-                <option value="Menu020321">Menu080321</option>
-                <option value="Menu050321">Menu090321</option>
-
-
-
-                </select>
-             </td>
             </tr>
 
 
@@ -155,16 +109,8 @@
                                 <td> Producto Sólido 1</td>
 
                                 <td>
-
-
-
                                       <form class="app-search">
                                        <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
 
                                 </td>
                                 <td>
@@ -477,13 +423,13 @@
 
                             <td>
                               <a href="#" data-toggle="modal" data-target="#add-new-event" class="btn m-t-10 btn-warning btn-block waves-effect waves-light">
-                                <i class="ti-plus"></i> Agregar </a>
-
+                                <i class="ti-plus"></i> Agregar
+                              </a>
                             </td>
-                         
 
 
-                            
+
+
                             <tr>
                               <td></td>
                               <td></td>
@@ -568,44 +514,26 @@
 
 
                             </td>
-                            
+
                             <tr>
                               <td></td>
                               <td></td>
                               <td>
-
-
-
                                  <form class="app-search">
                                   <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
                               </td>
                               <td>
 
                               <div class="form-group row">
                                <label class="control-label text-right col-md-3">Lote(s) </label>
                                 <div class="col-md-9">
-
                                  <input
-
                                    type="text"
                                    class="form-control">
                                    <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
-
                                </div>
                               </div>
-
-
-
                              </td>
-
-
-
-
                             </tr>
 
                         </tbody>
@@ -640,7 +568,6 @@
                                 <th>Producto</th>
                                 <th>Proveedor</th>
                                 <th>Lote</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -648,19 +575,10 @@
                                 <td><span class="label label-success">SÓLIDO</span> </td>
                                 <td>
                                     Producto 45
-
                                 </td>
                                 <td>
-
-
-
                                   <form class="app-search">
                                    <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
                             </td>
                             <td>
 
@@ -763,7 +681,7 @@
                             <a href="#" data-toggle="modal" data-target="#add-new-event" class="btn m-t-10 btn-warning btn-block waves-effect waves-light">
                               <i class="ti-plus"></i> Agregar </a>
 
-                         
+
                             <tr>
                               <td></td>
                               <td></td>
@@ -829,7 +747,7 @@
 
                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#AprobacionFinal">Guardar</button>
 
-                
+
                 </td>
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-proveedores-asignacionlotes',
@@ -8,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProveedoresAsignacionlotesComponent implements OnInit {
 
-  constructor() { }
+  colegios: any = '';
+  menusAprobados: any = '';
+
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
+    this.service.listarUnidadesEducativas().subscribe(resp => {
+      this.colegios = resp;
+      console.log(this.colegios);
+    });
+
+    this.service.listarMenuUnaceAprobados().subscribe(resp => {
+      this.menusAprobados = resp;
+      console.log(this.menusAprobados);
+    });
   }
 
 }
