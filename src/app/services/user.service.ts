@@ -235,6 +235,18 @@ export class UserService {
     return this.http.post(`${this.url}/ruta/registrar`, ruta);
   }
 
+  listarRutas() {
+    return this.http.get(`${this.url}/ruta/lista`);
+  }
+
+  editarRuta(id: string, body: RutaModel) {
+    return this.http.patch(`${this.url}/ruta/editar/${id}`, body)
+  }
+
+  eliminarRuta(id: string) {
+    return this.http.patch(`${this.url}/ruta/editar/${id}`, { Estado: false });
+  }
+
   // TODO: RECOVER PASSWORD
   resetPassword(email) {
     return this.http.post(`${this.url}/req-reset-password`, { email: email })

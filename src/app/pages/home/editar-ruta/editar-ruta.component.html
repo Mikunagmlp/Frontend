@@ -28,7 +28,7 @@
               <h6 class="card-subtitle">Listado de rutas existentes por  códigos o nombres</h6>
 
 
-             
+
               <!-- Inicio Tabla de Rutas -->
               <div class="table-responsive">
                 <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
@@ -36,31 +36,29 @@
                       <tr>
                         <th>Código</th>
                         <th>Nombre</th>
-                       
-
+                        <th>Descripcion</th>
                       </tr>
                     </thead>
 
                     <tbody>
 
-                        <tr>
-                            <td> 15 </td>
-                            <td> Ruta Central </td>
-                           
-
+                        <tr *ngFor="let ruta of rutas; let i = index;" >
+                            <td> {{ ruta.Codigo }} </td>
+                            <td> {{ ruta.NombreRuta }} </td>
+                            <td> {{ ruta.Descripcion }} </td>
 
                             <button
                               type="button"
                               class="btn btn-warning btn-rounded"
                               data-toggle="modal"
-                               data-target="#add-contact" >Editar</button>
+                               data-target="#add-contact" (click)="editar(i)" >Editar</button>
 
                             <button
                               type="button"
                               class="btn btn-danger btn-rounded"
                               data-toggle="modal"
-                             
-                              data-target="#eliminar">Eliminar</button>
+
+                              data-target="#eliminar" (click)="eliminar(i)" >Eliminar</button>
 
                             <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -72,6 +70,7 @@
 
                                     <div class="modal-footer">
                                       <button
+                                        (click)="eliminarRuta()"
                                         type="button"
                                         class="btn btn-danger waves-effect"
                                         data-dismiss="modal" >Eliminar</button>
@@ -82,6 +81,7 @@
                                 </div>
                             </div>
                         </tr>
+
 
                     </tbody>
                     <tfoot>
@@ -102,40 +102,30 @@
                                     <div class="form-group">
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Nombre de la ruta</label>
-                                        <input type="text"   class="form-control">                       
-                                                                                                                         
-                                      </div>
+                                        <input
+                                          #nombre
+                                          [value]="editarR.NombreRuta"
+                                          type="text"
+                                          class="form-control">
 
+                                      </div>
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Código</label>
-                                        <input      type="text"  class="form-control">                                
-                                         
-                                                                                  
-                                      </div>
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Camiones asignados</label>
-                                        <input      type="text"  class="form-control">                                
-                                         
-                                                                                  
-                                      </div>
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Unidades Educativas</label>
-                                        <input      type="text"  class="form-control">                                
-                                         
-                                                                                  
-                                      </div>
+                                        <label class="text-info" >Descripcion</label>
+                                        <input
+                                          #descripcion
+                                          [value]="editarR.Descripcion"
+                                          type="text"
+                                          class="form-control">
 
-                                      
 
-                                      
-
+                                      </div>
 
                                     </div>
 
                                     <div class="modal-footer">
                                       <button
-                                      
+                                        (click)="editarRuta(nombre, descripcion)"
                                         type="submit"
                                         class="btn btn-warning waves-effect"
                                         data-dismiss="modal"
