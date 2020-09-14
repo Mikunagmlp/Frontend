@@ -22,7 +22,7 @@ export class VerificarphComponent implements OnInit {
   registrarPh(form: NgForm) {
     if (form.invalid) { return ; }
 
-    this.service.registrarAlmacen(this.registerph).subscribe(resp => {
+    this.service.registrarPh(this.verificarph).subscribe(resp => {
       // console.log(resp);
       this.router.navigateByUrl('/home/registroph-registrar')
     });
