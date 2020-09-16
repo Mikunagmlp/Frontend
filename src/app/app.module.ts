@@ -6,6 +6,27 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
+
+
+
+
+
+
+
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+
+import pdfFonts from "pdfmake/build/vfs_fonts"; // fonts provided for pdfmake
+ 
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
+
+
+
+
+
+
+
+
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TopbarHeaderComponent } from './pages/shared/topbar-header/topbar-header.component';
@@ -48,6 +69,8 @@ import { ReporteRuteoComponent } from './pages/home/reporte-ruteo/reporte-ruteo.
 import { ReporteEntregaComponent } from './pages/home/reporte-entrega/reporte-entrega.component';
 import { CrearRutaComponent } from './pages/home/crear-ruta/crear-ruta.component';
 import { EditarRutaComponent } from './pages/home/editar-ruta/editar-ruta.component';
+
+
 
 @NgModule({
   declarations: [
