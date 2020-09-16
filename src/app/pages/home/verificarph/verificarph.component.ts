@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {RegisterphModel} from "../../../models/registerph.model";
+// import {RegisterphModel} from "../../../models/re";
 import {UserService} from "../../../services/user.service";
 import {Router} from "@angular/router";
 
@@ -12,24 +12,24 @@ import {Router} from "@angular/router";
 })
 export class VerificarphComponent implements OnInit {
 
-  verificarph: RegisterphModel = new RegisterphModel();
+  // verificarph: RegisterphModel = new RegisterphModel();
 
   constructor( private service: UserService, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
-  registrarPh(form: NgForm) {
-    if (form.invalid) { return ; }
+  // registrarPh(form: NgForm) {
+  //   if (form.invalid) { return ; }
+  //
+  //   this.service.registrarPh(this.verificarph).subscribe(resp => {
+  //     // console.log(resp);
+  //     this.router.navigateByUrl('/home/registroph-registrar')
+  //   });
+  // }
 
-    this.service.registrarPh(this.verificarph).subscribe(resp => {
-      // console.log(resp);
-      this.router.navigateByUrl('/home/registroph-registrar')
-    });
-  }
-
-  cancelar() {
-      this.router.navigateByUrl('/home/registerph')
-  }
+  // cancelar() {
+  //     this.router.navigateByUrl('/home/registerph')
+  // }
 
 }

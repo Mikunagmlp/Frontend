@@ -66,18 +66,21 @@
           <div class="card">
             <div class="card-body">
              <tr>
-                 <td>
-                    <h4 class="card-title">Podrá asignar proveedores y lotes al menú seleccionado, Por favor seleccione el menú que desea asignar. </h4>
-                 </td>
-
-               <td>
-                  <select  class="form-control custom-select" >
-                    <option [value]="menu.codigoGenerado" *ngFor="let menu of menusAprobados; let i = index;" >Menu-{{ menu.codigoGenerado }}</option>
-                  </select>
-               </td>
-            </tr>
-
-
+               <div class="row">
+                 <div class="col-md-10">
+                   <td>
+                      <h4 class="card-title">Podrá asignar proveedores y lotes al menú seleccionado, Por favor seleccione el menú que desea asignar. </h4>
+                   </td>
+                 </div>
+                 <div class="col-md-2">
+                   <td>
+                      <select  class="form-control custom-select" >
+                        <option [value]="menu.codigoGenerado" *ngFor="let menu of menusAprobados; let i = index;" >Menu-{{ menu.codigoGenerado }}</option>
+                      </select>
+                   </td>
+                 </div>
+               </div>
+             </tr>
             </div>
           </div>
         </div>
