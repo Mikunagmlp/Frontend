@@ -13,6 +13,7 @@ import {CategoriaModel} from "../models/categoria.model";
 import {CamionModel} from "../models/camion.model";
 import {MenuModel} from "../models/menu.model";
 import {RutaModel} from "../models/ruta.model";
+import {PhModel} from "../models/ph.model";
 
 @Injectable({
   providedIn: 'root'
@@ -345,6 +346,10 @@ export class UserService {
   menusAprobados( body ) {
     console.log(body)
     return this.http.post(`${this.url}/reporte/menu/aprobado`, body );
+  }
+
+  registrarPH(body: PhModel){
+    return this.http.post(`${this.url}/registerph/registrar`, body);
   }
 
 }
