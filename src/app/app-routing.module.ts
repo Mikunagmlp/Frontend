@@ -42,6 +42,8 @@ import {ReporteEntregaComponent} from "./pages/home/reporte-entrega/reporte-entr
 import {CrearRutaComponent} from "./pages/home/crear-ruta/crear-ruta.component";
 import {EditarRutaComponent} from "./pages/home/editar-ruta/editar-ruta.component";
 import {VerificarphComponent} from "./pages/home/verificarph/verificarph.component";
+import {Verificarph2Component} from "./pages/home/verificarph2/verificarph2.component";
+import {BoletaentregaComponent} from "./pages/home/boletaentrega/boletaentrega.component";
 
 
 const routes: Routes = [
@@ -103,6 +105,8 @@ const routes: Routes = [
       { path: 'reporte-entrega', component: ReporteEntregaComponent },
 
       { path: 'verificarph', component: VerificarphComponent },
+      { path: 'verificarph2', component: Verificarph2Component },
+      { path: 'boletaentrega', component: BoletaentregaComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },
