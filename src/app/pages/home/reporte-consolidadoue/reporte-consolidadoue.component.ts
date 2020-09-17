@@ -8,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReporteConsolidadoueComponent implements OnInit {
 
+  fechaHoy: Date = new Date();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  buscarPorFecha(fechaInicia, fechaFinal){
+
   }
 
 }
