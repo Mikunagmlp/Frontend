@@ -49,7 +49,7 @@
                         <tbody>
                             <tr *ngFor="let colegio of colegios; let i = index;"  >
                               <td> {{ i+1 }} </td>
-                              <td><a href="javascript:void(0)"><Em> {{ colegio.NombreColegio }} </Em></a></td>
+                              <td><a (click)="elegirColegio(colegio.NombreColegio, colegio._id)" href="javascript:void(0)"><Em> {{ colegio.NombreColegio }} </Em></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -57,7 +57,6 @@
             </div>
         </div>
     </div>
-
 
 
 <!-- Inicio Menús para asignar proveedores -->
@@ -74,8 +73,8 @@
                  </div>
                  <div class="col-md-2">
                    <td>
-                      <select  class="form-control custom-select" >
-                        <option [value]="menu.codigoGenerado" *ngFor="let menu of menusAprobados; let i = index;" >Menu-{{ menu.codigoGenerado }}</option>
+                      <select (change)="elegirMenu($event.target)" class="form-control custom-select" >
+                        <option [value]="i" *ngFor="let menu of menusAprobados; let i = index;" >Menu-{{ menu.codigoGenerado }}</option>
                       </select>
                    </td>
                  </div>
@@ -87,6 +86,7 @@
       </div>
 
 
+      <h5> {{ nombreColegio }} </h5>
       <div class="row" id="javascript:void(0)">
         <div class="col-lg-12">
           <div class="card">
@@ -109,12 +109,11 @@
                         <tbody>
                             <tr id="P1">
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td> Producto Sólido 1</td>
-
+                                <td> {{ menuElegido.ProductoSolidoInicial }} </td>
                                 <td>
-                                      <form class="app-search">
-                                       <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
+                                  <select (change)="proveedorInicialSolido($event.target)" class="form-control custom-select" >
+                                    <option [value]="i" *ngFor="let proveedor of proveedores; let i = index;" >{{ proveedor.NombreProveedor }}</option>
+                                  </select>
                                 </td>
                                 <td>
 
@@ -123,7 +122,7 @@
                                     <div class="col-md-9">
 
                                       <input
-
+                                        #lotesolidoinicial
                                         type="text"
                                         class="form-control">
                                         <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
@@ -270,20 +269,12 @@
                             <tr>
 
                               <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td> Producto Liquido 5          </td>
-
-                                <td>
-
-
-
-                                  <form class="app-search">
-                                   <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
-                               </td>
+                                <td> {{ menuElegido.ProductoLiquidoInicial }}</td>
+                              <td>
+                                <select (change)="proveedorInicialLiquido($event.target)" class="form-control custom-select" >
+                                  <option [value]="i" *ngFor="let proveedor of proveedores; let i = index;" >{{ proveedor.NombreProveedor }}</option>
+                                </select>
+                              </td>
                                <td>
 
                               <div class="form-group row">
@@ -291,7 +282,7 @@
                                 <div class="col-md-9">
 
                                   <input
-
+                                    #loteliquidoinicial
                                     type="text"
                                     class="form-control">
                                     <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
@@ -391,23 +382,13 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
+                                <td> {{ menuElegido.ProductoSolidoPrimaria }} </td>
 
-                                     Producto 45
-                                </td>
-
-                                <td>
-
-
-
-                                  <form class="app-search">
-                                   <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
-                            </td>
+                              <td>
+                                <select (change)="proveedorPrimariaSolido($event.target)" class="form-control custom-select" >
+                                  <option [value]="i" *ngFor="let proveedor of proveedores; let i = index;" >{{ proveedor.NombreProveedor }}</option>
+                                </select>
+                              </td>
                             <td>
 
                               <div class="form-group row">
@@ -415,7 +396,7 @@
                                 <div class="col-md-9">
 
                                   <input
-
+                                    #lotesolidoprimaria
                                     type="text"
                                     class="form-control">
                                     <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
@@ -473,24 +454,12 @@
                             </tr>
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-
-                                    Producto 56
-
-
-                                </td>
-                                <td>
-
-
-
-                                  <form class="app-search">
-                                   <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
-                            </td>
+                                <td>{{ menuElegido.ProductoLiquidoPrimaria }}</td>
+                              <td>
+                                <select (change)="proveedorPrimariaLiquido($event.target)" class="form-control custom-select" >
+                                  <option [value]="i" *ngFor="let proveedor of proveedores; let i = index;" >{{ proveedor.NombreProveedor }}</option>
+                                </select>
+                              </td>
                             <td>
 
                               <div class="form-group row">
@@ -498,7 +467,7 @@
                                 <div class="col-md-9">
 
                                   <input
-
+                                    #loteliquidoprimaria
                                     type="text"
                                     class="form-control">
                                     <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
@@ -576,13 +545,12 @@
                         <tbody>
                             <tr>
                                 <td><span class="label label-success">SÓLIDO</span> </td>
-                                <td>
-                                    Producto 45
-                                </td>
-                                <td>
-                                  <form class="app-search">
-                                   <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-                            </td>
+                                <td> {{ menuElegido.ProductoSolidoSegundaria }} </td>
+                              <td>
+                                <select (change)="proveedorSecundariaSolido($event.target)" class="form-control custom-select" >
+                                  <option [value]="i" *ngFor="let proveedor of proveedores; let i = index;" >{{ proveedor.NombreProveedor }}</option>
+                                </select>
+                              </td>
                             <td>
 
                               <div class="form-group row">
@@ -590,7 +558,7 @@
                                 <div class="col-md-9">
 
                                   <input
-
+                                    #lotesolidosecundaria
                                     type="text"
                                     class="form-control">
                                     <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
@@ -646,24 +614,12 @@
 <!--                            </tr>-->
                             <tr>
                                 <td><span class="label label-info">LÍQUIDO</span> </td>
-                                <td>
-
-                                   Producto 67
-
-
-                                </td>
-                                <td>
-
-
-
-                                  <form class="app-search">
-                                   <input type="text" class="form-control mr-sm-2" placeholder="Buscar Proveedor"> </form>
-
-
-
-
-
-                            </td>
+                                <td> {{ menuElegido.ProductoLiquidoSegundaria }} </td>
+                              <td>
+                                <select (change)="proveedorSecundariaLiquido($event.target)" class="form-control custom-select" >
+                                  <option [value]="i" *ngFor="let proveedor of proveedores; let i = index;" >{{ proveedor.NombreProveedor }}</option>
+                                </select>
+                              </td>
                             <td>
 
                               <div class="form-group row">
@@ -671,7 +627,7 @@
                                 <div class="col-md-9">
 
                                   <input
-
+                                    #loteliquidosecundaria
                                     type="text"
                                     class="form-control">
                                     <span class="help-block"><small>Asignar más de 2 lotes con la separación del signo coma "," Ej. L123,L124</small></span>
@@ -745,15 +701,9 @@
           <div class="card">
 
             <div class="card-body">
-
                 <td >
-
                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#AprobacionFinal">Guardar</button>
-
-
                 </td>
-
-
             </div>
           </div>
         </div>
@@ -776,7 +726,11 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"  >Aceptar</button>
+                      <button
+                        (click)="enviarAsignacion(lotesolidoinicial, loteliquidoinicial, lotesolidoprimaria, loteliquidoprimaria, lotesolidosecundaria, loteliquidosecundaria)"
+                        type="button"
+                        class="btn btn-secondary waves-effect"
+                        data-dismiss="modal"  >Aceptar</button>
                       <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
                     </div>
                   </div>

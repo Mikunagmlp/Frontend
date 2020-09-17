@@ -14,6 +14,7 @@ import {CamionModel} from "../models/camion.model";
 import {MenuModel} from "../models/menu.model";
 import {RutaModel} from "../models/ruta.model";
 import {PhModel} from "../models/ph.model";
+import {AsignacionModel} from "../models/asignacion.model";
 
 @Injectable({
   providedIn: 'root'
@@ -149,6 +150,10 @@ export class UserService {
 
   habilitarProveedor(id) {
     return this.http.patch(`${this.url}/proveedor/editar/${id}`, { Estado: true });
+  }
+
+  crearAsignacion(body: AsignacionModel, id) {
+    return this.http.post(`${this.url}/menu/asignacion/registrar/${id}`, body);
   }
 
   // TODO: ALMACENES
