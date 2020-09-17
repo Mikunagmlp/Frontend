@@ -156,6 +156,10 @@ export class UserService {
     return this.http.post(`${this.url}/menu/asignacion/registrar/${id}`, body);
   }
 
+  listarAsignaciones() {
+    return this.http.get(`${this.url}/listar/asignaciones`);
+  }
+
   // TODO: ALMACENES
   registrarAlmacen( almacen: AlmacenModel ) {
     return this.http.post(`${this.url}/almacen/registrar`, almacen);
@@ -355,6 +359,11 @@ export class UserService {
 
   registrarPH(body: PhModel){
     return this.http.post(`${this.url}/registerph/registrar`, body);
+  }
+
+  // TODO: BOLETA
+  crearBoleta(id){
+    return this.http.get(`${this.url}/boleta/registrar/${id}`)
   }
 
 }
