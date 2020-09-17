@@ -366,4 +366,8 @@ export class UserService {
     return this.http.get(`${this.url}/boleta/registrar/${id}`)
   }
 
+  listarBoletas() {
+    return this.http.get(`${this.url}/allboletas`);
+  }
+
 }
