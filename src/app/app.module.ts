@@ -119,6 +119,7 @@ import { BoletaentregaComponent } from './pages/home/boletaentrega/boletaentrega
     ReporteEntregaComponent,
     CrearRutaComponent,
     EditarRutaComponent,
+   
     Verificarph2Component,
     BoletaentregaComponent
   ],

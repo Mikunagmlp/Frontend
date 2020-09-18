@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as html2pdf from 'html2pdf.js';
 import {UserService} from "../../../services/user.service";
 import * as moment from 'moment';
 moment.locale('es');
@@ -10,6 +11,31 @@ moment.locale('es');
   ]
 })
 export class BoletaentregaComponent implements OnInit {
+
+ onExportClick(){
+   const options = {
+     filename: 'Boleta de Entrega',
+     image:{type: 'jpeg'},
+     html2canvas: {},
+     jsPDF: {orientation:'portrait'}
+   };
+
+   const content: Element = document.getElementById('reporte-pdf');
+
+   html2pdf()
+   .from(content)
+   .set(options)
+   .save();
+
+}
+
+
+
+
+
+
+
+
 
   boletas: any = '';
   reporteBoleta: any = '';
@@ -41,5 +67,10 @@ export class BoletaentregaComponent implements OnInit {
   convertDate(date) {
     return moment(date).format("D/M/YYYY");
   }
+
+
+ 
+
+
 
 }

@@ -1,119 +1,501 @@
 
 <div class="page-wrapper">
-    <div class="container-fluid">
+  <div class="container-fluid">
 
-        <div class="row page-titles">
-            <div class="col-md-5 align-self-center">
-              <h3 class="text-themecolor">Boletas de Entrega</h3>
-            </div>
-            <div class="col-md-7 align-self-center">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Entregas</a></li>
-                <li class="breadcrumb-item">Boleta</li>
-
-              </ol>
-            </div>
-            <div class="">
-              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-            </div>
+      <div class="row page-titles">
+          <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Boletas de Entrega</h3>
           </div>
-       <!-- ============================================================== -->
-                    <!-- Start Page Content -->
-       <!-- ============================================================== -->
-       <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
+          <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Entregas</a></li>
+              <li class="breadcrumb-item">Boleta</li>
 
-              <h4 class="card-subtitle">Generación  de reportes de entrega  de alimentación complementaria escolar por Unidades Educativas</h4>
+            </ol>
+          </div>
+          <div class="">
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+          </div>
+        </div>
+     <!-- ============================================================== -->
+                  <!-- Start Page Content -->
+     <!-- ============================================================== -->
+     <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
 
-
-              <!-- Buscador interno -->
-
-
-             <div class="row m-t-40">
-
-                <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>
-                <form class="app-search">
-                 <input type="text" class="form-control mr-sm-2" placeholder="Buscar Unidad Educativa"> <a class="srh-btn"></a> </form>  &nbsp;
-                 <button class="btn btn-outline-info btn-rounded btn-sm my-0" type="submit">Buscar</button>
-
-
-                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-                 <label class="text-info" for="start"> <strong>  Fecha:</strong> </label>
-
-                  &nbsp; &nbsp;
-
-                 <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
-                    min="2020-08-01" max="2022-12-31">
-             </div>
+            <h4 class="card-subtitle">Generación  de reportes de entrega  de alimentación complementaria escolar por Unidades Educativas</h4>
 
 
-
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
+            <!-- Buscador interno -->
 
 
-              <!-- End Buscador interno -->
+           <div class="row m-t-40">
 
-              <!-- Inicio Tabla de productoes -->
-              <div class="table-responsive">
-                <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th></th>
-                        <th>#</th>
-                        <th>Unidad Educativa</th>
+              <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>
+              <form class="app-search">
+               <input type="text" class="form-control mr-sm-2" placeholder="Buscar Unidad Educativa"> <a class="srh-btn"></a> </form>  &nbsp;
+               <button class="btn btn-outline-info btn-rounded btn-sm my-0" type="submit">Buscar</button>
+
+
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+               <label class="text-info" for="start"> <strong>  Fecha:</strong> </label>
+
+                &nbsp; &nbsp;
+
+               <input type="date" id="start" name="trip-start"
+                  value="2020-08-01"
+                  min="2020-08-01" max="2022-12-31">
+           </div>
+
+
+
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+
+            <!-- End Buscador interno -->
+
+            <!-- Inicio Tabla de productoes -->
+            <div class="table-responsive">
+              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th>#</th>
+                      <th>Unidad Educativa</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                      <tr *ngFor="let boleta of boletas; let i = index;" >
+                          <td>  </td>
+                          <td>  </td>
+                          <td> {{ i+1 }} </td>
+                          <td> {{ boleta.NombreColegio }} </td>
+                          <td><button  (click)="listarBoleta(i)" type="button"  class="btn btn-warning btn-rounded"  data-toggle="modal" >listar Boleta</button></td>
+                          <!-- (click)="generatePDF()" -->
+
+
                       </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr *ngFor="let boleta of boletas; let i = index;" >
-                            <td>  </td>
-                            <td>  </td>
-                            <td> {{ i+1 }} </td>
-                            <td> {{ boleta.NombreColegio }} </td>
-                            <td><button  (click)="listarBoleta(i)" type="button"  class="btn btn-warning btn-rounded"  data-toggle="modal" >listar Boleta</button></td>
-                            <!-- (click)="generatePDF()" -->
-
-
-                        </tr>
-                    </tbody>
+                  </tbody>
 
 
 
 
-                </table>
-              </div>
-
-
+              </table>
             </div>
+
+
           </div>
         </div>
       </div>
+    </div>
+
+<!-- PDF -->
+<div class="form-actions">
+  <div class="row">
+    <div class="col-md-6">
+    
+      <div class="row">
+        <div class="actions">
+        <div class="col-md-offset-3 col-md-9">
+          <button type="submit" (click)="onExportClick()" class="export-button"> <i class="fa fa-pencil"></i> Generar PDF</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> </div>
+  </div>
+</div>
+<!-- END PDF -->
 
 
 <!-- Inicio Reporte -->
-<div class="card">
+
+<div class="container" >
+
+<div class="card" >
+<div class="card-body">
+    <h4 class="col-sm-12 d-flex justify-content-center" >
+        Gobierno Autónomo Municipal de La Paz
+
+
+    </h4>
+    <h4 class="col-sm-12 d-flex justify-content-center"> Servicio de Alimentación Complementaria Escolar </h4>
+
+<!-- Boleta -->
+  <div *ngIf="reporteBool" >
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header bg-warning">
+            <h4 class="m-b-0 text-white">Acta de entrega y recepción</h4>
+          </div>
+          <div class="card-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-body">
+                <h3 class="box-title">Datos de Acta</h3>
+                <hr class="m-t-0 m-b-40">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Nro. Acta:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.CodigoActa }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Fecha:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ convertDate(reporteBoleta.createdAt) }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Turno:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static">{{ reporteBoleta.Turno }}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <h3 class="box-title">Datos Referenciales</h3>
+                <hr class="m-t-0 m-b-40">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Ruta:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.Ruta }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Código:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.CodigoRuta }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Centro Educativo:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.NombreColegio }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Dirección:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.Direccion }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Director:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{reporteBoleta.Encargado}} </p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--/row-->
+                <h3 class="box-title">Cantidad de Raciones</h3>
+                <hr class="m-t-0 m-b-40">
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Nro. Raciones Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.CantidadAlumnosInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Nro. Raciones Primaria:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.CantidadAlumnosPrimaria }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Nro. Raciones Secundaria:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.CantidadAlumnosSegundaria }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                </div>
+                <!--/row-->
+                <h3 class="box-title">Detalle de entrega</h3>
+                <hr class="m-t-0 m-b-40">
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Producto Líquido Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.ProductoLiquidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Precio Unidatario Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.PrecioLiquidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+
+                </div>
+                <!--/row-->
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Producto Sólido Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.ProductoSolidoInicial }}  </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Precio Unitario Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.PrecioSolidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+
+                </div>
+                <!--/row-->
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Producto Líquido Primaria:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.ProductoLiquidoPrimaria }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Precio Unidatario Primaria:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.PrecioLiquidoPrimaria }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+
+                </div>
+                <!--/row-->
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Producto Sólido Secundaria:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.ProductoSolidoSegundaria }}  </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Precio Unitario Secundaria:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.PrecioSolidoSegundaria }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+
+                </div>
+                <!--/row-->
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Producto Líquido Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.ProductoLiquidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Precio Unidatario Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.PrecioLiquidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+
+                </div>
+                <!--/row-->
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Producto Sólido Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.ProductoSolidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Precio Unitario Inicial:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.PrecioSolidoInicial }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+
+                </div>
+                <!--/row-->
+                <h3 class="box-title">Observaciones</h3>
+                <hr class="m-t-0 m-b-40">
+                <!--/row-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="control-label text-right col-md-3">Observaciones:</label>
+                      <div class="col-md-9">
+                        <p class="form-control-static"> {{ reporteBoleta.Observaciones }} </p>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <img [src]="urlColegio" width="200" height="150" alt="homepage"  />
+                      <p >Lic. Ulises Fernandez</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <img [src]="urlEba" width="200" height="150" alt="homepage"  />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <img [src]="urlSiremu" width="200" height="150" alt="homepage"  />
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+              <div class="form-actions">
+                <div class="row">
+                  <div class="col-md-6">
+                  
+                    <div class="row">
+                      <div class="actions">
+                      <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" (click)="onExportClick()" class="export-button"> <i class="fa fa-pencil"></i> Generar PDF</button>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6"> </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Fin Boleta -->
+
+
+</div>
+
+</div>
+</div>
+
+
+
+
+<!-- BOLETA PDF -->
+
+<div class="container" id="reporte-pdf">
+
+  <div class="card" >
   <div class="card-body">
       <h4 class="col-sm-12 d-flex justify-content-center" >
           Gobierno Autónomo Municipal de La Paz
-
-
+  
+  
       </h4>
       <h4 class="col-sm-12 d-flex justify-content-center"> Servicio de Alimentación Complementaria Escolar </h4>
-
-<!-- Row -->
-    <div *ngIf="reporteBool" >
+  
+ 
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
@@ -123,13 +505,13 @@
             <div class="card-body">
               <form class="form-horizontal" role="form">
                 <div class="form-body">
-                  <h3 class="box-title">Datos de Acta</h3>
+                  <h6 class="box-title">Datos de Acta</h6>
                   <hr class="m-t-0 m-b-40">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="control-label text-right col-md-3">Nro. Acta:</label>
-                        <div class="col-md-9">
+                        <label class="control-label text-right col-md-6">Nro. Acta:</label>
+                        <div class="col-md-6">
                           <p class="form-control-static"> {{ reporteBoleta.CodigoActa }} </p>
                         </div>
                       </div>
@@ -143,22 +525,23 @@
                         </div>
                       </div>
                     </div>
-                    <!--/span-->
-                  </div>
-                  <!--/row-->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="control-label text-right col-md-3">Turno:</label>
-                        <div class="col-md-9">
-                          <p class="form-control-static">{{ reporteBoleta.Turno }}</p>
+                  
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="control-label text-right col-md-3">Turno:</label>
+                          <div class="col-md-9">
+                            <p class="form-control-static">{{ reporteBoleta.Turno }}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-
+    
+                   
+    
+                    <!--/span-->
                   </div>
-
-                  <h3 class="box-title">Datos Referenciales</h3>
+                  
+                 
+                  <h6 class="box-title">Datos Referenciales</h6>
                   <hr class="m-t-0 m-b-40">
                   <div class="row">
                     <div class="col-md-6">
@@ -182,228 +565,179 @@
                   </div>
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                  
+                     
                         <label class="control-label text-right col-md-3">Centro Educativo:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.NombreColegio }}</p>
-                        </div>
-                      </div>
+                       
+                     
                     </div>
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                  
                         <label class="control-label text-right col-md-3">Dirección:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.Direccion }} </p>
-                        </div>
-                      </div>
+                       
                     </div>
                     <!--/span-->
                   </div>
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                   
                         <label class="control-label text-right col-md-3">Director:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{reporteBoleta.Encargado}} </p>
-                        </div>
-                      </div>
+                       
                     </div>
-
+  
                   </div>
                   <!--/row-->
-                  <h3 class="box-title">Cantidad de Raciones</h3>
+                  <h6 class="box-title">Cantidad de Raciones</h6>
                   <hr class="m-t-0 m-b-40">
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                  
                         <label class="control-label text-right col-md-3">Nro. Raciones Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.CantidadAlumnosInicial }} </p>
-                        </div>
-                      </div>
+                       
                     </div>
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                
                         <label class="control-label text-right col-md-3">Nro. Raciones Primaria:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.CantidadAlumnosPrimaria }} </p>
-                        </div>
-                      </div>
+                       
                     </div>
                     <!--/span-->
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                  
                         <label class="control-label text-right col-md-3">Nro. Raciones Secundaria:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.CantidadAlumnosSegundaria }} </p>
                         </div>
-                      </div>
-                    </div>
+                   
                     <!--/span-->
                   </div>
                   <!--/row-->
-                  <h3 class="box-title">Detalle de entrega</h3>
+                  <h6 class="box-title">Detalle de entrega</h6>
                   <hr class="m-t-0 m-b-40">
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                   
                         <label class="control-label text-right col-md-3">Producto Líquido Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.ProductoLiquidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
+                     
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                 
                         <label class="control-label text-right col-md-3">Precio Unidatario Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.PrecioLiquidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
+                    
                     <!--/span-->
-
+  
                   </div>
                   <!--/row-->
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                
                         <label class="control-label text-right col-md-3">Producto Sólido Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.ProductoSolidoInicial }}  </p>
                         </div>
-                      </div>
-                    </div>
+                    
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                  
                         <label class="control-label text-right col-md-3">Precio Unitario Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.PrecioSolidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
+                    
                     <!--/span-->
-
+  
                   </div>
                   <!--/row-->
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                
                         <label class="control-label text-right col-md-3">Producto Líquido Primaria:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.ProductoLiquidoPrimaria }} </p>
                         </div>
-                      </div>
-                    </div>
+                     
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
+               
                         <label class="control-label text-right col-md-3">Precio Unidatario Primaria:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.PrecioLiquidoPrimaria }} </p>
                         </div>
-                      </div>
-                    </div>
+                    
                     <!--/span-->
-
+  
                   </div>
                   <!--/row-->
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
+                
                         <label class="control-label text-right col-md-3">Producto Sólido Secundaria:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.ProductoSolidoSegundaria }}  </p>
                         </div>
-                      </div>
-                    </div>
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
                         <label class="control-label text-right col-md-3">Precio Unitario Secundaria:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.PrecioSolidoSegundaria }} </p>
                         </div>
-                      </div>
-                    </div>
                     <!--/span-->
-
+  
                   </div>
                   <!--/row-->
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
                         <label class="control-label text-right col-md-3">Producto Líquido Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.ProductoLiquidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
                         <label class="control-label text-right col-md-3">Precio Unidatario Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.PrecioLiquidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
                     <!--/span-->
-
+  
                   </div>
                   <!--/row-->
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
                         <label class="control-label text-right col-md-3">Producto Sólido Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.ProductoSolidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
                     <!--/span-->
-                    <div class="col-md-6">
-                      <div class="form-group row">
                         <label class="control-label text-right col-md-3">Precio Unitario Inicial:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.PrecioSolidoInicial }} </p>
                         </div>
-                      </div>
-                    </div>
                     <!--/span-->
-
+  
                   </div>
                   <!--/row-->
-                  <h3 class="box-title">Observaciones</h3>
+                  <h6 class="box-title">Observaciones</h6>
                   <hr class="m-t-0 m-b-40">
                   <!--/row-->
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
                         <label class="control-label text-right col-md-3">Observaciones:</label>
                         <div class="col-md-9">
                           <p class="form-control-static"> {{ reporteBoleta.Observaciones }} </p>
                         </div>
-                      </div>
-                    </div>
-
-
+                
+  
                   </div>
-
+  
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
@@ -412,62 +746,64 @@
                         <p > CI: {{ reporteBoleta.ci }} </p>
                       </div>
                     </div>
-
+  
                     <div class="col-md-4">
                       <div class="form-group">
                         <img [src]="urlEba" width="200" height="150" alt="homepage"  />
                         <p > Usuario Proveedor </p>
                       </div>
                     </div>
-
+  
                     <div class="col-md-4">
                       <div class="form-group">
                         <img [src]="urlSiremu" width="200" height="150" alt="homepage"  />
                         <p > Usuario Siremu </p>
                       </div>
                     </div>
-
-
+  
+  
                   </div>
-
+  
                 </div>
-                <div class="form-actions">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="row">
-                        <div class="col-md-offset-3 col-md-9">
-                          <button type="submit" class="btn btn-warning"> <i class="fa fa-pencil"></i> Generar PDF</button>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6"> </div>
-                  </div>
-                </div>
+               
               </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-<!-- Row -->
-
-
-
-
+   
+  
+ 
+  
+  
   </div>
-</div>
+  
+  </div>
+  </div>
+
+  <!-- BOLETA PDF -->
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Fin Reporte -->
 
 
 
-       <!-- ============================================================== -->
-                    <!-- End Page Content -->
-       <!-- ============================================================== -->
+     <!-- ============================================================== -->
+                  <!-- End Page Content -->
+     <!-- ============================================================== -->
 
 
 
-    </div>
+  </div>
 </div>
 

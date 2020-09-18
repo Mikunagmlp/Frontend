@@ -103,6 +103,7 @@ const routes: Routes = [
       { path: 'reporte-ruteo', component: ReporteRuteoComponent },
       { path: 'reporte-entrega', component: ReporteEntregaComponent },
 
+      
       { path: 'verificarph2', component: Verificarph2Component },
       { path: 'boletaentrega', component: BoletaentregaComponent },
 
