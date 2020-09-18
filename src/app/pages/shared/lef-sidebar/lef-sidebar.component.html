@@ -1,10 +1,10 @@
-<aside class="left-sidebar" style="background-image:url(../../../assets/images/fondoamarillo.png);">
+<aside class="left-sidebar" style="background-image:url(../../../assets/images/amarillofon.jpg);">
   <!-- Sidebar scroll-->
   <div class="scroll-sidebar">
 
     <!-- Sidebar navigation-->
    <!--  <nav class="sidebar-nav" style="background-color:yellow;"> -->
-    <nav class="sidebar-nav"   style="background-image:url(../../../assets/images/fondoamarillo.png);">
+    <nav class="sidebar-nav"   style="background-image:url(../../../assets/images/amarillofon.jpg);">
 
       <ul id="sidebarnav">
 
@@ -15,7 +15,9 @@
 <!--                <span class="hide-menu"> {{ nombre }} </span>-->
 <!--              </a>-->
                <br> <br>
-              <h4 class="text-white" > {{nombre}} </h4>
+             
+              <h4 class="text-red" > {{nombre}} </h4>
+            
 <!--              <ul aria-expanded="true" class="collapse" >-->
 <!--                <li><a href="javascript:void()">Mi Perfil </a></li>-->
 
@@ -52,9 +54,9 @@
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body" >
                 <ul>
-                  <li><a [routerLink]="['/home/usuarios']" >Usuarios</a></li>
-                  <li><a [routerLink]="['/home/nuevo-usuario']"  >Nuevo Usuario</a></li>
-                  <li><a [routerLink]="['/home/usuario-roles']"   >Permisos y roles</a></li>
+                  <li> <a [routerLink]="['/home/usuarios']" ><h6>Usuarios</h6></a></li>
+                  <li><a [routerLink]="['/home/nuevo-usuario']"  ><h6>Nuevo Usuario</h6></a></li>
+                  <li><a [routerLink]="['/home/usuario-roles']"   ><h6>Permisos y roles</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -78,9 +80,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a  [routerLink]="['/home/ue-crear']" >Crear</a></li>
-                  <li><a  [routerLink]="['/home/ue-editar']" >Editar</a></li>
-                  <li><a [routerLink]="['/home/ue-poblacion-beneficiada']">Población beneficiada</a></li>
+                  <li><a  [routerLink]="['/home/ue-crear']" ><h6>Crear</h6></a></li>
+                  <li><a  [routerLink]="['/home/ue-editar']" ><h6>Editar</h6></a></li>
+                  <li><a [routerLink]="['/home/ue-poblacion-beneficiada']"><h6>Población beneficiada</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -104,9 +106,9 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/proveedores-crear']" >Crear</a></li>
-                  <li><a [routerLink]="['/home/proveedores-editar']" >Editar</a></li>
-                  <li><a [routerLink]="['/home/proveedores-asignacionlotes']" >Asignacion lotes</a></li>
+                  <li><a [routerLink]="['/home/proveedores-crear']" ><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/proveedores-editar']" ><h6>Editar</h6></a></li>
+                  <li><a [routerLink]="['/home/proveedores-asignacionlotes']" ><h6>Asignacion lotes</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -130,8 +132,8 @@
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/almacen-crear']" >Crear</a></li>
-                  <li><a [routerLink]="['/home/almacen-editar']" >Editar</a></li>
+                  <li><a [routerLink]="['/home/almacen-crear']" ><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/almacen-editar']" ><h6>Editar</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -157,8 +159,8 @@
             <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/productos-crear']" >Crear</a></li>
-                  <li><a [routerLink]="['/home/productos-editar']" >Editar</a></li>
+                  <li><a [routerLink]="['/home/productos-crear']" ><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/productos-editar']" ><h6>Editar</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -182,8 +184,8 @@
             <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/camiones-crear']">Crear</a></li>
-                  <li><a [routerLink]="['/home/camiones-editar']">Editar</a></li>
+                  <li><a [routerLink]="['/home/camiones-crear']"><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/camiones-editar']"><h6>Editar</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -205,8 +207,8 @@
             <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/ruta-crear']">Crear</a></li>
-                  <li><a [routerLink]="['/home/ruta-editar']">Editar</a></li>
+                  <li><a [routerLink]="['/home/ruta-crear']"><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/ruta-editar']"><h6>Editar</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -229,13 +231,13 @@
             <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/usuarios-eliminados']">Usuarios</a></li>
-                  <li><a [routerLink]="['/home/colegios-eliminados']">Colegios</a></li>
-                  <li><a [routerLink]="['/home/proveedores-eliminados']">Proveedores</a></li>
-                  <li><a [routerLink]="['/home/almacenes-eliminados']">Almacenes</a></li>
-                  <li><a [routerLink]="['/home/categorias-eliminados']">Categorias</a></li>
-                  <li><a [routerLink]="['/home/productos-eliminados']">Productos</a></li>
-                  <li><a [routerLink]="['/home/camiones-eliminados']">Camiones</a></li>
+                  <li><a [routerLink]="['/home/usuarios-eliminados']"><h6>Usuarios</h6></a></li>
+                  <li><a [routerLink]="['/home/colegios-eliminados']"><h6>Colegios</h6></a></li>
+                  <li><a [routerLink]="['/home/proveedores-eliminados']"><h6>Proveedores</h6></a></li>
+                  <li><a [routerLink]="['/home/almacenes-eliminados']"><h6>Almacenes</h6></a></li>
+                  <li><a [routerLink]="['/home/categorias-eliminados']"><h6>Categorias</h6></a></li>
+                  <li><a [routerLink]="['/home/productos-eliminados']"><h6>Productos</h6></a></li>
+                  <li><a [routerLink]="['/home/camiones-eliminados']"><h6>Camiones</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -259,10 +261,10 @@
             <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/calculos-diarios']">Calculos Diarios</a></li>
-                  <li><a [routerLink]="['/home/menu-elaboracion']">Elaboración</a></li>
-                  <li><a [routerLink]="['/home/menu-eba']">Aprobación EBA</a></li>
-                  <li><a [routerLink]="['/home/menu-jefa']">Aprobación Final</a></li>
+                  <li><a [routerLink]="['/home/calculos-diarios']"><h6> Diarios</h6></a></li>
+                  <li><a [routerLink]="['/home/menu-elaboracion']"><h6>Elaboración</h6></a></li>
+                  <li><a [routerLink]="['/home/menu-eba']"><h6>Aprobación EBA</h6></a></li>
+                  <li><a [routerLink]="['/home/menu-jefa']"><h6>Aprobación Final</h6></a></li>
 
                 </ul>
               </div>
@@ -286,7 +288,7 @@
   <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
     <div class="card-body">
       <ul>
-        <li><a [routerLink]="['/home/boletaentrega']">Boletas de Entrega</a></li>
+        <li><a [routerLink]="['/home/boletaentrega']"><h6>Boletas de Entrega</h6></a></li>
         
 
       </ul>
@@ -315,22 +317,22 @@
             <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/reporte-consultalotes']">Consulta lotes</a></li>
-                  <li><a [routerLink]="['/home/reporte-menuconfirmado']">Menu confirmado</a></li>
-                  <li><a [routerLink]="['/home/reporte-productosdisp']">Productos disponibles</a></li>
+                  <li><a [routerLink]="['/home/reporte-consultalotes']"><h6></h6>Consulta lotes</a></li>
+                  <li><a [routerLink]="['/home/reporte-menuconfirmado']"><h6></h6>Menu confirmado</a></li>
+                  <li><a [routerLink]="['/home/reporte-productosdisp']"><h6></h6>Productos disponibles</a></li>
 
-                  <li><a [routerLink]="['/home/reporte-consolidadoue']">Consolidado Unidad Educativa</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoue']"><h6></h6>Consolidado Unidad Educativa</a></li>
                  
-                  <li><a [routerLink]="['/home/reporte-consolidadoglob']">Consolidado Global</a></li>
-                  <li><a [routerLink]="['/home/reporte-consolidadoprep']">Consolidado Presupuesto</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoglob']"><h6></h6>Consolidado Global</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoprep']"><h6></h6>Consolidado Presupuesto</a></li>
                                                
                  
-                  <li><a [routerLink]="['/home/reporte-estadistico']">Estadistico</a></li>
-                  <li><a [routerLink]="['/home/reporte-incidencia']">Incidencia</a></li>
-                  <li><a [routerLink]="['/home/reporte-ruteo']">Ruteo</a></li>
-                  <li><a [routerLink]="['/home/verificarph2']">Verificación PH</a></li> 
+                  <li><a [routerLink]="['/home/reporte-estadistico']"><h6>Estadistico</h6></a></li>
+                  <li><a [routerLink]="['/home/reporte-incidencia']"><h6>Incidencia</h6></a></li>
+                  <li><a [routerLink]="['/home/reporte-ruteo']"><h6>Ruteo</h6></a></li>
+                  <li><a [routerLink]="['/home/verificarph2']"><h6>Verificación PH</h6></a></li> 
               
-                  <li><a [routerLink]="['/home/reporte-entrega']">Crear Boleta</a></li>
+                  <li><a [routerLink]="['/home/reporte-entrega']"><h6>Crear Boleta</h6></a></li>
                 </ul>
               </div>
             </div>
