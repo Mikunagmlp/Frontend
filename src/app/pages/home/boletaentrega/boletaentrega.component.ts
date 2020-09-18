@@ -13,4 +13,14 @@ export class BoletaentregaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+ /*  generatePDF(i: number) {
+    this.indexEliminar = i;
+   
+
+  }
+ */
+
+
+
 }
