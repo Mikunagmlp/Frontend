@@ -14,6 +14,7 @@ import {CamionModel} from "../models/camion.model";
 import {MenuModel} from "../models/menu.model";
 import {RutaModel} from "../models/ruta.model";
 import {PhModel} from "../models/ph.model";
+import {AsignacionModel} from "../models/asignacion.model";
 
 @Injectable({
   providedIn: 'root'
@@ -149,6 +150,14 @@ export class UserService {
 
   habilitarProveedor(id) {
     return this.http.patch(`${this.url}/proveedor/editar/${id}`, { Estado: true });
+  }
+
+  crearAsignacion(body: AsignacionModel, id) {
+    return this.http.post(`${this.url}/menu/asignacion/registrar/${id}`, body);
+  }
+
+  listarAsignaciones() {
+    return this.http.get(`${this.url}/listar/asignaciones`);
   }
 
   // TODO: ALMACENES
@@ -350,6 +359,15 @@ export class UserService {
 
   registrarPH(body: PhModel){
     return this.http.post(`${this.url}/registerph/registrar`, body);
+  }
+
+  // TODO: BOLETA
+  crearBoleta(id){
+    return this.http.get(`${this.url}/boleta/registrar/${id}`)
+  }
+
+  listarBoletas() {
+    return this.http.get(`${this.url}/allboletas`);
   }
 
 }
