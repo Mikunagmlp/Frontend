@@ -82,9 +82,12 @@
                                     <tbody>
                                         <tr *ngFor="let producto of productos; let i = index">
                                             <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.NombreProducto }} </td>
-                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.MontoDisponible }} </td>
-                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.FrecuenciaDisponible }} </td>
-                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.CodigoProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -114,9 +117,12 @@
                               <tbody>
                               <tr *ngFor="let producto of productos; let i = index">
                                 <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.NombreProducto }} </td>
-                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.MontoDisponible }} </td>
-                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.FrecuenciaDisponible }} </td>
-                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.CodigoProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
                               </tr>
                               </tbody>
                             </table>
@@ -146,9 +152,12 @@
                           <tbody>
                           <tr *ngFor="let producto of productos; let i = index">
                             <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.NombreProducto }} </td>
-                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.MontoDisponible }} </td>
-                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.FrecuenciaDisponible }} </td>
-                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.CodigoProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
                           </tr>
                           </tbody>
                         </table>
