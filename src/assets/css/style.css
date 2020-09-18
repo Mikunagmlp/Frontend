@@ -5569,9 +5569,9 @@ File: scss
 
 .has-success .col-form-label, .has-success .custom-control, .has-success .form-check-label, .has-success .form-control-feedback, .has-success .form-control-label {
   color: #06d79c; }
-
+/* 
 .has-success .form-control-success {
-  background-image: url(../../assets/images/icon/success.svg); }
+  background-image: url(../../assets/images/icon/success.svg); } */
 
 .has-success .form-control {
   border-color: #06d79c; }
@@ -5579,8 +5579,8 @@ File: scss
 .has-warning .col-form-label, .has-warning .custom-control, .has-warning .form-check-label, .has-warning .form-control-feedback, .has-warning .form-control-label {
   color: #ffb22b; }
 
-.has-warning .form-control-warning {
-  background-image: url(../../assets/images/icon/warning.svg); }
+/* .has-warning .form-control-warning {
+  background-image: url(../../assets/images/icon/warning.svg); } */
 
 .has-warning .form-control {
   border-color: #ffb22b; }
@@ -5588,8 +5588,8 @@ File: scss
 .has-danger .col-form-label, .has-danger .custom-control, .has-danger .form-check-label, .has-danger .form-control-feedback, .has-danger .form-control-label {
   color: #ef5350; }
 
-.has-danger .form-control-danger {
-  background-image: url(../../assets/images/icon/danger.svg); }
+/* .has-danger .form-control-danger {
+  background-image: url(../../assets/images/icon/danger.svg); } */
 
 .has-danger .form-control {
   border-color: #ef5350; }
