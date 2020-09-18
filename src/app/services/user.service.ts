@@ -67,11 +67,14 @@ export class UserService {
   }
 
   actualizarUsuario( user: UserModel, id: string ) {
-    return this.http.patch(`${this.url}/administracion/user/editar/${id}`, user);
+    this.header = this.header.set('x-access-token', this.userToken );
+
+    return this.http.patch(`${this.url}/administracion/user/editar/${id}`, user, { headers: this.header });
   }
 
   deleteUsuario(id: string) {
-    return this.http.put(`${this.url}/administracion/user/eliminar/${id}`,{ Estado: false });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.put(`${this.url}/administracion/user/eliminar/${id}`,{ Estado: false }, { headers: this.header });
   }
 
   registrarUsuario(usuario: UserModel) {
@@ -81,180 +84,222 @@ export class UserService {
   }
 
   buscarUsuario(query) {
-    return this.http.get(`${this.url}/administracion/search/user?q=${query}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/administracion/search/user?q=${query}`, { headers: this.header });
   }
 
   listarUsuariosEliminados() {
-    return this.http.get(`${this.url}/administracion/usersdisabled`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/administracion/usersdisabled`, { headers: this.header });
   }
 
   habilitarUsuario(id) {
-    return this.http.patch(`${this.url}/administracion/user/editar/${id}`, { Estado: true });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/administracion/user/editar/${id}`, { Estado: true }, { headers: this.header });
   }
 
   // TODO: ROLES
 
   pedirRoles() {
-    return this.http.get(`${this.url}/roles`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/roles`, { headers: this.header });
   }
 
   // TODO: UNIDADES EDUCATIVAS
   crearUnidadEducativa( ue: UnidadEducativaModel ) {
-    return this.http.post( `${this.url}/colegio/registrar`, ue );
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post( `${this.url}/colegio/registrar`, ue , { headers: this.header });
   }
 
   listarUnidadesEducativas() {
-    return this.http.get( `${this.url}/colegios?limit=2` );
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get( `${this.url}/colegios`, { headers: this.header } );
   }
 
   actualizarUnidadEducativa( ue: UnidadEducativaModel, id ) {
-    return this.http.patch( `${this.url}/colegio/editar/${id}`, ue );
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch( `${this.url}/colegio/editar/${id}`, ue, { headers: this.header } );
   }
 
   eliminarUnidadEducativa( id: string) {
-    return this.http.patch( `${this.url}/colegio/eliminar/${id}`, { Estado: false } );
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch( `${this.url}/colegio/eliminar/${id}`, { Estado: false }, { headers: this.header } );
   }
 
   buscarUnidadEducativa(query) {
-    return this.http.get(`${this.url}/colegio/search?q=${query}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/colegio/search?q=${query}`, { headers: this.header });
   }
 
   listarColegiosEliminados() {
-    return this.http.get(`${this.url}/colegios/disabled`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/colegios/disabled`, { headers: this.header });
   }
 
   habilitarColegio(id){
-    return this.http.patch(`${this.url}/colegio/editar/${id}`, { Estado: true });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/colegio/editar/${id}`, { Estado: true }, { headers: this.header });
   }
 
   // TODO: PROVEEDORES
   crearProveedor( proveedor: ProveedorModel ) {
-    return this.http.post(`${this.url}/proveedor/registrar`, proveedor);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/proveedor/registrar`, proveedor, { headers: this.header });
   }
 
   getProveedores() {
-    return this.http.get(`${this.url}/proveedores`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/proveedores`, { headers: this.header });
   }
 
   patchProveedor( proveedor: ProveedorModel, id: string ) {
-    return this.http.patch(`${this.url}/proveedor/editar/${id}`, proveedor);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/proveedor/editar/${id}`, proveedor, { headers: this.header });
   }
 
   disableProveedor(id: string){
-    return this.http.patch(`${this.url}/proveedor/disable/${id}`,{ Estado: false });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/proveedor/disable/${id}`,{ Estado: false }, { headers: this.header });
   }
 
   listarProveedoresEliminados(){
-    return this.http.get(`${this.url}/proveedores/disabled`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/proveedores/disabled`, { headers: this.header });
   }
 
   habilitarProveedor(id) {
-    return this.http.patch(`${this.url}/proveedor/editar/${id}`, { Estado: true });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/proveedor/editar/${id}`, { Estado: true }, { headers: this.header });
   }
 
   crearAsignacion(body: AsignacionModel, id) {
-    return this.http.post(`${this.url}/menu/asignacion/registrar/${id}`, body);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/menu/asignacion/registrar/${id}`, body, { headers: this.header });
   }
 
   listarAsignaciones() {
-    return this.http.get(`${this.url}/listar/asignaciones`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/listar/asignaciones`, { headers: this.header });
   }
 
   // TODO: ALMACENES
   registrarAlmacen( almacen: AlmacenModel ) {
-    return this.http.post(`${this.url}/almacen/registrar`, almacen);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/almacen/registrar`, almacen, { headers: this.header });
   }
 
   listarAlmacenes() {
-    return this.http.get(`${this.url}/almacenes`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/almacenes`, { headers: this.header });
   }
 
   actualizarAlmacen( almacen: AlmacenModel, id:string ) {
-    return this.http.patch(`${this.url}/almacen/editar/${id}`, almacen);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/almacen/editar/${id}`, almacen, { headers: this.header });
   }
 
   eliminarAlmacen(id){
-    return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: false });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: false }, { headers: this.header });
   }
 
   listarAlmacenesEliminados() {
-    return this.http.get(`${this.url}/almacenes/disabled`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/almacenes/disabled`, { headers: this.header });
   }
 
   habilitarAlmacen(id){
-    return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: true });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/almacen/editar/${id}`, { Estado: true }, { headers: this.header });
   }
 
   // TODO: PRODUCTOS
   registrarProducto( producto: ProductoModel ) {
-    return this.http.post(`${this.url}/producto/registrar`, producto);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/producto/registrar`, producto, { headers: this.header });
   }
 
   listarProductos(){
-    return this.http.get(`${this.url}/productos`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/productos`, { headers: this.header });
   }
 
   getProductosMenu(solido_liquido, nivel) {
-    return this.http.get(`${this.url}/productos/generarMenu?solido_liquido=${solido_liquido}&nivel=${nivel}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/productos/generarMenu?solido_liquido=${solido_liquido}&nivel=${nivel}`, { headers: this.header });
   }
 
   actualizarProducto( nuevoProducto: ProductoModel, id ) {
-    return this.http.patch(`${this.url}/producto/editar/${id}`, nuevoProducto);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/producto/editar/${id}`, nuevoProducto, { headers: this.header });
   }
 
   eliminarProducto(id) {
-    return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: false });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: false }, { headers: this.header });
   }
 
   listarProductosEliminados() {
-    return this.http.get(`${this.url}/productos/disabled`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/productos/disabled`, { headers: this.header });
   }
 
   habilitarProducto(id) {
-    return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: true });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/producto/editar/${id}`, { Estado: true }, { headers: this.header });
   }
 
 
   // TODO: CAMIONES
   registrarCamion( camion: CamionModel ){
-    return this.http.post(`${this.url}/camion/registrar`, camion);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/camion/registrar`, camion, { headers: this.header });
   }
 
   listarCamiones(){
-    return this.http.get(`${this.url}/camiones`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/camiones`, { headers: this.header });
   }
 
   actualizarCamion(camion: CamionModel, id) {
-    return this.http.patch(`${this.url}/camion/editar/${id}`, camion);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/camion/editar/${id}`, camion, { headers: this.header });
   }
 
   eliminarCamion(id) {
-    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: false});
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: false}, { headers: this.header });
   }
 
   listarCamionesEliminados(){
-    return this.http.get(`${this.url}/camiones/disabled`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/camiones/disabled`, { headers: this.header });
   }
 
   habilitarCamion(id) {
-    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: true});
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/camion/editar/${id}`, {Estado: true}, { headers: this.header });
   }
 
   // TODO: RUTAS
   crearRuta(ruta: RutaModel) {
-    return this.http.post(`${this.url}/ruta/registrar`, ruta);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/ruta/registrar`, ruta, { headers: this.header });
   }
 
   listarRutas() {
-    return this.http.get(`${this.url}/ruta/lista`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/ruta/lista`, { headers: this.header });
   }
 
   editarRuta(id: string, body: RutaModel) {
-    return this.http.patch(`${this.url}/ruta/editar/${id}`, body)
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/ruta/editar/${id}`, body, { headers: this.header })
   }
 
   eliminarRuta(id: string) {
-    return this.http.patch(`${this.url}/ruta/editar/${id}`, { Estado: false });
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/ruta/editar/${id}`, { Estado: false }, { headers: this.header });
   }
 
   // TODO: RECOVER PASSWORD
@@ -272,102 +317,126 @@ export class UserService {
 
   //TODO: MENU
   listarProductosReporte() {
-    return this.http.get(`${this.url}/reporte/listadoproductos`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/reporte/listadoproductos`, { headers: this.header });
   }
 
   calculoDiario(id) {
-    return this.http.get(`${this.url}/reporte/calculodiario/${id}`)
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/reporte/calculodiario/${id}, { headers: this.header }`)
   }
 
   getSolidoInicial(nombre) {
-    return this.http.get(`${this.url}/menu/productos/getSolidoInicial?solidoinicial=${nombre}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/productos/getSolidoInicial?solidoinicial=${nombre}`, { headers: this.header });
   }
 
   getLiquidoInicial(nombre) {
-    return this.http.get(`${this.url}/menu/productos/getLiquidoInicial?liquidoinicial=${nombre}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/productos/getLiquidoInicial?liquidoinicial=${nombre}`, { headers: this.header });
   }
 
   getSolidoPrimaria(nombre) {
-    return this.http.get(`${this.url}/menu/productos/getSolidoPrimario?solidoprimario=${nombre}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/productos/getSolidoPrimario?solidoprimario=${nombre}`, { headers: this.header });
   }
 
   getLiquidoPrimaria(nombre) {
-    return this.http.get(`${this.url}/menu/productos/getLiquidoPrimario?liquidoprimaria=${nombre}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/productos/getLiquidoPrimario?liquidoprimaria=${nombre}`, { headers: this.header });
   }
 
   getSolidoSecundaria(nombre) {
-    return this.http.get(`${this.url}/menu/productos/getSolidoSegundario?solidosegundario=${nombre}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/productos/getSolidoSegundario?solidosegundario=${nombre}`, { headers: this.header });
   }
 
   getLiquidoSecundaria(nombre) {
-    return this.http.get(`${this.url}/menu/productos/getLiquidoSegundario?liquidosegundario=${nombre}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/productos/getLiquidoSegundario?liquidosegundario=${nombre}`, { headers: this.header });
   }
 
   createMenu(menu: MenuModel) {
-    return this.http.post(`${this.url}/menu/registrar/menudiario`, menu);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/menu/registrar/menudiario`, menu, { headers: this.header });
   }
 
   listarMenuEbaAprobados() {
-    return this.http.get(`${this.url}/menu/listado/eba-aprobado`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/eba-aprobado`, { headers: this.header });
   }
 
   listarMenuEbaNoAprobados() {
-    return this.http.get(`${this.url}/menu/listado/eba-no-aprobado`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/eba-no-aprobado`, { headers: this.header });
   }
 
   listarMenuUnaceAprobados() {
-    return this.http.get(`${this.url}/menu/listado/unace-aprobado`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/unace-aprobado`, { headers: this.header });
   }
 
   listarMenuUnaceNoAprobados() {
-    return this.http.get(`${this.url}/menu/listado/unace-no-aprobado`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/unace-no-aprobado`, { headers: this.header });
   }
 
   listarMenu(id) {
-    return this.http.get(`${this.url}/listarMenu/${id}`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/listarMenu/${id}`, { headers: this.header });
   }
 
   aprobarMenuEBA(id, body) {
-    return this.http.patch(`${this.url}/menu/aprobar/menueba/${id}`, body);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/menu/aprobar/menueba/${id}`, body, { headers: this.header });
   }
 
   listarMenuUnace() {
-    return this.http.get(`${this.url}/menu/listado/unace`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/unace`, { headers: this.header });
   }
 
   aprobarMenuUnace(id, body) {
-    return this.http.patch(`${this.url}/menu/aprobar/menuunace/${id}`, body);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/menu/aprobar/menuunace/${id}`, body, { headers: this.header });
   }
 
   listadoMenusAprobados() {
-    return this.http.get(`${this.url}/menu/listado/aprobado`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/aprobado`, { headers: this.header });
   }
 
   listadoMenusNoAprobados() {
-    return this.http.get(`${this.url}/menu/listado/noaprobado`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/menu/listado/noaprobado`, { headers: this.header });
   }
 
   actualizarMenu(id, body) {
-    return this.http.patch(`${this.url}/menu/update/menudiario/${id}`, body);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.patch(`${this.url}/menu/update/menudiario/${id}`, body, { headers: this.header });
   }
 
   // TODO: REPORTES
   menusAprobados( body ) {
     console.log(body)
-    return this.http.post(`${this.url}/reporte/menu/aprobado`, body );
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/menu/aprobado`, body , { headers: this.header });
   }
 
   registrarPH(body: PhModel){
-    return this.http.post(`${this.url}/registerph/registrar`, body);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/registerph/registrar`, body, { headers: this.header });
   }
 
   // TODO: BOLETA
   crearBoleta(id){
-    return this.http.get(`${this.url}/boleta/registrar/${id}`)
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/boleta/registrar/${id}, { headers: this.header }`)
   }
 
   listarBoletas() {
-    return this.http.get(`${this.url}/allboletas`);
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/allboletas`, { headers: this.header });
   }
 
 }
