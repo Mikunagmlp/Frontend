@@ -324,7 +324,7 @@ export class UserService {
 
   calculoDiario(id) {
     this.header = this.header.set('x-access-token', this.userToken );
-    return this.http.get(`${this.url}/reporte/calculodiario/${id}, { headers: this.header }`)
+    return this.http.get(`${this.url}/reporte/calculodiario/${id}`, { headers: this.header })
   }
 
   getSolidoInicial(nombre) {
