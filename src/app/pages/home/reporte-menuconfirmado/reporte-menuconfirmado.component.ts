@@ -24,8 +24,8 @@ export class ReporteMenuconfirmadoComponent implements OnInit {
 
   buscarPorFecha(fechaInicio, fechaFinal){
     this.mostrarMenus = true;
-    fechaInicio = new Date(fechaInicio.value).toISOString();
-    fechaFinal = new Date(fechaFinal.value).toISOString();
+    fechaInicio = fechaInicio.value;
+    fechaFinal = fechaFinal.value;
 
     console.log('inicio: ', fechaInicio);
     console.log('final: ', fechaFinal);
@@ -33,8 +33,9 @@ export class ReporteMenuconfirmadoComponent implements OnInit {
     let body = {
       fechaInicio: fechaInicio,
       fechaFin: fechaFinal,
-
     }
+
+    console.log(body)
 
     this.service.menusAprobados(body).subscribe(resp => {
       this.menus = resp;

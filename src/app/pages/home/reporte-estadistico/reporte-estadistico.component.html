@@ -24,39 +24,43 @@
           <div class="card">
             <div class="card-body">
 
-            
+
 
 
               <!-- Buscador interno -->
-            
+
             <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
-               
+
             <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
-             
+
              &nbsp; &nbsp;
 
              <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
+                    #inicio
+                    [value]="fechaHoy"
                     min="2020-08-01" max="2022-12-31">
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            
+
             <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
-            
+
             &nbsp; &nbsp;
             <input type="date" id="end" name="trip-start"
-                           value="2021-12-31"
+                   #final
+                           [value]="fechaHoy"
                            min="2020-08-01" max="2022-12-31">
              <br>
              <br>
              <br>
-            
-              
+              &nbsp; &nbsp;
+              <button (click)="buscar(inicio, final)" class="btn btn-outline-primary" >Buscar</button>
+
+
               <!-- End Buscador interno -->
 
-             
+
                <!-- Estadístico -->
-              
+
 
                <div class="row">
                 <div class="col-12">
@@ -65,35 +69,23 @@
                             &nbsp;<th>12-05-2021</th>
                             <br>
                             <h4 class="card-title">Estadístico de las entregas </h4>
-                            
+
                             <div class="table-responsive">
                                 <table class="table color-bordered-table warning-bordered-table">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Indicador</th>
+                                            <th>Observaciones</th>
                                             <th>Cantidad</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Frecuencia de entregas no realizadas</td>
-                                            <td>23</td>
-                                          
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Productos no entregados</td>
-                                            <td>12</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Nro de Estudiantes que no recibieron desayuno escolar</td>
-                                            <td>11</td>
-                                            
+                                        <tr *ngFor="let d of datosArray; let i = index;" >
+                                            <td>{{ i+1 }}</td>
+                                            <td> {{ d[0] }} </td>
+                                            <td> {{ d[1] }} </td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -103,9 +95,9 @@
                 </div>
                </div>
         <!--  End Estadístico -->
-      
 
-        
+
+
             </div>
           </div>
         </div>

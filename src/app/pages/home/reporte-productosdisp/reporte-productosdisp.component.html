@@ -24,39 +24,42 @@
           <div class="card">
             <div class="card-body">
 
-            
+
 
 
               <!-- Buscador interno -->
-            
+
             <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
-               
+
             <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
-             
+
              &nbsp; &nbsp;
 
              <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
+                    #fechaInicio
+                    [value]="fechaHoy"
                     min="2020-08-01" max="2022-12-31">
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            
+
             <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
-            
+
             &nbsp; &nbsp;
             <input type="date" id="end" name="trip-start"
-                           value="2021-12-31"
+                   #fechafinal
+                           [value]="fechaHoy"
                            min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp;
+              <button (click)="buscar(fechaInicio, fechafinal)" class="btn btn-outline-primary" >Buscar</button>
              <br>
              <br>
              <br>
-            
-              
+
               <!-- End Buscador interno -->
 
-             
+
                <!-- Productos Nivel Inicial -->
-              
+
 
                <div class="row">
                 <div class="col-12">
@@ -65,43 +68,23 @@
                             &nbsp;<th>12-05-2021</th>
                             <br>
                             <h4 class="card-title">Nivel Inicial</h4>
-                            
+
                             <div class="table-responsive">
                                 <table class="table color-bordered-table warning-bordered-table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Nombre del Producto</th>
-                                            <th>Proveedor</th>
-                                            <th>Tipo de Producto</th>
-                                            <th>Frecuencia Disponible</th>
-                                            <th>Monto Disponible</th>
+                                            <th>Monto disponible</th>
+                                            <th>Frecuencia disponible</th>
+                                            <th>Codigo producto</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>ChocoMilk</td>
-                                            <td>EBA</td>
-                                            <td>Líquido</td>
-                                            <td>26</td>
-                                            <td>8000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Banana</td>
-                                            <td>Laciac</td>
-                                            <td>Sólido</td>
-                                            <td>45</td>
-                                            <td>4500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Cerealac</td>
-                                            <td>PIL</td>
-                                            <td>Sólido</td>
-                                            <td>23</td>
-                                            <td>1000</td>
+                                        <tr *ngFor="let producto of productos; let i = index">
+                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.NombreProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.CodigoProducto }} </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -117,45 +100,25 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Nivel Primaria</h4>
-                        
+
                         <div class="table-responsive">
                             <table class="table color-bordered-table warning-bordered-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nombre del Producto</th>
-                                        <th>Proveedor</th>
-                                        <th>Tipo de Producto</th>
-                                        <th>Frecuencia Disponible</th>
-                                        <th>Monto Disponible</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>ChocoMilk</td>
-                                        <td>EBA</td>
-                                        <td>Líquido</td>
-                                        <td>26</td>
-                                        <td>8000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Banana</td>
-                                        <td>Laciac</td>
-                                        <td>Sólido</td>
-                                        <td>45</td>
-                                        <td>4500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Cerealac</td>
-                                        <td>PIL</td>
-                                        <td>Sólido</td>
-                                        <td>23</td>
-                                        <td>1000</td>
-                                    </tr>
-                                </tbody>
+                              <thead>
+                              <tr>
+                                <th>Nombre del Producto</th>
+                                <th>Monto disponible</th>
+                                <th>Frecuencia disponible</th>
+                                <th>Codigo producto</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let producto of productos; let i = index">
+                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.NombreProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.CodigoProducto }} </td>
+                              </tr>
+                              </tbody>
                             </table>
                         </div>
                     </div>
@@ -169,45 +132,25 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Nivel Secundaria</h4>
-                    
+
                     <div class="table-responsive">
                         <table class="table color-bordered-table warning-bordered-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nombre del Producto</th>
-                                    <th>Proveedor</th>
-                                    <th>Tipo de Producto</th>
-                                    <th>Frecuencia Disponible</th>
-                                    <th>Monto Disponible</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ChocoMilk</td>
-                                    <td>EBA</td>
-                                    <td>Líquido</td>
-                                    <td>26</td>
-                                    <td>8000</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Banana</td>
-                                    <td>Laciac</td>
-                                    <td>Sólido</td>
-                                    <td>45</td>
-                                    <td>4500</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Cerealac</td>
-                                    <td>PIL</td>
-                                    <td>Sólido</td>
-                                    <td>23</td>
-                                    <td>1000</td>
-                                </tr>
-                            </tbody>
+                          <thead>
+                          <tr>
+                            <th>Nombre del Producto</th>
+                            <th>Monto disponible</th>
+                            <th>Frecuencia disponible</th>
+                            <th>Codigo producto</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let producto of productos; let i = index">
+                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.NombreProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.CodigoProducto }} </td>
+                          </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>
@@ -216,7 +159,7 @@
        </div>
 <!--  End Productos Nivel Secundaria -->
 
-        
+
             </div>
           </div>
         </div>

@@ -34,31 +34,39 @@
 
                 <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>
                 <form class="app-search">
-                 <input type="text" class="form-control mr-sm-2" placeholder="Buscar Lote"> <a class="srh-btn"></a> </form>  &nbsp;
-                 <button class="btn btn-outline-info btn-rounded btn-sm my-0" type="submit">Buscar</button>
+                 <input
+                   #codigo
+                   type="text"
+                   class="form-control mr-sm-2"
+                   placeholder="Buscar Lote"> <a class="srh-btn"></a> </form>  &nbsp;
+                 <button
+                   (click)="buscarLotes(codigo, fechaInicio, fechaFinal)"
+                   class="btn btn-outline-info btn-rounded btn-sm my-0" type="submit">Buscar</button>
 
              </div>
 
-             <br> <br> 
+             <br> <br>
 
              <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
-             
+
              &nbsp; &nbsp;
 
              <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
+                    #fechaInicio
+                    [value]="fechaHoy"
                     min="2020-08-01" max="2022-12-31">
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            
+
             <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
-            
+
             &nbsp; &nbsp;
             <input type="date" id="end" name="trip-start"
-                           value="2021-12-31"
+                            #fechaFinal
+                           [value]="fechaHoy"
                            min="2020-08-01" max="2022-12-31">
              <br>
-              
+
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de productoes -->
@@ -70,54 +78,37 @@
                         <th></th>
                         <th>#</th>
                         <th>Unidad Educativa</th>
-                        <th>Nivel</th>
-                        <th>Proveedor</th>
-                        <th>Producto</th>
-                        <th>Cantidad de Producto</th>
-                        <th>Fecha</th>
-                       
-
+                        <th>Lote liquido inicial</th>
+                        <th>Lote liquido primaria</th>
+                        <th>Lote liquido secundaria</th>
+                        <th>Lote solido inicial</th>
+                        <th>Lote solido primaria</th>
+                        <th>Lote solido secundaria</th>
+<!--                        <th>Fecha</th>-->
 
                       </tr>
                     </thead>
 
                     <tbody>
 
-                        <tr>
+                        <tr *ngFor="let lote of lotes; let i = index;" >
                             <td>  </td>
                             <td>  </td>
-                            <td>1 </td>
-                            <td>Gualberto Villarroel</td>
-                            <td> Secundaria </td>
-                            <td> Irupana</td>
-                            <td> Galletas Yep </td>
-                            <td> 4540 </td>
-                            <td> 12/08/2020</td>
-                           
-                           
+                            <td> {{ i+1 }} </td>
+                            <td> {{ lote.NombreColegio }} </td>
+                            <td> {{ lote.LoteLiquidoInicial }}  </td>
+                            <td> {{ lote.LoteLiquidoPrimaria }} </td>
+                            <td> {{ lote.LoteLiquidoSegundaria }}  </td>
+                            <td> {{ lote.LoteSolidoInicial }}  </td>
+                            <td> {{ lote.LoteSolidoPrimaria }} </td>
+                            <td> {{ lote.LoteSolidoSegundaria }} </td>
 
-                           
-                        </tr>
-                        <tr>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>2 </td>
-                            <td>San Misael Saracho</td>
-                            <td> Secundaria</td>
-                            <td> Irupana</td>
-                            <td> Galletas Yep </td>
-                            <td> 1500 </td>
-                            <td> 12/08/2020</td>
-                           
-                           
-
-                           
                         </tr>
 
                     </tbody>
-                  
 
-                   
+
+
 
                 </table>
               </div>

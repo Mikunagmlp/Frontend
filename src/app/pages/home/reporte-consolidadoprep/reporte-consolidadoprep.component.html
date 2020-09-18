@@ -25,49 +25,52 @@
           <div class="card">
             <div class="card-body">
 
-            
+
 
 
               <!-- Buscador interno -->
-            
+
             <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
-               
+
             <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
-             
+
              &nbsp; &nbsp;
 
              <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
+                    #inicio
+                    [value]="fecha"
                     min="2020-08-01" max="2022-12-31">
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            
+
             <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
-            
+
             &nbsp; &nbsp;
             <input type="date" id="end" name="trip-start"
-                           value="2021-12-31"
+                   #final
+                           [value]="fecha"
                            min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp;
+              <button (click)="buscar(inicio, final)" class="btn btn-outline-primary" >Buscar</button>
              <br>
              <br>
              <br>
-            
-              
+
+
               <!-- End Buscador interno -->
 
-             
+
                <!-- Productos Nivel Inicial -->
                <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Nivel Inicial</h4>
-                            
+
                             <div class="table-responsive">
                                 <table class="table color-bordered-table warning-bordered-table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Nombre del Producto</th>
                                             <th>Tipo de Producto</th>
                                             <th>Presupuesto Inicial</th>
@@ -76,43 +79,26 @@
                                             <th>Frecuencia Inicial</th>
                                             <th>Frecuencia Gastado</th>
                                             <th>Frecuencia Disponible</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>    
-                                            <td>1</td>
-                                            <td>ChocoMilk</td>
-                                            <td>Líquido</td>
-                                            <td>2000</td>
-                                            <td>1200</td>
-                                            <td>800</td>
-                                            <td>24</td>
-                                            <td>10</td>
-                                            <td>14</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Banana</td>
-                                            <td>Sólido</td>
-                                            <td>4000</td>
-                                            <td>3200</td>
-                                            <td>800</td>
-                                            <td>34</td>
-                                            <td>10</td>
-                                            <td>24</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Cerealac</td>
-                                            <td>Sólido</td>
-                                            <td>1000</td>
-                                            <td>500</td>
-                                            <td>500</td>
-                                            <td>20</td>
-                                            <td>5</td>
-                                            <td>15</td>
-                                           
+                                        <tr *ngFor="let d of datos;" >
+                                            <td *ngIf="d.Nivel === 'Inicial'" > {{ d.NombreProducto }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.Solido_Liquido === true " >Solido</td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.Solido_Liquido === false " >Liquido</td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoInicial >= 0 "> {{ d.PresupuestoInicial }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoInicial < 0" class="text-danger" > {{ d.PresupuestoInicial }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoGastado>=0 " > {{ d.PresupuestoGastado }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoGastado<0 "  class="text-danger"> {{ d.PresupuestoGastado }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoDisponible >= 0 " > {{ d.PresupuestoDisponible }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoDisponible < 0 " class="text-danger" > {{ d.PresupuestoDisponible }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaInicial>=0 " > {{ d.FrecuenciaInicial }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaInicial<0 " class="text-danger" > {{ d.FrecuenciaInicial }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaGastada>=0 " > {{ d.FrecuenciaGastada }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaGastada<0" class="text-danger" > {{ d.FrecuenciaGastada }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaDisponible>=0 " > {{ d.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaDisponible<0 " class="text-danger" > {{ d.FrecuenciaDisponible }} </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -128,12 +114,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Nivel Primaria</h4>
-                        
+
                         <div class="table-responsive">
                             <table class="table color-bordered-table warning-bordered-table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Nombre del Producto</th>
                                         <th>Tipo de Producto</th>
                                         <th>Presupuesto Inicial</th>
@@ -145,40 +130,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>ChocoMilk</td>
-                                        <td>Líquido</td>
-                                        <td>2000</td>
-                                        <td>1200</td>
-                                        <td>800</td>
-                                        <td>24</td>
-                                        <td>10</td>
-                                        <td>14</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Banana</td>
-                                        <td>Sólido</td>
-                                        <td>4000</td>
-                                        <td>3200</td>
-                                        <td>800</td>
-                                        <td>34</td>
-                                        <td>10</td>
-                                        <td>24</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Cerealac</td>
-                                        <td>Sólido</td>
-                                        <td>1000</td>
-                                        <td>500</td>
-                                        <td>500</td>
-                                        <td>20</td>
-                                        <td>5</td>
-                                        <td>15</td>
-                                       
-                                    </tr>
+                                <tr *ngFor="let d of datos;" >
+                                  <td *ngIf="d.Nivel === 'Primaria'" > {{ d.NombreProducto }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.Solido_Liquido === true " >Solido</td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.Solido_Liquido === false " >Liquido</td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoInicial >= 0 "> {{ d.PresupuestoInicial }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoInicial < 0" class="text-danger" > {{ d.PresupuestoInicial }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoGastado>=0 " > {{ d.PresupuestoGastado }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoGastado<0 "  class="text-danger"> {{ d.PresupuestoGastado }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoDisponible >= 0 " > {{ d.PresupuestoDisponible }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoDisponible < 0 " class="text-danger" > {{ d.PresupuestoDisponible }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaInicial>=0 " > {{ d.FrecuenciaInicial }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaInicial<0 " class="text-danger" > {{ d.FrecuenciaInicial }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaGastada>=0.00 " > {{ d.FrecuenciaGastada }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaGastada<0.00" class="text-danger" > {{ d.FrecuenciaGastada }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaDisponible>=0 " > {{ d.FrecuenciaDisponible }} </td>
+                                  <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaDisponible<0 " class="text-danger" > {{ d.FrecuenciaDisponible }} </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -193,12 +161,11 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Nivel Secundaria</h4>
-                    
+
                     <div class="table-responsive">
                         <table class="table color-bordered-table warning-bordered-table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Nombre del Producto</th>
                                     <th>Tipo de Producto</th>
                                     <th>Presupuesto Inicial</th>
@@ -210,40 +177,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                            <td>ChocoMilk</td>
-                                            <td>Líquido</td>
-                                            <td>2000</td>
-                                            <td>1200</td>
-                                            <td>800</td>
-                                            <td>24</td>
-                                            <td>10</td>
-                                            <td>14</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Banana</td>
-                                    <td>Sólido</td>
-                                    <td>4000</td>
-                                    <td>3200</td>
-                                    <td>800</td>
-                                    <td>34</td>
-                                    <td>10</td>
-                                    <td>24</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Cerealac</td>
-                                    <td>Sólido</td>
-                                    <td>1000</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>20</td>
-                                    <td>5</td>
-                                    <td>15</td>
-                                   
-                                </tr>
+                            <tr *ngFor="let d of datos;" >
+                              <td *ngIf="d.Nivel === 'Segundaria'" > {{ d.NombreProducto }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.Solido_Liquido === true " >Solido</td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.Solido_Liquido === false " >Liquido</td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoInicial >= 0 "> {{ d.PresupuestoInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoInicial < 0" class="text-danger" > {{ d.PresupuestoInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoGastado>=0 " > {{ d.PresupuestoGastado }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoGastado<0 "  class="text-danger"> {{ d.PresupuestoGastado }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoDisponible >= 0 " > {{ d.PresupuestoDisponible }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoDisponible < 0 " class="text-danger" > {{ d.PresupuestoDisponible }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaInicial>=0 " > {{ d.FrecuenciaInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaInicial<0 " class="text-danger" > {{ d.FrecuenciaInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaGastada>=0 " > {{ d.FrecuenciaGastada }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaGastada<0.00" class="text-danger" > {{ d.FrecuenciaGastada }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaDisponible>=0.00 " > {{ d.FrecuenciaDisponible }} </td>
+                              <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaDisponible<0 " class="text-danger" > {{ d.FrecuenciaDisponible }} </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -253,7 +203,7 @@
        </div>
 <!--  End Productos Nivel Secundaria -->
 
-        
+
             </div>
           </div>
         </div>

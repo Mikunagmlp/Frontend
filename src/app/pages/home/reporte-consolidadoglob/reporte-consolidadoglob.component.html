@@ -25,45 +25,49 @@
           <div class="card">
             <div class="card-body">
 
-            
+
 
 
               <!-- Buscador interno -->
-            
+
             <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
-               
+
             <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
-             
+
              &nbsp; &nbsp;
 
              <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
+                    #incio
+                    [value]="fechaHoy"
                     min="2020-08-01" max="2022-12-31">
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            
+
             <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
-            
+
             &nbsp; &nbsp;
             <input type="date" id="end" name="trip-start"
-                           value="2021-12-31"
+                   #final
+                           [value]="fechaHoy"
                            min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <button  (click)="buscar(incio, final)" class="btn btn-outline-primary" >Buscar</button>
              <br>
              <br>
              <br>
-            
-              
+
+
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de menu histórico -->
                <!-- Menú 1 -->
               <div class="row">
-                  
+
                 <div class="col-12">
-                  
+
                     <div class="card">
                         <div class="card-body">
-                           
+
                             <div class="table-responsive m-t-40">
                                 <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
@@ -76,197 +80,21 @@
                                             <th>Cantidad de Productos Sólido Nivel Primaria</th>
                                             <th>Cantidad de Productos Líquido Nivel Secundaria</th>
                                             <th>Cantidad de Productos Sólido Nivel Secundaria</th>
-                                            
+
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>Gualberto Villarroel</th>
-                                            <th>200</th>
-                                            <th>200</th>
-                                            <th>3000</th>
-                                            <th>3000</th>
-                                            <th>5000</th>
-                                            <th>5000</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>Gualberto Villarroel</th>
-                                            <th>200</th>
-                                            <th>200</th>
-                                            <th>3000</th>
-                                            <th>3000</th>
-                                            <th>5000</th>
-                                            <th>5000</th>
+                                        <tr *ngFor="let d of datos;let i = index;" >
+                                            <th> {{ i+1 }} </th>
+                                            <th> {{ d.NombreColegio }} </th>
+                                            <th> {{ d.InicialLiquido }} </th>
+                                            <th> {{ d.InicialSolido }} </th>
+                                            <th> {{ d.PrimariaLiquido }} </th>
+                                            <th> {{ d.PrimariaSolido }} </th>
+                                            <th> {{ d.SegundariaLiquido }} </th>
+                                            <th> {{ d.SegundariaSolido }} </th>
                                         </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <th>Julián Apaza</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <th>Calixto</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>4</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>5</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>6</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>7</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>8</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>9</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>10</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>11</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>12</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>13</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>14</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>15</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>16</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                        <tr>
-                                            <th>17</th>
-                                            <th>Santa Maria de los Angeles</th>
-                                            <th>40</th>
-                                            <th>40</th>
-                                            <th>300</th>
-                                            <th>300</th>
-                                            <th>500</th>
-                                            <th>500</th>
-                                        </tr>
-                                      
-                                      
-                                          
-                                       
-                                       
+
                                     </tbody>
                                 </table>
                             </div>
@@ -278,22 +106,22 @@
                 </div>
               </div>
               <div class="form-actions">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="offset-sm-3 col-md-9">
-                                <button
-                                  type="submit"
-                                  class="btn btn-warning"> <i class="fa fa-check"></i> Generar Reporte</button>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="row">-->
+<!--                            <div class="offset-sm-3 col-md-9">-->
+<!--                                <button-->
+<!--                                  type="submit"-->
+<!--                                  class="btn btn-warning"> <i class="fa fa-check"></i> Generar Reporte</button>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         <!--  End -->
 
-        
+
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ import {MenuModel} from "../models/menu.model";
 import {RutaModel} from "../models/ruta.model";
 import {PhModel} from "../models/ph.model";
 import {AsignacionModel} from "../models/asignacion.model";
+import {observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -426,6 +427,46 @@ export class UserService {
   registrarPH(body: PhModel){
     this.header = this.header.set('x-access-token', this.userToken );
     return this.http.post(`${this.url}/registerph/registrar`, body, { headers: this.header });
+  }
+
+  entregaLote(lote, body) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/entrega/lote?codigo=${lote}`, body ,{ headers: this.header });
+  }
+
+  productosDisponibles(body) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/productos/disponibles`, body, { headers: this.header });
+  }
+
+  consolidadoUe(colegio, body) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/consolidado/colegio?colegio=${colegio}`, body, { headers: this.header });
+  }
+
+  consolidadoGlobal(body) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/consolidado/global`, body, { headers: this.header });
+  }
+
+  consolidadoProducto(body) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/consolidado/producto`, body, { headers: this.header });
+  }
+
+  estadistico(obj) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/estadistico/incidencias`, obj, { headers: this.header });
+  }
+
+  incidencias(body) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.post(`${this.url}/reporte/cambios/incidencias`, body, { headers: this.header });
+  }
+
+  ruteo(ruta) {
+    this.header = this.header.set('x-access-token', this.userToken );
+    return this.http.get(`${this.url}/reporte/ruteo/colegio?ruta=${ruta}`, { headers: this.header });
   }
 
   // TODO: BOLETA

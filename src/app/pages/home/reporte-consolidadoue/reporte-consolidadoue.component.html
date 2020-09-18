@@ -31,12 +31,11 @@
               <!-- Buscador interno -->
               <div class="row m-t-40">
                   &nbsp; &nbsp;
-              
-             
+
+
               <form class="app-search">
-               <input type="text" class="form-control mr-sm-2" placeholder="Buscar Unidad Educativa"> <a class="srh-btn"></a> </form>  &nbsp;
-               <button class="btn btn-outline-info btn-rounded btn-sm my-0" type="submit">Buscar</button>
-            
+               <input #colegio type="text" class="form-control mr-sm-2" placeholder="Buscar Unidad Educativa"> <a class="srh-btn"></a> </form>  &nbsp;
+
               </div>
               <br>
 
@@ -60,7 +59,7 @@
                    min="2020-08-01" max="2022-12-31">
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <button
-                (click)="buscarPorFecha(fechaInicio, fechaFinal)"
+                (click)="buscarPorFecha(colegio, fechaInicio, fechaFinal)"
                 class="btn btn-outline-primary" >Buscar</button>
              <br>
              <br>
@@ -73,10 +72,11 @@
               <div >
                 <div class="row"  >
                   <div class="col-lg-12">
-                    <div class="card">
+
+                    <div class="card" *ngFor="let ue of ues; let i = index;" >
                       <div class="card-header bg-warning">
-                        <h4 class="m-b-0 text-white">Entrega  de Desayuno Escolar de Fecha 11 de agosto de 2021 </h4>
-                      
+                        <h4 class="m-b-0 text-white">Entrega  de Desayuno Escolar: {{ convertDate(ue.updatedAt) }} </h4>
+
                       </div>
                       <div class="card-body">
 
@@ -93,32 +93,32 @@
                             <tbody>
                             <tr>
                               <td><strong>Producto Líquido Inicial: </strong></td>
-                              <td>  Jugo de manzana </td>
+                              <td>  {{ ue.ProductoLiquidoInicial }} </td>
                               <td><strong> Producto Sólido Inicial:</strong> </td>
-                              <td>  Galletas de almendras</td>
+                              <td> {{ ue.ProductoSolidoInicial }} </td>
                             </tr>
                             <tr>
                               <td><strong>Producto Líquido Primaria:</strong></td>
-                              <td> Extrusado de manzana   </td>
+                              <td> {{ ue.ProductoLiquidoPrimaria }}   </td>
                               <td> <strong>Producto Sólido Primaria:</strong>    </td>
-                              <td> Barra de maní </td>
-                            </tr> 
+                              <td> {{ ue.ProductoSolidoPrimaria }} </td>
+                            </tr>
                             <tr>
                                 <td><strong>Producto Líquido Secundaria:</strong></td>
-                                <td>  Extrusado de menú </td>
+                                <td>  {{ ue.ProductoLiquidoSegundaria }} </td>
                                 <td><strong> Producto Sólido Secundaria:  </strong>  </td>
-                                <td> Barra de maní </td>
+                                <td> {{ ue.ProductoSolidoSegundaria }} </td>
                               </tr>
                               <tr>
                                 <td><strong>Nro. Raciones Inicial: </strong></td>
-                                <td>  56 </td>
+                                <td>  {{ ue.CantidadAlumnosInicial }} </td>
                                 <td> <strong>Nro. Raciones Primaria: </strong>   </td>
-                                <td> 180 </td>
+                                <td> {{ ue.CantidadAlumnosPrimaria }} </td>
                               </tr>
                               <tr>
                                 <td><strong>Nro. Raciones Secundaria:</strong></td>
-                                <td>  201 </td>
-                                
+                                <td> {{ ue.CantidadAlumnosSegundaria }} </td>
+
                               </tr>
                             </tbody>
                           </table>
@@ -130,67 +130,6 @@
               </div>
 
         <!--  End Entrega 1 -->
-        <!-- Entrega 2 -->
-        <div >
-            <div class="row"  >
-              <div class="col-lg-12">
-                <div class="card">
-                  <div class="card-header bg-warning">
-                    <h4 class="m-b-0 text-white">Entrega  de Desayuno Escolar de Fecha 12 de agosto de 2021 </h4>
-                  
-                  </div>
-                  <div class="card-body">
-
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead class="text-info">
-                        <tr>
-                          <th>Item</th>
-                          <th>Cantidad</th>
-                          <th>Item</th>
-                          <th>Cantidad</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td><strong>Producto Líquido Inicial: </strong></td>
-                          <td>  Jugo de manzana </td>
-                          <td><strong> Producto Sólido Inicial:</strong> </td>
-                          <td>  Galletas de almendras</td>
-                        </tr>
-                        <tr>
-                          <td><strong>Producto Líquido Primaria:</strong></td>
-                          <td> Extrusado de manzana   </td>
-                          <td> <strong>Producto Sólido Primaria:</strong>    </td>
-                          <td> Barra de maní </td>
-                        </tr> 
-                        <tr>
-                            <td><strong>Producto Líquido Secundaria:</strong></td>
-                            <td>  Extrusado de menú </td>
-                            <td><strong> Producto Sólido Secundaria:  </strong>  </td>
-                            <td> Barra de maní </td>
-                          </tr>
-                          <tr>
-                            <td><strong>Nro. Raciones Inicial: </strong></td>
-                            <td>  56 </td>
-                            <td> <strong>Nro. Raciones Primaria: </strong>   </td>
-                            <td> 180 </td>
-                          </tr>
-                          <tr>
-                            <td><strong>Nro. Raciones Secundaria:</strong></td>
-                            <td>  201 </td>
-                            
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-    <!--  End Entrega 2 -->
 
             </div>
           </div>

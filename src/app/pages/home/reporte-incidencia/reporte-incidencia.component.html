@@ -24,47 +24,51 @@
           <div class="card">
             <div class="card-body">
 
-            
+
 
 
               <!-- Buscador interno -->
-            
+
             <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
-               
+
             <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
-             
+
              &nbsp; &nbsp;
 
              <input type="date" id="start" name="trip-start"
-                    value="2020-08-01"
+                    #inicio
+                    [value]="inicio"
                     min="2020-08-01" max="2022-12-31">
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            
+
             <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
-            
+
             &nbsp; &nbsp;
             <input type="date" id="end" name="trip-start"
-                           value="2021-12-31"
+                   #final
+                           [value]="final"
                            min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp;
+              <button (click)="buscar(inicio, final)" class="btn btn-outline-primary" >Buscar</button>
              <br>
              <br>
              <br>
-            
-              
+
+
               <!-- End Buscador interno -->
 
-             
+
                <!-- Reporte Incidencia -->
-              
+
 
                <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                           
+
                             <h4 class="card-title"> Observaciones de las entregas </h4>
-                            
+
                             <div class="table-responsive">
                                 <table class="table color-bordered-table warning-bordered-table">
                                     <thead>
@@ -73,31 +77,16 @@
                                             <th>Fecha</th>
                                             <th>Unidad Educativa</th>
                                             <th>Observaciones</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Gualberto Villarroel</td>
-                                            <td>12-05-2021</td>
-                                            <td>Con Observaciones</td>
-                                          
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Juan Siles</td>
-                                            <td>13-05-2021</td>
+                                        <tr *ngFor="let d of datos; let i = index;" >
+                                            <td>{{ i+1 }}</td>
+                                            <td>{{ convertDate(d.updatedAt) }}</td>
+                                            <td>{{ d.NombreColegio }} </td>
+                                            <td>{{ d.Observaciones }} </td>
 
-                                            <td>Sin Observaciones</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>San Miguel</td>
-                                            <td>14-05-2021</td>
-                                            <td>Con Observaciones</td>
-                                            
                                         </tr>
                                     </tbody>
                                 </table>
@@ -107,9 +96,9 @@
                 </div>
                </div>
         <!--  End Reporte Incidencia-->
-      
 
-        
+
+
             </div>
           </div>
         </div>

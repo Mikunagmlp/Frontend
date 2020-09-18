@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-reporte-productosdisp',
@@ -8,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReporteProductosdispComponent implements OnInit {
 
-  constructor() { }
+  fechaHoy: Date = new Date();
+  productos: any = '';
+
+  constructor( private service: UserService ) { }
 
   ngOnInit(): void {
+  }
+
+  buscar(inicio, final){
+    let obj = {
+      fechaInicio: inicio.value,
+      fechaFin: final.value
+    }
+
+    this.service.productosDisponibles(obj).subscribe(resp => {
+      this.productos = resp;
+
+      console.log(this.productos);
+    });
   }
 
 }
