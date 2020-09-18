@@ -114,10 +114,13 @@
                               <td>Primaria</td>
                               <td *ngIf="calculoDiario.FrecuenciaInicialPrimaria > 0 " > {{ calculoDiario.FrecuenciaInicialPrimaria }} </td>
                               <td *ngIf="calculoDiario.FrecuenciaInicialPrimaria === 0.00 " > - </td>
+
                               <td *ngIf="calculoDiario.FrecuendiaPrimariaDisponible > 0 " > {{ calculoDiario.FrecuendiaPrimariaDisponible }} </td>
                               <td *ngIf="calculoDiario.FrecuendiaPrimariaDisponible === 0 " > - </td>
+
                               <td *ngIf="calculoDiario.PresupuestoDisponiblePrimaria > 0 " > {{ calculoDiario.PresupuestoDisponiblePrimaria }} </td>
                               <td *ngIf="calculoDiario.PresupuestoDisponiblePrimaria === 0 " > - </td>
+
                               <td *ngIf="calculoDiario.PresupuestoInicial > 0 " > {{ calculoDiario.PresupuestoInicial }} </td>
                               <td *ngIf="calculoDiario.PresupuestoInicial === 0 " > - </td>
                             </tr>
