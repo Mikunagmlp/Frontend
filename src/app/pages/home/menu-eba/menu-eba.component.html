@@ -1,0 +1,529 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+      <br>
+      <!-- ============================================================== -->
+      <!-- Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+          <h2 class="text-themecolor"> Aprobación Menú Funcionario EBA</h2>
+        </div>
+        <div class="col-md-7 align-self-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Menú </a></li>
+            <li class="breadcrumb-item">Elaboración</li>
+
+          </ol>
+        </div>
+        <div class="">
+          <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+
+
+      <!-- Inicio Listado Menus aprobados y no aprobados -->
+
+       <div class="row">
+         <div class="col-lg-6">
+           <div class="card">
+             <div class="card-body">
+               <h4 class="card-title">Listado de menus aprobados</h4>
+               <div class="table-responsive">
+                 <table class="table table-hover">
+                   <thead>
+                   <tr>
+                     <th>#</th>
+                     <th>Código</th>
+                     <th>Fecha</th>
+
+                   </tr>
+                   </thead>
+                   <tbody>
+                     <tr
+                       (click)="listarMenuAprobado(menu._id, false, true)"
+                       *ngFor="let menu of listarMenusAprobadosPorEBA;let i = index;" >
+                       <td> {{ i+1 }} </td>
+                       <td> {{ menu.codigoGenerado }} </td>
+                       <td> {{ convertDate(menu.createdAt) }} </td>
+                     </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <div class="col-lg-6">
+           <div class="card">
+             <div class="card-body">
+               <h4 class="card-title">Listado de Menús No Aprobados</h4>
+               <div class="table-responsive">
+                 <table class="table table-hover">
+                   <thead>
+                   <tr>
+                     <th>#</th>
+                     <th>Código</th>
+                     <th>Fecha</th>
+
+                   </tr>
+                   </thead>
+                   <tbody>
+                    <tr
+                      (click)="listarMenuNoAprobado(menu._id, true, false)"
+                      *ngFor="let menu of listarMenusNoAprobados; let i = index;" >
+                      <td> {{ i+1 }} </td>
+                      <td> {{ menu.codigoGenerado }} </td>
+                      <td> {{ convertDate(menu.createdAt) }} </td>
+                    </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+
+
+
+
+      <!-- Fin Listado Menus aprobados y no aprobados -->
+
+       <!-- Inicio Menús  sin observaciones -->
+      <div *ngIf="menuAprobado" >
+        <div class="row">
+          <h1>Menu aprobado <strong> {{ convertDate(menuEbaAprobado.createdAt) }} </strong> </h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menuEbaAprobado.ProductoSolidoInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.FrecuenciaSolidoUtilizadoInicial < 0 } " > {{ menuEbaAprobado.FrecuenciaSolidoUtilizadoInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.MontoSolildoUtilizadoInicial < 0 } " > {{ menuEbaAprobado.MontoSolildoUtilizadoInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.frecuenciaSolidoInicialInicial < 0 } " > {{ menuEbaAprobado.frecuenciaSolidoInicialInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.montoSolildoInicial < 0 } " > {{ menuEbaAprobado.montoSolildoInicial }}  </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menuEbaAprobado.ProductoLiquidoInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.FrecuenciaLiquidaUtilizadoInicial < 0 } " > {{ menuEbaAprobado.FrecuenciaLiquidaUtilizadoInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.MontoLiquidaUtilizadoInicial < 0 } " > {{ menuEbaAprobado.MontoLiquidaUtilizadoInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.frecuenciaLiquidaInicialInicial < 0 } " > {{ menuEbaAprobado.frecuenciaLiquidaInicialInicial }}  </td>
+                                  <td [ngClass]=" { 'text-danger': menuEbaAprobado.montoLiquidaInicial < 0 } " > {{ menuEbaAprobado.montoLiquidaInicial }}  </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td> {{ menuEbaAprobado.ProductoSolidoPrimaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.FrecuenciaSolidoUtilizadoPrimaria < 0 } " > {{ menuEbaAprobado.FrecuenciaSolidoUtilizadoPrimaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.MontoSolildoUtilizadoPrimaria < 0 } " > {{ menuEbaAprobado.MontoSolildoUtilizadoPrimaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.frecuenciaSolidoPrimariaInicial < 0 } " > {{ menuEbaAprobado.frecuenciaSolidoPrimariaInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.montoSolidoPrimaria < 0 } " > {{ menuEbaAprobado.montoSolidoPrimaria }}  </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td> {{ menuEbaAprobado.ProductoLiquidoPrimaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.FrecuenciaLiquidaUtilizadoPrimaria < 0 } " > {{ menuEbaAprobado.FrecuenciaLiquidaUtilizadoPrimaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.MontoLiquidaUtilizadoPrimaria < 0 } " > {{ menuEbaAprobado.MontoLiquidaUtilizadoPrimaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.frecuenciaLiquidaPrimariaInicial < 0 } " > {{ menuEbaAprobado.frecuenciaLiquidaPrimariaInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.montoLiquidaPrimaria < 0 } " > {{ menuEbaAprobado.montoLiquidaPrimaria }}  </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td> {{ menuEbaAprobado.ProductoSolidoSegundaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.FrecuenciaSolidoUtilizadoSegundaria < 0 } " > {{ menuEbaAprobado.FrecuenciaSolidoUtilizadoSegundaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.MontoSolildoUtilizadaSegundaria < 0 } " > {{ menuEbaAprobado.MontoSolildoUtilizadaSegundaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.frecuenciaSolidoSegundariaInicial < 0 } " > {{ menuEbaAprobado.frecuenciaSolidoSegundariaInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.montoSolildoSegundaria < 0 } " > {{ menuEbaAprobado.montoSolildoSegundaria }}  </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td> {{ menuEbaAprobado.ProductoLiquidoSegundaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.FrecuenciaLiquidaUtilizadoSegundaria < 0 } " > {{ menuEbaAprobado.FrecuenciaLiquidaUtilizadoSegundaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.MontoLiquidaUtilizadoSegundaria < 0 } " > {{ menuEbaAprobado.MontoLiquidaUtilizadoSegundaria }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.frecuenciaLiquidaSegundariaInicial < 0 } " > {{ menuEbaAprobado.frecuenciaLiquidaSegundariaInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaAprobado.montoLiquidaSegundaria < 0 } " > {{ menuEbaAprobado.montoLiquidaSegundaria }}  </td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+  <!--Fin  Menús  sin observaciones -->
+   <!-- Inicio Menús  con observaciones -->
+      <div *ngIf="menuNoAprobado" >
+        <div class="row">
+          <h1>Menu no aprobado <strong> {{ convertDate(menuEbaNoAprobado.createdAt) }} </strong> </h1>
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header bg-warning">
+              <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
+                                <td> {{ menuEbaNoAprobado.ProductoSolidoInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.FrecuenciaSolidoUtilizadoInicial < 0 } " > {{ menuEbaNoAprobado.FrecuenciaSolidoUtilizadoInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.MontoSolildoUtilizadoInicial < 0 } " > {{ menuEbaNoAprobado.MontoSolildoUtilizadoInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.frecuenciaSolidoInicialInicial < 0 } " > {{ menuEbaNoAprobado.frecuenciaSolidoInicialInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.montoSolildoInicial < 0 } " > {{ menuEbaNoAprobado.montoSolildoInicial }}  </td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="label label-info">LÍQUIDO</span> </td>
+                                <td> {{ menuEbaNoAprobado.ProductoLiquidoInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoInicial < 0 } " > {{ menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.MontoLiquidaUtilizadoInicial < 0 } " > {{ menuEbaNoAprobado.MontoLiquidaUtilizadoInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.frecuenciaLiquidaInicialInicial < 0 } " > {{ menuEbaNoAprobado.frecuenciaLiquidaInicialInicial }}  </td>
+                                <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.montoLiquidaInicial < 0 } " > {{ menuEbaNoAprobado.montoLiquidaInicial }}  </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header bg-warning">
+              <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
+                              <td> {{ menuEbaNoAprobado.ProductoSolidoPrimaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.FrecuenciaSolidoUtilizadoPrimaria < 0 } " > {{ menuEbaNoAprobado.FrecuenciaSolidoUtilizadoPrimaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.MontoSolildoUtilizadoPrimaria < 0 } " > {{ menuEbaNoAprobado.MontoSolildoUtilizadoPrimaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.frecuenciaSolidoPrimariaInicial < 0 } " > {{ menuEbaNoAprobado.frecuenciaSolidoPrimariaInicial }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.montoSolidoPrimaria < 0 } " > {{ menuEbaNoAprobado.montoSolidoPrimaria }}  </td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="label label-info">LÍQUIDO</span> </td>
+                              <td> {{ menuEbaNoAprobado.ProductoLiquidoPrimaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria < 0 } " > {{ menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoPrimaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.MontoLiquidaUtilizadoPrimaria < 0 } " > {{ menuEbaNoAprobado.MontoLiquidaUtilizadoPrimaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.frecuenciaLiquidaPrimariaInicial < 0 } " > {{ menuEbaNoAprobado.frecuenciaLiquidaPrimariaInicial }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.montoLiquidaPrimaria < 0 } " > {{ menuEbaNoAprobado.montoLiquidaPrimaria }}  </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header bg-warning">
+              <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>Estado</th>
+                              <th>Producto</th>
+                              <th>Frecuencia Utilizada</th>
+                              <th>Monto Utilizado(Bs.-)</th>
+                              <th>Frecuencia Inicial</th>
+                              <th>Monto Inicial(Bs.-)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="label label-success">SÓLIDO</span> </td>
+                              <td> {{ menuEbaNoAprobado.ProductoSolidoSegundaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.FrecuenciaSolidoUtilizadoSegundaria < 0 } " > {{ menuEbaNoAprobado.FrecuenciaSolidoUtilizadoSegundaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.MontoSolildoUtilizadaSegundaria < 0 } " > {{ menuEbaNoAprobado.MontoSolildoUtilizadaSegundaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.frecuenciaSolidoSegundariaInicial < 0 } " > {{ menuEbaNoAprobado.frecuenciaSolidoSegundariaInicial }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.montoSolildoSegundaria < 0 } " > {{ menuEbaNoAprobado.montoSolildoSegundaria }}  </td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="label label-info">LÍQUIDO</span> </td>
+                              <td> {{ menuEbaNoAprobado.ProductoLiquidoSegundaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria < 0 } " > {{ menuEbaNoAprobado.FrecuenciaLiquidaUtilizadoSegundaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.MontoLiquidaUtilizadoSegundaria < 0 } " > {{ menuEbaNoAprobado.MontoLiquidaUtilizadoSegundaria }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.frecuenciaLiquidaSegundariaInicial < 0 } " > {{ menuEbaNoAprobado.frecuenciaLiquidaSegundariaInicial }}  </td>
+                              <td [ngClass]=" { 'text-danger': menuEbaNoAprobado.montoLiquidaSegundaria < 0 } " > {{ menuEbaNoAprobado.montoLiquidaSegundaria }}  </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <tr>
+                  <td *ngIf="menuEbaNoAprobado.ObservacionJefeUnace" ><h5>Observaciones Jefe/a Unace:</h5></td>
+                  <td *ngIf="menuEbaNoAprobado.ObservacionJefeUnace" > {{ menuEbaNoAprobado.ObservacionJefeUnace }} </td>
+                </tr>
+
+                <td >
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#AprobarMenuEBA"  >Aprobar Menú</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ObservacionesEBA">Observaciones</button>
+                </td>
+
+
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+<!--Fin  Menús  con observaciones -->
+
+      <tfoot>
+        <tr>
+
+            <div id="AprobarMenuEBA" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea aprobar el presente menú?</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button
+                        (click)="aprobarMenuEBA(menuEbaNoAprobado._id)"
+                        type="button"
+                        class="btn btn-secondary waves-effect"
+                        data-dismiss="modal"  >Aceptar</button>
+                      <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+        </tr>
+
+        <tr>
+          <div id="ObservacionesEBA" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Observaciones Menú</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+
+                <div class="modal-body">
+
+                  <form class="form-horizontal">
+                    <div class="form-group row">
+                        <div class="col-sm-9">
+<!--                            <input type="area" class="form-control" id="solidoinicial" placeholder="Ingresar observación">-->
+                          <textarea
+                            #observaciones
+                            placeholder="Observaciones de EBA ..."
+                            class="form-control"
+                            id="exampleFormControlTextarea1"
+                            rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                           <button
+                             (click)="enviarMenuConObservaciones(observaciones)"
+                             type="button"
+                             class="btn btn-secondary waves-effect"
+                             data-dismiss="modal"  >Enviar</button>
+                            <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+
+                    <!-- <div class="modal-footer">
+                      <button
+
+                        type="submit"
+                        class="btn btn-info waves-effect"
+                        data-dismiss="modal" >Guardar</button>
+                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button> -->
+                   <!--  </div> -->
+            <!--       </form>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </tr> -->
+
+
+     <!--  </tfoot> -->
+
+
+
+
+
+
+
+
+       <!-- ============================================================== -->
+      <!-- End Page Content -->
+      <!-- ============================================================== -->
+
+</div>
+</div>

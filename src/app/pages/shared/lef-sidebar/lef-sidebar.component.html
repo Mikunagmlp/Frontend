@@ -1,9 +1,10 @@
-<aside class="left-sidebar">
+<aside class="left-sidebar" style="background-image:url(../../../assets/images/amarillofon.jpg);">
   <!-- Sidebar scroll-->
   <div class="scroll-sidebar">
 
     <!-- Sidebar navigation-->
-    <nav class="sidebar-nav">
+   <!--  <nav class="sidebar-nav" style="background-color:yellow;"> -->
+    <nav class="sidebar-nav"   style="background-image:url(../../../assets/images/amarillofon.jpg);">
 
       <ul id="sidebarnav">
 
@@ -13,7 +14,10 @@
 <!--                <img src="../assets/images/users/profile.png" alt="user" />-->
 <!--                <span class="hide-menu"> {{ nombre }} </span>-->
 <!--              </a>-->
-              <h5 class="text-white" > {{nombre}} </h5>
+               <br> <br>
+             
+              <h4 class="text-red" > {{nombre}} </h4>
+            
 <!--              <ul aria-expanded="true" class="collapse" >-->
 <!--                <li><a href="javascript:void()">Mi Perfil </a></li>-->
 
@@ -32,22 +36,27 @@
         <div class="accordion" id="accordionExample">
 
 <!--          USUARIOS-->
+
           <li>
             <div class="card-header" id="headingOne" >
-              <h2 class="mb-0" >
-                <img src="https://img.icons8.com/dusk/64/000000/groups.png"width="30" height="30"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Usuarios
-                </button>
-              </h2>
+              <h1 class="mb-1" >
+
+
+                <a class="has-arrow    " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h5>
+                  <i><img src="https://img.icons8.com/dusk/64/000000/groups.png"width="30" height="30"/></i>
+                  
+              <span class="hide-menu" >Usuarios </span></h5></a>
+
+              </h1>
             </div>
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
+              <div class="card-body" >
                 <ul>
-                  <li><a [routerLink]="['/home/usuarios']" class="active" >Usuarios</a></li>
-                  <li><a [routerLink]="['/home/nuevo-usuario']" class="active" >Nuevo Usuario</a></li>
-                  <li><a [routerLink]="['/home/usuario-roles']"  class="active" >Permisos y roles</a></li>
+                  <li> <a [routerLink]="['/home/usuarios']" ><h6>Usuarios</h6></a></li>
+                  <li><a [routerLink]="['/home/nuevo-usuario']"  ><h6>Nuevo Usuario</h6></a></li>
+                  <li><a [routerLink]="['/home/usuario-roles']"   ><h6>Permisos y roles</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -58,19 +67,22 @@
           <li>
             <div class="card-header" id="headingTwo" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/fluent/48/000000/school.png" width="30" height="30"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  Unidad educativa
-                </button>
+
+                <a class="has-arrow " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h5>
+                  <i><img src="https://img.icons8.com/fluent/48/000000/school.png" width="30" height="30"/></i>
+                  
+                <span class="hide-menu"> <tr>Unidad </tr> <tr>Educativa</tr>   </span> </h5></a>
+
               </h2>
             </div>
 
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a  [routerLink]="['/home/ue-crear']" class="active">Crear</a></li>
-                  <li><a  [routerLink]="['/home/ue-editar']" >Editar</a></li>
-                  <li><a [routerLink]="['/home/ue-poblacion-beneficiada']">Población beneficiada</a></li>
+                  <li><a  [routerLink]="['/home/ue-crear']" ><h6>Crear</h6></a></li>
+                  <li><a  [routerLink]="['/home/ue-editar']" ><h6>Editar</h6></a></li>
+                  <li><a [routerLink]="['/home/ue-poblacion-beneficiada']"><h6>Población beneficiada</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -81,18 +93,22 @@
           <li>
             <div class="card-header" id="headingThree" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/fluent/48/000000/supplier.png" width="30" height="30"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                  Proveedores
-                </button>
+
+                <a class="has-arrow " data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/fluent/48/000000/supplier.png" width="30" height="30"/></i>
+                  
+                
+                <span class="hide-menu">Proveedor  </span>  </h5></a>
               </h2>
             </div>
 
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/proveedores-crear']" >Crear</a></li>
-                  <li><a [routerLink]="['/home/proveedores-editar']" >Editar</a></li>
+                  <li><a [routerLink]="['/home/proveedores-crear']" ><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/proveedores-editar']" ><h6>Editar</h6></a></li>
+                  <li><a [routerLink]="['/home/proveedores-asignacionlotes']" ><h6>Asignacion lotes</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -103,62 +119,48 @@
           <li>
             <div class="card-header" id="headingFour" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/nolan/64/table-1.png" width="30" height="30"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                  Almacén
-                </button>
+
+                <a class="has-arrow " data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/nolan/64/table-1.png" width="30" height="30"/></i>
+                 
+                <span class="hide-menu">Almacén  </span>  </h5></a>
+
               </h2>
             </div>
 
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/almacen-crear']" >Crear</a></li>
-                  <li><a [routerLink]="['/home/almacen-editar']" >Editar</a></li>
+                  <li><a [routerLink]="['/home/almacen-crear']" ><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/almacen-editar']" ><h6>Editar</h6></a></li>
                 </ul>
               </div>
             </div>
           </li>
 
-<!--          CATEGORIA-->
-
-          <li>
-            <div class="card-header" id="headingFive" >
-              <h2 class="mb-0" >
-                <img src="https://img.icons8.com/fluent/48/000000/groups.png"width="30" height="30"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                  Categoría
-                </button>
-              </h2>
-            </div>
-
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-              <div class="card-body">
-                <ul>
-                  <li><a [routerLink]="['/home/categoria-crear']">Crear</a></li>
-                  <li><a [routerLink]="['/home/categoria-editar']">Editar</a></li>
-                </ul>
-              </div>
-            </div>
-          </li>
 
 <!--          PRODUCTOS-->
 
           <li>
             <div class="card-header" id="headingSix" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/nolan/48/product.png" width="30" height="30"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                  Productos
-                </button>
+                
+                <a class="has-arrow  " data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/nolan/48/product.png" width="30" height="30"/></i>
+                  
+                <span class="hide-menu">Productos  </span>  </h5></a>
+
+
               </h2>
             </div>
 
             <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/productos-crear']" >Crear</a></li>
-                  <li><a [routerLink]="['/home/productos-editar']" >Editar</a></li>
+                  <li><a [routerLink]="['/home/productos-crear']" ><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/productos-editar']" ><h6>Editar</h6></a></li>
                 </ul>
               </div>
             </div>
@@ -168,23 +170,182 @@
           <li>
             <div class="card-header" id="headingSeven" >
               <h2 class="mb-0" >
-                <img src="https://img.icons8.com/plasticine/100/000000/truck.png" width="35" height="35"/>
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
-                  Camiones
-                </button>
+
+                <a class="has-arrow  " data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/plasticine/100/000000/truck.png" width="35" height="35"/></i>
+                  
+                
+                <span class="hide-menu"> Camiones </span> </h5></a>
+
               </h2>
             </div>
 
             <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
               <div class="card-body">
                 <ul>
-                  <li><a [routerLink]="['/home/camiones-crear']">Crear</a></li>
-                  <li><a [routerLink]="['/home/camiones-editar']">Editar</a></li>
+                  <li><a [routerLink]="['/home/camiones-crear']"><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/camiones-editar']"><h6>Editar</h6></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+<!-----    RUTAS    ----->
+          <li>
+            <div class="card-header" id="headingEleven" >
+              <h2 class="mb-0" >
+
+                <a class="has-arrow  " data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/color/48/000000/track-order.png" width="35" height="35"/></i>
+                  
+                <span class="hide-menu">Rutas  </span>  </h5></a>
+
+              </h2>
+            </div>
+
+            <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/ruta-crear']"><h6>Crear</h6></a></li>
+                  <li><a [routerLink]="['/home/ruta-editar']"><h6>Editar</h6></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+<!--     DATOS ELIMINADOS -->
+
+          <li>
+            <div class="card-header" id="headingEight" >
+              <h2 class="mb-0" >
+
+                <a class="has-arrow  " data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/color/48/000000/delete-database.png" width="30" height="30 "/></i>
+                 
+                <span class="hide-menu">Eliminados  </span>  </h5></a>
+
+              </h2>
+            </div>
+
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/usuarios-eliminados']"><h6>Usuarios</h6></a></li>
+                  <li><a [routerLink]="['/home/colegios-eliminados']"><h6>Colegios</h6></a></li>
+                  <li><a [routerLink]="['/home/proveedores-eliminados']"><h6>Proveedores</h6></a></li>
+                  <li><a [routerLink]="['/home/almacenes-eliminados']"><h6>Almacenes</h6></a></li>
+                  <li><a [routerLink]="['/home/categorias-eliminados']"><h6>Categorias</h6></a></li>
+                  <li><a [routerLink]="['/home/productos-eliminados']"><h6>Productos</h6></a></li>
+                  <li><a [routerLink]="['/home/camiones-eliminados']"><h6>Camiones</h6></a></li>
                 </ul>
               </div>
             </div>
           </li>
 
+<!------------ MENÚ---------------->
+
+          <li>
+            <div class="card-header" id="headingNine" >
+              <h2 class="mb-0" >
+
+                <a class="has-arrow  " data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                  <h5>
+                  <i>  <img src="https://img.icons8.com/color/48/000000/strawberry.png" width="30" height="30"/></i>
+                  
+                <span class="hide-menu">Menú </span>  </h5></a>
+
+              </h2>
+            </div>
+
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/calculos-diarios']"><h6> Diarios</h6></a></li>
+                  <li><a [routerLink]="['/home/menu-elaboracion']"><h6>Elaboración</h6></a></li>
+                  <li><a [routerLink]="['/home/menu-eba']"><h6>Aprobación EBA</h6></a></li>
+                  <li><a [routerLink]="['/home/menu-jefa']"><h6>Aprobación Final</h6></a></li>
+
+                </ul>
+              </div>
+            </div>
+          </li>
+<!------------ ENTREGAS---------------->
+
+<li>
+  <div class="card-header" id="headingTwelve" >
+    <h2 class="mb-0" >
+
+      <a class="has-arrow  " data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="true" aria-controls="collapseTwelve">
+        <h5>
+        <i>  <img src="https://img.icons8.com/color/48/000000/supplier.png" width="30" height="30"/></i>
+        
+      <span class="hide-menu">Entregas </span>  </h5></a>
+
+    </h2>
+  </div>
+
+  <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+    <div class="card-body">
+      <ul>
+        <li><a [routerLink]="['/home/boletaentrega']"><h6>Boletas de Entrega</h6></a></li>
+        
+
+      </ul>
+    </div>
+  </div>
+</li>
+
+
+
+
+          <!--          REPORTES-->
+
+          <li>
+            <div class="card-header" id="headingTen" >
+              <h2 class="mb-0" >
+
+                <a class="has-arrow " data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+                  <h5>
+                  <i> <img src="https://img.icons8.com/color/48/000000/presentation.png" width="30" height="30"/></i>
+                  
+                <span class="hide-menu">Reportes </span>  </h5></a>
+
+              </h2>
+            </div>
+
+            <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul>
+                  <li><a [routerLink]="['/home/reporte-consultalotes']"><h6></h6>Consulta lotes</a></li>
+                  <li><a [routerLink]="['/home/reporte-menuconfirmado']"><h6></h6>Menu confirmado</a></li>
+                  <li><a [routerLink]="['/home/reporte-productosdisp']"><h6></h6>Productos disponibles</a></li>
+
+                  <li><a [routerLink]="['/home/reporte-consolidadoue']"><h6></h6>Consolidado Unidad Educativa</a></li>
+                 
+                  <li><a [routerLink]="['/home/reporte-consolidadoglob']"><h6></h6>Consolidado Global</a></li>
+                  <li><a [routerLink]="['/home/reporte-consolidadoprep']"><h6></h6>Consolidado Presupuesto</a></li>
+                                               
+                 
+                  <li><a [routerLink]="['/home/reporte-estadistico']"><h6>Estadistico</h6></a></li>
+                  <li><a [routerLink]="['/home/reporte-incidencia']"><h6>Incidencia</h6></a></li>
+                  <li><a [routerLink]="['/home/reporte-ruteo']"><h6>Ruteo</h6></a></li>
+                  <li><a [routerLink]="['/home/verificarph2']"><h6>Verificación PH</h6></a></li> 
+              
+                  <li><a [routerLink]="['/home/reporte-entrega']"><h6>Crear Boleta</h6></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+
+<!--          calculos diarios  [routerLink]="['/home/calculos-diarios']" -->
+
+<!--          menu elaboracion [routerLink]="['/home/menu-elaboracion']" -->
+
+<!--          menu eba [routerLink]="['/home/menu-eba']" -->
+
+<!--          menu jefa [routerLink]="['/home/menu-jefa']" -->
         </div>
 
       </ul>

@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -24,7 +25,7 @@
          <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                <div class="card-header bg-info">
+                <div class="card-header bg-warning">
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
@@ -35,173 +36,195 @@
 
                         <div class="form-body">
 
-                          <div class="form-group row">
+                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de la empresa proveedora</label>
                             <div class="col-md-9">
-                              <input
-                                name="NombreProveedor"
-                                [(ngModel)]="proveedor.NombreProveedor"
+                              <input [(ngModel)]="proveedor.NombreProveedor" #NombreProveedor="ngModel" type="text"
+                                name="NombreProveedor" id="NombreProveedor" placeholder="NombreProveedor" minlength="8"
+                                maxlength="40" required
                                 type="text"
                                 autocomplete="off"
                                 class="form-control">
+                                <div *ngIf="NombreProveedor.touched && !NombreProveedor.valid">
+                                  <div *ngIf="NombreProveedor.errors.required">Nombre es requerido</div>
+                                  <div *ngIf="NombreProveedor.errors.minlength">Nombre debe ser de al menos {{NombreProveedor.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
 
+
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Codigo</label>
+                            <label class="control-label text-right col-md-3">Código</label>
                             <div class="col-md-9">
-                              <input
-                                name="CodigoProveedor"
-                                [(ngModel)]="proveedor.CodigoProveedor"
-                                autocomplete="off"
+                              <input [(ngModel)]="proveedor.CodigoProveedor" #CodigoProveedor="ngModel" type="text"
+                                name="CodigoProveedor" id="CodigoProveedor" placeholder="CodigoProveedor" minlength="1"
+                                maxlength="40" required
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
+                                <div *ngIf="CodigoProveedor.touched && !CodigoProveedor.valid">
+                                  <div *ngIf="CodigoProveedor.errors.required">Código es requerido</div>
+                                  <div *ngIf="CodigoProveedor.errors.minlength">Código debe ser de al menos {{CodigoProveedor.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre del Represente Legal</label>
                             <div class="col-md-9">
-                              <input
-                                name="NombreEmpresa"
-                                [(ngModel)]="proveedor.NombreEmpresa"
-                                autocomplete="off"
+                              <input [(ngModel)]="proveedor.NombreEmpresa" #NombreEmpresa="ngModel" type="text"
+                                name="NombreEmpresa" id="NombreEmpresa" placeholder="NombreEmpresa" minlength="1"
+                                maxlength="40" required
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
+                                <div *ngIf="NombreEmpresa.touched && !NombreEmpresa.valid">
+                                  <div *ngIf="NombreEmpresa.errors.required">Nombre es requerido</div>
+                                  <div *ngIf="NombreEmpresa.errors.minlength">Código debe ser de al menos {{NombreEmpresa.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <!-- <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 1</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro1"
-                                [(ngModel)]="proveedor.pro1"
+                              <input [(ngModel)]="proveedor.pro1" #pro1="ngModel" type="text"
+                                name="pro1" id="pro1" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 2</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro2"
-                                [(ngModel)]="proveedor.pro2"
+                              <input [(ngModel)]="proveedor.pro2" #pro2="ngModel" type="text"
+                                name="pro1" id="pro2" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 3</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro3"
-                                [(ngModel)]="proveedor.pro3"
+                              <input [(ngModel)]="proveedor.pro3" #pro3="ngModel" type="text"
+                                name="pro1" id="pro3" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 4</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro4"
-                                [(ngModel)]="proveedor.pro4"
+                              <input [(ngModel)]="proveedor.pro4" #pro4="ngModel" type="text"
+                                name="pro1" id="pro4" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 5</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro5"
-                                [(ngModel)]="proveedor.pro5"
+                              <input [(ngModel)]="proveedor.pro5" #pro5="ngModel" type="text"
+                                name="pro1" id="pro5" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 6</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro6"
-                                [(ngModel)]="proveedor.pro6"
+                              <input [(ngModel)]="proveedor.pro6" #pro6="ngModel" type="text"
+                                name="pro1" id="pro6" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 7</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro7"
-                                [(ngModel)]="proveedor.pro7"
+                              <input [(ngModel)]="proveedor.pro7" #pro7="ngModel" type="text"
+                                name="pro1" id="pro7" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 8</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro8"
-                                [(ngModel)]="proveedor.pro8"
+                              <input [(ngModel)]="proveedor.pro8" #pro8="ngModel" type="text"
+                                name="pro1" id="pro8" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 9</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro9"
-                                [(ngModel)]="proveedor.pro9"
+                              <input [(ngModel)]="proveedor.pro9" #pro9="ngModel" type="text"
+                                name="pro1" id="pro9" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
                             <label class="control-label text-right col-md-3">Producto 10</label>
                             <div class="col-md-9">
-                              <input
-                                name="pro10"
-                                [(ngModel)]="proveedor.pro10"
+                              <input [(ngModel)]="proveedor.pro10" #pro10="ngModel" type="text"
+                                name="pro1" id="pro10" placeholder="pro1"
                                 type="text"
+                                autocomplete="off"
                                 class="form-control">
+                            </div>
+                          </div> -->
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Descripción</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.Descripcion" #Descripcion="ngModel" type="text"
+                                name="Descripcion" id="Descripcion" placeholder="Descripcion" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Descripcion.touched && !Descripcion.valid">
+                                  <div *ngIf="Descripcion.errors.required">Nombre de Descripción es requerido</div>
+                                  <div *ngIf="Descripcion.errors.minlength">Nombre de Descripción de al menos {{Descripcion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Dirección</label>
                             <div class="col-md-9">
-                              <input
-                                name="Direccion"
-                                [(ngModel)]="proveedor.Direccion"
-                                autocomplete="off"
+                              <input [(ngModel)]="proveedor.Direccion" #Direccion="ngModel" type="text"
+                                name="Direccion" id="Direccion" placeholder="Direccion" minlength="1"
+                                maxlength="40" required
                                 type="text"
-                                class="form-control">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Descripcion</label>
-                            <div class="col-md-9">
-                              <input
-                                name="Descripcion"
-                                [(ngModel)]="proveedor.Descripcion"
                                 autocomplete="off"
-                                type="text"
                                 class="form-control">
+                                <div *ngIf="Direccion.touched && !Direccion.valid">
+                                  <div *ngIf="Direccion.errors.required">Nombre de Dirección es requerido</div>
+                                  <div *ngIf="Direccion.errors.minlength">Nombre de Dirección de al menos {{Direccion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
                             </div>
                           </div>
 
@@ -212,14 +235,14 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
-                                            <button type="button" class="btn btn-inverse" (click)="cancelar()" >Cancelar</button>
+                                            <button type="submit" class="btn btn-warning"> <i class="fa fa-check"></i> Guardar</button>
+                                            &nbsp;
+                                            <button type="button" class="btn btn-secondary waves-effect" (click)="cancelar()" >Cancelar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
                 </div>

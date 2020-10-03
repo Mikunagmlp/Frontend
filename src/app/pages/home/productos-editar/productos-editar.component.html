@@ -1,6 +1,7 @@
 
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -47,11 +48,8 @@
                       <tr>
                         <th>Código</th>
                         <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Proveedor</th>
-                        <th>Almacen</th>
-                        <th>Categoria</th>
-                        <th>Lote</th>
+                        <th>Presupuesto Inicial</th>
+                        <th>Precio unitario</th>
 
                       </tr>
                     </thead>
@@ -61,15 +59,13 @@
                         <tr *ngFor="let producto of productos; let i = index;" >
                             <td> {{ producto.CodigoProducto }} </td>
                             <td> {{ producto.NombreProducto }} </td>
-                            <td> {{ producto.PrecioProducto }} Bs </td>
-                            <td> {{ producto.IdProveedor.NombreProveedor }} </td>
-                            <td> {{ producto.IdAlmacen.NombreAlmacen }} </td>
-                            <td> {{ producto.IdCategoria.NombreCategoria }} </td>
+                            <td> {{ producto.PresupuestoInicial }} Bs </td>
+                            <td> {{ producto.PrecioUnitario }} Bs </td>
 
 
                             <button
                               type="button"
-                              class="btn btn-info btn-rounded"
+                              class="btn btn-warning btn-rounded"
                               data-toggle="modal"
                               (click)="editarProducto(i)"
                               data-target="#add-contact" >Editar</button>
@@ -131,31 +127,41 @@
 
 
                                       <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Precio</label>
-                                        <input
-                                          #precio
-                                          type="number"
-                                          [value]="productoEditar.PrecioProducto"
-                                          class="form-control">
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Cantidad</label>
-                                        <input
-                                          #cantidad
-                                          type="number"
-                                          [value]="productoEditar.CantidadProducto"
-                                          class="form-control">
-                                      </div>
-
-
-                                      <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Descripcion</label>
                                         <input
                                           #descripcion
                                           type="text"
                                           [value]="productoEditar.Descripcion"
                                           class="form-control">
+                                      </div>
+
+                                      <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Categoria del producto</label>
+
+                                        <div class="form-check form-check-inline">
+                                          <input
+                                            #solido_liquido
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="inlineRadioOptions"
+                                            id="inlineRadio1"
+                                            [checked]="productoEditar.Solido_Liquido"
+                                            (change)="solidLiquid = true"
+                                            >
+                                          <label class="form-check-label" for="inlineRadio1">Solido</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input
+                                            #solido_liquido
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="inlineRadioOptions"
+                                            id="inlineRadio2"
+                                            [checked]="!productoEditar.Solido_Liquido"
+                                            (change)="solidLiquid = false"
+                                            >
+                                          <label class="form-check-label" for="inlineRadio2">Liquido</label>
+                                        </div>
                                       </div>
 
                                       <div class="col-md-12 m-b-20" >
@@ -174,7 +180,7 @@
                                       </div>
 
                                       <div class="col-md-12 m-b-20" >
-                                        <label class="text-info">Almacen</label>
+                                        <label class="text-info">Almacén</label>
                                         <div class="col-md-9">
                                           <select
                                             #almacen
@@ -183,21 +189,6 @@
                                           >
                                             <option [value]="almacen._id" *ngFor="let almacen of almacenes; let i = index;" >
                                               {{ almacen.NombreAlmacen }}
-                                            </option>
-                                          </select>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-md-12 m-b-20" >
-                                        <label class="text-info">Categoria</label>
-                                        <div class="col-md-9">
-                                          <select
-                                            #categoria
-                                            name="Categoria"
-                                            class="form-control custom-select"
-                                          >
-                                            <option [value]="categoria._id" *ngFor="let categoria of categorias; let i = index;" >
-                                              {{ categoria.NombreCategoria }}
                                             </option>
                                           </select>
                                         </div>
@@ -212,15 +203,66 @@
                                           class="form-control">
                                       </div>
 
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Volumen</label>
+                                        <input
+                                          #volumen
+                                          type="text"
+                                          [value]="productoEditar.Volumen"
+                                          class="form-control">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Gramage</label>
+                                        <input
+                                          #gramage
+                                          type="text"
+                                          [value]="productoEditar.Gramage"
+                                          class="form-control">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Presupuesto inicial</label>
+                                        <input
+                                          #presInicial
+                                          type="text"
+                                          [value]="productoEditar.PresupuestoInicial"
+                                          class="form-control">
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Niveles</label>
+                                        <div class="demo-checkbox">
+                                          <div *ngFor="let nivel of niveles; let i = index;" >
+                                            <input
+                                              (change)="selectNivel($event.target.checked, i)"
+                                              [checked]="nivelesBool[i]"
+                                              type="checkbox"
+                                              [id]="i"
+                                              class="filled-in chk-col-blue" />
+                                            <label [for]="i" > {{ nivel }} </label>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Precio unitario</label>
+                                        <input
+                                          #precUnitario
+                                          type="text"
+                                          [value]="productoEditar.PrecioUnitario"
+                                          class="form-control">
+                                      </div>
+
 
                                     </div>
 
                                     <div class="modal-footer">
                                       <button
+                                        (click)="editar(nombre, descripcion, solido_liquido, proveedor, almacen, lote, volumen, gramage, presInicial, precUnitario)"
                                         type="submit"
-                                        class="btn btn-info waves-effect"
+                                        class="btn btn-warning waves-effect"
                                         data-dismiss="modal"
-                                        (click)="editar(nombre, precio, cantidad, descripcion, proveedor, almacen, categoria, lote)"
                                         >Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>

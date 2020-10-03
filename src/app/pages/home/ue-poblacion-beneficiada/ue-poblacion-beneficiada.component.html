@@ -1,6 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
-
+        <br>
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
               <h3 class="text-themecolor">Población por Unidad Educativa</h3>
@@ -32,9 +32,9 @@
 
                 <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                 <form class="app-search">
-                  <input type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>
+                  <input #query type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>
 
-                <button type="button">Buscar</button>
+                <button (click)="buscarUnidadesEducativas(query)" type="button">Buscar</button>
 
               </div>
               <!-- End Buscador interno -->
@@ -55,14 +55,38 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let colegio of colegios" >
+                        <tr *ngFor="let colegio of colegios; let i = index;" >
                             <td> {{ colegio.CodColegio }} </td>
                             <td> {{ colegio.NombreColegio }} </td>
-                            <td> {{ colegio.CantidadAlumnosInicial }} </td>
-                            <td> {{ colegio.CantidadAlumnosPrimaria }} </td>
-                            <td> {{ colegio.CantidadAlumnosSecundaria }} </td>
+<!--                            <td> {{ colegio.CantidadAlumnosInicial }} </td>-->
+                            <td>
+                              <input
+                                #inicial
+                                [value]="colegio.CantidadAlumnosInicial"
+                                class="form-control"
+                                type="number">
+                            </td>
+                          <td>
+                            <input
+                              #primaria
+                              [value]="colegio.CantidadAlumnosPrimaria"
+                              class="form-control"
+                              type="number">
+                          </td>
+                          <td>
+                            <input
+                              #secundaria
+                              [value]="colegio.CantidadAlumnosSegundaria"
+                              class="form-control"
+                              type="number">
+                          </td>
 
-
+                          <button
+                            (click)="actualizar(inicial, primaria, secundaria, i)"
+                            type="button"
+                            class="btn btn-success btn-rounded"
+                            data-toggle="modal"
+                            data-target="#add-contact" >Actualizar</button>
 
                         </tr>
 

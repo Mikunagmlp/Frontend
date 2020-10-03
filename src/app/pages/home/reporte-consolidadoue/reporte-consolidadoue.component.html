@@ -1,0 +1,147 @@
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor"> Consolidado por Unidad Educativa</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Reportes</a></li>
+                <li class="breadcrumb-item">Unidad Educativa</li>
+
+              </ol>
+            </div>
+            <div class="">
+              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+          </div>
+       <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+       <!-- ============================================================== -->
+       <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+
+
+
+              <!-- Buscador interno -->
+              <div class="row m-t-40">
+                  &nbsp; &nbsp;
+
+
+              <form class="app-search">
+               <input #colegio type="text" class="form-control mr-sm-2" placeholder="Buscar Unidad Educativa"> <a class="srh-btn"></a> </form>  &nbsp;
+
+              </div>
+              <br>
+
+            <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
+
+            <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
+             &nbsp; &nbsp;
+             <input type="date" id="start"
+                    name="trip-start"
+                    #fechaInicio
+                    [value]="fechaHoy"
+                    min="2020-08-01" max="2022-12-31">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <label class="text-info" for="start"> <strong>  Fecha Final:</strong></label>
+            &nbsp; &nbsp;
+            <input type="date"
+                   id="end"
+                   name="trip-start"
+                   #fechaFinal
+                   [value]="fechaHoy"
+                   min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <button
+                (click)="buscarPorFecha(colegio, fechaInicio, fechaFinal)"
+                class="btn btn-outline-primary" >Buscar</button>
+             <br>
+             <br>
+             <br>
+
+              <!-- End Buscador interno -->
+
+              <!-- Inicio Tabla de entregas por ue-->
+               <!-- Entrega 1 -->
+              <div >
+                <div class="row"  >
+                  <div class="col-lg-12">
+
+                    <div class="card" *ngFor="let ue of ues; let i = index;" >
+                      <div class="card-header bg-warning">
+                        <h4 class="m-b-0 text-white">Entrega  de Desayuno Escolar: {{ convertDate(ue.updatedAt) }} </h4>
+
+                      </div>
+                      <div class="card-body">
+
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class="text-info">
+                            <tr>
+                              <th>Item</th>
+                              <th>Cantidad</th>
+                              <th>Item</th>
+                              <th>Cantidad</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td><strong>Producto Líquido Inicial: </strong></td>
+                              <td>  {{ ue.ProductoLiquidoInicial }} </td>
+                              <td><strong> Producto Sólido Inicial:</strong> </td>
+                              <td> {{ ue.ProductoSolidoInicial }} </td>
+                            </tr>
+                            <tr>
+                              <td><strong>Producto Líquido Primaria:</strong></td>
+                              <td> {{ ue.ProductoLiquidoPrimaria }}   </td>
+                              <td> <strong>Producto Sólido Primaria:</strong>    </td>
+                              <td> {{ ue.ProductoSolidoPrimaria }} </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Producto Líquido Secundaria:</strong></td>
+                                <td>  {{ ue.ProductoLiquidoSegundaria }} </td>
+                                <td><strong> Producto Sólido Secundaria:  </strong>  </td>
+                                <td> {{ ue.ProductoSolidoSegundaria }} </td>
+                              </tr>
+                              <tr>
+                                <td><strong>Nro. Raciones Inicial: </strong></td>
+                                <td>  {{ ue.CantidadAlumnosInicial }} </td>
+                                <td> <strong>Nro. Raciones Primaria: </strong>   </td>
+                                <td> {{ ue.CantidadAlumnosPrimaria }} </td>
+                              </tr>
+                              <tr>
+                                <td><strong>Nro. Raciones Secundaria:</strong></td>
+                                <td> {{ ue.CantidadAlumnosSegundaria }} </td>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        <!--  End Entrega 1 -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- ============================================================== -->
+                    <!-- End Page Content -->
+       <!-- ============================================================== -->
+
+    </div>
+</div>
+
+
+

@@ -1,6 +1,6 @@
-fsdfdsf
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -22,10 +22,10 @@ fsdfdsf
                     <!-- Start Page Content -->
          <!-- ============================================================== -->
 
-         <div class="row">
+         <div class="form-group row">
             <div class="col-lg-12">
                 <div class="card">
-                <div class="card-header bg-info">
+                <div class="card-header bg-warning">
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
@@ -35,7 +35,7 @@ fsdfdsf
                       class="form-horizontal form-bordered">
 
                         <div class="form-body">
-
+<!--
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre de Producto</label>
                             <div class="col-md-9">
@@ -47,8 +47,7 @@ fsdfdsf
                                 class="form-control">
                             </div>
                           </div>
-
-                          <div class="form-group row">
+                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Codigo producto</label>
                             <div class="col-md-9">
                               <input
@@ -58,33 +57,9 @@ fsdfdsf
                                 type="text"
                                 class="form-control">
                             </div>
-                          </div>
 
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Precio del producto</label>
-                            <div class="col-md-9">
-                              <input
-                                name="PrecioProducto"
-                                [(ngModel)]="producto.PrecioProducto"
-                                autocomplete="off"
-                                type="number"
-                                class="form-control">
-                            </div>
                           </div>
-
-                          <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Cantidad del producto</label>
-                            <div class="col-md-9">
-                              <input
-                                name="CantidadProducto"
-                                [(ngModel)]="producto.CantidadProducto"
-                                autocomplete="off"
-                                type="number"
-                                class="form-control">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
+                            <div class="form-group row">
                             <label class="control-label text-right col-md-3">Descripcion</label>
                             <div class="col-md-9">
                               <input
@@ -95,19 +70,83 @@ fsdfdsf
                                 class="form-control">
                             </div>
                           </div>
+-->
+
+                          <div class="form-group row"> 
+                            <label class="control-label text-right col-md-3">Nombre de Producto</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.NombreProducto" #NombreProducto="ngModel" type="text"
+                                name="NombreProducto" id="NombreProducto" placeholder="NombreProducto" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NombreProducto.touched && !NombreProducto.valid">
+                                  <div *ngIf="NombreProducto.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="NombreProducto.errors.minlength">Nombre de producto de al menos {{NombreProducto.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
 
 
                           <div class="form-group row">
-                            <label class="control-label text-right col-md-3">Categoria</label>
+                            <label class="control-label text-right col-md-3">Código producto</label>
                             <div class="col-md-9">
-                                <select
-                                name="Genero"
-                                [(ngModel)]="producto.IdCategoria"
-                                class="form-control custom-select" >
-                                <option [value]="categoria._id" *ngFor="let categoria of categorias" >
-                                  {{ categoria.NombreCategoria }}
-                                </option>
-                              </select>
+                              <input [(ngModel)]="producto.CodigoProducto" #CodigoProducto="ngModel" type="text"
+                                name="CodigoProducto" id="CodigoProducto" placeholder="CodigoProducto" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="CodigoProducto.touched && !CodigoProducto.valid">
+                                  <div *ngIf="CodigoProducto.errors.required">Código del producto es requerido</div>
+                                  <div *ngIf="CodigoProducto.errors.minlength">Insertar al menos {{CodigoProducto.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Descripción</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Descripcion" #Descripcion="ngModel" type="text"
+                                name="Descripcion" id="Descripcion" placeholder="Descripcion" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Descripcion.touched && !Descripcion.valid">
+                                  <div *ngIf="Descripcion.errors.required">Descripción del producto es requerido</div>
+                                  <div *ngIf="Descripcion.errors.minlength">Insertar al menos {{Descripcion.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Categoria del producto</label>
+
+                            <div class="form-check form-check-inline">
+                              <input
+                                name="Solido_Liquido"
+                                [(ngModel)]="producto.Solido_Liquido"
+                                class="form-check-input"
+                                type="radio"
+                                name="inlineRadioOptions"
+                                id="inlineRadio1"
+                                [value]="solido">
+                              <label class="form-check-label" for="inlineRadio1">Solido</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input
+                                name="Solido_Liquido"
+                                [(ngModel)]="producto.Solido_Liquido"
+                                class="form-check-input"
+                                type="radio"
+                                name="inlineRadioOptions"
+                                id="inlineRadio2"
+                                [value]="liquido">
+                              <label class="form-check-label" for="inlineRadio2">Liquido</label>
                             </div>
                           </div>
 
@@ -138,8 +177,9 @@ fsdfdsf
                               </select>
                             </div>
                           </div>
+  <!--
 
-                          <div class="form-group row">
+                            <div class="form-group row">
                             <label class="control-label text-right col-md-3">Lote</label>
                             <div class="col-md-9">
                               <input
@@ -151,15 +191,188 @@ fsdfdsf
                             </div>
                           </div>
 
+
+
+                         <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Volumen</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Volumen"
+                                [(ngModel)]="producto.Volumen"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Gramage</label>
+                            <div class="col-md-9">
+                              <input
+                                name="Gramage"
+                                [(ngModel)]="producto.Gramage"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+                           <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Presupuesto inicial</label>
+                            <div class="col-md-9">
+                              <input
+                                name="PresupuestoInicial"
+                                [(ngModel)]="producto.PresupuestoInicial"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+
+                           <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Niveles</label>
+                            <div class="card">
+                              <div class="demo-checkbox">
+                                <div *ngFor="let nivel of niveles; let i = index;" >
+                                  <input
+                                    (change)="selectNivel($event.target.checked ,i)"
+                                    type="checkbox" [id]="i"
+                                    class="filled-in chk-col-blue" />
+                                  <label [for]="i" > {{ nivel }} </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                            <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Precio Unitario</label>
+                            <div class="col-md-9">
+                              <input
+                                name="PrecioUnitario"
+                                [(ngModel)]="producto.PrecioUnitario"
+                                autocomplete="off"
+                                type="number"
+                                class="form-control">
+                            </div>
+                          </div>
+
+                        -->
+
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Lote</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Lote" #Lote="ngModel" type="text"
+                                name="Lote" id="Lote" placeholder="Lote" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Lote.touched && !Lote.valid">
+                                  <div *ngIf="Lote.errors.required">Nombre del Lote es requerido</div>
+                                  <div *ngIf="Lote.errors.minlength">Insertar al menos {{Lote.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Volumen</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Volumen" #Volumen="ngModel" type="text"
+                                name="Volumen" id="Volumen" placeholder="Volumen" minlength="1"
+                                maxlength="40" required
+                                type="number"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Volumen.touched && !Volumen.valid">
+                                  <div *ngIf="Volumen.errors.required">Dato de volumen es requerido</div>
+                                  <div *ngIf="Volumen.errors.minlength">Debe insertar al menos {{Volumen.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Gramage</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.Gramage" #Gramage="ngModel" type="text"
+                                name="Gramage" id="Gramage" placeholder="Gramage" minlength="1"
+                                maxlength="40" required
+                                type="number"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Gramage.touched && !Gramage.valid">
+                                  <div *ngIf="Gramage.errors.required">Dato de gramaje es requerido</div>
+                                  <div *ngIf="Gramage.errors.minlength">Debe insertar al menos {{Gramage.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Presupuesto inicial</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.PresupuestoInicial" #PresupuestoInicial="ngModel" type="text"
+                                name="PresupuestoInicial" id="PresupuestoInicial" placeholder="PresupuestoInicial" minlength="1"
+                                maxlength="40" required
+                                type="number"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="PresupuestoInicial.touched && !PresupuestoInicial.valid">
+                                  <div *ngIf="PresupuestoInicial.errors.required">Dato de presupuesto inicial requerido</div>
+                                  <div *ngIf="PresupuestoInicial.errors.minlength">Debe insertar al menos {{PresupuestoInicial.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+<!--                          TODO: se debe cambiar esta parte-->
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Niveles</label>
+                            <div class="card">
+                              <div class="demo-checkbox">
+                                <div *ngFor="let nivel of niveles; let i = index;" >
+                                  <input
+                                    (change)="selectNivel($event.target.checked ,i)"
+                                    type="checkbox" [id]="i"
+                                    class="filled-in chk-col-blue" />
+                                  <label [for]="i" > {{ nivel }} </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Precio Unitario</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="producto.PrecioUnitario" #PrecioUnitario="ngModel" type="text"
+                                name="PrecioUnitario" id="PreciosUnitario" placeholder="PrecioUnitario" minlength="1"
+                                maxlength="40" required
+                                type="number"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="PrecioUnitario.touched && !PrecioUnitario.valid">
+                                  <div *ngIf="PrecioUnitario.errors.required">Dato de precio inicial requerido</div>
+                                  <div *ngIf="PrecioUnitario.errors.minlength">Debe insertar al menos {{PrecioUnitario.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
                         </div>
 
                         <div class="form-actions">
-                            <div class="row">
+                            <div class="form-group row">
                                 <div class="col-md-12">
-                                    <div class="row">
+                                    <div class="form-group row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
-                                            <button type="button" class="btn btn-inverse"  >Cancelar</button>
+                                            <button type="submit" class="btn btn-warning"> <i class="fa fa-check"></i> Guardar</button>
+                                            &nbsp;
+                                            <button type="button" class="btn btn-secondary waves-effect"  >Cancelar</button>
                                         </div>
                                     </div>
                                 </div>

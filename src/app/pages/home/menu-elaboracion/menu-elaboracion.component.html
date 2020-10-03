@@ -1,0 +1,842 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+      <br>
+      <!-- ============================================================== -->
+      <!-- Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+          <h2 class="text-themecolor">Elaboración de Menú</h2>
+        </div>
+        <div class="col-md-7 align-self-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Menú </a></li>
+            <li class="breadcrumb-item">Elaboración</li>
+
+          </ol>
+        </div>
+        <div class="">
+          <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+
+
+      <!-- Inicio Listado Menus aprobados y no aprobados -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+
+            <div class="card-body">
+              <tr>
+                <td >
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#crearmenu" d-flex>Crear Menú</button>
+                </td>
+              </tr>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Listado de Menús Aprobados</h4>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Código</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr
+                    (click)="listarMenuAprobado(menu._id, false, false, true)"
+                    *ngFor="let menu of listaMenusAprobados;let i = index;" >
+                    <td> {{ i+1 }} </td>
+                    <td> {{ menu.codigoGenerado }} </td>
+                    <td> {{ convertDate(menu.createdAt) }} </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Listado de Menús No Aprobados</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Código</th>
+                                <th>Fecha</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <tr
+                            (click)="listarMenuNoAprobado(menu._id, false, true, false)"
+                            *ngFor="let menu of listaMenusNoAprobados;let i = index;" >
+                            <td> {{ i+1 }} </td>
+                            <td> {{ menu.codigoGenerado }} </td>
+                            <td> {{ convertDate(menu.createdAt) }} </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+      <!-- Fin Listado Menus aprobados y no aprobados -->
+
+
+      <!-- Inicio menu nuevo-->
+
+      <div *ngIf="menuNuevo" >
+        <div class="row">
+          <h1>Elaborar nuevo menu</h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td >
+                        <select
+                          (change)="calculoSolidoInicial($event)"
+                          class="custom-select" >
+                          <option value="nada">Seleccionar ...</option>
+                          <option
+                            *ngFor="let producto of productosInicialSolido; let i = index;"
+                            [value]="producto.NombreProducto"
+                          >
+                            {{ producto.NombreProducto }}
+                          </option>
+
+                        </select>
+                      </td>
+                      <td> {{ calculosInicialSolido.FrecuenciaSolidoUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialSolido.MontoSolildoUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialSolido.frecuenciaSolidoInicialInicial }} </td>
+                      <td> {{ calculosInicialSolido.montoSolildoInicial }} </td>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td  >
+                        <form >
+                          <select
+                            (change)="calculoLiquidoInicial($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosInicialLiquido">
+                              {{ producto.NombreProducto }}
+                            </option>
+
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosInicialLiquido.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialLiquido.MontoLiquidaUtilizadoInicial }} </td>
+                      <td> {{ calculosInicialLiquido.frecuenciaLiquidoInicialInicial }} </td>
+                      <td> {{ calculosInicialLiquido.montoLiquidaInicial }} </td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoSolidoPrimaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosPrimariaSolido">
+                              {{ producto.NombreProducto }}
+                            </option>
+
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosPrimariaSolido.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaSolido.MontoSolildoUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaSolido.frecuenciaSolidoPrimariaInicial }} </td>
+                      <td> {{ calculosPrimariaSolido.montoSolidoPrimaria }} </td>
+
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoLiquidoPrimaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosPrimariaLiquido">
+                              {{ producto.NombreProducto }}
+                            </option>
+
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosPrimariaLiquido.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaLiquido.MontoLiquidaUtilizadoPrimaria }} </td>
+                      <td> {{ calculosPrimariaLiquido.frecuenciaLiquidaPrimariaInicial }} </td>
+                      <td> {{ calculosPrimariaLiquido.montoLiquidaPrimaria }} </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Producto</th>
+                      <th>Frecuencia Utilizada</th>
+                      <th>Monto Utilizado(Bs.-)</th>
+                      <th>Frecuencia Inicial</th>
+                      <th>Monto Inicial(Bs.-)</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><span class="label label-success">SÓLIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoSolidoSecundaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosSecundariaSolido">
+                              {{ producto.NombreProducto }}
+                            </option>
+
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosSecundariaSolido.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                      <td> {{ calculosSecundariaSolido.MontoSolildoUtilizadaSegundaria }} </td>
+                      <td> {{ calculosSecundariaSolido.frecuenciaSolidoSegundariaInicial }} </td>
+                      <td> {{ calculosSecundariaSolido.montoSolildoSegundaria }} </td>
+
+                    </tr>
+                    <tr>
+                      <td><span class="label label-info">LÍQUIDO</span> </td>
+                      <td>
+                        <form >
+                          <select
+                            (change)="calculoLiquidoSecundaria($event)"
+                            class="custom-select"
+                            id="inputGroupSelect01">
+                            <option value="nada">Seleccionar ...</option>
+                            <option *ngFor="let producto of productosSecundariaLiquido">
+                              {{ producto.NombreProducto }}
+                            </option>
+
+                          </select>
+                        </form>
+                      </td>
+                      <td> {{ calculosSecundariaLiquido.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                      <td> {{ calculosSecundariaLiquido.MontoLiquidaUtilizadoSegundaria }} </td>
+                      <td> {{ calculosSecundariaLiquido.frecuenciaLiquidaSegundariaInicial }} </td>
+                      <td> {{ calculosSecundariaLiquido.montoLiquidaSegundaria }} </td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+
+              <div class="card-body">
+                <td >
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#EnviarMenu" >Enviar Menú</button>
+                </td>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fin menu nuevo-->
+
+
+      <!-- Inicio Menús editables con observaciones -->
+      <div *ngIf="menuNoAprobado" >
+
+        <div class="row">
+          <h1>Menu no aprobado <strong> {{ convertDate(menusNoAprobados.createdAt) }} </strong> </h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Estado</th>
+                                  <th>Producto</th>
+                                  <th></th>
+                                  <th>Frecuencia Utilizada</th>
+                                  <th>Monto Utilizado(Bs.-)</th>
+                                  <th>Frecuencia Inicial</th>
+                                  <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr >
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoSolidoInicial }} </td>
+                                  <td >
+                                    <select
+                                      (change)="calculoSolidoInicialEditar($event)"
+                                      class="custom-select" >
+                                      <option value="nada">Seleccionar ...</option>
+                                      <option
+                                        *ngFor="let producto of productosInicialSolido; let i = index;"
+                                        [value]="producto.NombreProducto"
+                                        [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                      >
+                                        {{ producto.NombreProducto }}
+                                      </option>
+
+                                    </select>
+                                  </td>
+                                  <td [ngClass]=" { 'text-danger': menusNoAprobados.FrecuenciaSolidoUtilizadoInicial < 0 } " > {{ menusNoAprobados.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusNoAprobados.MontoSolildoUtilizadoInicial < 0 } " > {{ menusNoAprobados.MontoSolildoUtilizadoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusNoAprobados.frecuenciaSolidoInicialInicial < 0 } " > {{ menusNoAprobados.frecuenciaSolidoInicialInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusNoAprobados.montoSolildoInicial < 0 } " > {{ menusNoAprobados.montoSolildoInicial }} </td>
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoLiquidoInicial }} </td>
+                                  <td  >
+                                    <form >
+                                      <select
+                                        (change)="calculoSolidoPrimariaEditar($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosPrimariaSolido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.FrecuenciaLiquidaUtilizadoInicial < 0 } " > {{ menusNoAprobados.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.MontoLiquidaUtilizadoInicial < 0 } " > {{ menusNoAprobados.MontoLiquidaUtilizadoInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.frecuenciaLiquidoInicialInicial < 0 } " > {{ menusNoAprobados.frecuenciaLiquidoInicialInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.montoLiquidaInicial < 0 } " > {{ menusNoAprobados.montoLiquidaInicial }} </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th></th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoSolidoPrimaria }} </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        (change)="calculoSolidoPrimariaEditar($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosPrimariaSolido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.FrecuenciaSolidoUtilizadoPrimaria < 0 } " > {{ menusNoAprobados.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.MontoSolildoUtilizadoPrimaria < 0 } " > {{ menusNoAprobados.MontoSolildoUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.frecuenciaSolidoPrimariaInicial < 0 } " > {{ menusNoAprobados.frecuenciaSolidoPrimariaInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.montoSolidoPrimaria < 0 } " > {{ menusNoAprobados.montoSolidoPrimaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoLiquidoPrimaria }} </td>
+                                  <td>
+                                    <form >
+
+                                      <select
+                                        (change)="calculoLiquidoPrimariaEditar($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosPrimariaLiquido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.FrecuenciaLiquidaUtilizadoPrimaria < 0 } " > {{ menusNoAprobados.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.MontoLiquidaUtilizadoPrimaria < 0 } " > {{ menusNoAprobados.MontoLiquidaUtilizadoPrimaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.frecuenciaLiquidaPrimariaInicial < 0 } " > {{ menusNoAprobados.frecuenciaLiquidaPrimariaInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.montoLiquidaPrimaria < 0 } " > {{ menusNoAprobados.montoLiquidaPrimaria }} </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th></th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoSolidoSegundaria }} </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        (change)="calculoSolidoSecundariaEditar($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosSecundariaSolido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.FrecuenciaSolidoUtilizadoSegundaria < 0 } " > {{ menusNoAprobados.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.MontoSolildoUtilizadaSegundaria < 0 } " > {{ menusNoAprobados.MontoSolildoUtilizadaSegundaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.frecuenciaSolidoSegundariaInicial < 0 } " > {{ menusNoAprobados.frecuenciaSolidoSegundariaInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.montoSolildoSegundaria < 0 } " > {{ menusNoAprobados.montoSolildoSegundaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusNoAprobados.ProductoLiquidoSegundaria }} </td>
+                                  <td>
+                                    <form >
+                                      <select
+                                        (change)="calculoLiquidoSecundariaEditar($event)"
+                                        class="custom-select"
+                                        id="inputGroupSelect01">
+                                        <option value="nada">Seleccionar ...</option>
+                                        <option
+                                          [selected]="producto.NombreProducto === menusNoAprobados.NombreProducto"
+                                          *ngFor="let producto of productosSecundariaLiquido">
+                                          {{ producto.NombreProducto }}
+                                        </option>
+
+                                      </select>
+                                    </form>
+                                  </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.FrecuenciaLiquidaUtilizadoSegundaria < 0 } " > {{ menusNoAprobados.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.MontoLiquidaUtilizadoSegundaria < 0 } " > {{ menusNoAprobados.MontoLiquidaUtilizadoSegundaria }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.frecuenciaLiquidaSegundariaInicial < 0 } " > {{ menusNoAprobados.frecuenciaLiquidaSegundariaInicial }} </td>
+                                <td [ngClass]=" { 'text-danger': menusNoAprobados.montoLiquidaSegundaria < 0 } " > {{ menusNoAprobados.montoLiquidaSegundaria }} </td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+
+              <div class="card-body">
+                <tr>
+                  <td *ngIf="menusNoAprobados.ObservacionJefeUnace" ><h5>Observaciones Jefe/a Unace:</h5></td>
+                  <td *ngIf="menusNoAprobados.ObservacionEba" ><h5>Observaciones EBA:</h5></td>
+                  <td *ngIf="menusNoAprobados.ObservacionJefeUnace" > {{ menusNoAprobados.ObservacionJefeUnace }} </td>
+                  <td *ngIf="menusNoAprobados.ObservacionEba" > {{ menusNoAprobados.ObservacionEba }} </td>
+                </tr>
+
+
+                <td >
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#EditarMenu" >Enviar Menú</button>
+                  </td>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Fin Menús editables con observaciones -->
+
+      <!-- Inicio Menús no editables sin observaciones -->
+
+      <div *ngIf="menuAprobado" >
+        <div class="row">
+          <h1>Menu aprobado anteriormente <strong> {{ convertDate(menusAprobados.createdAt) }} </strong> </h1>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Inicial</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Estado</th>
+                                  <th>Producto</th>
+                                  <th>Frecuencia Utilizada</th>
+                                  <th>Monto Utilizado(Bs.-)</th>
+                                  <th>Frecuencia Inicial</th>
+                                  <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr >
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusAprobados.ProductoSolidoInicial }} </td>
+                                  <td [ngClass]=" {'text-danger' : menusAprobados.FrecuenciaSolidoUtilizadoInicial < 0 } " > {{ menusAprobados.FrecuenciaSolidoUtilizadoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.MontoSolildoUtilizadoInicial < 0 } " > {{ menusAprobados.MontoSolildoUtilizadoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.frecuenciaSolidoInicialInicial < 0 } " > {{ menusAprobados.frecuenciaSolidoInicialInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.montoSolildoInicial < 0 } " > {{ menusAprobados.montoSolildoInicial }} </td>
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusAprobados.ProductoLiquidoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.FrecuenciaLiquidaUtilizadoInicial < 0 } " > {{ menusAprobados.FrecuenciaLiquidaUtilizadoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.MontoLiquidaUtilizadoInicial < 0 } " > {{ menusAprobados.MontoLiquidaUtilizadoInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.frecuenciaLiquidoInicialInicial < 0 } " > {{ menusAprobados.frecuenciaLiquidoInicialInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.montoLiquidaInicial < 0 } " > {{ menusAprobados.montoLiquidaInicial }} </td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Primaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusAprobados.ProductoSolidoPrimaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.FrecuenciaSolidoUtilizadoPrimaria < 0 } " > {{ menusAprobados.FrecuenciaSolidoUtilizadoPrimaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.MontoSolildoUtilizadoPrimaria < 0 } " > {{ menusAprobados.MontoSolildoUtilizadoPrimaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.frecuenciaSolidoPrimariaInicial < 0 } " > {{ menusAprobados.frecuenciaSolidoPrimariaInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.montoSolidoPrimaria < 0 } " > {{ menusAprobados.montoSolidoPrimaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusAprobados.ProductoLiquidoPrimaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.FrecuenciaLiquidaUtilizadoPrimaria < 0 } " > {{ menusAprobados.FrecuenciaLiquidaUtilizadoPrimaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.MontoLiquidaUtilizadoPrimaria < 0 } " > {{ menusAprobados.MontoLiquidaUtilizadoPrimaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.frecuenciaLiquidaPrimariaInicial < 0 } " > {{ menusAprobados.frecuenciaLiquidaPrimariaInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.montoLiquidaPrimaria < 0 } " > {{ menusAprobados.montoLiquidaPrimaria }} </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Menú Nivel Secundaria</h4>
+              </div>
+              <div class="card-body">
+
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                <th>Estado</th>
+                                <th>Producto</th>
+                                <th>Frecuencia Utilizada</th>
+                                <th>Monto Utilizado(Bs.-)</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Monto Inicial(Bs.-)</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><span class="label label-success">SÓLIDO</span> </td>
+                                  <td> {{ menusAprobados.ProductoSolidoSegundaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.FrecuenciaSolidoUtilizadoSegundaria < 0 } " > {{ menusAprobados.FrecuenciaSolidoUtilizadoSegundaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.MontoSolildoUtilizadaSegundaria < 0 } " > {{ menusAprobados.MontoSolildoUtilizadaSegundaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.frecuenciaSolidoSegundariaInicial < 0 } " > {{ menusAprobados.frecuenciaSolidoSegundariaInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.montoSolildoSegundaria < 0 } " > {{ menusAprobados.montoSolildoSegundaria }} </td>
+
+                              </tr>
+                              <tr>
+                                  <td><span class="label label-info">LÍQUIDO</span> </td>
+                                  <td> {{ menusAprobados.ProductoLiquidoSegundaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.FrecuenciaLiquidaUtilizadoSegundaria < 0 } " > {{ menusAprobados.FrecuenciaLiquidaUtilizadoSegundaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.MontoLiquidaUtilizadoSegundaria < 0 } " > {{ menusAprobados.MontoLiquidaUtilizadoSegundaria }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.frecuenciaLiquidaSegundariaInicial < 0 } " > {{ menusAprobados.frecuenciaLiquidaSegundariaInicial }} </td>
+                                  <td [ngClass]=" { 'text-danger': menusAprobados.montoLiquidaSegundaria < 0 } " > {{ menusAprobados.montoLiquidaSegundaria }} </td>
+
+
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Fin Menús no editables sin observaciones -->
+
+
+      <tfoot>
+        <tr>
+            <div id="EnviarMenu" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea enviar el presente menú?
+                        <br> Recuerde que se enviará al funcionario EBA para su respectiva aprobación u observación.
+                      </h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button
+                        (click)="enviarMenu()"
+                        type="button"
+                        class="btn btn-secondary waves-effect"
+                        data-dismiss="modal"  >Aceptar</button>
+                      <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+        </tr>
+      </tfoot>
+
+      <tfoot>
+      <tr>
+        <div id="EditarMenu" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea enviar el presente menú?
+                  <br>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  (click)="editarMenu()"
+                  type="button"
+                  class="btn btn-secondary waves-effect"
+                  data-dismiss="modal"  >Aceptar</button>
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </tr>
+      </tfoot>
+       <!-- ============================================================== -->
+      <!-- End Page Content -->
+      <!-- ============================================================== -->
+
+</div>
+</div>

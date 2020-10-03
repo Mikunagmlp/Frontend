@@ -1,0 +1,224 @@
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor"> Verificación PH de Entegas</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Reportes</a></li>
+                <li class="breadcrumb-item">Verificación PH</li>
+
+              </ol>
+            </div>
+            <div class="">
+              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+          </div>
+       <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+       <!-- ============================================================== -->
+       <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+
+
+        <!-- Start Verificar PH -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+
+                  <div class="card-header bg-warning">
+                    <h4 class="m-b-0 text-white">Formulario de Registro PH</h4>
+                  </div>
+
+                <div class="card-body">
+                    <form
+                      (ngSubmit)="registrarPh(f)"
+                      #f="ngForm"
+                      class="form-horizontal form-bordered">
+
+                        <div class="form-body">
+
+                         <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código acta</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.CodigoActa"
+                                name="CodigoActa"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Nombre Unidad Educativa</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.NombreColegio"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Ruta</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.Ruta"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código Ruta</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.CodigoRuta"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código Colegio</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.CodColegio"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Lote líquido inicial</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.LoteLiquidoInicial"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Producto líquido inicial</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.ProductoLiquidoInicial"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">PH liquido inicial</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.phLiquidoInicial"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Lote líquido primaria</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.LoteLiquidoPrimaria"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Producto líquido primaria</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.ProductoLiquidoPrimaria"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">PH líquido primaria</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.phLiquidoPrimaria"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Lote líquido secundaria</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.LoteLiquidoSegundaria"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Producto líquido secundaria</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.ProductoLiquidoSegundaria"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">PH líquido secundaria</label>
+                            <div class="col-md-9">
+                              <input
+                                [(ngModel)]="ph.phLiquidoSegundaria"
+                                name="NombreColegio"
+                                type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-actions">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="row">
+                                          <div class="offset-sm-3 col-md-9">
+                                              <button type="submit" class="btn btn-warning"> <i class="fa fa-check"></i> Enviar</button>
+                                              &nbsp;
+                                              <button type="button" class="btn btn-secondary waves-effect" >Cancelar</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                        </div>
+                    </form>
+                  </div>
+                </div>
+             </div>
+          </div>
+
+
+        <!--  End Verificar PH-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- ============================================================== -->
+                    <!-- End Page Content -->
+       <!-- ============================================================== -->
+
+    </div>
+</div>
+
+
+

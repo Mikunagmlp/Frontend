@@ -1,0 +1,146 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <br>
+
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor"> Consolidado Global</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Reportes</a></li>
+                <li class="breadcrumb-item">Global</li>
+
+              </ol>
+            </div>
+            <div class="">
+              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+          </div>
+       <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+       <!-- ============================================================== -->
+       <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+
+
+
+              <!-- Buscador interno -->
+
+            <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
+
+            <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
+
+             &nbsp; &nbsp;
+
+             <input type="date" id="start" name="trip-start"
+                    #incio
+                    [value]="fechaHoy"
+                    min="2020-08-01" max="2022-12-31">
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
+
+            &nbsp; &nbsp;
+            <input type="date" id="end" name="trip-start"
+                   #final
+                           [value]="fechaHoy"
+                           min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <button  (click)="buscar(incio, final)" class="btn btn-outline-primary" >Buscar</button>
+             <br>
+             <br>
+             <br>
+
+
+              <!-- End Buscador interno -->
+
+              <!-- Inicio Tabla de menu histórico -->
+               <!-- Menú 1 -->
+              <div class="row">
+
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="table-responsive m-t-40">
+                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Unidad Educativa</th>
+                                            <th>Cantidad de Productos Líquido Nivel Inicial</th>
+                                            <th>Cantidad de Productos Sólido Nivel Inicial</th>
+                                            <th>Cantidad de Productos Líquido Nivel Primaria</th>
+                                            <th>Cantidad de Productos Sólido Nivel Primaria</th>
+                                            <th>Cantidad de Productos Líquido Nivel Secundaria</th>
+                                            <th>Cantidad de Productos Sólido Nivel Secundaria</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let d of datos;let i = index;" >
+                                            <th> {{ i+1 }} </th>
+                                            <th> {{ d.NombreColegio }} </th>
+                                            <th> {{ d.InicialLiquido }} </th>
+                                            <th> {{ d.InicialSolido }} </th>
+                                            <th> {{ d.PrimariaLiquido }} </th>
+                                            <th> {{ d.PrimariaSolido }} </th>
+                                            <th> {{ d.SegundariaLiquido }} </th>
+                                            <th> {{ d.SegundariaSolido }} </th>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+              </div>
+              <div class="form-actions">
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="row">-->
+<!--                            <div class="offset-sm-3 col-md-9">-->
+<!--                                <button-->
+<!--                                  type="submit"-->
+<!--                                  class="btn btn-warning"> <i class="fa fa-check"></i> Generar Reporte</button>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        <!--  End -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+       <!-- ============================================================== -->
+                    <!-- End Page Content -->
+       <!-- ============================================================== -->
+
+
+
+    </div>
+</div>
+
+
+
+

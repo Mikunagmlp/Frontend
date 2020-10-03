@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -24,7 +25,7 @@
          <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                <div class="card-header bg-info">
+                <div class="card-header bg-warning">
                   <h4 class="m-b-0 text-white">Formulario de Registro</h4>
                 </div>
                 <div class="card-body">
@@ -35,7 +36,7 @@
 
                         <div class="form-body">
 
-                          <div class="form-group row">
+<!--                    <div class="form-group row">
                             <label class="control-label text-right col-md-3">Código</label>
                             <div class="col-md-9">
                               <input
@@ -47,7 +48,23 @@
                             </div>
                           </div>
 
-                          <div class="form-group row">
+                          <div class="input-field col s6">
+                            <label class="control-label text-right col-md-3">Producto 5</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="proveedor.pro5" #pro5="ngModel" type="text"
+                                name="pro5" id="pro5" placeholder="pro5" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="pro5.touched && !pro5.valid">
+                                  <div *ngIf="pro5.errors.required">Nombre del producto es requerido</div>
+                                  <div *ngIf="pro5.errors.minlength">Nombre de producto de al menos {{pro5.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                        
+                            <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nombre del conductor</label>
                             <div class="col-md-9">
                               <input
@@ -58,6 +75,7 @@
                                 class="form-control">
                             </div>
                           </div>
+
 
                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Ruta</label>
@@ -70,8 +88,7 @@
                                 class="form-control">
                             </div>
                           </div>
-
-                          <div class="form-group row">
+                           <div class="form-group row">
                             <label class="control-label text-right col-md-3">Número del placa</label>
                             <div class="col-md-9">
                               <input
@@ -95,6 +112,94 @@
                             </div>
                           </div>
 
+-->
+
+
+                            <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Código</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="camion.Codigo" #Codigo="ngModel" type="text"
+                                name="Codigo" id="Codigo" placeholder="Codigo" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Codigo.touched && !Codigo.valid">
+                                  <div *ngIf="Codigo.errors.required">Código requerido</div>
+                                  <div *ngIf="Codigo.errors.minlength">Código de al menos {{Codigo.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+  
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Nombre del conductor</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="camion.NombreConductor" #NombreConductor="ngModel" type="text"
+                                name="NombreConductor" id="NombreConductor" placeholder="NombreConductor" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NombreConductor.touched && !NombreConductor.valid">
+                                  <div *ngIf="NombreConductor.errors.required">Nombre de Conductor requerido</div>
+                                  <div *ngIf="NombreConductor.errors.minlength">Insertar al menos {{NombreConductor.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Ruta</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="camion.Ruta" #Ruta="ngModel" type="text"
+                                name="Ruta" id="Ruta" placeholder="Ruta" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Ruta.touched && !Ruta.valid">
+                                  <div *ngIf="Ruta.errors.required">Ruta requerida</div>
+                                  <div *ngIf="Ruta.errors.minlength">Insertar al menos {{Ruta.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Número del placa</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="camion.NumeroPlaca" #NumeroPlaca="ngModel" type="text"
+                                name="NumeroPlaca" id="NumeroPlaca" placeholder="NumeroPlaca" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="NumeroPlaca.touched && !NumeroPlaca.valid">
+                                  <div *ngIf="NumeroPlaca.errors.required">Número Placa requerida</div>
+                                  <div *ngIf="NumeroPlaca.errors.minlength">Insertar al menos {{NumeroPlaca.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Módelo de camión</label>
+                            <div class="col-md-9">
+                              <input [(ngModel)]="camion.Modelo" #Modelo="ngModel" type="text"
+                                name="Modelo" id="Modelo" placeholder="Modelo" minlength="1"
+                                maxlength="40" required
+                                type="text"
+                                autocomplete="off"
+                                class="form-control">
+                                <div *ngIf="Modelo.touched && !Modelo.valid">
+                                  <div *ngIf="Modelo.errors.required">Modelo de camión requerido</div>
+                                  <div *ngIf="Modelo.errors.minlength">Insertar al menos {{Modelo.errors.minlength.requiredLength}} caracteres.</div>
+                                </div>
+                            </div>
+                          </div>
+                        
+
+                          
+
                         </div>
 
                         <div class="form-actions">
@@ -104,7 +209,8 @@
                                         <div class="offset-sm-3 col-md-9">
                                             <button
                                               type="submit"
-                                              class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
+                                              class="btn btn-warning"> <i class="fa fa-check"></i> Guardar</button>
+                                              &nbsp;
                                             <button type="button" class="btn btn-inverse"  >Cancelar</button>
                                         </div>
                                     </div>
@@ -122,5 +228,8 @@
          <!-- ============================================================== -->
     </div>
 </div>
+
+
+
 
 

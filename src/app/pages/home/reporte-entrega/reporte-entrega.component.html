@@ -1,0 +1,52 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+          <h2 class="text-themecolor">Crear Boleta</h2>
+        </div>
+        <div class="col-md-7 align-self-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Reportes</a></li>
+            <li class="breadcrumb-item">Boleta</li>
+
+          </ol>
+        </div>
+        <div class="">
+          <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Asignacion</th>
+            <th scope="col">Colegio</th>
+            <th scope="col">Boleta</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let asignacion of asignaciones; let i = index;" >
+            <th scope="row">{{ i+1 }}</th>
+            <td> {{ asignacion.codigoGenerado }} </td>
+            <td> {{ asignacion.Colegio }} </td>
+            <td>
+              <button (click)="crearBoleta(i)" class="btn btn-outline-primary" >Crear boleta</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+ </div>
+</div>

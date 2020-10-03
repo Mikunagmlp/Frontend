@@ -15,7 +15,7 @@ import {defaultIfEmpty} from "rxjs/operators";
 export class NuevoUsuarioComponent implements OnInit {
 
   usuario: UserModel = new UserModel();
-  roles: any;
+  roles: any = '';
 
   rols: any = [];
 
@@ -47,6 +47,13 @@ export class NuevoUsuarioComponent implements OnInit {
   login(form: NgForm) {
     if (form.invalid) { return ; }
 
+
+    for (let i=0;i<=this.rols.length;i++) {
+      // console.log(  `${i}:` , this.rols[i] );
+      if ( this.rols[i] === undefined || this.rols[i] === null ) {
+        this.rols.splice(i,1)
+      }
+    }
 
     for (let i=0;i<=this.rols.length;i++) {
       // console.log(  `${i}:` , this.rols[i] );

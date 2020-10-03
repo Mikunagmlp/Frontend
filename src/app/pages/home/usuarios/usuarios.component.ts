@@ -35,6 +35,7 @@ export class UsuariosComponent implements OnInit {
     this.service.pedirUsuarios().subscribe( resp => {
       // console.log(resp);
       this.usuarios = resp;
+
       this.listarRoles();
     });
 
@@ -103,7 +104,8 @@ export class UsuariosComponent implements OnInit {
     this.service.actualizarUsuario( this.usuario, this.usuarioEditar._id ).subscribe( resp => {
       // this.usuarios[this.index] = resp;
       // this.rolesEditar = [];
-      location.reload();
+      this.usuarios[this.index] = resp;
+      // location.reload();
     });
   }
 
@@ -119,4 +121,17 @@ export class UsuariosComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
 }
+=======
+  buscarUsuario(query) {
+    let qr = query.value;
+
+    this.service.buscarUsuario(qr).subscribe(resp => {
+      console.log(resp);
+      this.usuarios = resp;
+    });
+  }
+
+}
+>>>>>>> ef4752621a26a0079aaa83e09d9b63afba0ac3ad

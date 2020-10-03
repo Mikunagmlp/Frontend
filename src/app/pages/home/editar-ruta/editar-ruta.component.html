@@ -1,0 +1,172 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+      <br>
+
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor">Editar Ruta</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Ruta</a></li>
+                <li class="breadcrumb-item">Editar</li>
+
+              </ol>
+            </div>
+            <div class="">
+              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+          </div>
+       <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+       <!-- ============================================================== -->
+       <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+              <h6 class="card-subtitle">Listado de rutas existentes por  códigos o nombres</h6>
+
+
+
+              <!-- Inicio Tabla de Rutas -->
+              <div class="table-responsive">
+                <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
+                    <thead>
+                      <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let ruta of rutas; let i = index;" >
+                            <td> {{ ruta.Codigo }} </td>
+                            <td> {{ ruta.NombreRuta }} </td>
+                            <td> {{ ruta.Descripcion }} </td>
+
+                            <button
+                              type="button"
+                              class="btn btn-warning btn-rounded"
+                              data-toggle="modal"
+                               data-target="#add-contact" (click)="editar(i)" >Editar</button>
+
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-rounded"
+                              data-toggle="modal"
+
+                              data-target="#eliminar" (click)="eliminar(i)" >Eliminar</button>
+
+                            <div id="eliminar" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">¿Está seguro que desea eliminar esta ruta?</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button
+                                        (click)="eliminarRuta()"
+                                        type="button"
+                                        class="btn btn-danger waves-effect"
+                                        data-dismiss="modal" >Eliminar</button>
+                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                            </div>
+                        </tr>
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="myModalLabel">Editar Ruta</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                  <form
+                                    class="form-horizontal form-material"
+                                    action="index.html">
+                                    <div class="form-group">
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Nombre de la ruta</label>
+                                        <input
+                                          #nombre
+                                          [value]="editarR.NombreRuta"
+                                          type="text"
+                                          class="form-control">
+
+                                      </div>
+
+                                      <div class="col-md-12 m-b-20">
+                                        <label class="text-info" >Descripcion</label>
+                                        <input
+                                          #descripcion
+                                          [value]="editarR.Descripcion"
+                                          type="text"
+                                          class="form-control">
+
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button
+                                        (click)="editarRuta(nombre, descripcion)"
+                                        type="submit"
+                                        class="btn btn-warning waves-effect"
+                                        data-dismiss="modal"
+                                        >Guardar</button>
+
+                                      <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </form>
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </tr>
+                      </tfoot>
+
+                    <tfoot>
+
+                </table>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+       <!-- ============================================================== -->
+                    <!-- End Page Content -->
+       <!-- ============================================================== -->
+
+
+
+    </div>
+</div>
+
+
+

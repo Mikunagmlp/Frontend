@@ -1,0 +1,193 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor"> Productos Disponibles</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Reportes</a></li>
+                <li class="breadcrumb-item">Productos</li>
+
+              </ol>
+            </div>
+            <div class="">
+              <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+          </div>
+       <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+       <!-- ============================================================== -->
+       <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+
+
+
+              <!-- Buscador interno -->
+
+            <img src="https://img.icons8.com/color/48/000000/search.png" width="35" height="35"/>   &nbsp; &nbsp;
+
+            <label class="text-info" for="start"> <strong>  Fecha Inicial:</strong> </label>
+
+             &nbsp; &nbsp;
+
+             <input type="date" id="start" name="trip-start"
+                    #fechaInicio
+                    [value]="fechaHoy"
+                    min="2020-08-01" max="2022-12-31">
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            <label class="text-info" for="start"> <strong>   Fecha Final:</strong></label>
+
+            &nbsp; &nbsp;
+            <input type="date" id="end" name="trip-start"
+                   #fechafinal
+                           [value]="fechaHoy"
+                           min="2020-08-01" max="2022-12-31">
+              &nbsp; &nbsp;
+              <button (click)="buscar(fechaInicio, fechafinal)" class="btn btn-outline-primary" >Buscar</button>
+             <br>
+             <br>
+             <br>
+
+              <!-- End Buscador interno -->
+
+
+               <!-- Productos Nivel Inicial -->
+
+
+               <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            &nbsp;<th>12-05-2021</th>
+                            <br>
+                            <h4 class="card-title">Nivel Inicial</h4>
+
+                            <div class="table-responsive">
+                                <table class="table color-bordered-table warning-bordered-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre del Producto</th>
+                                            <th>Monto disponible</th>
+                                            <th>Frecuencia disponible</th>
+                                            <th>Codigo producto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let producto of productos; let i = index">
+                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.NombreProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+        <!--  End Productos Nivel Inicial -->
+         <!-- Productos Nivel Primaria -->
+         <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Nivel Primaria</h4>
+
+                        <div class="table-responsive">
+                            <table class="table color-bordered-table warning-bordered-table">
+                              <thead>
+                              <tr>
+                                <th>Nombre del Producto</th>
+                                <th>Monto disponible</th>
+                                <th>Frecuencia disponible</th>
+                                <th>Codigo producto</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let producto of productos; let i = index">
+                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.NombreProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+    <!--  End Productos Nivel Primaria -->
+     <!-- Productos Nivel Secundaria-->
+     <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Nivel Secundaria</h4>
+
+                    <div class="table-responsive">
+                        <table class="table color-bordered-table warning-bordered-table">
+                          <thead>
+                          <tr>
+                            <th>Nombre del Producto</th>
+                            <th>Monto disponible</th>
+                            <th>Frecuencia disponible</th>
+                            <th>Codigo producto</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let producto of productos; let i = index">
+                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.NombreProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+<!--  End Productos Nivel Secundaria -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+       <!-- ============================================================== -->
+                    <!-- End Page Content -->
+       <!-- ============================================================== -->
+
+
+
+    </div>
+</div>
+
+
+
+

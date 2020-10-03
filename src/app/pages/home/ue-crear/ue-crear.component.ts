@@ -26,7 +26,7 @@ export class UeCrearComponent implements OnInit {
 
     this.service.crearUnidadEducativa( this.unidadEducativa ).subscribe(resp => {
       console.log(resp);
-      location.reload();
+      this.router.navigateByUrl('/home/ue-editar');
     });
   }
 

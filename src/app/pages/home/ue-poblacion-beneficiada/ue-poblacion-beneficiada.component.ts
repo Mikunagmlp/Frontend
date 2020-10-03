@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
+import {UnidadEducativaModel} from "../../../models/unidadEducativa.model";
 
 @Component({
   selector: 'app-ue-poblacion-beneficiada',
@@ -10,6 +11,8 @@ import {UserService} from "../../../services/user.service";
 export class UePoblacionBeneficiadaComponent implements OnInit {
 
   colegios: any = '';
+  indexEditar: number = 0;
+  col: UnidadEducativaModel = new UnidadEducativaModel();
 
   constructor( private service: UserService ) { }
 
@@ -19,6 +22,35 @@ export class UePoblacionBeneficiadaComponent implements OnInit {
 
       console.log(this.colegios);
     });
+  }
+
+  buscarUnidadesEducativas(query) {
+    let q = query.value;
+
+    this.service.buscarUnidadEducativa(q).subscribe(resp => {
+      this.colegios = resp;
+    });
+  }
+
+  actualizar(inicial, primaria, secundaria, index) {
+    this.indexEditar = index;
+    let c = this.colegios[this.indexEditar];
+
+    this.col.NombreColegio = c.NombreColegio;
+    this.col.Ruta = c.Ruta;
+    this.col.CodColegio = c.CodColegio;
+    this.col.Turno = c.Turno;
+    this.col.Telefono = c.Telefono;
+    this.col.Direccion = c.Direccion;
+    this.col.Encargado = c.Encargado;
+    this.col.CantidadAlumnosInicial = inicial.value;
+    this.col.CantidadAlumnosPrimaria = primaria.value;
+    this.col.CantidadAlumnosSegundaria = secundaria.value;
+
+    this.service.actualizarUnidadEducativa(this.col, c._id).subscribe(resp => {
+      this.colegios[this.indexEditar] = resp;
+    });
+
   }
 
 }

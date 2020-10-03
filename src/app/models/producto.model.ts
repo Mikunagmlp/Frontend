@@ -1,11 +1,14 @@
 export class ProductoModel {
   NombreProducto: string;
   CodigoProducto: string;
-  PrecioProducto: number;
-  CantidadProducto: number;
   Descripcion: string;
-  IdCategoria: any;
-  IdProveedor: any;
-  IdAlmacen: any;
+  Solido_Liquido: boolean;
+  IdProveedor: string;
+  IdAlmacen: string;
   Lote: string;
+  Volumen: number;
+  Gramage: number;
+  PresupuestoInicial: number;
+  Nivels: any;
+  PrecioUnitario: number;
 }

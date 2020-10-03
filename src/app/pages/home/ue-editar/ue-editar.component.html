@@ -1,5 +1,6 @@
 <div class="page-wrapper">
     <div class="container-fluid">
+      <br>
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
@@ -28,15 +29,15 @@
 
 
               <!-- Buscador interno -->
-<!--              <div class="row m-t-40">-->
+              <div class="row m-t-40">
 
-<!--                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>-->
-<!--                <form class="app-search">-->
-<!--                  <input type="text" class="form-control" placeholder="Buscar usuario"> <a class="srh-btn"></a> </form>-->
+                <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                <form class="app-search">
+                  <input #query type="text" class="form-control" placeholder="Buscar Colegio"> <a class="srh-btn"></a> </form>
 
-<!--                <button type="button">Buscar</button>-->
+                <button (click)="buscarColegio(query)" type="button">Buscar</button>
 
-<!--              </div>-->
+              </div>
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de Usuarios -->
@@ -46,8 +47,6 @@
                       <tr>
                         <th>Código</th>
                         <th>Nombre</th>
-                        <th>Nivel</th>
-                        <th>Distrito</th>
                         <th>Director</th>
                         <th>Alumnos Incial</th>
                         <th>Alumnos Primaria</th>
@@ -60,13 +59,11 @@
                         <tr *ngFor="let colegio of colegios; let i = index" >
                             <td> {{ colegio.CodColegio }} </td>
                             <td> {{ colegio.NombreColegio }} </td>
-                            <td> {{ colegio.Categoria }} </td>
-                            <td> {{ colegio.Distrito }} </td>
                             <td> {{ colegio.Encargado }} </td>
                             <td> {{ colegio.CantidadAlumnosInicial }} </td>
                             <td> {{ colegio.CantidadAlumnosPrimaria }} </td>
-                            <td> {{ colegio.CantidadAlumnosSecundaria }} </td>
-                            <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
+                            <td> {{ colegio.CantidadAlumnosSegundaria }} </td>
+                            <button type="button" class="btn btn-success btn-rounded" data-toggle="modal" data-target="#add-contact" (click)="editarIndex(i)" >Editar</button>
                             <button
                               (click)="eliminar(i)"
                               type="button"
@@ -147,14 +144,6 @@
                                           [value]="colegioEditar.Turno">
                                       </div>
 
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Categoria</label>
-                                        <input
-                                          #categoria
-                                          type="text"
-                                          class="form-control"
-                                          [value]="colegioEditar.Categoria">
-                                      </div>
 
                                       <div class="col-md-12 m-b-20">
                                         <label class="text-info" >Ruta</label>
@@ -165,14 +154,6 @@
                                           [value]="colegioEditar.Ruta">
                                       </div>
 
-                                      <div class="col-md-12 m-b-20">
-                                        <label class="text-info" >Distrito</label>
-                                        <input
-                                          #distrito
-                                          type="text"
-                                          class="form-control"
-                                          [value]="colegioEditar.Distrito">
-                                      </div>
 
                                       <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Número de estudiantes Inicial</label>
@@ -201,7 +182,7 @@
                                         <div class="col-md-9">
                                           <input
                                             #alumnosSecundaria
-                                            [value]="colegioEditar.CantidadAlumnosSecundaria"
+                                            [value]="colegioEditar.CantidadAlumnosSegundaria"
                                             type="number"
                                             class="form-control">
 
@@ -246,9 +227,9 @@
                                     </div>
                                     <div class="modal-footer">
                                       <button
-                                        (click)="editarColegio( nmc, tur, categoria, rut, distrito, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel )"
+                                        (click)="editarColegio( nmc, tur, rut, alumnosInicial, alumnosPrimaria, alumnosSecundaria, encargado, dir, tel )"
                                         type="submit"
-                                        class="btn btn-info waves-effect"
+                                        class="btn btn-success waves-effect"
                                         data-dismiss="modal">Guardar</button>
 
                                       <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancelar</button>

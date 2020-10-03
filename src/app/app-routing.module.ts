@@ -15,11 +15,34 @@ import {ProductosCrearComponent} from "./pages/home/productos-crear/productos-cr
 import {AlmacenCrearComponent} from "./pages/home/almacen-crear/almacen-crear.component";
 import {AlmacenEditarComponent} from "./pages/home/almacen-editar/almacen-editar.component";
 import {ProductosEditarComponent} from "./pages/home/productos-editar/productos-editar.component";
-import {CategoriaCrearComponent} from "./pages/home/categoria-crear/categoria-crear.component";
-import {CategoriaEditarComponent} from "./pages/home/categoria-editar/categoria-editar.component";
 import {CamionesCrearComponent} from "./pages/home/camiones-crear/camiones-crear.component";
 import {CamionesEditarComponent} from "./pages/home/camiones-editar/camiones-editar.component";
 import {RecoverPasswordComponent} from "./pages/login/recover-password/recover-password.component";
+import {UsuariosEliminadosComponent} from "./pages/home/eliminados/usuarios-eliminados/usuarios-eliminados.component";
+import {ColegiosEliminadosComponent} from "./pages/home/eliminados/colegios-eliminados/colegios-eliminados.component";
+import {ProveedoresEliminadosComponent} from "./pages/home/eliminados/proveedores-eliminados/proveedores-eliminados.component";
+import {AlmacenesEliminadosComponent} from "./pages/home/eliminados/almacenes-eliminados/almacenes-eliminados.component";
+import {ProductosEliminadosComponent} from "./pages/home/eliminados/productos-eliminados/productos-eliminados.component";
+import {CamionesEliminadosComponent} from "./pages/home/eliminados/camiones-eliminados/camiones-eliminados.component";
+import {CalculosDiariosComponent} from "./pages/home/calculos-diarios/calculos-diarios.component";
+import {MenuElaboracionComponent} from "./pages/home/menu-elaboracion/menu-elaboracion.component";
+import {MenuEbaComponent} from "./pages/home/menu-eba/menu-eba.component";
+import {MenuJefaComponent} from "./pages/home/menu-jefa/menu-jefa.component";
+import {ProveedoresAsignacionlotesComponent} from "./pages/home/proveedores-asignacionlotes/proveedores-asignacionlotes.component";
+import {ReporteConsultalotesComponent} from "./pages/home/reporte-consultalotes/reporte-consultalotes.component";
+import {ReporteMenuconfirmadoComponent} from "./pages/home/reporte-menuconfirmado/reporte-menuconfirmado.component";
+import {ReporteProductosdispComponent} from "./pages/home/reporte-productosdisp/reporte-productosdisp.component";
+import {ReporteConsolidadoueComponent} from "./pages/home/reporte-consolidadoue/reporte-consolidadoue.component";
+import {ReporteConsolidadoglobComponent} from "./pages/home/reporte-consolidadoglob/reporte-consolidadoglob.component";
+import {ReporteConsolidadoprepComponent} from "./pages/home/reporte-consolidadoprep/reporte-consolidadoprep.component";
+import {ReporteEstadisticoComponent} from "./pages/home/reporte-estadistico/reporte-estadistico.component";
+import {ReporteIncidenciaComponent} from "./pages/home/reporte-incidencia/reporte-incidencia.component";
+import {ReporteRuteoComponent} from "./pages/home/reporte-ruteo/reporte-ruteo.component";
+import {ReporteEntregaComponent} from "./pages/home/reporte-entrega/reporte-entrega.component";
+import {CrearRutaComponent} from "./pages/home/crear-ruta/crear-ruta.component";
+import {EditarRutaComponent} from "./pages/home/editar-ruta/editar-ruta.component";
+import {Verificarph2Component} from "./pages/home/verificarph2/verificarph2.component";
+import {BoletaentregaComponent} from "./pages/home/boletaentrega/boletaentrega.component";
 
 
 const routes: Routes = [
@@ -28,10 +51,10 @@ const routes: Routes = [
   { path: 'recover-password', component: RecoverPasswordComponent },
 
   // TODO: para produccion utilizar lo que esta comentado
-  // { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] , children:[
 
 
-  { path: 'home', component: HomeComponent, children:[
+  { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] , children:[
+  // { path: 'home', component: HomeComponent, children:[
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
       { path: 'usuario-roles', component: UsuarioRolesComponent },
@@ -42,6 +65,7 @@ const routes: Routes = [
 
       { path: 'proveedores-crear', component: ProveedoresCrearComponent },
       { path: 'proveedores-editar', component: ProveedoresEditarComponent },
+      { path: 'proveedores-asignacionlotes', component: ProveedoresAsignacionlotesComponent },
 
       { path: 'productos-crear', component: ProductosCrearComponent },
       { path: 'productos-editar', component: ProductosEditarComponent },
@@ -49,11 +73,39 @@ const routes: Routes = [
       { path: 'almacen-crear', component: AlmacenCrearComponent },
       { path: 'almacen-editar', component: AlmacenEditarComponent },
 
-      { path: 'categoria-crear', component:CategoriaCrearComponent },
-      { path: 'categoria-editar', component:CategoriaEditarComponent },
 
       { path: 'camiones-crear', component:CamionesCrearComponent },
       { path: 'camiones-editar', component:CamionesEditarComponent },
+
+      { path: 'ruta-crear', component: CrearRutaComponent },
+      { path: 'ruta-editar', component: EditarRutaComponent },
+
+      { path: 'usuarios-eliminados', component:UsuariosEliminadosComponent },
+      { path: 'colegios-eliminados', component:ColegiosEliminadosComponent },
+      { path: 'proveedores-eliminados', component:ProveedoresEliminadosComponent },
+      { path: 'almacenes-eliminados', component:AlmacenesEliminadosComponent },
+      { path: 'productos-eliminados', component:ProductosEliminadosComponent },
+      { path: 'camiones-eliminados', component:CamionesEliminadosComponent },
+
+      { path: 'calculos-diarios', component: CalculosDiariosComponent },
+      { path: 'menu-elaboracion', component: MenuElaboracionComponent },
+      { path: 'menu-eba', component: MenuEbaComponent },
+      { path: 'menu-jefa', component: MenuJefaComponent },
+
+      { path: 'reporte-consultalotes', component: ReporteConsultalotesComponent },
+      { path: 'reporte-menuconfirmado', component: ReporteMenuconfirmadoComponent },
+      { path: 'reporte-productosdisp', component: ReporteProductosdispComponent },
+      { path: 'reporte-consolidadoue', component: ReporteConsolidadoueComponent },
+      { path: 'reporte-consolidadoglob', component: ReporteConsolidadoglobComponent },
+      { path: 'reporte-consolidadoprep', component: ReporteConsolidadoprepComponent },
+      { path: 'reporte-estadistico', component: ReporteEstadisticoComponent },
+      { path: 'reporte-incidencia', component: ReporteIncidenciaComponent },
+      { path: 'reporte-ruteo', component: ReporteRuteoComponent },
+      { path: 'reporte-entrega', component: ReporteEntregaComponent },
+
+      
+      { path: 'verificarph2', component: Verificarph2Component },
+      { path: 'boletaentrega', component: BoletaentregaComponent },
 
       { path: '**', redirectTo: 'usuarios' }
     ] },
