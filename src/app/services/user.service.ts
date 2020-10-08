@@ -305,7 +305,7 @@ export class UserService {
 
   // TODO: RECOVER PASSWORD
   resetPassword(email) {
-    return this.http.post(`${this.url}/req-reset-password`, { email: email })
+    return this.http.post(`${this.url}/usuario/recovery`, { email: email })
   }
 
   validPassToken(token) {

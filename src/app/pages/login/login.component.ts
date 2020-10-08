@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
   usuario: UserModel = new UserModel();
   recover: boolean = false;
 
-  constructor( private service: UserService, private router: Router) { }
+  constructor(private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  login( form: NgForm ) {
-    if ( form.invalid ) { return ; }
+  login(form: NgForm) {
+    if (form.invalid) { return; }
 
-    this.service.login( this.usuario ).subscribe( resp => {
+    this.service.login(this.usuario).subscribe(resp => {
       console.log(resp);
       this.router.navigateByUrl('/home');
     });
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 
 
     this.service.resetPassword(email.value).subscribe(resp => {
+      this.router.navigateByUrl('/');
       console.log(resp);
     });
 

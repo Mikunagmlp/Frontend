@@ -121,9 +121,6 @@ export class UsuariosComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
-}
-=======
   buscarUsuario(query) {
     let qr = query.value;
 
@@ -134,4 +131,3 @@ export class UsuariosComponent implements OnInit {
   }
 
 }
->>>>>>> ef4752621a26a0079aaa83e09d9b63afba0ac3ad
