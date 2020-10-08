@@ -57,6 +57,24 @@
              <br>
 
 
+<!-- PDF -->
+<div class="form-actions">
+    <div class="row">
+      <div class="col-md-6">
+      
+        <div class="row">
+          <div class="actions">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" (click)="onExportClick()" class="export-button"> <i class="fa fa-pencil"></i> Generar PDF</button>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6"> </div>
+    </div>
+  </div>
+  <!-- END PDF -->
+  
               <!-- End Buscador interno -->
 
 
@@ -213,6 +231,189 @@
 
 
 
+<!-- BOLETA PDF -->
+
+<div class="container" id="reporte-pdf">
+ 
+    <div class="card" >
+    <div class="card-body">
+      <div>
+        <img src="../assets/images/Sisace.png" width="180" height="80" alt="homepage"  />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+       
+        <img src="../assets/images/logo-lapaz.jpg" width="100" height="70"  alt="user" />
+  
+      </div>
+        <h5 class="col-sm-12 d-flex justify-content-center" >
+  
+          <strong>  Gobierno Autónomo Municipal de La Paz </strong>
+    
+    
+        </h5>
+        <h5 class="col-sm-12 d-flex justify-content-center"><strong>  Servicio de Alimentación Complementaria Escolar </strong></h5>
+        <h5 class="col-sm-12 d-flex justify-content-center"> <strong>Reporte Consolidado Presupuesto</strong></h5>
+  
+        <h6 class="col-sm-12 d-flex justify-content-center"> <strong>Fecha</strong></h6>
+  
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Nivel Inicial</h4>
+
+                        <div class="table-responsive">
+                            <table class="table color-bordered-table warning-bordered-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del Producto</th>
+                                        <th>Tipo de Producto</th>
+                                        <th>Presupuesto Inicial</th>
+                                        <th>Presupuesto Gastado</th>
+                                        <th>Presupuesto Disponible</th>
+                                        <th>Frecuencia Inicial</th>
+                                        <th>Frecuencia Gastado</th>
+                                        <th>Frecuencia Disponible</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let d of datos;" >
+                                        <td *ngIf="d.Nivel === 'Inicial'" > {{ d.NombreProducto }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.Solido_Liquido === true " >Solido</td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.Solido_Liquido === false " >Liquido</td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoInicial >= 0 "> {{ d.PresupuestoInicial }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoInicial < 0" class="text-danger" > {{ d.PresupuestoInicial }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoGastado>=0 " > {{ d.PresupuestoGastado }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoGastado<0 "  class="text-danger"> {{ d.PresupuestoGastado }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoDisponible >= 0 " > {{ d.PresupuestoDisponible }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.PresupuestoDisponible < 0 " class="text-danger" > {{ d.PresupuestoDisponible }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaInicial>=0 " > {{ d.FrecuenciaInicial }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaInicial<0 " class="text-danger" > {{ d.FrecuenciaInicial }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaGastada>=0 " > {{ d.FrecuenciaGastada }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaGastada<0" class="text-danger" > {{ d.FrecuenciaGastada }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaDisponible>=0 " > {{ d.FrecuenciaDisponible }} </td>
+                                        <td *ngIf="d.Nivel === 'Inicial' && d.FrecuenciaDisponible<0 " class="text-danger" > {{ d.FrecuenciaDisponible }} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+    <!--  End Productos Nivel Inicial -->
+     <!-- Productos Nivel Primaria -->
+     <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Nivel Primaria</h4>
+
+                    <div class="table-responsive">
+                        <table class="table color-bordered-table warning-bordered-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre del Producto</th>
+                                    <th>Tipo de Producto</th>
+                                    <th>Presupuesto Inicial</th>
+                                    <th>Presupuesto Gastado</th>
+                                    <th>Presupuesto Disponible</th>
+                                    <th>Frecuencia Inicial</th>
+                                    <th>Frecuencia Gastado</th>
+                                    <th>Frecuencia Disponible</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let d of datos;" >
+                              <td *ngIf="d.Nivel === 'Primaria'" > {{ d.NombreProducto }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.Solido_Liquido === true " >Solido</td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.Solido_Liquido === false " >Liquido</td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoInicial >= 0 "> {{ d.PresupuestoInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoInicial < 0" class="text-danger" > {{ d.PresupuestoInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoGastado>=0 " > {{ d.PresupuestoGastado }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoGastado<0 "  class="text-danger"> {{ d.PresupuestoGastado }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoDisponible >= 0 " > {{ d.PresupuestoDisponible }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.PresupuestoDisponible < 0 " class="text-danger" > {{ d.PresupuestoDisponible }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaInicial>=0 " > {{ d.FrecuenciaInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaInicial<0 " class="text-danger" > {{ d.FrecuenciaInicial }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaGastada>=0.00 " > {{ d.FrecuenciaGastada }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaGastada<0.00" class="text-danger" > {{ d.FrecuenciaGastada }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaDisponible>=0 " > {{ d.FrecuenciaDisponible }} </td>
+                              <td *ngIf="d.Nivel === 'Primaria' && d.FrecuenciaDisponible<0 " class="text-danger" > {{ d.FrecuenciaDisponible }} </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+<!--  End Productos Nivel Primaria -->
+ <!-- Productos Nivel Secundaria-->
+ <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nivel Secundaria</h4>
+
+                <div class="table-responsive">
+                    <table class="table color-bordered-table warning-bordered-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Producto</th>
+                                <th>Tipo de Producto</th>
+                                <th>Presupuesto Inicial</th>
+                                <th>Presupuesto Gastado</th>
+                                <th>Presupuesto Disponible</th>
+                                <th>Frecuencia Inicial</th>
+                                <th>Frecuencia Gastado</th>
+                                <th>Frecuencia Disponible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let d of datos;" >
+                          <td *ngIf="d.Nivel === 'Segundaria'" > {{ d.NombreProducto }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.Solido_Liquido === true " >Solido</td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.Solido_Liquido === false " >Liquido</td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoInicial >= 0 "> {{ d.PresupuestoInicial }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoInicial < 0" class="text-danger" > {{ d.PresupuestoInicial }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoGastado>=0 " > {{ d.PresupuestoGastado }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoGastado<0 "  class="text-danger"> {{ d.PresupuestoGastado }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoDisponible >= 0 " > {{ d.PresupuestoDisponible }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.PresupuestoDisponible < 0 " class="text-danger" > {{ d.PresupuestoDisponible }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaInicial>=0 " > {{ d.FrecuenciaInicial }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaInicial<0 " class="text-danger" > {{ d.FrecuenciaInicial }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaGastada>=0 " > {{ d.FrecuenciaGastada }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaGastada<0.00" class="text-danger" > {{ d.FrecuenciaGastada }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaDisponible>=0.00 " > {{ d.FrecuenciaDisponible }} </td>
+                          <td *ngIf="d.Nivel === 'Segundaria' && d.FrecuenciaDisponible<0 " class="text-danger" > {{ d.FrecuenciaDisponible }} </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+  
+
+
+
+
+
+
+  
+  </div>
+    </div>
+  </div>
+  <!-- FIN BOLETA PDF -->
+  
 
        <!-- ============================================================== -->
                     <!-- End Page Content -->

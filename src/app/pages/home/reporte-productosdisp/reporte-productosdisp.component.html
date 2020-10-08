@@ -55,6 +55,24 @@
              <br>
              <br>
 
+<!-- PDF -->
+<div class="form-actions">
+  <div class="row">
+    <div class="col-md-6">
+    
+      <div class="row">
+        <div class="actions">
+        <div class="col-md-offset-3 col-md-9">
+          <button type="submit" (click)="onExportClick()" class="export-button"> <i class="fa fa-pencil"></i> Generar PDF</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> </div>
+  </div>
+</div>
+<!-- END PDF -->
+
               <!-- End Buscador interno -->
 
 
@@ -175,6 +193,157 @@
       </div>
 
 
+<!-- BOLETA PDF -->
+
+<div class="container" id="reporte-pdf">
+ 
+  <div class="card" >
+  <div class="card-body">
+    <div>
+      <img src="../assets/images/Sisace.png" width="180" height="80" alt="homepage"  />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     
+      <img src="../assets/images/logo-lapaz.jpg" width="100" height="70"  alt="user" />
+
+    </div>
+      <h5 class="col-sm-12 d-flex justify-content-center" >
+
+        <strong>  Gobierno Autónomo Municipal de La Paz </strong>
+  
+  
+      </h5>
+      <h5 class="col-sm-12 d-flex justify-content-center"><strong>  Servicio de Alimentación Complementaria Escolar </strong></h5>
+      <h5 class="col-sm-12 d-flex justify-content-center"> <strong>Reporte Productos Dsiponibles</strong></h5>
+
+      
+
+               <!-- Productos Nivel Inicial -->
+
+
+               <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            &nbsp;<th>12-05-2021</th>
+                            <br>
+                            <h4 class="card-title">Nivel Inicial</h4>
+
+                            <div class="table-responsive">
+                                <table class="table color-bordered-table warning-bordered-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre del Producto</th>
+                                            <th>Monto disponible</th>
+                                            <th>Frecuencia disponible</th>
+                                            <th>Codigo producto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let producto of productos; let i = index">
+                                            <td *ngIf="producto.Nivel === 'Inicial'" > {{ producto.NombreProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                                            <td *ngIf="producto.Nivel === 'Inicial' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+        <!--  End Productos Nivel Inicial -->
+         <!-- Productos Nivel Primaria -->
+         <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Nivel Primaria</h4>
+
+                        <div class="table-responsive">
+                            <table class="table color-bordered-table warning-bordered-table">
+                              <thead>
+                              <tr>
+                                <th>Nombre del Producto</th>
+                                <th>Monto disponible</th>
+                                <th>Frecuencia disponible</th>
+                                <th>Codigo producto</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let producto of productos; let i = index">
+                                <td *ngIf="producto.Nivel === 'Primaria'" > {{ producto.NombreProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                                <td *ngIf="producto.Nivel === 'Primaria' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+    <!--  End Productos Nivel Primaria -->
+     <!-- Productos Nivel Secundaria-->
+     <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Nivel Secundaria</h4>
+
+                    <div class="table-responsive">
+                        <table class="table color-bordered-table warning-bordered-table">
+                          <thead>
+                          <tr>
+                            <th>Nombre del Producto</th>
+                            <th>Monto disponible</th>
+                            <th>Frecuencia disponible</th>
+                            <th>Codigo producto</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let producto of productos; let i = index">
+                            <td *ngIf="producto.Nivel === 'Segundaria'" > {{ producto.NombreProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.MontoDisponible >= 0 " > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.MontoDisponible < 0 " class="text-danger" > {{ producto.MontoDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.FrecuenciaDisponible >= 0 " > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.FrecuenciaDisponible < 0" class="text-danger" > {{ producto.FrecuenciaDisponible }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.CodigoProducto >=0  " > {{ producto.CodigoProducto }} </td>
+                            <td *ngIf="producto.Nivel === 'Segundaria' && producto.CodigoProducto <0 " class="text-danger" > {{ producto.CodigoProducto }} </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+<!--  End Productos Nivel Secundaria -->
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</div>
+<!-- FIN BOLETA PDF -->
 
 
 

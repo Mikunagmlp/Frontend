@@ -67,6 +67,26 @@
                            min="2020-08-01" max="2022-12-31">
              <br>
 
+
+             
+<!-- PDF -->
+<div class="form-actions">
+  <div class="row">
+    <div class="col-md-6">
+    
+      <div class="row">
+        <div class="actions">
+        <div class="col-md-offset-3 col-md-9">
+          <button type="submit" (click)="onExportClick()" class="export-button"> <i class="fa fa-pencil"></i> Generar PDF</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> </div>
+  </div>
+</div>
+<!-- END PDF -->
+
               <!-- End Buscador interno -->
 
               <!-- Inicio Tabla de productoes -->
@@ -123,6 +143,91 @@
 
 
 
+<!-- BOLETA PDF -->
+
+<div class="container" id="reporte-pdf">
+ 
+  <div class="card" >
+  <div class="card-body">
+    <div>
+      <img src="../assets/images/Sisace.png" width="180" height="80" alt="homepage"  />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     
+      <img src="../assets/images/logo-lapaz.jpg" width="100" height="70"  alt="user" />
+
+    </div>
+      <h5 class="col-sm-12 d-flex justify-content-center" >
+
+        <strong>  Gobierno Autónomo Municipal de La Paz </strong>
+  
+  
+      </h5>
+      <h5 class="col-sm-12 d-flex justify-content-center"><strong>  Servicio de Alimentación Complementaria Escolar </strong></h5>
+      <h5 class="col-sm-12 d-flex justify-content-center"> <strong>Reporte Lotes</strong></h5>
+
+      <h6 class="col-sm-12 d-flex justify-content-center"> <strong>Fecha</strong></h6>
+
+              <!-- Inicio Tabla de productoes -->
+              <div class="table-responsive">
+                <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10" >
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>#</th>
+                        <th>Unidad Educativa</th>
+                        <th>Lote liquido inicial</th>
+                        <th>Lote liquido primaria</th>
+                        <th>Lote liquido secundaria</th>
+                        <th>Lote solido inicial</th>
+                        <th>Lote solido primaria</th>
+                        <th>Lote solido secundaria</th>
+<!--                        <th>Fecha</th>-->
+
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let lote of lotes; let i = index;" >
+                            <td>  </td>
+                            <td>  </td>
+                            <td> {{ i+1 }} </td>
+                            <td> {{ lote.NombreColegio }} </td>
+                            <td> {{ lote.LoteLiquidoInicial }}  </td>
+                            <td> {{ lote.LoteLiquidoPrimaria }} </td>
+                            <td> {{ lote.LoteLiquidoSegundaria }}  </td>
+                            <td> {{ lote.LoteSolidoInicial }}  </td>
+                            <td> {{ lote.LoteSolidoPrimaria }} </td>
+                            <td> {{ lote.LoteSolidoSegundaria }} </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+
+
+                </table>
+              </div>
+
+   
+
+
+
+
+
+
+</div>
+  </div>
+</div>
+<!-- FIN BOLETA PDF -->
 
        <!-- ============================================================== -->
                     <!-- End Page Content -->

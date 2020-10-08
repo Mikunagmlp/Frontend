@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as html2pdf from 'html2pdf.js';
 import {UserService} from "../../../services/user.service";
 
 @Component({
@@ -8,6 +9,27 @@ import {UserService} from "../../../services/user.service";
   ]
 })
 export class ReporteConsolidadoglobComponent implements OnInit {
+  onExportClick(){
+    const options = {
+      filename: 'Boleta de Entrega',
+      image:{type: 'jpeg'},
+      html2canvas: {},
+      jsPDF: {orientation:'landscape'}
+    };
+ 
+    const content: Element = document.getElementById('reporte-pdf');
+ 
+    html2pdf()
+    .from(content)
+    .set(options)
+    .save();
+ 
+ }
+ 
+
+ 
+
+
 
   fechaHoy: Date = new Date();
   datos: any = '';

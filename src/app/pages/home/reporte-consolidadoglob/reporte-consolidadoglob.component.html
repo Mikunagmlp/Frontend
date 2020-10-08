@@ -56,6 +56,23 @@
              <br>
              <br>
 
+<!-- PDF -->
+<div class="form-actions">
+  <div class="row">
+    <div class="col-md-6">
+    
+      <div class="row">
+        <div class="actions">
+        <div class="col-md-offset-3 col-md-9">
+          <button type="submit" (click)="onExportClick()" class="export-button"> <i class="fa fa-pencil"></i> Generar PDF</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> </div>
+  </div>
+</div>
+<!-- END PDF -->
 
               <!-- End Buscador interno -->
 
@@ -130,8 +147,75 @@
 
 
 
+<!-- BOLETA PDF -->
+
+<div class="container" id="reporte-pdf">
+ 
+  <div class="card" >
+  <div class="card-body">
+    <div>
+      <img src="../assets/images/Sisace.png" width="180" height="80" alt="homepage"  />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     
+      <img src="../assets/images/logo-lapaz.jpg" width="100" height="70"  alt="user" />
+
+    </div>
+      <h5 class="col-sm-12 d-flex justify-content-center" >
+
+        <strong>  Gobierno Autónomo Municipal de La Paz </strong>
+  
+  
+      </h5>
+      <h5 class="col-sm-12 d-flex justify-content-center"><strong>  Servicio de Alimentación Complementaria Escolar </strong></h5>
+      <h5 class="col-sm-12 d-flex justify-content-center"> <strong>Reporte Consolidado Global</strong></h5>
+
+      <h6 class="col-sm-12 d-flex justify-content-center"> <strong>Fecha</strong></h6>
+
+      <div class="table-responsive m-t-40">
+        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Unidad Educativa</th>
+                    <th>Cantidad de Productos Líquido Nivel Inicial</th>
+                    <th>Cantidad de Productos Sólido Nivel Inicial</th>
+                    <th>Cantidad de Productos Líquido Nivel Primaria</th>
+                    <th>Cantidad de Productos Sólido Nivel Primaria</th>
+                    <th>Cantidad de Productos Líquido Nivel Secundaria</th>
+                    <th>Cantidad de Productos Sólido Nivel Secundaria</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let d of datos;let i = index;" >
+                    <th> {{ i+1 }} </th>
+                    <th> {{ d.NombreColegio }} </th>
+                    <th> {{ d.InicialLiquido }} </th>
+                    <th> {{ d.InicialSolido }} </th>
+                    <th> {{ d.PrimariaLiquido }} </th>
+                    <th> {{ d.PrimariaSolido }} </th>
+                    <th> {{ d.SegundariaLiquido }} </th>
+                    <th> {{ d.SegundariaSolido }} </th>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 
 
+
+
+
+</div>
+  </div>
+</div>
+<!-- FIN BOLETA PDF -->
        <!-- ============================================================== -->
                     <!-- End Page Content -->
        <!-- ============================================================== -->
